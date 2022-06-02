@@ -122,10 +122,16 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Accomodation.cs" />
     <Compile Include="Model\Adres.cs" />
     <Compile Include="Model\AmmountOfNights.cs" />
+    <Compile Include="Model\CalculateReservationPrice.cs" />
+    <Compile Include="Model\Camper.cs" />
     <Compile Include="Model\ContactDetail.cs" />
+    <Compile Include="Model\DurationOfStay.cs" />
     <Compile Include="Model\Guest.cs" />
+    <Compile Include="Model\House.cs" />
+    <Compile Include="Model\ID.cs" />
     <Compile Include="Model\LicensePlate.cs" />
     <Compile Include="Model\Name.cs" />
     <Compile Include="Model\Price.cs" />

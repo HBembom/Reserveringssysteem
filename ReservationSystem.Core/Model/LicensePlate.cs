@@ -9,7 +9,6 @@ namespace ReservationSystem.Core.Model
         const int MAXIMUM_lICENSEPLATE_LENGTH = 20;
         const string ALLOWED_CHARACTERS = "[A-Za-z0-9.-]";
         public readonly string Value;
-        
 
         public LicensePlate(string LicensePlate)
         {
