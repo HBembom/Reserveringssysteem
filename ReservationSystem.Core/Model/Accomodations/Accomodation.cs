@@ -2,6 +2,7 @@
 {
     public abstract class Accomodation
     {
+        // Might need to be worked out. 
         public ID ID;
         public Price price;
     }

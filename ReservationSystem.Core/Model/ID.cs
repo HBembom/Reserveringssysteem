@@ -9,6 +9,7 @@ namespace ReservationSystem.Core.Model
         public ID(int id)
         {
             IsNotLessThanZero(id);
+            this.value = id;
         }
 
         private void IsNotLessThanZero(int id)

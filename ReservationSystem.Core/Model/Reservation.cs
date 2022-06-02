@@ -8,10 +8,10 @@ namespace ReservationSystem.Core.Model
 {
     internal class Reservation
     {
-        public GuestContactDetail ContactDetail;
-        public List<Accomodation> Accomodations;
         public DurationOfStay DurationOfStay;
         public CalculateReservationPrice Prices;
+        public List<Accomodation> Accomodations;
+        public GuestContactDetail ContactDetail;
         public List<Guest> Occupancy;
     }
 }

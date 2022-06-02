@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ReservationSystem.Core.Model
+﻿namespace ReservationSystem.Core.Model
 {
-    internal class Guest
+    internal abstract class Guest
     {
         public Price Price;
         public AmmountOfNights AmmountOfNights;
 
         public Guest(Price price, AmmountOfNights ammountOfNights)
         {
+            // Maybe Remove Price in Constructor and instead, make a call in the constructor to the database to retrieve prices (Abstract method necessary). 
             Price = price;
             AmmountOfNights = ammountOfNights;
         }
@@ -25,6 +20,11 @@ namespace ReservationSystem.Core.Model
         public int GetAmmountOfNights()
         {
             return AmmountOfNights.Value;
+        }
+
+        public double GetPriceMultipliedByNights()
+        {
+            return Price.Value * AmmountOfNights.Value;
         }
     }
 }
