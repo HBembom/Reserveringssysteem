@@ -2,7 +2,7 @@
 
 namespace ReservationSystem.Core.Model
 {
-    internal class AmmountOfNights
+    public class AmmountOfNights
     {
         const int MINIMUM_AMMOUNT_OF_NIGHTS = 0;
         const int MAXIMUM_AMMOUNT_OF_NIGHTS = 365;

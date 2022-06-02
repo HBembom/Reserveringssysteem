@@ -1,6 +1,6 @@
 ﻿namespace ReservationSystem.Core.Model
 {
-    internal abstract class Guest
+    public abstract class Guest
     {
         public Price Price;
         public AmmountOfNights AmmountOfNights;
