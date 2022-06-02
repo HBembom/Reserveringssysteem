@@ -3,23 +3,22 @@ using System.Text.RegularExpressions;
 
 namespace ReservationSystem.Core.Model
 {
-    public class LicensePlate
+    public class StreetName
     {
-        const int MINIMUM_lICENSEPLATE_LENGTH = 1;
-        const int MAXIMUM_lICENSEPLATE_LENGTH = 20;
-        const string ALLOWED_CHARACTERS = "[A-Za-z0-9.-]";
+        const int MINIMUM_STREETNAME_LENGTH = 1;
+        const int MAXIMUM_STREETNAME_LENGTH = 20;
+        const string ALLOWED_CHARACTERS = "^[A-Za-z0-9_]*$";
         public readonly string Value;
-        
 
-        public LicensePlate(string LicensePlate)
+        public StreetName(string streetName)
         {
-            CheckIfNameLengthIsInclusive(LicensePlate);
-            CheckIfStringContainsIllegalCharacters(LicensePlate);
-            Value = LicensePlate.ToUpper();
+            CheckIfNameLengthIsInclusive(streetName);
+            CheckIfStringContainsIllegalCharacters(streetName);
+            Value = streetName;
         }
         private void CheckIfNameLengthIsInclusive(string name)
         {
-            if (name.Length < MINIMUM_lICENSEPLATE_LENGTH || MAXIMUM_lICENSEPLATE_LENGTH > 20)
+            if (name.Length < MINIMUM_STREETNAME_LENGTH || MAXIMUM_STREETNAME_LENGTH > 20)
             {
                 throw new ArgumentException("StreetName is too long");
             };
