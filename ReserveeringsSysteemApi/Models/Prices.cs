@@ -49,7 +49,7 @@ namespace ReserveeringsSysteemApi.Models
         public async Task<List<Prices>> SelectAllPrices()
         {
             await using var command = Connector.Conn.CreateCommand();
-            command.CommandText = @"SELECT * FROM prices";
+            command.CommandText = @"SELECT * FROM `prices`";
             var res = await ReadAllPrices(await command.ExecuteReaderAsync());
 
             return res.Count > 0 ? res : null;
@@ -58,7 +58,7 @@ namespace ReserveeringsSysteemApi.Models
         public async Task UpdatePriceById()
         {
             await using var command = Connector.Conn.CreateCommand();
-            command.CommandText = @"UPDATE `prices` SET AccommodationType = @Amount, @Name, @IsTax WHERE PriceId = @PriceId";
+            command.CommandText = @"UPDATE `prices` SET Amount, Name, IsTax = @Amount, @Name, @IsTax WHERE PriceId = @PriceId";
             AddPricesParameters(command);
             AddPricesId(command);
             await command.ExecuteNonQueryAsync();

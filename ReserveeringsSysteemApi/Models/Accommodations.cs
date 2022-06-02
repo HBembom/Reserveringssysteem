@@ -46,7 +46,7 @@ namespace ReserveeringsSysteemApi.Models
         public async Task<List<Accommodations>> SelectAllAccommodations()
         {
             await using var command = Connector.Conn.CreateCommand();
-            command.CommandText = @"SELECT * FROM accommodations";
+            command.CommandText = @"SELECT * FROM `accommodations`";
             var res = await ReadAllAccommodationsAsync(await command.ExecuteReaderAsync());
             
             return res.Count > 0 ? res : null;
