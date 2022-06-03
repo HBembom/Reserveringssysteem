@@ -18,9 +18,9 @@ namespace ReservationSystem.Core.Model.Taxes
             this.Rate = rate;
         }
 
-        public PriceExplanation CalculateTax(PriceExplanation price)
+        public Price CalculateTax(Price price)
         {
-            return price.AddPrice(new PriceExplanation(price.Value * (Rate / 100)));
+            return price.AddPrice(new Price(price.Value * (Rate / 100)));
         }
 
         private void RateIsInclusive(double rate)

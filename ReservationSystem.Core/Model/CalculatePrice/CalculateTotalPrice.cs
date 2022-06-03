@@ -8,25 +8,25 @@ namespace ReservationSystem.Core.Model.CalculatePrice
 {
     internal class CalculateTotalPrice : CalculatePrice
     {
-        private List<PriceExplanation> Prices;
-        private PriceExplanation _price;
+        private List<Price> Prices;
+        private Price _price;
 
-        public CalculateTotalPrice(PriceExplanation accomodationPrice, PriceExplanation guestPrice)
+        public CalculateTotalPrice(Price accomodationPrice, Price guestPrice)
         {
             if (accomodationPrice == null || guestPrice == null)
             {
                 throw new ArgumentNullException();
             }
 
-            List<PriceExplanation> list = new List<PriceExplanation>();
+            List<Price> list = new List<Price>();
             list.Add(accomodationPrice);
             list.Add(guestPrice);
-            this._price = new PriceExplanation(0);
+            this._price = new Price(0);
         }
     
-        public override PriceExplanation Calculate()
+        public override Price Calculate()
         {
-            foreach (PriceExplanation price in Prices)
+            foreach (Price price in Prices)
             {
                 _price.AddPrice(price);
             }

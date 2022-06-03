@@ -6,9 +6,9 @@ namespace ReservationSystem.Core.Model.CalculatePrice
     public class CalculateTaxPrice : CalculatePrice
     {
         private TaxRate _taxRate;
-        private PriceExplanation _totalPrice;
+        private Price _totalPrice;
 
-        public CalculateTaxPrice(TaxRate taxRate, PriceExplanation totalPrice)
+        public CalculateTaxPrice(TaxRate taxRate, Price totalPrice)
         {
             if(taxRate == null || totalPrice == null)
             {
@@ -19,7 +19,7 @@ namespace ReservationSystem.Core.Model.CalculatePrice
             this._totalPrice = totalPrice;
         }
 
-        public override PriceExplanation Calculate()
+        public override Price Calculate()
         {
             return this._taxRate.CalculateTax(_totalPrice);
         }

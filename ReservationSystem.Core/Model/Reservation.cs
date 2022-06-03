@@ -15,7 +15,7 @@ namespace ReservationSystem.Core.Model
         public GuestContactDetail ContactDetail;
         public List<Guest> Occupancy;
 
-        public Reservation(DurationOfStay durationOfStay, PriceExplanation price, List<Accomodation> accomodations, GuestContactDetail contactDetail, List<Guest> occupancy)
+        public Reservation(DurationOfStay durationOfStay, Price price, List<Accomodation> accomodations, GuestContactDetail contactDetail, List<Guest> occupancy)
         {
             DurationOfStay = durationOfStay;
             Price = price; 

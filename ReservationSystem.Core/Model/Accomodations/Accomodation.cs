@@ -4,6 +4,6 @@
     {
         // Might need to be worked out. 
         public ID ID;
-        public PriceExplanation Price;
+        public Price Price;
     }
 }

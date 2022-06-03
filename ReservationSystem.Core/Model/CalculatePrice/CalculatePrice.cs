@@ -4,7 +4,7 @@ namespace ReservationSystem.Core.Model.CalculatePrice
 {
     public abstract class CalculatePrice
     {
-        public abstract PriceExplanation Calculate();
+        public abstract Price Calculate();
   
     }
 }

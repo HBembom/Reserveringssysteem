@@ -20,7 +20,7 @@ namespace ReservationSystem.Core.Model.CalculatePrice
             this.guests = guests;
         }
 
-        public override PriceExplanation Calculate()
+        public override Price Calculate()
         {
             double totalPrice = 0.0;
 
@@ -29,7 +29,7 @@ namespace ReservationSystem.Core.Model.CalculatePrice
                 totalPrice += guest.GetPriceMultipliedByNights();
             }
 
-            return new PriceExplanation(totalPrice);
+            return new Price(totalPrice);
         }
     }
 }

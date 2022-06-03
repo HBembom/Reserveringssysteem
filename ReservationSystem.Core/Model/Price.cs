@@ -2,11 +2,11 @@
 
 namespace ReservationSystem.Core.Model
 {
-    public class PriceExplanation
+    public class Price
     {
         public readonly double Value;
 
-        public PriceExplanation(double price)
+        public Price(double price)
         {
             PriceIsNotLessThanZero(price);
             this.Value = price;
@@ -20,13 +20,13 @@ namespace ReservationSystem.Core.Model
             };
         }
 
-        public PriceExplanation AddPrice(PriceExplanation price)
+        public Price AddPrice(Price price)
         {
             if (price == null)
             {
                 throw new ArgumentNullException();
             }
-            return new PriceExplanation(this.Value + price.Value);
+            return new Price(this.Value + price.Value);
         }
     }
 }

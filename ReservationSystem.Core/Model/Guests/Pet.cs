@@ -8,7 +8,7 @@ namespace ReservationSystem.Core.Model.Guests
 {
     internal class Pet : Guest
     {
-        public Pet(PriceExplanation price, AmmountOfNights ammountOfNights) : base(price, ammountOfNights)
+        public Pet(Price price, AmmountOfNights ammountOfNights) : base(price, ammountOfNights)
         {
         }
     }

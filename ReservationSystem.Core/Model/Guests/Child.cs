@@ -8,7 +8,7 @@ namespace ReservationSystem.Core.Model.Guests
 {
     internal class Child : Guest
     {
-        public Child(PriceExplanation price, AmmountOfNights ammountOfNights) : base(price, ammountOfNights)
+        public Child(Price price, AmmountOfNights ammountOfNights) : base(price, ammountOfNights)
         {
 
         }
