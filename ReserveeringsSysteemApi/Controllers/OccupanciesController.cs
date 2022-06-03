@@ -37,11 +37,11 @@ namespace ReserveeringsSysteemApi.Controllers
         }
 
        [HttpGet]
-        public async Task<IActionResult> GetAllOccupancies(string StartDate, string EndDate, bool NewDateFirst)
+        public async Task<IActionResult> GetAllOccupancies(OccupancyOptions options)
         {
             await Connector.Conn.OpenAsync();
             var model = new Occupancies(Connector);
-            var res = await model.SelectAllOccupancies(StartDate, EndDate, NewDateFirst);
+            var res = await model.SelectAllOccupancies(options);
             return res == null ? new NotFoundResult() : new OkObjectResult(res);
         }
 

@@ -50,13 +50,13 @@ namespace ReserveeringsSysteemApi.Models
             return res.Count > 0 ? res[0] : null;
         }
 
-        public async Task<List<Occupancies>> SelectAllOccupancies(string StartDate, string EndDate, bool NewDateFirst)
+        public async Task<List<Occupancies>> SelectAllOccupancies(OccupancyOptions options)
         {
             await using var command = Connector.Conn.CreateCommand();
 
-            if (StartDate != null && EndDate != null)
+            if (options.StartDate != null && options.EndDate != null)
             {
-                command.CommandText = @"SELECT * FROM `occupancies` WHERE `ArrivalDate` BETWEEN '" + StartDate + "' and '" + EndDate + "'";
+                command.CommandText = @"SELECT * FROM `occupancies` WHERE `ArrivalDate` BETWEEN '" + options.StartDate + "' and '" + options.EndDate + "'";
             }
             else
             {
@@ -64,7 +64,7 @@ namespace ReserveeringsSysteemApi.Models
 
             }
 
-            if (NewDateFirst)
+            if (options.NewDateFirst)
             {
                 command.CommandText += " ORDER BY `ArrivalDate` ASC";
 
