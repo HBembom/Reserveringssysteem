@@ -64,6 +64,7 @@ namespace ReserveeringsSysteemApi.Controllers
             res.AmountOfExtraAdults = body.AmountOfExtraAdults;
             res.AmountOfExtraPets = body.AmountOfExtraPets;
             res.TotalCost = body.TotalCost;
+            res.PaymentStatus = body.PaymentStatus;
             await res.UpdateReservationId();
 
             return new OkObjectResult(res);

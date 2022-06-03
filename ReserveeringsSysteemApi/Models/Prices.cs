@@ -58,7 +58,7 @@ namespace ReserveeringsSysteemApi.Models
         public async Task UpdatePriceById()
         {
             await using var command = Connector.Conn.CreateCommand();
-            command.CommandText = @"UPDATE `prices` SET Amount, Name, IsTax = @Amount, @Name, @IsTax WHERE PriceId = @PriceId";
+            command.CommandText = @"UPDATE `prices` SET Amount = @Amount, Name = @Name, IsTax = @IsTax WHERE PriceId = @PriceId";
             AddPricesParameters(command);
             AddPricesId(command);
             await command.ExecuteNonQueryAsync();
@@ -77,7 +77,7 @@ namespace ReserveeringsSysteemApi.Models
             command.Parameters.Add(new MySqlParameter
             {
                 ParameterName = @"Amount",
-                DbType = DbType.Int32,
+                DbType = DbType.Double,
                 Value = Amount
             });
             command.Parameters.Add(new MySqlParameter
@@ -114,7 +114,7 @@ namespace ReserveeringsSysteemApi.Models
                     var price = new Prices(Connector)
                     {
                         PriceId = reader.GetInt32(0),
-                        Amount = reader.GetInt32(1),
+                        Amount = reader.GetDouble(1),
                         Name = reader.GetString(2),
                         IsTax = reader.GetBoolean(3)
                     };
