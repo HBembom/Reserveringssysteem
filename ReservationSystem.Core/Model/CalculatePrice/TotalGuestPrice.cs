@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace ReservationSystem.Core.Model.CalculatePrice
 {
-    internal class CalculateGuestPrice : CalculatePrice
+    public class TotalGuestPrice
     {
-        public List<Guest> guests;
+        private List<Guest> guests;
+        public readonly double Value;
 
-        public CalculateGuestPrice(List<Guest> guests)
+        public TotalGuestPrice(List<Guest> guests)
         {
             if (guests == null)
             {
@@ -18,9 +19,10 @@ namespace ReservationSystem.Core.Model.CalculatePrice
             }
 
             this.guests = guests;
+            this.Value = Calculate();
         }
 
-        public override Price Calculate()
+        private double Calculate()
         {
             double totalPrice = 0.0;
 
@@ -29,7 +31,7 @@ namespace ReservationSystem.Core.Model.CalculatePrice
                 totalPrice += guest.GetPriceMultipliedByNights();
             }
 
-            return new Price(totalPrice);
+            return totalPrice;
         }
     }
 }

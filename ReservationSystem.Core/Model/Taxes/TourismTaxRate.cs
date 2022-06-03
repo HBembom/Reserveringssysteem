@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ReservationSystem.Core.Model.Taxes
 {
-    internal class TourismTaxRate : TaxRate
+    public class TourismTaxRate : TaxRate
     {
         public TourismTaxRate(double rate) : base(rate)
         {

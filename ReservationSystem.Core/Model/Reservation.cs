@@ -1,27 +1,33 @@
-﻿using ReservationSystem.Core.Model.Taxes;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ReservationSystem.Core.Model
 {
     internal class Reservation
     {
         public DurationOfStay DurationOfStay;
-        public PriceExplanation Price;
+        public PriceStructure PriceStructure;
         public List<Accomodation> Accomodations;
         public GuestContactDetail ContactDetail;
         public List<Guest> Occupancy;
 
-        public Reservation(DurationOfStay durationOfStay, Price price, List<Accomodation> accomodations, GuestContactDetail contactDetail, List<Guest> occupancy)
+        public Reservation(DurationOfStay durationOfStay,  List<Accomodation> accomodations, GuestContactDetail contactDetail, List<Guest> occupancy)
         {
-            DurationOfStay = durationOfStay;
-            Price = price; 
-            Accomodations = accomodations;
-            ContactDetail = contactDetail;
-            Occupancy = occupancy;
+            NotNull(durationOfStay, accomodations, contactDetail, occupancy);
+
+            this.DurationOfStay = durationOfStay;
+            this.Accomodations = accomodations;
+            this.ContactDetail = contactDetail;
+            this.Occupancy = occupancy;
+            this.PriceStructure = new PriceStructure(durationOfStay, accomodations, occupancy);
+        }
+
+        private void NotNull(DurationOfStay durationOfStay, List<Accomodation> accomodations, GuestContactDetail contactDetail, List<Guest> occupancy)
+        {
+           if(durationOfStay == null || accomodations == null || contactDetail == null || occupancy == null)
+            {
+                throw new ArgumentNullException();
+            }
         }
     }
 }

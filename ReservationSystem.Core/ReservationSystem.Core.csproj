@@ -124,13 +124,12 @@
     </Compile>
     <Compile Include="Model\Accomodations\Accomodation.cs" />
     <Compile Include="Model\AmmountOfNights.cs" />
-    <Compile Include="Model\CalculatePrice\CalculateAccomodationPrice.cs" />
-    <Compile Include="Model\CalculatePrice\CalculateGuestPrice.cs" />
-    <Compile Include="Model\CalculatePrice\CalculatePrice.cs" />
+    <Compile Include="Model\CalculatePrice\TotalNormalTaxPrice.cs" />
+    <Compile Include="Model\CalculatePrice\TotalAccomodationPrice.cs" />
+    <Compile Include="Model\CalculatePrice\TotalGuestPrice.cs" />
     <Compile Include="Model\Accomodations\Camper.cs" />
-    <Compile Include="Model\CalculatePrice\CalculateTaxPrice.cs" />
-    <Compile Include="Model\CalculatePrice\CalculateTotalPrice.cs" />
-    <Compile Include="Model\CalculatePrice\CalculateTotalPriceWithTax.cs" />
+    <Compile Include="Model\CalculatePrice\TotalTourismTaxPrice.cs" />
+    <Compile Include="Model\CalculatePrice\TotalTaxedPrice.cs" />
     <Compile Include="Model\ContactDetail.cs" />
     <Compile Include="Model\DurationOfStay.cs" />
     <Compile Include="Model\Guests\Child.cs" />
@@ -145,8 +144,7 @@
     <Compile Include="Model\Names\Name.cs" />
     <Compile Include="Model\Names\PrefixName.cs" />
     <Compile Include="Model\Price.cs" />
-    <Compile Include="Model\PriceCalculation.cs" />
-    <Compile Include="Model\PriceExplanation.cs" />
+    <Compile Include="Model\PriceStructure.cs" />
     <Compile Include="Model\Reservation.cs" />
     <Compile Include="Model\Names\StreetName.cs" />
     <Compile Include="Model\Taxes\NormalTaxRate.cs" />

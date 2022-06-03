@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace ReservationSystem.Core.Model.CalculatePrice
 {
-    internal class CalculateAccomodationPrice : CalculatePrice
+    public class TotalAccomodationPrice
     {
         private List<Accomodation> Accomodations;
         private DurationOfStay DurationOfStay;
+        public readonly double Value;
 
-        public CalculateAccomodationPrice(List<Accomodation> accomodation, DurationOfStay durationOfStay)
+        public TotalAccomodationPrice(List<Accomodation> accomodation, DurationOfStay durationOfStay)
         {
             if (accomodation == null || durationOfStay == null)
             {
@@ -20,9 +21,10 @@ namespace ReservationSystem.Core.Model.CalculatePrice
 
             this.Accomodations = accomodation;
             this.DurationOfStay = durationOfStay;
+            this.Value = Calculate();
         }
 
-        public override Price Calculate()
+        public double Calculate()
         {
             double totalPrice = 0.0;
 
@@ -31,7 +33,7 @@ namespace ReservationSystem.Core.Model.CalculatePrice
                 totalPrice += accomodation.Price.Value * DurationOfStay.GetAmmountOfNights();
             }
 
-            return new Price(totalPrice);
+            return Value;
         }
     }
 }
