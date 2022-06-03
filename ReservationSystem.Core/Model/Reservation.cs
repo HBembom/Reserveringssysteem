@@ -10,12 +10,12 @@ namespace ReservationSystem.Core.Model
     internal class Reservation
     {
         public DurationOfStay DurationOfStay;
-        public Price Price;
+        public PriceExplanation Price;
         public List<Accomodation> Accomodations;
         public GuestContactDetail ContactDetail;
         public List<Guest> Occupancy;
 
-        public Reservation(DurationOfStay durationOfStay, Price price, List<Accomodation> accomodations, GuestContactDetail contactDetail, List<Guest> occupancy)
+        public Reservation(DurationOfStay durationOfStay, PriceExplanation price, List<Accomodation> accomodations, GuestContactDetail contactDetail, List<Guest> occupancy)
         {
             DurationOfStay = durationOfStay;
             Price = price; 

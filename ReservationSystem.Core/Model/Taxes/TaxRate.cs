@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ReservationSystem.Core.Model.Taxes
 {
-    internal abstract class TaxRate
+    public abstract class TaxRate
     {
         const double MINIMUMRATE = 0.00;
         const double MAXIMUMRATE = 100.00;
@@ -18,14 +18,9 @@ namespace ReservationSystem.Core.Model.Taxes
             this.Rate = rate;
         }
 
-        public double CalculateTax(double price)
+        public PriceExplanation CalculateTax(PriceExplanation price)
         {
-            return price * (Rate / 100);
-        }
-
-        public double CalculatePriceWithTax(double price)
-        {
-            return price * (1 + (Rate / 100));
+            return price.AddPrice(new PriceExplanation(price.Value * (Rate / 100)));
         }
 
         private void RateIsInclusive(double rate)
