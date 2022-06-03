@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Threading.Tasks;
 using MySqlConnector;
+using ReserveeringsSysteemApi.Controllers.Options;
 using ReserveeringsSysteemApi.Properties;
 
 namespace ReserveeringsSysteemApi.Models
@@ -12,8 +14,8 @@ namespace ReserveeringsSysteemApi.Models
         public int OccupancyId { get; set; }
         public int AccommodationId { get; set; }
         public int ReservationId { get; set; }
-        public string ArrivalDate { get; set; }
-        public string DepartureDate { get; set; }
+        public DateTime ArrivalDate { get; set; }
+        public DateTime DepartureDate { get; set; }
         public int PaymentStatus { get; set; }
         internal DbConnector Connector { get; set; }
 
@@ -48,10 +50,25 @@ namespace ReserveeringsSysteemApi.Models
             return res.Count > 0 ? res[0] : null;
         }
 
-        public async Task<List<Occupancies>> SelectAllOccupancies()
+        public async Task<List<Occupancies>> SelectAllOccupancies(string StartDate, string EndDate, bool NewDateFirst)
         {
             await using var command = Connector.Conn.CreateCommand();
-            command.CommandText = @"SELECT * FROM `occupancies`";
+
+            if (StartDate != null && EndDate != null)
+            {
+                command.CommandText = @"SELECT * FROM `occupancies` WHERE `ArrivalDate` BETWEEN '" + StartDate + "' and '" + EndDate + "'";
+            }
+            else
+            {
+                command.CommandText = @"SELECT * FROM `occupancies`";
+
+            }
+
+            if (NewDateFirst)
+            {
+                command.CommandText += " ORDER BY `ArrivalDate` ASC";
+
+            }
             var res = await ReadAllOccupancies(await command.ExecuteReaderAsync());
 
             return res.Count > 0 ? res : null;
@@ -86,13 +103,13 @@ namespace ReserveeringsSysteemApi.Models
             command.Parameters.Add(new MySqlParameter
             {
                 ParameterName = @"ReservationId",
-                DbType = DbType.Int32,
+                DbType = DbType.Date,
                 Value = ReservationId
             });
             command.Parameters.Add(new MySqlParameter
             {
                 ParameterName = @"ArrivalDate",
-                DbType = DbType.String,
+                DbType = DbType.Date,
                 Value = ArrivalDate
             });
             command.Parameters.Add(new MySqlParameter
@@ -130,8 +147,8 @@ namespace ReserveeringsSysteemApi.Models
                         OccupancyId = reader.GetInt32(0),
                         AccommodationId = reader.GetInt32(1),
                         ReservationId = reader.GetInt32(2),
-                        ArrivalDate = reader.GetString(3),
-                        DepartureDate = reader.GetString(4),
+                        ArrivalDate = reader.GetDateTime(3),
+                        DepartureDate = reader.GetDateTime(4),
                         PaymentStatus = reader.GetInt32(5)
                     };
                     occupancies.Add(occupancy);

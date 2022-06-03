@@ -1,5 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ReserveeringsSysteemApi.Controllers.Options;
 using ReserveeringsSysteemApi.Models;
 using ReserveeringsSysteemApi.Properties;
 
@@ -34,12 +36,12 @@ namespace ReserveeringsSysteemApi.Controllers
             return res == null ? new NotFoundResult() : new OkObjectResult(res);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAllOccupancies()
+       [HttpGet]
+        public async Task<IActionResult> GetAllOccupancies(string StartDate, string EndDate, bool NewDateFirst)
         {
             await Connector.Conn.OpenAsync();
             var model = new Occupancies(Connector);
-            var res = await model.SelectAllOccupancies();
+            var res = await model.SelectAllOccupancies(StartDate, EndDate, NewDateFirst);
             return res == null ? new NotFoundResult() : new OkObjectResult(res);
         }
 
