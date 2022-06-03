@@ -9,7 +9,7 @@ namespace ReservationSystem.Core.Model.CalculatePrice
     public class TotalGuestPrice
     {
         private List<Guest> guests;
-        public readonly double Value;
+        public Price Price;
 
         public TotalGuestPrice(List<Guest> guests)
         {
@@ -19,10 +19,10 @@ namespace ReservationSystem.Core.Model.CalculatePrice
             }
 
             this.guests = guests;
-            this.Value = Calculate();
+            this.Price = Calculate();
         }
 
-        private double Calculate()
+        private Price Calculate()
         {
             double totalPrice = 0.0;
 
@@ -31,7 +31,7 @@ namespace ReservationSystem.Core.Model.CalculatePrice
                 totalPrice += guest.GetPriceMultipliedByNights();
             }
 
-            return totalPrice;
+            return new Price(totalPrice);
         }
     }
 }

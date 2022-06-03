@@ -5,7 +5,7 @@ namespace ReservationSystem.Core.Model.CalculatePrice
 {
     public class TotalTourismTaxPrice
     {
-        public readonly double Value;
+        public Price Price;
   
         public TotalTourismTaxPrice(Price totalPrice)
         {
@@ -15,8 +15,7 @@ namespace ReservationSystem.Core.Model.CalculatePrice
             }
             TourismTaxRate tourismTaxRate = new TourismTaxRate(9);
 
-            Price price = tourismTaxRate.CalculateTax(totalPrice);
-            this.Value = price.Value;
+            this.Price = tourismTaxRate.CalculateTax(totalPrice);
         }
     }
 }

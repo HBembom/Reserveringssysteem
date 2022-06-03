@@ -10,7 +10,7 @@ namespace ReservationSystem.Core.Model.CalculatePrice
     {
         private List<Accomodation> Accomodations;
         private DurationOfStay DurationOfStay;
-        public readonly double Value;
+        public Price Price;
 
         public TotalAccomodationPrice(List<Accomodation> accomodation, DurationOfStay durationOfStay)
         {
@@ -21,10 +21,10 @@ namespace ReservationSystem.Core.Model.CalculatePrice
 
             this.Accomodations = accomodation;
             this.DurationOfStay = durationOfStay;
-            this.Value = Calculate();
+            this.Price = Calculate();
         }
 
-        public double Calculate()
+        private Price Calculate()
         {
             double totalPrice = 0.0;
 
@@ -33,7 +33,7 @@ namespace ReservationSystem.Core.Model.CalculatePrice
                 totalPrice += accomodation.Price.Value * DurationOfStay.GetAmmountOfNights();
             }
 
-            return Value;
+            return new Price(totalPrice);
         }
     }
 }

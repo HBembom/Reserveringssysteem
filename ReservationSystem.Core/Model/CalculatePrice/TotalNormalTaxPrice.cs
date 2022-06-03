@@ -5,7 +5,7 @@ namespace ReservationSystem.Core.Model.CalculatePrice
 {
     public class TotalNormalTaxPrice
     {
-        public readonly double Value;
+        public Price Price;
 
         public TotalNormalTaxPrice(Price totalPrice)
         {
@@ -15,8 +15,7 @@ namespace ReservationSystem.Core.Model.CalculatePrice
             }
             NormalTaxRate normalTaxRate = new NormalTaxRate(9);
 
-            Price price =  normalTaxRate.CalculateTax(totalPrice);
-            this.Value = price.Value;
+            this.Price = normalTaxRate.CalculateTax(totalPrice);
         }
     }
 }
