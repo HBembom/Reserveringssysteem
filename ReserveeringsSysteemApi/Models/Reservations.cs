@@ -85,7 +85,7 @@ namespace ReserveeringsSysteemApi.Models
 
         private void AddReservationsParameters(MySqlCommand command)
         {
-           
+
             command.Parameters.Add(new MySqlParameter
             {
                 ParameterName = @"FirstName",
@@ -97,37 +97,37 @@ namespace ReserveeringsSysteemApi.Models
                 ParameterName = @"LastName",
                 DbType = DbType.String,
                 Value = LastName
-            });  
+            });
             command.Parameters.Add(new MySqlParameter
             {
                 ParameterName = @"Address",
                 DbType = DbType.String,
                 Value = Address
-            });  
+            });
             command.Parameters.Add(new MySqlParameter
             {
                 ParameterName = @"Email",
                 DbType = DbType.String,
                 Value = Email
-            }); 
+            });
             command.Parameters.Add(new MySqlParameter
             {
                 ParameterName = @"Phone",
                 DbType = DbType.Int32,
                 Value = Phone
-            }); 
+            });
             command.Parameters.Add(new MySqlParameter
             {
                 ParameterName = @"ArrivalDate",
                 DbType = DbType.String,
                 Value = ArrivalDate
-            }); 
+            });
             command.Parameters.Add(new MySqlParameter
             {
                 ParameterName = @"DepartureDate",
                 DbType = DbType.String,
                 Value = DepartureDate
-            });   
+            });
             command.Parameters.Add(new MySqlParameter
             {
                 ParameterName = @"AccommodationId",
@@ -139,13 +139,13 @@ namespace ReserveeringsSysteemApi.Models
                 ParameterName = @"AmountOfExtraAdults",
                 DbType = DbType.Int32,
                 Value = AmountOfExtraAdults
-            }); 
+            });
             command.Parameters.Add(new MySqlParameter
             {
                 ParameterName = @"AmountOfExtraChildren",
                 DbType = DbType.Int32,
                 Value = AmountOfExtraChildren
-            }); 
+            });
             command.Parameters.Add(new MySqlParameter
             {
                 ParameterName = @"AmountOfExtraPets",

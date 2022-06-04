@@ -56,7 +56,19 @@ namespace ReserveeringsSysteemApi.Models
 
             if (options.StartDate != null && options.EndDate != null)
             {
-                command.CommandText = @"SELECT * FROM `occupancies` WHERE `ArrivalDate` BETWEEN '" + options.StartDate + "' and '" + options.EndDate + "'";
+                command.CommandText = @"SELECT * FROM `occupancies` WHERE `ArrivalDate` BETWEEN @StartDate and @Endate";
+                command.Parameters.Add(new MySqlParameter
+                {
+                    ParameterName = "@StartDate",
+                    DbType = DbType.String,
+                    Value = options.StartDate,
+                });
+                command.Parameters.Add(new MySqlParameter
+                {
+                    ParameterName = "@Endate",
+                    DbType = DbType.String,
+                    Value = options.EndDate,
+                });
             }
             else
             {
@@ -69,6 +81,7 @@ namespace ReserveeringsSysteemApi.Models
                 command.CommandText += " ORDER BY `ArrivalDate` ASC";
 
             }
+
             var res = await ReadAllOccupancies(await command.ExecuteReaderAsync());
 
             return res.Count > 0 ? res : null;
@@ -99,7 +112,7 @@ namespace ReserveeringsSysteemApi.Models
                 ParameterName = @"AccommodationId",
                 DbType = DbType.Int32,
                 Value = AccommodationId
-            });  
+            });
             command.Parameters.Add(new MySqlParameter
             {
                 ParameterName = @"ReservationId",
@@ -117,7 +130,7 @@ namespace ReserveeringsSysteemApi.Models
                 ParameterName = @"DepartureDate",
                 DbType = DbType.String,
                 Value = DepartureDate
-            });command.Parameters.Add(new MySqlParameter
+            }); command.Parameters.Add(new MySqlParameter
             {
                 ParameterName = @"PaymentStatus",
                 DbType = DbType.Int32,

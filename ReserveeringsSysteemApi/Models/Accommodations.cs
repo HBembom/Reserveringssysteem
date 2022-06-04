@@ -17,7 +17,7 @@ namespace ReserveeringsSysteemApi.Models
         {
             Connector = connector;
         }
-        public  Accommodations() { } //Necessary for deserialization
+        public Accommodations() { } //Necessary for deserialization
 
         public async Task InsertAccommodation()
         {
@@ -25,7 +25,7 @@ namespace ReserveeringsSysteemApi.Models
             command.CommandText = "INSERT INTO `accommodations` (AccommodationType) VALUES (@AccommodationType)";
             AddAccommodationsParameters(command);
             await command.ExecuteNonQueryAsync();
-            AccommodationId = (int) command.LastInsertedId;
+            AccommodationId = (int)command.LastInsertedId;
         }
 
         public async Task<Accommodations> SelectAccommodationById(int id)
@@ -48,7 +48,7 @@ namespace ReserveeringsSysteemApi.Models
             await using var command = Connector.Conn.CreateCommand();
             command.CommandText = @"SELECT * FROM `accommodations`";
             var res = await ReadAllAccommodationsAsync(await command.ExecuteReaderAsync());
-            
+
             return res.Count > 0 ? res : null;
         }
 
@@ -78,7 +78,7 @@ namespace ReserveeringsSysteemApi.Models
                 DbType = DbType.String,
                 Value = AccommodationType
             });
-        }   
+        }
         private void AddAccommodationsId(MySqlCommand command)
         {
             command.Parameters.Add(new MySqlParameter

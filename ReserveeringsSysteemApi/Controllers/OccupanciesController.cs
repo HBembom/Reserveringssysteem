@@ -36,7 +36,7 @@ namespace ReserveeringsSysteemApi.Controllers
             return res == null ? new NotFoundResult() : new OkObjectResult(res);
         }
 
-       [HttpGet]
+        [HttpGet]
         public async Task<IActionResult> GetAllOccupancies(OccupancyOptions options)
         {
             await Connector.Conn.OpenAsync();
