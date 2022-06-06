@@ -88,4 +88,8 @@ C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\o
 C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\ProjectArchitectures.txt
 C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637424743200000000.json
-C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637424779200000000.json
+C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\OccupancyOverview.g.i.cs
+C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\OccupancyOverview.g.cs
+C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\OccupancyOverview.xaml
+C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\OccupancyOverview.xbf
+C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\OccupancyOverview.xbf

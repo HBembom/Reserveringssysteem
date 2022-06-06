@@ -10,11 +10,10 @@ namespace ReservationSystem.Core.Model
         public DurationOfStay(DateTime arrivalDateTime, DateTime departureDateTime)
         {
             NotNull(arrivalDateTime, departureDateTime);
-            CheckIfArrivalIsPresentOrFuture(arrivalDateTime);
+            // CheckIfArrivalIsPresentOrFuture(arrivalDateTime);
             CheckIfDepartureIsLaterThanArrival(arrivalDateTime, departureDateTime);
             this.ArrivalDateTime = arrivalDateTime;
             this.DepartureDateTime = departureDateTime;
-
         }
 
         public AmmountOfNights GetAmmountOfNights()
@@ -32,7 +31,7 @@ namespace ReservationSystem.Core.Model
 
         private void CheckIfDepartureIsLaterThanArrival(DateTime arrivalDateTime, DateTime departureDateTime)
         {
-            if (departureDateTime > arrivalDateTime)
+            if (departureDateTime < arrivalDateTime)
             {
                 throw new ArgumentException("Not possible to book a departure before arrival");
             }
@@ -41,7 +40,7 @@ namespace ReservationSystem.Core.Model
 
         private void CheckIfArrivalIsPresentOrFuture(DateTime arrivalDateTime)
         {
-            if(arrivalDateTime > DateTime.UtcNow)
+            if(arrivalDateTime.DayOfWeek < DateTime.UtcNow.DayOfWeek)
             {
                 throw new ArgumentException("Not possible to book in the past");
             };

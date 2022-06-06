@@ -130,7 +130,6 @@
     <Compile Include="Model\Accomodations\Camper.cs" />
     <Compile Include="Model\CalculatePrice\TotalTourismTaxPriceCalculator.cs" />
     <Compile Include="Model\CalculatePrice\TotalTaxedPrice.cs" />
-    <Compile Include="Model\OccupancyOverview\OccupancyCanvas.cs" />
     <Compile Include="Model\OccupancyOverview\OccupancyOverview.cs" />
     <Compile Include="Model\Reservation\ContactDetail.cs" />
     <Compile Include="Model\Reservation\DurationOfStay.cs" />

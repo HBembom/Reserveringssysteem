@@ -24,6 +24,11 @@
             }
         }
 
+        public bool GetStatus()
+        {
+            return this.paid;
+        }
+
 
     }
 }

@@ -13,13 +13,13 @@ namespace ReservationSystem.Core.Model.Names
         public Name(string name)
         {
             CheckIfNameLengthIsInclusive(name);
-            CheckIfStringContainsIllegalCharacters(name);
+           // CheckIfStringContainsIllegalCharacters(name);
             value = name;
         }
 
         private void CheckIfNameLengthIsInclusive(string name)
         {
-            if (name.Length < MinimumLength || name.Length > MaximumLength)
+            if (name.Length < MinimumLength && name.Length > MaximumLength)
             { 
                 throw new ArgumentException(this.GetType().Name + " is too long");
             };

@@ -9,8 +9,5 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <StackPanel>
-            
-        </StackPanel>
     </Grid>
 </Page>

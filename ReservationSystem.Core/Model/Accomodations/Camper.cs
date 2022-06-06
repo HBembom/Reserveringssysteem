@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace ReservationSystem.Core.Model
 {
-    internal class Camper : Accomodation
+    public class Camper : Accomodation
     {
+        public Camper(int id)
+        {
+            this.ID = new ID(id);
+            this.Price = new Price(18.50);
+        }
     }
 }

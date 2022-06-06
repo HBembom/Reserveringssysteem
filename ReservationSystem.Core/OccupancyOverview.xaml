@@ -48,7 +48,7 @@
         <TextBlock Grid.Column="14" Grid.Row="0" Grid.ColumnSpan="2" Text="7-1-2022" HorizontalAlignment="Center" TextAlignment="Center" FontSize="25"></TextBlock>
         
         <!--Reservations-->
-        <Rectangle Grid.Column="1" Grid.Row="1" Fill="Red" Grid.ColumnSpan="2"></Rectangle>
+        <Rectangle Grid.Column="1" Grid.Row="1" Stroke="Black" StrokeThickness="2" Fill="Red" Grid.ColumnSpan="2"></Rectangle>
         <TextBlock Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"  Text="Jante" HorizontalAlignment="Center" TextAlignment="Center" FontSize="25"></TextBlock>
         <Rectangle Grid.Column="3" Grid.Row="1" Fill="White" Grid.ColumnSpan="2"></Rectangle>
         <TextBlock Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"  Text="Jante" HorizontalAlignment="Center" TextAlignment="Center" FontSize="25"></TextBlock>

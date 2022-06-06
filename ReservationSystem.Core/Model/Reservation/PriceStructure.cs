@@ -16,7 +16,7 @@ namespace ReservationSystem.Core.Model
 
         public PriceStructure(Price totalAccomodationPrice, Price totalGuestPrice, Price totalPrice, Price totalNormalTaxPrice, Price totalTourismTaxPrice, Price totalTax, Price totalTaxedPrice)
         {
-            NotNull(totalAccomodationPrice, totalGuestPrice, totalPrice, totalNormalTaxPrice, totalTax, totalTaxedPrice);
+            NotNull(totalAccomodationPrice, totalGuestPrice, totalPrice, totalNormalTaxPrice, totalTourismTaxPrice, totalTax, totalTaxedPrice);
 
             this.TotalAccomodationPrice = totalAccomodationPrice;
             this.TotalGuestPrice = totalGuestPrice;
@@ -27,9 +27,9 @@ namespace ReservationSystem.Core.Model
             this.TotalTaxedPrice = totalTaxedPrice;
         }
 
-        private void NotNull(Price totalAccomodationPrice, Price totalGuestPrice, Price totalPrice, Price totalNormalTaxPrice, Price totalTax, Price totalTaxedPrice)
+        private void NotNull(Price totalAccomodationPrice, Price totalGuestPrice, Price totalPrice, Price totalNormalTaxPrice, Price totalTourismPrice, Price totalTax, Price totalTaxedPrice)
         {
-            if (totalAccomodationPrice == null || totalGuestPrice == null || totalPrice == null || totalNormalTaxPrice == null || TotalTourismTaxPrice == null || totalTax == null || totalTaxedPrice == null)
+            if (totalAccomodationPrice == null || totalGuestPrice == null || totalPrice == null || totalNormalTaxPrice == null || totalTourismPrice == null || totalTax == null || totalTaxedPrice == null)
             {
                 throw new ArgumentNullException();
             }

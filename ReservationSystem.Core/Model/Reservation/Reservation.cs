@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ReservationSystem.Core.Model
 {
-    internal class Reservation
+    public class Reservation
     {
         public DurationOfStay DurationOfStay;
         public PriceStructure PriceStructure;
@@ -23,6 +23,7 @@ namespace ReservationSystem.Core.Model
             this.Occupancy = occupancy;
             this._priceCalculator = new ReservationPriceCalculator(durationOfStay, accomodations, occupancy);
             this.PriceStructure = _priceCalculator.GetPriceStructure();
+            this.hasPaid = new PaidStatus();
         }
 
         private void NotNull(DurationOfStay durationOfStay, List<Accomodation> accomodations, GuestContactDetail contactDetail, List<Guest> occupancy)
