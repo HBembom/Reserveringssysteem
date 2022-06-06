@@ -10,6 +10,8 @@ namespace ReservationSystem.Core.Model
         public List<Accomodation> Accomodations;
         public GuestContactDetail ContactDetail;
         public List<Guest> Occupancy;
+        public PaidStatus hasPaid;
+        private ReservationPriceCalculator _priceCalculator;
 
         public Reservation(DurationOfStay durationOfStay,  List<Accomodation> accomodations, GuestContactDetail contactDetail, List<Guest> occupancy)
         {
@@ -19,7 +21,8 @@ namespace ReservationSystem.Core.Model
             this.Accomodations = accomodations;
             this.ContactDetail = contactDetail;
             this.Occupancy = occupancy;
-            this.PriceStructure = new PriceStructure(durationOfStay, accomodations, occupancy);
+            this._priceCalculator = new ReservationPriceCalculator(durationOfStay, accomodations, occupancy);
+            this.PriceStructure = _priceCalculator.GetPriceStructure();
         }
 
         private void NotNull(DurationOfStay durationOfStay, List<Accomodation> accomodations, GuestContactDetail contactDetail, List<Guest> occupancy)

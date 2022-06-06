@@ -17,9 +17,9 @@ namespace ReservationSystem.Core.Model
 
         }
 
-        public int GetAmmountOfNights()
+        public AmmountOfNights GetAmmountOfNights()
         {
-            return DepartureDateTime.Subtract(ArrivalDateTime).Days;
+            return new AmmountOfNights(DepartureDateTime.Subtract(ArrivalDateTime).Days);
         }
 
         private void NotNull(DateTime arrivalDateTime, DateTime departureDateTime)

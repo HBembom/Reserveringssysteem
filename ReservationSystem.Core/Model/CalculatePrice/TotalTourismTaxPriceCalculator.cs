@@ -3,11 +3,11 @@ using System;
 
 namespace ReservationSystem.Core.Model.CalculatePrice
 {
-    public class TotalTourismTaxPrice
+    public class TotalTourismTaxPriceCalculator
     {
         public Price Price;
   
-        public TotalTourismTaxPrice(Price totalPrice)
+        public TotalTourismTaxPriceCalculator(Price totalPrice)
         {
             if (totalPrice == null)
             {

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace ReservationSystem.Core.Model.CalculatePrice
 {
-    public class TotalGuestPrice
+    public class TotalGuestPriceCalculator
     {
         private List<Guest> guests;
         public Price Price;
 
-        public TotalGuestPrice(List<Guest> guests)
+        public TotalGuestPriceCalculator(List<Guest> guests)
         {
             if (guests == null)
             {
