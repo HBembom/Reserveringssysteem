@@ -93,3 +93,9 @@ C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\o
 C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\OccupancyOverview.xaml
 C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\OccupancyOverview.xbf
 C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\OccupancyOverview.xbf
+C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\OccupancyOverview.xbf
+C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\OccupancyOverview.g.i.cs
+C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\OccupancyOverview.g.cs
+C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\OccupancyOverview.xaml
+C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\OccupancyOverview.xbf
+C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637424743200000000.json

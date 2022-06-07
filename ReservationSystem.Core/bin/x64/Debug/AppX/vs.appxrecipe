@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>LAPTOP-R15MRHLC</Machine>
-    <WindowsUser>henkb</WindowsUser>
+    <Machine>DESKTOP-S28DJ1V</Machine>
+    <WindowsUser>Henk</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
@@ -10,7 +10,7 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>27467395-f0db-4433-b773-71841f600174</PackageIdentityName>
     <PackageIdentityPublisher>CN=Henk</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,8 +18,8 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>9142297AA10B2FE33A5D73F3440762E69E62E60F8100A7D5DE271C21699F9FDF</RegisteredManifestChecksum>
+    <LayoutDir>C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>7B82A8E94A310A3EE71AE380595D95D26007D38419E8F18E4E6366487D4AA9C3</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>27467395-f0db-4433-b773-71841f600174_1.0.0.0_x64__z8xp8mxx7f3w8</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>27467395-f0db-4433-b773-71841f600174_z8xp8mxx7f3w8!App</RegisteredUserModeAppID>
     <RegisteredPackageID>27467395-f0db-4433-b773-71841f600174</RegisteredPackageID>
@@ -27,179 +27,179 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-06-06T14:36:30.179</Modified>
+      <Modified>2022-06-07T15:01:51.159</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\ReservationSystem.Core.exe">
+    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\ReservationSystem.Core.exe">
       <PackagePath>entrypoint\ReservationSystem.Core.exe</PackagePath>
-      <Modified>2022-06-06T14:36:29.761</Modified>
+      <Modified>2022-06-07T15:01:50.872</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\henkb\.nuget\packages\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\6.2.12\runtimes\win10-x64\lib\uap10.0.15138\System.Runtime.dll">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\6.2.12\runtimes\win10-x64\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
-      <Modified>2021-02-05T01:15:54.000</Modified>
+      <Modified>2021-02-05T00:15:54.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.19041.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
-      <Modified>2020-12-02T02:52:00.000</Modified>
+      <Modified>2020-12-02T03:52:00.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2022-06-06T07:07:07.271</Modified>
+      <Modified>2022-06-02T11:37:39.888</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2022-06-06T07:07:07.250</Modified>
+      <Modified>2022-03-04T11:51:19.625</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-06-06T07:07:07.251</Modified>
+      <Modified>2022-03-04T11:51:19.628</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-06-06T07:07:07.251</Modified>
+      <Modified>2022-03-04T11:51:19.629</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-06-06T07:07:07.252</Modified>
+      <Modified>2022-03-04T11:51:19.630</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-06-06T07:07:07.252</Modified>
+      <Modified>2022-03-04T11:51:19.631</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-06-06T07:07:07.253</Modified>
+      <Modified>2022-03-04T11:51:19.632</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-06-06T07:07:07.253</Modified>
+      <Modified>2022-03-04T11:51:19.633</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\ReservationSystem.Core.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\ReservationSystem.Core.xr.xml">
       <PackagePath>ReservationSystem.Core.xr.xml</PackagePath>
-      <Modified>2022-06-06T12:52:20.895</Modified>
+      <Modified>2022-06-07T05:51:26.726</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2022-06-06T14:36:29.693</Modified>
+      <Modified>2022-06-07T15:01:50.806</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2022-06-06T14:36:29.693</Modified>
+      <Modified>2022-06-07T15:01:50.806</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\OccupancyOverview.xbf">
+    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\OccupancyOverview.xbf">
       <PackagePath>OccupancyOverview.xbf</PackagePath>
-      <Modified>2022-06-06T14:36:29.693</Modified>
+      <Modified>2022-06-07T15:01:50.806</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
-      <Modified>2020-12-02T00:52:06.000</Modified>
+      <Modified>2020-12-02T01:52:06.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2022-06-06T14:36:29.836</Modified>
+      <Modified>2022-06-07T11:30:12.606</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\henkb\Source\Repos\HBembom\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\Core\ReservationSystem.Core.exe">
+    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\Core\ReservationSystem.Core.exe">
       <PackagePath>ReservationSystem.Core.exe</PackagePath>
-      <Modified>2022-06-06T14:36:30.175</Modified>
+      <Modified>2022-06-07T15:01:51.155</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
-    <ResolvedSDKReference Include="C:\Users\henkb\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
       <Name>Microsoft.NET.CoreRuntime.2.2</Name>
       <Version>2.2.29713.2</Version>
       <Architecture>x86</Architecture>
       <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.29713.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Users\henkb\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Users\henkb\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
       <Name>Microsoft.NET.CoreRuntime.2.2</Name>
       <Version>2.2.29713.2</Version>
       <Architecture>x64</Architecture>
       <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.29713.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Users\henkb\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Users\henkb\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
       <Name>Microsoft.NET.CoreRuntime.2.2</Name>
       <Version>2.2.29713.2</Version>
       <Architecture>arm</Architecture>
       <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.29713.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Users\henkb\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Users\henkb\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
       <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
       <Version>2.2.29301.2</Version>
       <Architecture>x86</Architecture>
       <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.29301.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Users\henkb\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Users\henkb\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
       <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
       <Version>2.2.29301.2</Version>
       <Architecture>x64</Architecture>
       <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.29301.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Users\henkb\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Users\henkb\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
       <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
       <Version>2.2.29301.2</Version>
       <Architecture>arm</Architecture>
       <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.29301.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Users\henkb\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
     <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
       <Name>Microsoft.VCLibs.140.00.Debug</Name>
-      <Version>14.0.30704.0</Version>
+      <Version>14.0.30035.0</Version>
       <Architecture>ARM</Architecture>
-      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.30704.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.30035.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
       <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\ARM\Microsoft.VCLibs.ARM.Debug.14.00.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
     <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
       <Name>Microsoft.VCLibs.140.00.Debug</Name>
-      <Version>14.0.30704.0</Version>
+      <Version>14.0.30035.0</Version>
       <Architecture>ARM64</Architecture>
-      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.30704.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.30035.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
       <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\ARM64\Microsoft.VCLibs.ARM64.Debug.14.00.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
     <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
       <Name>Microsoft.VCLibs.140.00.Debug</Name>
-      <Version>14.0.30704.0</Version>
+      <Version>14.0.30035.0</Version>
       <Architecture>x64</Architecture>
-      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.30704.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.30035.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
       <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\x64\Microsoft.VCLibs.x64.Debug.14.00.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
     <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
       <Name>Microsoft.VCLibs.140.00.Debug</Name>
-      <Version>14.0.30704.0</Version>
+      <Version>14.0.30035.0</Version>
       <Architecture>x86</Architecture>
-      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.30704.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.30035.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
       <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\x86\Microsoft.VCLibs.x86.Debug.14.00.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
