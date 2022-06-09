@@ -156,6 +156,12 @@
     <Compile Include="Model\Taxes\TaxRate.cs" />
     <Compile Include="Model\Taxes\TourismTaxRate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\CreateReservation.xaml.cs">
+      <DependentUpon>CreateReservation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\VisualOccupancyOverview.xaml.cs">
+      <DependentUpon>VisualOccupancyOverview.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -181,6 +187,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\CreateReservation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\VisualOccupancyOverview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
@@ -188,7 +202,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="View\" />
+    <Folder Include="ViewModel\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
