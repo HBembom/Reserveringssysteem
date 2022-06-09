@@ -123,7 +123,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Accomodations\Accomodation.cs" />
-    <Compile Include="Model\AmmountOfNights.cs" />
+    <Compile Include="Model\Object Values\AmmountOfNights.cs" />
     <Compile Include="Model\CalculatePrice\TotalNormalTaxPriceCalculator.cs" />
     <Compile Include="Model\CalculatePrice\TotalAccomodationPriceCalculator.cs" />
     <Compile Include="Model\CalculatePrice\TotalGuestPriceCalculator.cs" />
@@ -131,6 +131,7 @@
     <Compile Include="Model\CalculatePrice\TotalTourismTaxPriceCalculator.cs" />
     <Compile Include="Model\CalculatePrice\TotalTaxedPrice.cs" />
     <Compile Include="Model\OccupancyOverview\DateTimeColumnSpan.cs" />
+    <Compile Include="Model\OccupancyOverview\GridOccupancyOverviewBasisCreator.cs" />
     <Compile Include="Model\OccupancyOverview\OccupancyOverview.cs" />
     <Compile Include="Model\Reservation\ContactDetail.cs" />
     <Compile Include="Model\Reservation\DurationOfStay.cs" />
@@ -139,13 +140,13 @@
     <Compile Include="Model\Guests\Guest.cs" />
     <Compile Include="Model\Guests\Pet.cs" />
     <Compile Include="Model\Accomodations\House.cs" />
-    <Compile Include="Model\ID.cs" />
+    <Compile Include="Model\Object Values\ID.cs" />
     <Compile Include="Model\Names\LicensePlateName.cs" />
     <Compile Include="Model\Names\FirstName.cs" />
     <Compile Include="Model\Names\LastName.cs" />
     <Compile Include="Model\Names\Name.cs" />
     <Compile Include="Model\Names\PrefixName.cs" />
-    <Compile Include="Model\Price.cs" />
+    <Compile Include="Model\Object Values\Price.cs" />
     <Compile Include="Model\Reservation\PaidStatus.cs" />
     <Compile Include="Model\Reservation\PriceStructure.cs" />
     <Compile Include="Model\Reservation\Reservation.cs" />
@@ -179,10 +180,6 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="OccupancyOverview.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

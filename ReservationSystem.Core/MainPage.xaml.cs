@@ -1,4 +1,5 @@
 ﻿using ReservationSystem.Core.Model;
+using ReservationSystem.Core.Model.OccupancyOverview.ReservationSystem.Core.Model.OccupancyOverview;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,13 +22,13 @@ namespace ReservationSystem.Core
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public  partial class MainPage : Page
     {
+        public OccupancyOverview occupancyOverview;
 
-         Core.Model.OccupancyOverview.OccupancyOverview occupancy;
         Reservation reservation = new Reservation(
                     new DurationOfStay(
-                        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(0),
+                        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(-1),
                         new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(1)),
                     new List<Accomodation>()
                     {
@@ -42,7 +43,6 @@ namespace ReservationSystem.Core
                         new LicensePlateName("BlaBla")),
                     new List<Guest>()
                     );
-
         public MainPage()
         {
             reservation.hasPaid.Paid();
@@ -51,15 +51,17 @@ namespace ReservationSystem.Core
               new Camper(1),
               new Camper(2),
               new Camper(3),
-             //new Camper(4),
-             //new Camper(5),
+              new Camper(4),
+              new Camper(5),
+              new Camper(6),
+              new Camper(7)
             };
 
             List<Reservation> Reservations = new List<Reservation>()
             {
                 new Reservation(
                     new DurationOfStay(
-                        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(-1),
+                        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(-2),
                         new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(0)),
                     new List<Accomodation>(){ new Camper(2)},
                     new GuestContactDetail(
@@ -70,27 +72,61 @@ namespace ReservationSystem.Core
                         new LicensePlateName("blabla")),
                     new List<Guest>()
                     ),
-                reservation
-                //new Reservation(
-                //    new DurationOfStay(
-                //        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(4),
-                //        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(6)),
-                //    new List<Accomodation>(){ new Camper(1)},
-                //    new GuestContactDetail(
-                //        new Model.Names.FirstName("harry"),
-                //        new Model.Names.LastName("Arkes"),
-                //        new Model.Names.PrefixName(""),
-                //        new Model.Names.StreetName("laan v/d bork"),
-                //        new LicensePlateName("blabla")),
-                //    new List<Guest>())
-
-
+                reservation,
+                new Reservation(
+                    new DurationOfStay(
+                        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(-1),
+                        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(5)),
+                    new List<Accomodation>(){ new Camper(4)},
+                    new GuestContactDetail(
+                        new Model.Names.FirstName("harry"),
+                        new Model.Names.LastName("Leuw"),
+                        new Model.Names.PrefixName(""),
+                        new Model.Names.StreetName("laan v/d bork"),
+                        new LicensePlateName("blabla")),
+                    new List<Guest>()),
+                 new Reservation(
+                    new DurationOfStay(
+                        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(1),
+                        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(2)),
+                    new List<Accomodation>(){ new Camper(5)},
+                    new GuestContactDetail(
+                        new Model.Names.FirstName("harry"),
+                        new Model.Names.LastName("Pipo"),
+                        new Model.Names.PrefixName(""),
+                        new Model.Names.StreetName("laan v/d bork"),
+                        new LicensePlateName("blabla")),
+                    new List<Guest>()),
+                 new Reservation(
+                    new DurationOfStay(
+                        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(-1),
+                        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(8)),
+                    new List<Accomodation>(){ new Camper(6)},
+                    new GuestContactDetail(
+                        new Model.Names.FirstName("harry"),
+                        new Model.Names.LastName("Buzz"),
+                        new Model.Names.PrefixName(""),
+                        new Model.Names.StreetName("laan v/d bork"),
+                        new LicensePlateName("blabla")),
+                    new List<Guest>()),
+                 new Reservation(
+                    new DurationOfStay(
+                        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(5),
+                        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(8)),
+                    new List<Accomodation>(){ new Camper(7)},
+                    new GuestContactDetail(
+                        new Model.Names.FirstName("harry"),
+                        new Model.Names.LastName("Woody"),
+                        new Model.Names.PrefixName(""),
+                        new Model.Names.StreetName("laan v/d bork"),
+                        new LicensePlateName("blabla")),
+                    new List<Guest>())
             };
 
-            occupancy = new Core.Model.OccupancyOverview.OccupancyOverview(Accomodations, Reservations, new Grid(), new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day));
+            occupancyOverview = new OccupancyOverview(Accomodations.Count, Reservations, new Grid(), new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day));
 
             this.InitializeComponent();
-            this.Content = occupancy.Draw();
+            this.Content = occupancyOverview.Draw();
             
         }
     }

@@ -1,476 +1,554 @@
-﻿using System;
-using System.Collections.Generic;
-using Windows.UI;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
-
-namespace ReservationSystem.Core.Model.OccupancyOverview
+﻿namespace ReservationSystem.Core.Model.OccupancyOverview
 {
-    public class OccupancyOverview
+    using System;
+    using System.Collections.Generic;
+    using Windows.UI;
+    using Windows.UI.Xaml;
+    using Windows.UI.Xaml.Controls;
+    using Windows.UI.Xaml.Media;
+
+    namespace ReservationSystem.Core.Model.OccupancyOverview
     {
-        public List<Accomodation> Accomodations;
-        public List<Reservation> Reservations;
-        public DateTime SelectedWeek;
-        public Grid _grid;
-        private DateTime datetime;
-        private int PitchCountIndex;
-        private List<DateTimeColumnSpan> DateTimeColumnSpans; 
-       
-        public OccupancyOverview(List<Accomodation> accomodations, List<Reservation> reservations, Grid grid, DateTime selectedWeek)
+        public class OccupancyOverview
         {
-            _grid = grid;
-            this.SelectedWeek = selectedWeek.AddDays(1);
-            this.Accomodations = accomodations;
-            this.Reservations = reservations;
-            datetime = SelectedWeek;
-            this.PitchCountIndex = 1;
-            this.DateTimeColumnSpans = new List<DateTimeColumnSpan>();
-        }
-        
-        public Grid Draw()
-        {
-            CreateGrid();
-            FillOverview();
-            return _grid;
-        }
+            public GridOccupancyOverviewBasisCreator GridCreator;
+            public int AmmountOfAccommodations;
+            public List<Reservation> Reservations;
+            public DateTime SelectedWeek;
+            public Grid _grid;
+            private DateTime datetime;
+            private int PitchCountIndex;
+            private List<DateTimeColumnSpan> DateTimeColumnSpans;
+            private DateTimeColumnSpan _minDateTimeColumnSpan;
+            private DateTimeColumnSpan _maxDateTimeColumnSpan;
 
-        public void FillOverview()
-        {
-            for (int row = 0; row < _grid.RowDefinitions.Count; row++)
+            public OccupancyOverview(int accomodations, List<Reservation> reservations, Grid grid, DateTime selectedWeek)
             {
-                for (int column = 0; column < _grid.ColumnDefinitions.Count; column++)
+                this.AmmountOfAccommodations = accomodations;
+                this.Reservations = reservations;
+                _grid = grid;
+                this.SelectedWeek = selectedWeek;
+                this.PitchCountIndex = 1;
+                this.DateTimeColumnSpans = new List<DateTimeColumnSpan>();
+                this.datetime = this.SelectedWeek;
+            }
+
+            public Grid Draw()
+            {
+                CreateGrid();
+                FillOverview();
+                return _grid;
+            }
+
+            public void CreateGrid()
+            {
+                CreateCollumns();
+                CreateRows();
+                CreateDateTimeAndPitchIndex();
+            }
+
+            public void FillOverview()
+            {
+                this._minDateTimeColumnSpan = GetMinimumColumnSpan();
+                this._maxDateTimeColumnSpan = GetMaximumColumnSpan();
+
+                foreach (Reservation reservation in Reservations)
                 {
-                    // Create DateTimeColumns in Grid
-                    if (row == 0 && column == 0)
+                    foreach (Accomodation accomodation in reservation.Accomodations)
                     {
-                        TextBlock textBlockOne = new TextBlock()
+                        int rowIndex = accomodation.ID.value;
+
+                        if (ArrivalAndDepartureIsBeforeScope(reservation))
                         {
-                            Text = "PitchNumber",
-                            TextAlignment = TextAlignment.Center,
-                            FontSize = 10,
-                            HorizontalAlignment = HorizontalAlignment.Center,
-                        };
 
-                        Grid.SetColumn(textBlockOne, column);
-                        Grid.SetRow(textBlockOne, row);
-                        _grid.Children.Add(textBlockOne);
-                    }
-                    if (row == 0)
-                    {
-                        CreateDateTimeGrids(row, column);
-                        column += 1;
-                    }
-                    // Create Rectangles and Textboxes in Grid
-                    if (row > 0 && column > 0)
-                    {
-                        DateTimeColumnSpan dateTimeColumnSpan = new DateTimeColumnSpan(datetime, 0);
-                        dateTimeColumnSpan = GetMatchingDates(column, dateTimeColumnSpan);
-                        
-                        // datum gebruik en vergelijken met dataspanlist en de juiste columnumber ophalen. 
+                        }
+                        else if (ArrivalIsBeforeScopeAndDepartureIsWithinScope(reservation))
+                        {
+                            DateTimeColumnSpan minimumScopeDateTime = _minDateTimeColumnSpan;
+                            DateTime departureTime = reservation.DurationOfStay.DepartureDateTime;
+                            int totalDays = (departureTime - minimumScopeDateTime.DateTime).Days * 2 + 1;
 
-
-                        if (IsMatch(dateTimeColumnSpan, row, column))
-                        {                  
-                            Reservation reservation = GetReservation(dateTimeColumnSpan, row);
-                            AmmountOfNights nights = reservation.DurationOfStay.GetAmmountOfNights();
-                            
-                            if ((dateTimeColumnSpan.ColumnNumber + nights.Value) > _grid.ColumnDefinitions.Count)
+                            if (reservation.hasPaid.GetStatus() == false)
                             {
-                                Windows.UI.Xaml.Shapes.Rectangle rextangleOne = new Windows.UI.Xaml.Shapes.Rectangle()
+                                Windows.UI.Xaml.Shapes.Rectangle rextangleTwo = new Windows.UI.Xaml.Shapes.Rectangle()
                                 {
                                     Stroke = new SolidColorBrush(Colors.Black),
                                     StrokeThickness = 2,
-                                    Fill = new SolidColorBrush(Colors.Green),
+                                    Fill = new SolidColorBrush(Colors.Red),
                                     Margin = new Thickness(0, 5, 0, 5)
                                 };
-                                Grid.SetColumn(rextangleOne, ((column + nights.Value) - _grid.ColumnDefinitions.Count));
-                                Grid.SetRow(rextangleOne, row);
-                                Grid.SetColumnSpan(rextangleOne, (column + nights.Value) - _grid.ColumnDefinitions.Count);
-                                _grid.Children.Add(rextangleOne);
-
-                                TextBlock textBlockOne = new TextBlock()
-                                {
-                                    Text = reservation.ContactDetail.LastName.value,
-                                    TextAlignment = TextAlignment.Center,
-                                    FontSize = 25,
-                                    HorizontalAlignment = HorizontalAlignment.Center,
-                                };
-
-                                Grid.SetColumn(textBlockOne, column);
-                                Grid.SetRow(textBlockOne, row);
-                                Grid.SetColumnSpan(textBlockOne, (nights.Value) - _grid.ColumnDefinitions.Count);
-                                _grid.Children.Add(textBlockOne);
+                                Grid.SetColumn(rextangleTwo, minimumScopeDateTime.ColumnNumber - 1);
+                                Grid.SetRow(rextangleTwo, rowIndex);
+                                Grid.SetColumnSpan(rextangleTwo, totalDays);
+                                _grid.Children.Add(rextangleTwo);
                             }
-                            else if(reservation.DurationOfStay.ArrivalDateTime < dateTimeColumnSpan.DateTime)
-                            {
-                                var tempColumn = dateTimeColumnSpan.DateTime.Subtract(reservation.DurationOfStay.ArrivalDateTime).Days;
-
-                                Windows.UI.Xaml.Shapes.Rectangle rextangleOne = new Windows.UI.Xaml.Shapes.Rectangle()
-                                {
-                                    Stroke = new SolidColorBrush(Colors.Black),
-                                    StrokeThickness = 2,
-                                    Fill = new SolidColorBrush(Colors.Green),
-                                    Margin = new Thickness(0, 5, 0, 5)
-                                };
-                                Grid.SetColumn(rextangleOne, tempColumn);
-                                Grid.SetRow(rextangleOne, row);
-                                Grid.SetColumnSpan(rextangleOne, tempColumn);
-                                _grid.Children.Add(rextangleOne);
-
-                                TextBlock textBlockOne = new TextBlock()
-                                {
-                                    Text = reservation.ContactDetail.LastName.value,
-                                    TextAlignment = TextAlignment.Center,
-                                    FontSize = 25,
-                                    HorizontalAlignment = HorizontalAlignment.Center,
-                                };
-
-                                Grid.SetColumn(textBlockOne, tempColumn);
-                                Grid.SetRow(textBlockOne, row);
-                                Grid.SetColumnSpan(textBlockOne, tempColumn);
-                                _grid.Children.Add(textBlockOne);
-                            }
-
                             else
                             {
-                                if (reservation.hasPaid.GetStatus() == false)
+                                Windows.UI.Xaml.Shapes.Rectangle rextangleTwo = new Windows.UI.Xaml.Shapes.Rectangle()
                                 {
-                                    Windows.UI.Xaml.Shapes.Rectangle rextangleTwo = new Windows.UI.Xaml.Shapes.Rectangle()
-                                    {
-                                        Stroke = new SolidColorBrush(Colors.Black),
-                                        StrokeThickness = 2,
-                                        Fill = new SolidColorBrush(Colors.Red),
-                                        Margin = new Thickness(0, 5, 0, 5)
-                                    };
-                                    Grid.SetColumn(rextangleTwo, column);
-                                    Grid.SetRow(rextangleTwo, row);
-                                    Grid.SetColumnSpan(rextangleTwo, 1 + nights.Value);
-                                    _grid.Children.Add(rextangleTwo);
-                                }
-                                else
-                                {
-                                    Windows.UI.Xaml.Shapes.Rectangle rextangleTwo = new Windows.UI.Xaml.Shapes.Rectangle()
-                                    {
-                                        Stroke = new SolidColorBrush(Colors.Black),
-                                        StrokeThickness = 2,
-                                        Fill = new SolidColorBrush(Colors.Green),
-                                        Margin = new Thickness(0, 5, 0, 5)
-                                    };
-                                    Grid.SetColumn(rextangleTwo, column);
-                                    Grid.SetRow(rextangleTwo, row);
-                                    Grid.SetColumnSpan(rextangleTwo, 1 + nights.Value);
-                                    _grid.Children.Add(rextangleTwo);
-                                }
-
-                                TextBlock textBlockTwo = new TextBlock()
-                                {
-                                    Text = reservation.ContactDetail.LastName.value,
-                                    TextAlignment = TextAlignment.Center,
-                                    FontSize = 25,
-                                    HorizontalAlignment = HorizontalAlignment.Center,
+                                    Stroke = new SolidColorBrush(Colors.Black),
+                                    StrokeThickness = 2,
+                                    Fill = new SolidColorBrush(Colors.Green),
+                                    Margin = new Thickness(0, 5, 0, 5)
                                 };
-
-                                Grid.SetColumn(textBlockTwo, column);
-                                Grid.SetRow(textBlockTwo, row);
-                                Grid.SetColumnSpan(textBlockTwo, 1 + nights.Value);
-                                _grid.Children.Add(textBlockTwo);
-                                column += nights.Value;
+                                Grid.SetColumn(rextangleTwo, minimumScopeDateTime.ColumnNumber - 1);
+                                Grid.SetRow(rextangleTwo, rowIndex);
+                                Grid.SetColumnSpan(rextangleTwo, totalDays);
+                                _grid.Children.Add(rextangleTwo);
                             }
+
+                            TextBlock textBlockTwo = new TextBlock()
+                            {
+                                Text = reservation.ContactDetail.LastName.value,
+                                TextAlignment = TextAlignment.Center,
+                                FontSize = 25,
+                                HorizontalAlignment = HorizontalAlignment.Center,
+                            };
+
+                            Grid.SetColumn(textBlockTwo, minimumScopeDateTime.ColumnNumber - 1);
+                            Grid.SetRow(textBlockTwo, rowIndex);
+                            Grid.SetColumnSpan(textBlockTwo, totalDays);
+                            _grid.Children.Add(textBlockTwo);
                         }
-                        else
+                        else if (ArrivalAndDepartureIsWithinScope(reservation))
+                        {
+                            AmmountOfNights ammountOfNights = reservation.DurationOfStay.GetAmmountOfNights();
+                            int columnSpan = ammountOfNights.Value * 2;
+                            DateTimeColumnSpan dateTimeIndex = GetDateTimeIndex(reservation);
+
+                            if (reservation.hasPaid.GetStatus() == false)
+                            {
+                                Windows.UI.Xaml.Shapes.Rectangle rextangleTwo = new Windows.UI.Xaml.Shapes.Rectangle()
+                                {
+                                    Stroke = new SolidColorBrush(Colors.Black),
+                                    StrokeThickness = 2,
+                                    Fill = new SolidColorBrush(Colors.Red),
+                                    Margin = new Thickness(0, 5, 0, 5)
+                                };
+                                Grid.SetColumn(rextangleTwo, dateTimeIndex.ColumnNumber);
+                                Grid.SetRow(rextangleTwo, rowIndex);
+                                Grid.SetColumnSpan(rextangleTwo, columnSpan);
+                                _grid.Children.Add(rextangleTwo);
+                            }
+                            else
+                            {
+                                Windows.UI.Xaml.Shapes.Rectangle rextangleTwo = new Windows.UI.Xaml.Shapes.Rectangle()
+                                {
+                                    Stroke = new SolidColorBrush(Colors.Black),
+                                    StrokeThickness = 2,
+                                    Fill = new SolidColorBrush(Colors.Green),
+                                    Margin = new Thickness(0, 5, 0, 5)
+                                };
+                                Grid.SetColumn(rextangleTwo, dateTimeIndex.ColumnNumber);
+                                Grid.SetRow(rextangleTwo, rowIndex);
+                                Grid.SetColumnSpan(rextangleTwo, columnSpan);
+                                _grid.Children.Add(rextangleTwo);
+                            }
+
+                            TextBlock textBlockTwo = new TextBlock()
+                            {
+                                Text = reservation.ContactDetail.LastName.value,
+                                TextAlignment = TextAlignment.Center,
+                                FontSize = 25,
+                                HorizontalAlignment = HorizontalAlignment.Center,
+                            };
+
+                            Grid.SetColumn(textBlockTwo, dateTimeIndex.ColumnNumber);
+                            Grid.SetRow(textBlockTwo, rowIndex);
+                            Grid.SetColumnSpan(textBlockTwo, columnSpan);
+                            _grid.Children.Add(textBlockTwo);
+                        }
+                        else if (ArrivalAndDepartureAreOutsideScope(reservation))
+                        {
+                            int ammountOfNights = DateTimeColumnSpans.Count * 2;
+
+                            if (reservation.hasPaid.GetStatus() == false)
+                            {
+                                Windows.UI.Xaml.Shapes.Rectangle rextangleTwo = new Windows.UI.Xaml.Shapes.Rectangle()
+                                {
+                                    Stroke = new SolidColorBrush(Colors.Black),
+                                    StrokeThickness = 2,
+                                    Fill = new SolidColorBrush(Colors.Red),
+                                    Margin = new Thickness(0, 5, 0, 5)
+                                };
+                                Grid.SetColumn(rextangleTwo, _minDateTimeColumnSpan.ColumnNumber - 1);
+                                Grid.SetRow(rextangleTwo, rowIndex);
+                                Grid.SetColumnSpan(rextangleTwo, ammountOfNights);
+                                _grid.Children.Add(rextangleTwo);
+                            }
+                            else
+                            {
+                                Windows.UI.Xaml.Shapes.Rectangle rextangleTwo = new Windows.UI.Xaml.Shapes.Rectangle()
+                                {
+                                    Stroke = new SolidColorBrush(Colors.Black),
+                                    StrokeThickness = 2,
+                                    Fill = new SolidColorBrush(Colors.Green),
+                                    Margin = new Thickness(0, 5, 0, 5)
+                                };
+                                Grid.SetColumn(rextangleTwo, _minDateTimeColumnSpan.ColumnNumber - 1);
+                                Grid.SetRow(rextangleTwo, rowIndex);
+                                Grid.SetColumnSpan(rextangleTwo, ammountOfNights);
+                                _grid.Children.Add(rextangleTwo);
+                            }
+
+                            TextBlock textBlockTwo = new TextBlock()
+                            {
+                                Text = reservation.ContactDetail.LastName.value,
+                                TextAlignment = TextAlignment.Center,
+                                FontSize = 25,
+                                HorizontalAlignment = HorizontalAlignment.Center,
+                            };
+
+                            Grid.SetColumn(textBlockTwo, _minDateTimeColumnSpan.ColumnNumber - 1);
+                            Grid.SetRow(textBlockTwo, rowIndex);
+                            Grid.SetColumnSpan(textBlockTwo, ammountOfNights);
+                            _grid.Children.Add(textBlockTwo);
+                        }
+                        else if (ArrivalIsInsideScopeButDepartureIsNot(reservation))
+                        {
+                            DateTimeColumnSpan dateTimeIndex = GetDateTimeIndex(reservation);
+                            DateTimeColumnSpan maxDateTimeColumnSpan = GetMaximumColumnSpan();
+                            int ammountOfNights = (maxDateTimeColumnSpan.DateTime - dateTimeIndex.DateTime).Days * 2;
+
+                            if (ammountOfNights == 0)
+                            {
+                                ammountOfNights = 1;
+                            }
+
+                            if (reservation.hasPaid.GetStatus() == false)
+                            {
+                                Windows.UI.Xaml.Shapes.Rectangle rextangleTwo = new Windows.UI.Xaml.Shapes.Rectangle()
+                                {
+                                    Stroke = new SolidColorBrush(Colors.Black),
+                                    StrokeThickness = 2,
+                                    Fill = new SolidColorBrush(Colors.Red),
+                                    Margin = new Thickness(0, 5, 0, 5)
+                                };
+                                Grid.SetColumn(rextangleTwo, dateTimeIndex.ColumnNumber);
+                                Grid.SetRow(rextangleTwo, rowIndex);
+                                Grid.SetColumnSpan(rextangleTwo, ammountOfNights);
+                                _grid.Children.Add(rextangleTwo);
+                            }
+                            else
+                            {
+                                Windows.UI.Xaml.Shapes.Rectangle rextangleTwo = new Windows.UI.Xaml.Shapes.Rectangle()
+                                {
+                                    Stroke = new SolidColorBrush(Colors.Black),
+                                    StrokeThickness = 2,
+                                    Fill = new SolidColorBrush(Colors.Green),
+                                    Margin = new Thickness(0, 5, 0, 5)
+                                };
+                                Grid.SetColumn(rextangleTwo, dateTimeIndex.ColumnNumber);
+                                Grid.SetRow(rextangleTwo, rowIndex);
+                                Grid.SetColumnSpan(rextangleTwo, ammountOfNights);
+                                _grid.Children.Add(rextangleTwo);
+                            }
+
+                            TextBlock textBlockTwo = new TextBlock()
+                            {
+                                Text = reservation.ContactDetail.LastName.value,
+                                TextAlignment = TextAlignment.Center,
+                                FontSize = 25,
+                                HorizontalAlignment = HorizontalAlignment.Center,
+                            };
+
+                            Grid.SetColumn(textBlockTwo, dateTimeIndex.ColumnNumber);
+                            Grid.SetRow(textBlockTwo, rowIndex);
+                            Grid.SetColumnSpan(textBlockTwo, ammountOfNights);
+                            _grid.Children.Add(textBlockTwo);
+                        }
+                    }
+                }
+            }
+
+            private DateTimeColumnSpan GetDateTimeIndex(Reservation reservation)
+            {
+                DateTimeColumnSpan span = GetMinimumColumnSpan();
+
+                foreach (DateTimeColumnSpan dateTime in DateTimeColumnSpans)
+                {
+                    if (dateTime.DateTime == reservation.DurationOfStay.ArrivalDateTime)
+                    {
+                        span = dateTime;
+                    }
+                }
+
+                return span;
+            }
+
+            private bool ArrivalIsInsideScopeButDepartureIsNot(Reservation reservation)
+            {
+                if (ArrivalIsTimeIsWithinScope(reservation) && DepartureIsAfterScope(reservation))
+                {
+                    return true;
+                }
+
+                return false;
+
+            }
+
+            private bool ArrivalAndDepartureAreOutsideScope(Reservation reservation)
+            {
+                if (ArrivalTimeIsBeforeScope(reservation) && DepartureIsAfterScope(reservation))
+                {
+                    return true;
+                }
+
+                return false;
+            }
+
+            private bool DepartureIsAfterScope(Reservation reservation)
+            {
+                if (reservation.DurationOfStay.DepartureDateTime > _maxDateTimeColumnSpan.DateTime)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+
+            private bool ArrivalAndDepartureIsWithinScope(Reservation reservation)
+            {
+                if (ArrivalIsTimeIsWithinScope(reservation) && DepartureTimeIsWithinScope(reservation))
+                {
+                    return true;
+                }
+
+                return false;
+            }
+
+            private bool ArrivalIsBeforeScopeAndDepartureIsWithinScope(Reservation reservation)
+            {
+                if (ArrivalTimeIsBeforeScope(reservation) && DepartureTimeIsWithinScope(reservation))
+                {
+                    return true;
+                }
+
+                return false;
+            }
+
+            private bool ArrivalAndDepartureIsBeforeScope(Reservation reservation)
+            {
+                if (ArrivalTimeIsBeforeScope(reservation) && DepartureTimeIsBeforeScope(reservation))
+                {
+                    return true;
+                }
+                return false;
+            }
+            private bool ArrivalIsTimeIsWithinScope(Reservation reservation)
+            {
+                if (reservation.DurationOfStay.ArrivalDateTime >= _minDateTimeColumnSpan.DateTime && reservation.DurationOfStay.ArrivalDateTime <= _maxDateTimeColumnSpan.DateTime)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+
+            private bool DepartureTimeIsWithinScope(Reservation reservation)
+            {
+                if (reservation.DurationOfStay.DepartureDateTime >= _minDateTimeColumnSpan.DateTime && reservation.DurationOfStay.DepartureDateTime <= _maxDateTimeColumnSpan.DateTime)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+
+            private bool ArrivalTimeIsBeforeScope(Reservation reservation)
+            {
+                if (reservation.DurationOfStay.ArrivalDateTime < _minDateTimeColumnSpan.DateTime)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+
+            private bool DepartureTimeIsBeforeScope(Reservation reservation)
+            {
+                if (reservation.DurationOfStay.DepartureDateTime < _minDateTimeColumnSpan.DateTime)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+
+            private DateTimeColumnSpan GetMinimumColumnSpan()
+            {
+                int minColumn = _grid.ColumnDefinitions.Count;
+                DateTimeColumnSpan span = new DateTimeColumnSpan(DateTime.Now, 0);
+
+                foreach (DateTimeColumnSpan ColumnSpan in DateTimeColumnSpans)
+                {
+                    if (ColumnSpan.ColumnNumber < minColumn)
+                    {
+                        minColumn = ColumnSpan.ColumnNumber;
+                        span = ColumnSpan;
+                    }
+                }
+
+                return span;
+            }
+
+            private DateTimeColumnSpan GetMaximumColumnSpan()
+            {
+                int minColumn = 0;
+                DateTimeColumnSpan span = new DateTimeColumnSpan(DateTime.Now, 0);
+
+                foreach (DateTimeColumnSpan ColumnSpan in DateTimeColumnSpans)
+                {
+                    if (ColumnSpan.ColumnNumber > minColumn)
+                    {
+                        minColumn = ColumnSpan.ColumnNumber;
+                        span = ColumnSpan;
+                    }
+                }
+
+                return span;
+            }
+
+            private void CreateDateTimeAndPitchIndex()
+            {
+                for (int row = 0; row < _grid.RowDefinitions.Count; row++)
+                {
+                    for (int column = 0; column < _grid.ColumnDefinitions.Count; column++)
+                    {
+                        if (row == 0 && column == 0)
+                        {
+                            CreatePitchNumberTextBox(row, column);
+                        }
+                        if (row == 0)
+                        {
+                            CreateDateTimeGrids(row, column);
+                            column += 1;
+                        }
+                        if (row > 0 && column == 0)
+                        {
+                            CreatePitchGrid(row, column);
+                        }
+                        if (row > 0 && column > 0)
                         {
                             CreateEmptyTimeSpanGrid(row, column);
                         }
                     }
-                    // Create PitchNr In Grids
-                    if (row > 0 && column == 0)
-                    {
-                        CreatePitchGrid(row, column);
-                    }
                 }
             }
-        }
 
-        private void CreateEmptyTimeSpanGrid(int row, int column)
-        {
-            Windows.UI.Xaml.Shapes.Rectangle rextangle = new Windows.UI.Xaml.Shapes.Rectangle()
+            private void CreateEmptyTimeSpanGrid(int row, int column)
             {
-                Stroke = new SolidColorBrush(Colors.Black),
-                StrokeThickness = 2,
-                Fill = new SolidColorBrush(Colors.White),
-                Margin = new Thickness(0, 5, 0, 5)
-            };
-            Grid.SetColumn(rextangle, column);
-            Grid.SetRow(rextangle, row);
-            _grid.Children.Add(rextangle);
-
-            TextBlock textBlock = new TextBlock()
-            {
-                TextAlignment = TextAlignment.Center,
-                FontSize = 25,
-                HorizontalAlignment = HorizontalAlignment.Center,
-            };
-            Grid.SetColumn(textBlock, column);
-            Grid.SetRow(textBlock, row);
-            _grid.Children.Add(textBlock);
-        }
-
-        private void CreatePitchGrid(int row, int column)
-        {
-            TextBlock textBlock = new TextBlock()
-            {
-                TextAlignment = TextAlignment.Center,
-                FontSize = 25,
-                HorizontalAlignment = HorizontalAlignment.Center,
-            };
-
-            textBlock.Text = PitchCountIndex.ToString();
-            PitchCountIndex++;
-            Grid.SetColumn(textBlock, column);
-            Grid.SetRow(textBlock, row);
-            _grid.Children.Add(textBlock);
-        }
-
-        private void CreateDateTimeGrids(int row, int column)
-        {
-            TextBlock textBlock = new TextBlock()
-            {
-                TextAlignment = TextAlignment.Center,
-                Text = datetime.ToString("dddd, dd MMMM yyyy")
-            };
-
-            Grid.SetColumn(textBlock, column + 1);
-            Grid.SetRow(textBlock, row);
-            Grid.SetColumnSpan(textBlock, 2);
-            DateTimeColumnSpans.Add(new DateTimeColumnSpan(datetime, column + 1));
-            _grid.Children.Add(textBlock);
-            datetime = datetime.AddDays(1);
-        }
-
-        private DateTimeColumnSpan GetMatchingDates(int column, DateTimeColumnSpan dateTimeColumnSpan)
-        {
-            foreach (DateTimeColumnSpan DateTimeColumnSpan in DateTimeColumnSpans)
-            {
-                if (DateTimeColumnSpan.ColumnNumber.Equals(column))
+                Windows.UI.Xaml.Shapes.Rectangle rextangle = new Windows.UI.Xaml.Shapes.Rectangle()
                 {
-                    dateTimeColumnSpan = DateTimeColumnSpan;
-                }
-            }
-
-            return dateTimeColumnSpan;
-        }
-
-        public bool IsMatch(DateTimeColumnSpan dateTimeColumnSpan, int row, int column)
-        {
-
-            foreach (Reservation reservation in Reservations)
-            {
-                if (reservation.DurationOfStay.ArrivalDateTime.Year == dateTimeColumnSpan.DateTime.Year && reservation.DurationOfStay.ArrivalDateTime.Month == dateTimeColumnSpan.DateTime.Month && reservation.DurationOfStay.ArrivalDateTime.Day == dateTimeColumnSpan.DateTime.Day || reservation.DurationOfStay.DepartureDateTime.Year == dateTimeColumnSpan.DateTime.Year && reservation.DurationOfStay.DepartureDateTime.Month == dateTimeColumnSpan.DateTime.Month && reservation.DurationOfStay.DepartureDateTime.Day == dateTimeColumnSpan.DateTime.Day)
-                {
-                    if(dateTimeColumnSpan.ColumnNumber == column)
-                    {
-                        foreach (Accomodation accomdation in reservation.Accomodations)
-                        {
-                            if (accomdation.ID.value.Equals(row))
-                            {
-                                return true;
-                            }
-                        }
-                    }  
-                }
-            }
-            return false;
-        }
-
-        public Reservation GetReservation(DateTimeColumnSpan dateTimeColumnSpan, int row)
-        {
-            foreach (Reservation reservation in Reservations)
-            {
-                if (reservation.DurationOfStay.ArrivalDateTime.Year == dateTimeColumnSpan.DateTime.Year && reservation.DurationOfStay.ArrivalDateTime.Month == dateTimeColumnSpan.DateTime.Month && reservation.DurationOfStay.ArrivalDateTime.Day == dateTimeColumnSpan.DateTime.Day || reservation.DurationOfStay.DepartureDateTime.Year == dateTimeColumnSpan.DateTime.Year && reservation.DurationOfStay.DepartureDateTime.Month == dateTimeColumnSpan.DateTime.Month && reservation.DurationOfStay.DepartureDateTime.Day == dateTimeColumnSpan.DateTime.Day)
-                {
-                    foreach (Accomodation accomdation in reservation.Accomodations)
-                    {
-                        if (accomdation.ID.value.Equals(row))
-                        {
-                            return reservation;
-                        }
-                    }
-                }
-            }
-            return null;
-        }
-
-        private void AddUnoccupiedRectangle(int row, int column)
-            {
-                Windows.UI.Xaml.Shapes.Rectangle rextangle = CreateUnccupiedRectangle(row, column);
+                    Stroke = new SolidColorBrush(Colors.Black),
+                    StrokeThickness = 2,
+                    Fill = new SolidColorBrush(Colors.White),
+                    Margin = new Thickness(0, 5, 0, 5)
+                };
                 Grid.SetColumn(rextangle, column);
                 Grid.SetRow(rextangle, row);
                 _grid.Children.Add(rextangle);
+
+                TextBlock textBlock = new TextBlock()
+                {
+                    TextAlignment = TextAlignment.Center,
+                    FontSize = 25,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                };
+                Grid.SetColumn(textBlock, column);
+                Grid.SetRow(textBlock, row);
+                _grid.Children.Add(textBlock);
             }
 
-            private Windows.UI.Xaml.Shapes.Rectangle CreateUnccupiedRectangle(int row, int column)
+            private void CreateDateTimeGrids(int row, int column)
             {
-            return new Windows.UI.Xaml.Shapes.Rectangle()
-            {
-                Stroke = new SolidColorBrush(Colors.Black),
-                StrokeThickness = 2,
-                Fill = new SolidColorBrush(Colors.White),
-                Margin = new Thickness(0, 5, 0, 5)
-            };
-        }
-
-        //private void AddTextBlockDateTime(int row, int column)
-        //{
-        //    TextBlock textBlock = new TextBlock()
-        //    {
-        //        Text = datetime.ToString()
-        //    };
-
-        //    Grid.SetColumn(textBlock, column);
-        //    Grid.SetRow(textBlock, row);
-        //    Grid.SetColumnSpan(textBlock, 2);
-        //    _grid.Children.Add(textBlock);
-        //    datetime = datetime.AddDays(1);
-        //}
-
-        //private void AddTextBlockPitch(int row, int column)
-        //{
-        // TextBlock textBlock = CreateTextBlockPitch();
-        // textBlock.Text = PitchCountIndex.ToString();
-        //    PitchCountIndex++;
-        //    Grid.SetColumn(textBlock, column);
-        //    Grid.SetRow(textBlock, row);
-        //    _grid.Children.Add(textBlock);
-        //}
-
-
-
-        //private TextBlock CreateTextBlockPitch()
-        //{
-        //    return new TextBlock()
-        //{
-        //    TextAlignment = TextAlignment.Center,
-        //        FontSize = 25,
-        //        HorizontalAlignment = HorizontalAlignment.Center,
-        //    };
-        //}
-
-        //private void AddTextBlockOccupancy(int row, int column, int columnSpan)
-        //{
-        //    foreach (Reservation reservation in Reservations)
-        //    {
-        //            TextBlock textBlock = CreateTextBlockGuest(reservation);
-        //            Grid.SetColumn(textBlock, column);
-        //            Grid.SetRow(textBlock, row);
-        //            Grid.SetColumnSpan(textBlock, columnSpan);
-        //            _grid.Children.Add(textBlock);
-        //    }
-        //}
-
-        //private void AddRectangleOccupancy(int row, int column, int columnSpan)
-        //{
-        //    foreach (Reservation reservation in Reservations)
-        //    {
-        //            Windows.UI.Xaml.Shapes.Rectangle rextangle = CreateRectangle(reservation);
-        //            Grid.SetColumn(rextangle, column);
-        //            Grid.SetRow(rextangle, row);
-        //            Grid.SetColumnSpan(rextangle, columnSpan);
-        //            _grid.Children.Add(rextangle);
-        //    }
-        //}
-
-        //private TextBlock CreateTextBlockGuest(Reservation reservation)
-        //{
-        //        return new TextBlock()
-        //{
-        //    Text = reservation.ContactDetail.LastName.value,
-        //            TextAlignment = TextAlignment.Center,
-        //            FontSize = 25,
-        //            HorizontalAlignment = HorizontalAlignment.Center,
-        //        };
-        //}
-
-        //private TextBlock CreateTextBlockDateTime()
-        //{
-        //    return new TextBlock()
-        //    {
-        //        Text = DateTime.UtcNow.ToString(),
-        //        TextAlignment = TextAlignment.Center,
-        //        FontSize = 25,
-        //        HorizontalAlignment = HorizontalAlignment.Center,
-        //    };
-        //}
-
-        //private Windows.UI.Xaml.Shapes.Rectangle CreateRectangle(Reservation reservation)
-        //{          
-        //    if (reservation.haspaid.getstatus())
-        //    {
-        //        return new windows.ui.xaml.shapes.rectangle()
-        //        {
-        //            stroke = new solidcolorbrush(colors.black),
-        //            strokethickness = 10,
-        //            fill = new solidcolorbrush(colors.green),
-        //        };
-        //    }
-        //    else 
-        //    {
-        //        return new windows.ui.xaml.shapes.rectangle()
-        //        {
-        //            stroke = new solidcolorbrush(colors.black),
-        //            strokethickness = 10,
-        //            fill = new solidcolorbrush(colors.red)
-        //        };
-        //    }
-        //}
-
-
-        public void CreateGrid()
-        {
-            CreateCollumns();
-            CreateRows();
-        }
-
-        public void CreateCollumns()
-        {
-            for (int i = 0; i < 14; i++)
-            {
-                if(i == 0)
+                TextBlock textBlock = new TextBlock()
                 {
-                    _grid.ColumnDefinitions.Add(new ColumnDefinition()
-                    {
-                        Width = new GridLength(75), 
-                    }) ; 
-                }
-                else
+                    TextAlignment = TextAlignment.Center,
+                    Text = datetime.ToString("dddd, dd MMMM yyyy")
+                };
+
+                Grid.SetColumn(textBlock, column + 1);
+                Grid.SetRow(textBlock, row);
+                Grid.SetColumnSpan(textBlock, 2);
+                DateTimeColumnSpans.Add(new DateTimeColumnSpan(datetime, column + 2));
+                _grid.Children.Add(textBlock);
+                datetime = datetime.AddDays(1);
+            }
+
+            private void CreatePitchNumberTextBox(int row, int column)
+            {
+                TextBlock textBlockOne = new TextBlock()
                 {
-                    _grid.ColumnDefinitions.Add(new ColumnDefinition()
+                    Text = "PitchNumber",
+                    TextAlignment = TextAlignment.Center,
+                    FontSize = 10,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                };
+
+                Grid.SetColumn(textBlockOne, column);
+                Grid.SetRow(textBlockOne, row);
+                _grid.Children.Add(textBlockOne);
+            }
+
+            private void CreatePitchGrid(int row, int column)
+            {
+                TextBlock textBlock = new TextBlock()
+                {
+                    TextAlignment = TextAlignment.Center,
+                    FontSize = 25,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                };
+
+                textBlock.Text = PitchCountIndex.ToString();
+                PitchCountIndex++;
+                Grid.SetColumn(textBlock, column);
+                Grid.SetRow(textBlock, row);
+                _grid.Children.Add(textBlock);
+            }
+
+            public void CreateCollumns()
+            {
+                for (int i = 0; i < 14; i++)
+                {
+                    if (i == 0)
                     {
-                        Width = new GridLength(100)
-                    });
+                        _grid.ColumnDefinitions.Add(new ColumnDefinition()
+                        {
+                            Width = new GridLength(75),
+                        });
+                    }
+                    else
+                    {
+                        _grid.ColumnDefinitions.Add(new ColumnDefinition()
+                        {
+                            Width = new GridLength(100)
+                        });
+                    }
                 }
             }
-        }
 
-        private void CreateRows()
-        {
-            for (int i = 0; i <= Accomodations.Count; i++)
+            private void CreateRows()
             {
-                if (i == 0)
+                for (int i = 0; i <= AmmountOfAccommodations; i++)
                 {
-                    _grid.RowDefinitions.Add(new RowDefinition()
+                    if (i == 0)
                     {
-                        Height = new GridLength(50)
-                    });
-                }
-                else
-                {
-                    _grid.RowDefinitions.Add(new RowDefinition()
+                        _grid.RowDefinitions.Add(new RowDefinition()
+                        {
+                            Height = new GridLength(50)
+                        });
+                    }
+                    else
                     {
-                        Height = new GridLength(40)
-                    });
+                        _grid.RowDefinitions.Add(new RowDefinition()
+                        {
+                            Height = new GridLength(40)
+                        });
+                    }
                 }
             }
         }
     }
+
 }
