@@ -17,11 +17,12 @@ using Windows.UI.Xaml.Navigation;
 
 namespace ReservationSystem.Core.View
 {
-    public sealed partial class CreateReservation : UserControl
+    public sealed partial class CreateReservation : Page
     {
         public CreateReservation()
         {
             this.InitializeComponent();
+            DataContext = new ReservationSystem.Core.ViewModel.CreateReservationViewModel() ;
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

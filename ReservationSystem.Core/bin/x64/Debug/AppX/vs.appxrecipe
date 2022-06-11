@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-06-09T07:45:58.565</Modified>
+      <Modified>2022-06-09T15:29:39.535</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\ReservationSystem.Core.exe">
       <PackagePath>entrypoint\ReservationSystem.Core.exe</PackagePath>
-      <Modified>2022-06-09T07:45:58.232</Modified>
+      <Modified>2022-06-09T15:29:39.254</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\6.2.12\runtimes\win10-x64\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -86,15 +86,23 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\ReservationSystem.Core.xr.xml">
       <PackagePath>ReservationSystem.Core.xr.xml</PackagePath>
-      <Modified>2022-06-09T07:30:30.389</Modified>
+      <Modified>2022-06-09T15:28:20.590</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2022-06-09T07:45:58.158</Modified>
+      <Modified>2022-06-09T15:29:39.184</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2022-06-09T07:45:58.158</Modified>
+      <Modified>2022-06-09T15:29:39.184</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\View\CreateReservation.xbf">
+      <PackagePath>View\CreateReservation.xbf</PackagePath>
+      <Modified>2022-06-09T15:29:39.184</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\View\VisualOccupancyOverview.xbf">
+      <PackagePath>View\VisualOccupancyOverview.xbf</PackagePath>
+      <Modified>2022-06-09T15:29:39.184</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -102,11 +110,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2022-06-09T07:45:58.302</Modified>
+      <Modified>2022-06-09T14:51:44.773</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\Core\ReservationSystem.Core.exe">
       <PackagePath>ReservationSystem.Core.exe</PackagePath>
-      <Modified>2022-06-09T07:45:58.562</Modified>
+      <Modified>2022-06-09T15:29:39.532</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
