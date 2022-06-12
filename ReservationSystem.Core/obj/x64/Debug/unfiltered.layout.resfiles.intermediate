@@ -10,5 +10,5 @@ App.xbf
 MainPage.xbf
 ReservationSystem.Core.xr.xml
 View\CreateReservation.xbf
-View\VisualOccupancyOverview.xbf
+View\VisualReservation.xbf
 Properties\Default.rd.xml

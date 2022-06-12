@@ -22,11 +22,11 @@
             private DateTimeColumnSpan _minDateTimeColumnSpan;
             private DateTimeColumnSpan _maxDateTimeColumnSpan;
 
-            public OccupancyOverview(int accomodations, List<Reservation> reservations, Grid grid, DateTime selectedWeek)
+            public OccupancyOverview(int accomodations, List<Reservation> reservations, DateTime selectedWeek)
             {
                 this.AmmountOfAccommodations = accomodations;
                 this.Reservations = reservations;
-                _grid = grid;
+                _grid = new Grid();
                 this.SelectedWeek = selectedWeek;
                 this.PitchCountIndex = 1;
                 this.DateTimeColumnSpans = new List<DateTimeColumnSpan>();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ReservationSystem.Core.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,15 +14,19 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace ReservationSystem.Core.View
 {
-    public sealed partial class VisualOccupancyOverview : UserControl
+    /// <summary>
+    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// </summary>
+    public sealed partial class VisualReservation : Page
     {
-        public VisualOccupancyOverview()
+        public VisualReservation()
         {
             this.InitializeComponent();
+            this.DataContext = new VisualOccupancyOverviewViewModel(this);
         }
     }
 }
