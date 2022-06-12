@@ -8159,18 +8159,18 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\henkb\\.nuget\\packages\\": {},
+    "C:\\Users\\Marvin\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\henkb\\Source\\Repos\\HBembom\\Reserveringssysteem\\ReservationSystem.Core\\ReservationSystem.Core.csproj",
+      "projectUniqueName": "C:\\Users\\Marvin\\Source\\Repos\\HBembom\\Reserveringssysteem\\ReservationSystem.Core\\ReservationSystem.Core.csproj",
       "projectName": "ReservationSystem.Core",
-      "projectPath": "C:\\Users\\henkb\\Source\\Repos\\HBembom\\Reserveringssysteem\\ReservationSystem.Core\\ReservationSystem.Core.csproj",
-      "packagesPath": "C:\\Users\\henkb\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\henkb\\Source\\Repos\\HBembom\\Reserveringssysteem\\ReservationSystem.Core\\obj\\",
+      "projectPath": "C:\\Users\\Marvin\\Source\\Repos\\HBembom\\Reserveringssysteem\\ReservationSystem.Core\\ReservationSystem.Core.csproj",
+      "packagesPath": "C:\\Users\\Marvin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Marvin\\Source\\Repos\\HBembom\\Reserveringssysteem\\ReservationSystem.Core\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -8178,7 +8178,7 @@
         "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\henkb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Marvin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

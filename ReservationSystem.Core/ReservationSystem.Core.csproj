@@ -153,7 +153,13 @@
     <Compile Include="Model\Taxes\NormalTaxRate.cs" />
     <Compile Include="Model\Taxes\TaxRate.cs" />
     <Compile Include="Model\Taxes\TourismTaxRate.cs" />
+    <Compile Include="OverviewReservations.xaml.cs">
+      <DependentUpon>OverviewReservations.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -180,6 +186,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="OccupancyOverview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OverviewReservations.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
