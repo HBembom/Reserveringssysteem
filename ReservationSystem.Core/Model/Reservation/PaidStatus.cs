@@ -10,9 +10,9 @@
 
         public void Paid()
         {
-            if (!this.paid)
+            if (this.paid == false)
             {
-                paid = true;
+                this.paid = true;
             }
         }
 

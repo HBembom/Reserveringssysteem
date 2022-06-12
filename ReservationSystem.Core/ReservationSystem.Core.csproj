@@ -119,17 +119,23 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Commands\AddGuestCommand.cs" />
+    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="GuestFactory.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Accomodations\Accomodation.cs" />
-    <Compile Include="Model\AmmountOfNights.cs" />
+    <Compile Include="Model\CreateReservation\CreateReservation.cs" />
+    <Compile Include="Model\Object Values\AmmountOfNights.cs" />
     <Compile Include="Model\CalculatePrice\TotalNormalTaxPriceCalculator.cs" />
     <Compile Include="Model\CalculatePrice\TotalAccomodationPriceCalculator.cs" />
     <Compile Include="Model\CalculatePrice\TotalGuestPriceCalculator.cs" />
     <Compile Include="Model\Accomodations\Camper.cs" />
     <Compile Include="Model\CalculatePrice\TotalTourismTaxPriceCalculator.cs" />
     <Compile Include="Model\CalculatePrice\TotalTaxedPrice.cs" />
+    <Compile Include="Model\OccupancyOverview\DateTimeColumnSpan.cs" />
+    <Compile Include="Model\OccupancyOverview\GridOccupancyOverviewBasisCreator.cs" />
     <Compile Include="Model\OccupancyOverview\OccupancyOverview.cs" />
     <Compile Include="Model\Reservation\ContactDetail.cs" />
     <Compile Include="Model\Reservation\DurationOfStay.cs" />
@@ -138,13 +144,13 @@
     <Compile Include="Model\Guests\Guest.cs" />
     <Compile Include="Model\Guests\Pet.cs" />
     <Compile Include="Model\Accomodations\House.cs" />
-    <Compile Include="Model\ID.cs" />
+    <Compile Include="Model\Object Values\ID.cs" />
     <Compile Include="Model\Names\LicensePlateName.cs" />
     <Compile Include="Model\Names\FirstName.cs" />
     <Compile Include="Model\Names\LastName.cs" />
     <Compile Include="Model\Names\Name.cs" />
     <Compile Include="Model\Names\PrefixName.cs" />
-    <Compile Include="Model\Price.cs" />
+    <Compile Include="Model\Object Values\Price.cs" />
     <Compile Include="Model\Reservation\PaidStatus.cs" />
     <Compile Include="Model\Reservation\PriceStructure.cs" />
     <Compile Include="Model\Reservation\Reservation.cs" />
@@ -153,12 +159,15 @@
     <Compile Include="Model\Taxes\NormalTaxRate.cs" />
     <Compile Include="Model\Taxes\TaxRate.cs" />
     <Compile Include="Model\Taxes\TourismTaxRate.cs" />
-    <Compile Include="OverviewReservations.xaml.cs">
-      <DependentUpon>OverviewReservations.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="HomePage.xaml.cs">
-      <DependentUpon>HomePage.xaml</DependentUpon>
+    <Compile Include="ViewModel\AccomodationFactory.cs" />
+    <Compile Include="ViewModel\CreateReservationViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="View\CreateReservation.xaml.cs">
+      <DependentUpon>CreateReservation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\VisualOccupancyOverview.xaml.cs">
+      <DependentUpon>VisualOccupancyOverview.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -185,15 +194,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="OccupancyOverview.xaml">
+    <Page Include="View\CreateReservation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="HomePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="OverviewReservations.xaml">
+    <Page Include="View\VisualOccupancyOverview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -203,9 +208,7 @@
       <Version>6.2.12</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
