@@ -25,8 +25,8 @@ namespace ReservationSystem.Core
                 case nameof(Child):
                     return new Child(new Price(3.50), new AmmountOfNights(ammountOfNights));
                     
-                case nameof(ExtraAdult):
-                    return new ExtraAdult(new Price(5.00), new AmmountOfNights(ammountOfNights));
+                case nameof(Adult):
+                    return new Adult(new Price(5.00), new AmmountOfNights(ammountOfNights));
                 
                 default: throw new ArgumentException(nameof(guest));
             }

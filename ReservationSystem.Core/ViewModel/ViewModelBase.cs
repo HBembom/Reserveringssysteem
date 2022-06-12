@@ -7,13 +7,8 @@ using System.Threading.Tasks;
 
 namespace ReservationSystem.Core.ViewModel
 {
-    internal class ViewModelBase : INotifyPropertyChanged
+    internal class ViewModelBase
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        
     }
 }

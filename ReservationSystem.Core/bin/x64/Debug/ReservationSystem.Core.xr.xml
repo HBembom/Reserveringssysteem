@@ -21,14 +21,14 @@
     <RootPropertyPathName Name="Tax" />
     <RootPropertyPathName Name="TouristTax" />
     <RootPropertyPathName Name="TotalPrice" />
-    <RootPropertyPathName Name="DepartureDateTime" />
-    <RootPropertyPathName Name="ArrivalDateTime" />
     <RootPropertyPathName Name="AddGuestCommand" />
+    <RootPropertyPathName Name="SelectablesGuests" />
     <RootPropertyPathName Name="NumberOfNights" />
-    <RootPropertyPathName Name="FirstName" />
+    <RootPropertyPathName Name="LicensePlate" />
     <RootPropertyPathName Name="StreetName" />
     <RootPropertyPathName Name="PrefixName" />
     <RootPropertyPathName Name="LastName" />
+    <RootPropertyPathName Name="FirstName" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application" />
@@ -37,7 +37,6 @@
       <RootProperty Name="Content" />
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
-      <RootProperty Name="DataContext" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
@@ -69,12 +68,15 @@
       <RootProperty Name="FontWeight" />
       <RootProperty Name="FontStyle" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Data.Binding" />
+    <RootType FullName="Windows.UI.Xaml.Data.Binding">
+      <RootProperty Name="Path" />
+      <RootProperty Name="Mode" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Items" />
-      <RootProperty Name="Text" />
+      <RootProperty Name="ItemsSource" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
       <RootEvent Name="SelectionChanged" />
@@ -82,7 +84,6 @@
     <RootType FullName="Windows.UI.Xaml.Controls.DatePicker">
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="SelectedDate" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBoxItem">
       <RootProperty Name="IsSelected" />
@@ -97,8 +98,8 @@
       <RootProperty Name="TextWrapping" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
-      <RootProperty Name="Content" />
       <RootProperty Name="Command" />
+      <RootProperty Name="Content" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />

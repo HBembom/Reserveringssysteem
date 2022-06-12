@@ -119,6 +119,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Commands\AddAccomodationCommand.cs" />
     <Compile Include="Commands\AddGuestCommand.cs" />
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="GuestFactory.cs" />
@@ -140,7 +141,7 @@
     <Compile Include="Model\Reservation\ContactDetail.cs" />
     <Compile Include="Model\Reservation\DurationOfStay.cs" />
     <Compile Include="Model\Guests\Child.cs" />
-    <Compile Include="Model\Guests\ExtraAdult.cs" />
+    <Compile Include="Model\Guests\Adult.cs" />
     <Compile Include="Model\Guests\Guest.cs" />
     <Compile Include="Model\Guests\Pet.cs" />
     <Compile Include="Model\Accomodations\House.cs" />

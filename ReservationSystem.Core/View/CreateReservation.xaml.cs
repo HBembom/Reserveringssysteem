@@ -21,8 +21,9 @@ namespace ReservationSystem.Core.View
     {
         public CreateReservation()
         {
+            
             this.InitializeComponent();
-            DataContext = new ReservationSystem.Core.ViewModel.CreateReservationViewModel() ;
+            this.DataContext = new ViewModel.CreateReservationViewModel();
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

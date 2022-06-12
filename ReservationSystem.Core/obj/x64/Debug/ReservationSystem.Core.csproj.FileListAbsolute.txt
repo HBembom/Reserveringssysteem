@@ -1,4 +1,3 @@
-C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\ReservationSystem.Core.csproj.AssemblyReference.cache
 C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\App.g.i.cs
 C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\App.g.cs
 C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\MainPage.g.i.cs
