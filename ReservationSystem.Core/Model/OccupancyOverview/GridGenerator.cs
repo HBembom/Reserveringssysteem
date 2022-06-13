@@ -8,12 +8,14 @@ namespace ReservationSystem.Core.Model.OccupancyOverview
     public class GridGenerator
     {
         private Grid _grid;
-        private int _ammountOfAccomodations;
+        private int _columns;
+        private int _rows;
 
         public GridGenerator(int ammountOfAccomodations)
         {
             this._grid = new Grid();
-            this._ammountOfAccomodations = ammountOfAccomodations;
+            this._columns = ammountOfAccomodations * 2 - 2;
+            this._rows = ammountOfAccomodations;
         }
 
         public Grid CreateGrid()
@@ -25,7 +27,7 @@ namespace ReservationSystem.Core.Model.OccupancyOverview
         }
         private void CreateCollumns()
         {
-            for (int i = 0; i < 14; i++)
+            for (int i = 0; i < _columns; i++)
             {
                 if (i == 0)
                 {
@@ -46,7 +48,7 @@ namespace ReservationSystem.Core.Model.OccupancyOverview
 
         private void CreateRows()
         {
-            for (int i = 0; i <= _ammountOfAccomodations; i++)
+            for (int i = 0; i <= _rows; i++)
             {
                 if (i == 0)
                 {

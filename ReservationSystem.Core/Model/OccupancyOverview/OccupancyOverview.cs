@@ -11,17 +11,12 @@
     {
         public class OccupancyOverview
         {
-            public GridGenerator GridCreator;
-            public AssignReservationGrid GridReservationAssigner;
-            public GridElementAssigner GridAssigner;
-            public Grid _grid;
-            public Scope OccupancyScope;
+            public readonly Grid _grid;
 
             public OccupancyOverview(int accomodations, List<Reservation> reservations, DateTime selectedWeek)
             {
-                this.GridCreator = new GridGenerator(accomodations);
-                _grid = GridCreator.CreateGrid();
-                this.GridAssigner = new GridElementAssigner(_grid, selectedWeek, reservations);
+                _grid = new GridGenerator(accomodations).CreateGrid();
+                _grid = new GridElementAssigner(_grid, selectedWeek, reservations).AssignElements();
             }
 
             public Grid Draw()
@@ -30,5 +25,4 @@
             }
         }
     }
-
 }
