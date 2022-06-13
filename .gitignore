@@ -12,3 +12,5 @@ ReserveeringsSysteemApi/obj/Debug/net5.0/ReserveeringsSysteemApi.csproj.Assembly
 .vs/ReservationSystemApi/DesignTimeBuild/.dtbcache.v2
 .vs/ReservationSystemApi/project-colors.json
 .vs/ReservationSystemApi/v17/.futdcache.v1
+ReservationSystem.Core/obj/x64/Debug/.NETCore,Version=v5.0.AssemblyAttributes.cs
+ReservationSystem.Core/obj/x64/Debug/DesignTimeResolveAssemblyReferencesInput.cache
