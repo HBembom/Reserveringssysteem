@@ -30,8 +30,6 @@
     <RootPropertyPathName Name="PrefixName" />
     <RootPropertyPathName Name="LastName" />
     <RootPropertyPathName Name="FirstName" />
-    <RootPropertyPathName Name="GetPreviousWeekCommand" />
-    <RootPropertyPathName Name="GetNextWeekCommand" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application" />
@@ -58,6 +56,13 @@
       <RootMethod Name="SetColumnSpan" />
     </RootType>
     <RootType FullName="ReservationSystem.Core.MainPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.UserControl">
+      <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="ReservationSystem.Core.View.Controls.OccupancyOverview">
+      <RootProperty Name="Margin" />
+      <RootEvent Name="Loaded" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
       <RootProperty Name="Width" />
     </RootType>
@@ -94,8 +99,6 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="VerticalAlignment" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBoxItem">
       <RootProperty Name="IsSelected" />

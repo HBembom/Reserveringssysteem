@@ -73,6 +73,9 @@
     <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\View\Controls\OccupancyOverview.xbf">
+      <PackagePath>View\Controls\OccupancyOverview.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\View\CreateReservation.xbf">
       <PackagePath>View\CreateReservation.xbf</PackagePath>
     </AppxPackagedFile>
