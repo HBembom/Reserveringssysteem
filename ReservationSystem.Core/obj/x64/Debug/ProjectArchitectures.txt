@@ -1,1 +1,0 @@
-E:\Development\Reserveringssysteem\ReservationSystem.Core\ReservationSystem.Core.csproj;x64
