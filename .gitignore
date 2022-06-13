@@ -562,3 +562,9 @@ ReservationSystem.Core/bin/x64/Debug/AppX/entrypoint/ReservationSystem.Core.exe
 .vs/ReservationSystemApi/v17/.suo
 .vs/ReservationSystemApi/v17/.suo
 ReservationSystem.Core/obj/x64/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+.vs/ReservationSystemApi/DesignTimeBuild/.dtbcache.v2
+.vs/ReservationSystemApi/v17/.futdcache.v1
+ReservationSystem.Core/obj/x64/Debug/build.force
+ReservationSystem.Core/obj/x64/Debug/View/VisualOccupancyOverview.g.cs
+ReservationSystem.Core/obj/x64/Debug/View/VisualOccupancyOverview.g.i.cs
+ReserveeringsSysteemApi/obj/Debug/net5.0/ReserveeringsSysteemApi.csproj.AssemblyReference.cache
