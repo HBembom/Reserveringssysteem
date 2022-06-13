@@ -34,4 +34,5 @@ ReserveeringsSysteemApi/obj/Debug/net5.0/ReserveeringsSysteemApi.AssemblyInfo.cs
 ReserveeringsSysteemApi/obj/Debug/net5.0/ReserveeringsSysteemApi.AssemblyInfoInputs.cache
 ReserveeringsSysteemApi/obj/Debug/net5.0/ReserveeringsSysteemApi.csproj.AssemblyReference.cache
 ReserveeringsSysteemApi/obj/Debug/net5.0/ReserveeringsSysteemApi.GeneratedMSBuildEditorConfig.editorconfig
-ReservationSystem.Core\obj
+ReservationSystem.Core/obj
+ReserveeringsSysteemApi/obj
