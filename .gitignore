@@ -539,3 +539,7 @@ ReservationSystemApi/Views/web.config
 ReservationSystemApi/Web.config
 ReservationSystemApi/Web.Debug.config
 ReservationSystemApi/Web.Release.config
+.vs/ReservationSystemApi/v17/.suo
+ReservationSystem.Core/obj/x64/Debug/ReservationSystem.Core.csproj.AssemblyReference.cache
+ReservationSystem.Core/obj/x64/Debug/XamlSaveStateFile.xml
+ReservationSystemApi/obj/Debug/ReservationSystemApi.csproj.AssemblyReference.cache
