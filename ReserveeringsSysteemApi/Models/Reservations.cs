@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Data;
 using System.Data.Common;
+using System.Linq;
 using System.Threading.Tasks;
 using MySqlConnector;
 using ReserveeringsSysteemApi.Properties;
@@ -17,7 +20,7 @@ namespace ReserveeringsSysteemApi.Models
         public int Phone { get; set; }
         public string ArrivalDate { get; set; }
         public string DepartureDate { get; set; }
-        public int AccommodationId { get; set; }
+        public string[] AccommodationId { get; set; }
         public int AmountOfExtraAdults { get; set; }
         public int AmountOfExtraChildren { get; set; }
         public int AmountOfExtraPets { get; set; }
@@ -131,7 +134,7 @@ namespace ReserveeringsSysteemApi.Models
             command.Parameters.Add(new MySqlParameter
             {
                 ParameterName = @"AccommodationId",
-                DbType = DbType.Int32,
+                DbType = DbType.String,
                 Value = AccommodationId
             });
             command.Parameters.Add(new MySqlParameter
@@ -183,6 +186,8 @@ namespace ReserveeringsSysteemApi.Models
             {
                 while (await reader.ReadAsync())
                 {
+                    var test = reader.GetString(8).Replace("[", "").Replace("]", "");
+              
                     var reservation = new Reservations(Connector)
                     {
                         ReservationId = reader.GetInt32(0),
@@ -191,9 +196,9 @@ namespace ReserveeringsSysteemApi.Models
                         Address = reader.GetString(3),
                         Email = reader.GetString(4),
                         Phone = reader.GetInt32(5),
-                        ArrivalDate = reader.GetString(6),
-                        DepartureDate = reader.GetString(7),
-                        AccommodationId = reader.GetInt32(8),
+                        ArrivalDate = reader.GetDateTime(6).ToString().Split(" ")[0],
+                        DepartureDate = reader.GetDateTime(7).ToString().Split(" ")[0],
+                        AccommodationId = test.Split(","),
                         AmountOfExtraAdults = reader.GetInt32(9),
                         AmountOfExtraChildren = reader.GetInt32(10),
                         AmountOfExtraPets = reader.GetInt32(11),
