@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>DESKTOP-S28DJ1V</Machine>
-    <WindowsUser>Henk</WindowsUser>
+    <Machine>JORDYPC</Machine>
+    <WindowsUser>PC_Jordy</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
@@ -10,7 +10,7 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>27467395-f0db-4433-b773-71841f600174</PackageIdentityName>
     <PackageIdentityPublisher>CN=Henk</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>E:\Development\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,8 +18,8 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>7B82A8E94A310A3EE71AE380595D95D26007D38419E8F18E4E6366487D4AA9C3</RegisteredManifestChecksum>
+    <LayoutDir>E:\Development\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>189C318002B58AE9D62F68DEEC76045E3DC4BDB5DEC6F7551A8CA7A870CD3B76</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>27467395-f0db-4433-b773-71841f600174_1.0.0.0_x64__z8xp8mxx7f3w8</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>27467395-f0db-4433-b773-71841f600174_z8xp8mxx7f3w8!App</RegisteredUserModeAppID>
     <RegisteredPackageID>27467395-f0db-4433-b773-71841f600174</RegisteredPackageID>
@@ -27,94 +27,94 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="E:\Development\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-06-09T15:29:39.535</Modified>
+      <Modified>2022-06-13T13:08:49.409</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\ReservationSystem.Core.exe">
+    <AppxPackagedFile Include="E:\Development\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\ReservationSystem.Core.exe">
       <PackagePath>entrypoint\ReservationSystem.Core.exe</PackagePath>
-      <Modified>2022-06-09T15:29:39.254</Modified>
+      <Modified>2022-06-13T13:08:47.935</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\6.2.12\runtimes\win10-x64\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
-      <Modified>2021-02-05T00:15:54.000</Modified>
+      <Modified>2021-02-04T23:15:54.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.19041.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
-      <Modified>2020-12-02T03:52:00.000</Modified>
+      <Modified>2020-12-02T02:52:00.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="E:\Development\Reserveringssysteem\ReservationSystem.Core\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2022-06-02T11:37:39.888</Modified>
+      <Modified>2022-06-13T12:28:49.698</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="E:\Development\Reserveringssysteem\ReservationSystem.Core\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2022-03-04T11:51:19.625</Modified>
+      <Modified>2022-06-13T12:28:49.210</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="E:\Development\Reserveringssysteem\ReservationSystem.Core\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-03-04T11:51:19.628</Modified>
+      <Modified>2022-06-13T12:28:49.211</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="E:\Development\Reserveringssysteem\ReservationSystem.Core\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-03-04T11:51:19.629</Modified>
+      <Modified>2022-06-13T12:28:49.211</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="E:\Development\Reserveringssysteem\ReservationSystem.Core\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-03-04T11:51:19.630</Modified>
+      <Modified>2022-06-13T12:28:49.212</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="E:\Development\Reserveringssysteem\ReservationSystem.Core\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-03-04T11:51:19.631</Modified>
+      <Modified>2022-06-13T12:28:49.229</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="E:\Development\Reserveringssysteem\ReservationSystem.Core\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-03-04T11:51:19.632</Modified>
+      <Modified>2022-06-13T12:28:49.229</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="E:\Development\Reserveringssysteem\ReservationSystem.Core\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-03-04T11:51:19.633</Modified>
+      <Modified>2022-06-13T12:28:49.230</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\ReservationSystem.Core.xr.xml">
+    <AppxPackagedFile Include="E:\Development\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\ReservationSystem.Core.xr.xml">
       <PackagePath>ReservationSystem.Core.xr.xml</PackagePath>
-      <Modified>2022-06-09T15:28:20.590</Modified>
+      <Modified>2022-06-13T13:08:47.823</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\App.xbf">
+    <AppxPackagedFile Include="E:\Development\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2022-06-09T15:29:39.184</Modified>
+      <Modified>2022-06-13T13:08:47.846</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="E:\Development\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2022-06-09T15:29:39.184</Modified>
+      <Modified>2022-06-13T13:08:47.846</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\View\CreateReservation.xbf">
+    <AppxPackagedFile Include="E:\Development\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\View\CreateReservation.xbf">
       <PackagePath>View\CreateReservation.xbf</PackagePath>
-      <Modified>2022-06-09T15:29:39.184</Modified>
+      <Modified>2022-06-13T13:08:47.846</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\View\VisualOccupancyOverview.xbf">
+    <AppxPackagedFile Include="E:\Development\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\View\VisualOccupancyOverview.xbf">
       <PackagePath>View\VisualOccupancyOverview.xbf</PackagePath>
-      <Modified>2022-06-09T15:29:39.184</Modified>
+      <Modified>2022-06-13T13:08:47.847</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
-      <Modified>2020-12-02T01:52:06.000</Modified>
+      <Modified>2020-12-02T00:52:06.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="E:\Development\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2022-06-09T14:51:44.773</Modified>
+      <Modified>2022-06-13T13:08:48.343</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\Core\ReservationSystem.Core.exe">
+    <AppxPackagedFile Include="E:\Development\Reserveringssysteem\ReservationSystem.Core\bin\x64\Debug\Core\ReservationSystem.Core.exe">
       <PackagePath>ReservationSystem.Core.exe</PackagePath>
-      <Modified>2022-06-09T15:29:39.532</Modified>
+      <Modified>2022-06-13T13:08:49.398</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
