@@ -47,7 +47,7 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBox Grid.Row="0" PlaceholderText="Nights" Text="{Binding Path=NumberOfNights, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17" TextWrapping="Wrap"></TextBox>
-                <ComboBox x:ConnectionId='2' Grid.Column ="1" ItemsSource="{Binding Path=SelectablesGuests}" Height="49" HorizontalAlignment="Center" VerticalAlignment="Center" Width="77"                                             ></ComboBox>
+                <ComboBox Grid.Column ="1" ItemsSource="{Binding Path=SelectablesGuests}" Height="49" HorizontalAlignment="Center" VerticalAlignment="Center" Width="77" SelectedItem="{Binding SelectedGuest, Mode=TwoWay}" ></ComboBox>
                 <Button Command="{Binding Path=AddGuestCommand}" Grid.Column="2" Content="Add" HorizontalAlignment="Center" Height="32" Width="46"></Button>
             </Grid>
         </Grid>

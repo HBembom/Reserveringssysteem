@@ -107,4 +107,3 @@ C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reservering
 C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\ProjectArchitectures.txt
 C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637424779200000000.json
-C:\Users\Henk\OneDrive\Bureaublad\Henk\Projecten\Reserveringssysteem\Reserveringssysteem\ReservationSystem.Core\obj\x64\Debug\ReservationSystem.Core.csproj.AssemblyReference.cache

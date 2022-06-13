@@ -8,8 +8,8 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     
-        <Grid>
-            <local:OccupancyOverview x:ConnectionId='2' Margin="339,221,339,301"                                  ></local:OccupancyOverview>
+        <Grid RenderTransformOrigin="0.538,0.505">
+            <local:OccupancyOverview x:ConnectionId='2' Margin="339,221,219,146"                                  ></local:OccupancyOverview>
         </Grid>
     
 </Page>

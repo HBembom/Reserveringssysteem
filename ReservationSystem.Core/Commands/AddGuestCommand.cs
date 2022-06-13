@@ -41,7 +41,7 @@ namespace ReservationSystem.Core.Commands
                     _createreservation.Tax = normalTax.Price.Value;
                     _createreservation.TouristTax = tourismTax.Price.Value;
                     _createreservation.NetProfit = _createreservation.TotalPrice;
-            }
+                }
                 else if (_createreservation.SelectedGuest.Equals(nameof(Child)))
                 {
                     _createreservation.Guests.Add(guest);
@@ -55,7 +55,7 @@ namespace ReservationSystem.Core.Commands
                     _createreservation.TouristTax = tourismTax.Price.Value;
                     _createreservation.NetProfit = _createreservation.TotalPrice;
 
-            }
+                }
                 else if (_createreservation.SelectedGuest.Equals(nameof(Adult)))
                 {
                     _createreservation.Guests.Add(guest);

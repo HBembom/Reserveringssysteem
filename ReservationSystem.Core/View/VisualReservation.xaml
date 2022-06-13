@@ -8,8 +8,8 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     
-        <Grid>
-            <local:OccupancyOverview Margin="339,221,339,301" Loaded="OccupancyOverview_Loaded"></local:OccupancyOverview>
+        <Grid RenderTransformOrigin="0.538,0.505">
+            <local:OccupancyOverview Margin="339,221,219,146" Loaded="OccupancyOverview_Loaded"></local:OccupancyOverview>
         </Grid>
     
 </Page>
