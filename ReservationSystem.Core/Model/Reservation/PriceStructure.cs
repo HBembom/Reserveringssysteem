@@ -1,6 +1,4 @@
-﻿using ReservationSystem.Core.Model.CalculatePrice;
-using System;
-using System.Collections.Generic;
+﻿using System;
 
 namespace ReservationSystem.Core.Model
 {
