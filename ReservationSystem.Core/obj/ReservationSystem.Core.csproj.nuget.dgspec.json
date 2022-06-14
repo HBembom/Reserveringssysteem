@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Development\\Reserveringssysteem\\ReservationSystem.Core\\ReservationSystem.Core.csproj": {}
+    "C:\\Users\\Henk\\OneDrive\\Bureaublad\\SchoolProjecten\\Reserveringssysteem\\ReservationSystem.Core\\ReservationSystem.Core.csproj": {}
   },
   "projects": {
-    "E:\\Development\\Reserveringssysteem\\ReservationSystem.Core\\ReservationSystem.Core.csproj": {
+    "C:\\Users\\Henk\\OneDrive\\Bureaublad\\SchoolProjecten\\Reserveringssysteem\\ReservationSystem.Core\\ReservationSystem.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Development\\Reserveringssysteem\\ReservationSystem.Core\\ReservationSystem.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Henk\\OneDrive\\Bureaublad\\SchoolProjecten\\Reserveringssysteem\\ReservationSystem.Core\\ReservationSystem.Core.csproj",
         "projectName": "ReservationSystem.Core",
-        "projectPath": "E:\\Development\\Reserveringssysteem\\ReservationSystem.Core\\ReservationSystem.Core.csproj",
-        "packagesPath": "C:\\Users\\PC_Jordy\\.nuget\\packages\\",
-        "outputPath": "E:\\Development\\Reserveringssysteem\\ReservationSystem.Core\\obj\\",
+        "projectPath": "C:\\Users\\Henk\\OneDrive\\Bureaublad\\SchoolProjecten\\Reserveringssysteem\\ReservationSystem.Core\\ReservationSystem.Core.csproj",
+        "packagesPath": "C:\\Users\\Henk\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Henk\\OneDrive\\Bureaublad\\SchoolProjecten\\Reserveringssysteem\\ReservationSystem.Core\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -19,7 +19,7 @@
           "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\PC_Jordy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Henk\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

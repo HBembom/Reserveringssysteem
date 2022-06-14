@@ -232,23 +232,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PC_Jordy\\.nuget\\packages\\": {},
+    "C:\\Users\\Henk\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Development\\Reserveringssysteem\\ReserveeringsSysteemApi\\ReserveeringsSysteemApi.csproj",
+      "projectUniqueName": "C:\\Users\\Henk\\OneDrive\\Bureaublad\\SchoolProjecten\\Reserveringssysteem\\ReserveeringsSysteemApi\\ReserveeringsSysteemApi.csproj",
       "projectName": "ReserveeringsSysteemApi",
-      "projectPath": "E:\\Development\\Reserveringssysteem\\ReserveeringsSysteemApi\\ReserveeringsSysteemApi.csproj",
-      "packagesPath": "C:\\Users\\PC_Jordy\\.nuget\\packages\\",
-      "outputPath": "E:\\Development\\Reserveringssysteem\\ReserveeringsSysteemApi\\obj\\",
+      "projectPath": "C:\\Users\\Henk\\OneDrive\\Bureaublad\\SchoolProjecten\\Reserveringssysteem\\ReserveeringsSysteemApi\\ReserveeringsSysteemApi.csproj",
+      "packagesPath": "C:\\Users\\Henk\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Henk\\OneDrive\\Bureaublad\\SchoolProjecten\\Reserveringssysteem\\ReserveeringsSysteemApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\PC_Jordy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Henk\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -294,6 +294,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[5.0.0, 5.0.0]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[5.0.13, 5.0.13]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[5.0.0, 5.0.0]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[5.0.0, 5.0.0]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -302,7 +320,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
