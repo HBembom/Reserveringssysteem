@@ -4,12 +4,21 @@ using ReservationSystem.Core.Model.CalculatePrice;
 using ReservationSystem.Core.Model.Guests;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
 namespace ReservationSystem.Core.ViewModel
 {
-    internal class CreateReservationViewModel : ViewModelBase
+    internal class CreateReservationViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         private string _firstName;
         public string FirstName
         {
@@ -47,6 +56,22 @@ namespace ReservationSystem.Core.ViewModel
             set { _numberOfNights = value; OnPropertyChanged(nameof(NumberOfNights)); }
         }
 
+        public List<string> SelectablesGuests
+        { 
+            get { return _selectablesGuests;}
+            set { _selectablesGuests = value; OnPropertyChanged(nameof(_selectablesGuests)); }
+        }
+
+
+        private List<string> _selectablesGuests;
+
+        public string _selectedGuest;
+        public string SelectedGuest
+        {
+            get { return _selectedGuest; }
+            set { _selectedGuest = value; OnPropertyChanged(nameof(SelectedGuest)); }
+        }
+
         private List<Guest> _guests;
         public List<Guest> Guests
         {
@@ -70,7 +95,7 @@ namespace ReservationSystem.Core.ViewModel
         private double _adultPricePerNight;
         public double AdultPricePerNight
         {
-            get { return _adultPricePerNight; }
+            get { return 5.00; }
             set { _adultPricePerNight = value; OnPropertyChanged(nameof(AdultPricePerNight)); }
         }
 
@@ -96,7 +121,7 @@ namespace ReservationSystem.Core.ViewModel
         private double _childPricePerNight;
         public double ChildPricePerNight
         {
-            get { return _childPricePerNight;}
+            get { return 3.50;}
             set { _childPricePerNight = value; OnPropertyChanged(nameof(ChildPricePerNight)); }
         }
         private double _totalChildPrice;
@@ -121,7 +146,7 @@ namespace ReservationSystem.Core.ViewModel
         private double _petPricePerNight;
         public double PetPricePerNight
         {
-            get { return _petPricePerNight; }
+            get { return 2.50; }
             set { _petPricePerNight = value; OnPropertyChanged(nameof(_petPricePerNight)); }
         }
         private double _totalPetPrice;
@@ -199,56 +224,29 @@ namespace ReservationSystem.Core.ViewModel
             set { _netProfit = value; OnPropertyChanged(nameof(NetProfit));}
         }
 
-
-        private readonly GuestFactory _guestFactory;
         private readonly AccomodationFactory _accomodationFactory;
-        public ICommand AddGuestCommand;
-        public ICommand AddAccomodationCommand;
-        public ICommand SubmitCommand;
+        public ICommand AddGuestCommand { get; set; }
+        public ICommand AddAccomodationCommand { get; set; }
+        public ICommand SubmitCommand { get; set; }
 
         public CreateReservationViewModel()
         {
+            this.SelectablesGuests = new List<string>()
+            {
+                "Adult",
+                "Child",
+                "Pet"
+            };
             this.ArrivalDateTime = DateTime.UtcNow;
             this.DepartureDateTime = DateTime.UtcNow.AddDays(1);
-            this._guestFactory = new GuestFactory();
+
             this._accomodationFactory = new AccomodationFactory();
+            this.AddGuestCommand = new AddGuestCommand(this);
+            this.AddAccomodationCommand = new AddAccomodationCommand(this);
+            this.Guests = new List<Guest>();
         }
 
         // Could be refactored
-        public void AddGuest(string guestType, int ammountOfNights)
-        {
-            if (ammountOfNights <= 0)
-            {
-                throw new ArgumentException("Guest cannot stay zero or less nights");
-            }
-            Guest guest  = _guestFactory.Create(guestType, ammountOfNights);
-
-            if (guestType == nameof(Pet))
-            {
-                Guests.Add(guest);
-                NumberOfPets = Guests.Count;
-                TotalAmountOfNightExtraPets += guest.AmmountOfNights.Value;
-                TotalPetPrice = NumberOfPets * TotalAmountOfNightExtraPets * PetPricePerNight;
-                TotalPrice += TotalPetPrice;
-            }
-            else if (guestType == nameof(Child))
-            {
-                Guests.Add(guest);
-                NumberOfChilds = Guests.Count;
-                TotalAmountOfNightExtraChilds += guest.AmmountOfNights.Value;
-                TotalChildPrice = NumberOfChilds * TotalAmountOfNightExtraChilds * ChildPricePerNight;
-                TotalPrice += TotalChildPrice;
-
-            }
-            else if(guestType == nameof(ExtraAdult))
-            {
-                Guests.Add(guest);
-                NumberOfAdults = Guests.Count;
-                TotalAmountOfNightExtraAdults += guest.AmmountOfNights.Value;
-                TotalAdultPrice = NumberOfAdults * TotalAmountOfNightExtraAdults * AdultPricePerNight;
-                TotalPrice += TotalChildPrice;
-            }
-        }
 
         // Could be refactored // Should also
         public void AddAccomodation(string accomodationType, int id)

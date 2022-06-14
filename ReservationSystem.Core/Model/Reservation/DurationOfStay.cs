@@ -4,8 +4,8 @@ namespace ReservationSystem.Core.Model
 {
     public class DurationOfStay
     {
-        public DateTime ArrivalDateTime;
-        public DateTime DepartureDateTime;
+        public readonly DateTime ArrivalDateTime;
+        public readonly DateTime DepartureDateTime;
 
         public DurationOfStay(DateTime arrivalDateTime, DateTime departureDateTime)
         {

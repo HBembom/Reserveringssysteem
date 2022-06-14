@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReservationSystem.Core.Model.CreateReservation
+namespace ReservationSystem.Core.Model.OccupancyOverview.ElementAssigner.Elements
 {
-    internal class CreateReservation
+    internal class PitchHeaderTextblock
     {
     }
 }

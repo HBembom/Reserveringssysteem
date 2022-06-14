@@ -15,25 +15,13 @@ using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace ReservationSystem.Core.View
+namespace ReservationSystem.Core.View.Controls
 {
-    public sealed partial class CreateReservation : Page
+    public sealed partial class OccupancyOverview : UserControl
     {
-        public CreateReservation()
+        public OccupancyOverview()
         {
-            
             this.InitializeComponent();
-            this.DataContext = new ViewModel.CreateReservationViewModel();
-        }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

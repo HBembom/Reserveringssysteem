@@ -7,7 +7,6 @@
 
         public Guest(Price price, AmmountOfNights ammountOfNights)
         {
-            // Maybe Remove Price in Constructor and instead, make a call in the constructor to the database to retrieve prices (Abstract method necessary). 
             Price = price;
             AmmountOfNights = ammountOfNights;
         }

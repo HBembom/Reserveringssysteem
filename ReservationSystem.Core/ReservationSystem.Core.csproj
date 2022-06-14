@@ -119,56 +119,80 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Commands\AddAccomodationCommand.cs" />
     <Compile Include="Commands\AddGuestCommand.cs" />
     <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\CreateReservationCommand.cs" />
+    <Compile Include="Commands\GetNextWeekCommand.cs" />
+    <Compile Include="Commands\GetPreviousWeekCommand.cs" />
+    <Compile Include="Commands\ViewReservationCommand.cs" />
     <Compile Include="GuestFactory.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Accomodations\Accomodation.cs" />
-    <Compile Include="Model\CreateReservation\CreateReservation.cs" />
+    <Compile Include="Model\Accomodations\Camper.cs" />
+    <Compile Include="Model\Accomodations\House.cs" />
+    <Compile Include="Model\Guests\Adult.cs" />
     <Compile Include="Model\Object Values\AmmountOfNights.cs" />
     <Compile Include="Model\CalculatePrice\TotalNormalTaxPriceCalculator.cs" />
     <Compile Include="Model\CalculatePrice\TotalAccomodationPriceCalculator.cs" />
     <Compile Include="Model\CalculatePrice\TotalGuestPriceCalculator.cs" />
-    <Compile Include="Model\Accomodations\Camper.cs" />
     <Compile Include="Model\CalculatePrice\TotalTourismTaxPriceCalculator.cs" />
     <Compile Include="Model\CalculatePrice\TotalTaxedPrice.cs" />
-    <Compile Include="Model\OccupancyOverview\DateTimeColumnSpan.cs" />
-    <Compile Include="Model\OccupancyOverview\GridOccupancyOverviewBasisCreator.cs" />
+    <Compile Include="Model\Object Values\DateTimeColumnSpan.cs" />
+    <Compile Include="Model\Object Values\FirstName.cs" />
+    <Compile Include="Model\Object Values\LastName.cs" />
+    <Compile Include="Model\Object Values\LicensePlateName.cs" />
+    <Compile Include="Model\Object Values\Name.cs" />
+    <Compile Include="Model\Object Values\PrefixName.cs" />
+    <Compile Include="Model\Object Values\StreetName.cs" />
+    <Compile Include="Model\OccupancyOverview\ElementAssigner\AssignDateTimeGrid.cs" />
+    <Compile Include="Model\OccupancyOverview\ElementAssigner\AssignEmptyGrid.cs" />
+    <Compile Include="Model\OccupancyOverview\ElementAssigner\AssignPitchGrid.cs" />
+    <Compile Include="Model\OccupancyOverview\ElementAssigner\AssignPitchIndexGrid.cs" />
+    <Compile Include="Model\OccupancyOverview\ElementAssigner\AssignReservationGrid.cs" />
+    <Compile Include="Model\OccupancyOverview\ElementAssigner\Elements\NotPaidRectangle.cs" />
+    <Compile Include="Model\OccupancyOverview\ElementAssigner\Elements\PaidRectangle.cs" />
+    <Compile Include="Model\OccupancyOverview\ElementAssigner\Elements\PitchHeaderTextblock.cs" />
+    <Compile Include="Model\OccupancyOverview\ElementAssigner\Elements\PitchIndexTextBlock.cs" />
+    <Compile Include="Model\OccupancyOverview\GridElementAssigner.cs" />
+    <Compile Include="Model\OccupancyOverview\GridGenerator.cs" />
+    <Compile Include="Model\OccupancyOverview\Interface\IAssignElement.cs" />
     <Compile Include="Model\OccupancyOverview\OccupancyOverview.cs" />
+    <Compile Include="Model\OccupancyOverview\Scope.cs" />
+    <Compile Include="Model\OccupancyOverview\ElementAssigner\Strategy\ArrivalAndDepartureAreOutsideScopeStrategy.cs" />
+    <Compile Include="Model\OccupancyOverview\ElementAssigner\Strategy\ArrivalAndDepartureIsWithinScopeStrategy.cs" />
+    <Compile Include="Model\OccupancyOverview\ElementAssigner\Strategy\ArrivalBeforeAndDepartureWithinScopeStrategy.cs" />
+    <Compile Include="Model\OccupancyOverview\ElementAssigner\Strategy\ArrivalIsInsideButDepartureIsOutsideScopeStrategy.cs" />
     <Compile Include="Model\Reservation\ContactDetail.cs" />
     <Compile Include="Model\Reservation\DurationOfStay.cs" />
     <Compile Include="Model\Guests\Child.cs" />
-    <Compile Include="Model\Guests\ExtraAdult.cs" />
     <Compile Include="Model\Guests\Guest.cs" />
     <Compile Include="Model\Guests\Pet.cs" />
-    <Compile Include="Model\Accomodations\House.cs" />
     <Compile Include="Model\Object Values\ID.cs" />
-    <Compile Include="Model\Names\LicensePlateName.cs" />
-    <Compile Include="Model\Names\FirstName.cs" />
-    <Compile Include="Model\Names\LastName.cs" />
-    <Compile Include="Model\Names\Name.cs" />
-    <Compile Include="Model\Names\PrefixName.cs" />
     <Compile Include="Model\Object Values\Price.cs" />
     <Compile Include="Model\Reservation\PaidStatus.cs" />
     <Compile Include="Model\Reservation\PriceStructure.cs" />
     <Compile Include="Model\Reservation\Reservation.cs" />
-    <Compile Include="Model\Names\StreetName.cs" />
     <Compile Include="Model\Reservation\ReservationPriceCalculator.cs" />
     <Compile Include="Model\Taxes\NormalTaxRate.cs" />
     <Compile Include="Model\Taxes\TaxRate.cs" />
     <Compile Include="Model\Taxes\TourismTaxRate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModel\AccomodationFactory.cs" />
     <Compile Include="ViewModel\CreateReservationViewModel.cs" />
+    <Compile Include="ViewModel\Factory\AccomodationFactory.cs" />
+    <Compile Include="ViewModel\Factory\GuestFactory.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="ViewModel\VisualOccupancyOverviewViewModel.cs" />
+    <Compile Include="View\Controls\OccupancyOverview.xaml.cs" />
     <Compile Include="View\CreateReservation.xaml.cs">
       <DependentUpon>CreateReservation.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\VisualOccupancyOverview.xaml.cs">
       <DependentUpon>VisualOccupancyOverview.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\VisualReservation.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -194,6 +218,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\Controls\OccupancyOverview.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\CreateReservation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -201,6 +229,10 @@
     <Page Include="View\VisualOccupancyOverview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\VisualReservation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

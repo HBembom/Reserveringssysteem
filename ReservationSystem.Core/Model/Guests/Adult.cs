@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ReservationSystem.Core.Model.Guests
 {
-    internal class ExtraAdult : Guest
+    internal class Adult : Guest
     {
-        public ExtraAdult(Price price, AmmountOfNights ammountOfNights) : base(price, ammountOfNights)
+        public Adult(Price price, AmmountOfNights ammountOfNights) : base(price, ammountOfNights)
         {
         }
     }

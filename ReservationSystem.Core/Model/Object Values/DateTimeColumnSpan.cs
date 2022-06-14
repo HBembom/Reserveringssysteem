@@ -4,8 +4,8 @@ namespace ReservationSystem.Core.Model.OccupancyOverview
 {
     public class DateTimeColumnSpan
     {
-        public int ColumnNumber;
-        public DateTime DateTime;
+        public readonly int ColumnNumber;
+        public readonly DateTime DateTime;
         public DateTimeColumnSpan(DateTime dateTime, int columnNumber)
         {
             this.DateTime = dateTime;

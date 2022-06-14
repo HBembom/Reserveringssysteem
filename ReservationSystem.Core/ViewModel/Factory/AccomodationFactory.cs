@@ -15,7 +15,6 @@ namespace ReservationSystem.Core.ViewModel
                 case nameof(House):
                     return new House();
                 
-
                 default: throw new ArgumentException(nameof(accomodation));
             }
         }
