@@ -12,7 +12,7 @@ namespace ReserveeringsSysteemApi.Models
 {
     public class Profits
     {
-        public double Profit { get; set; }
+        public double AmountOfProfit { get; set; }
         [MaybeNull]
         public int Period { get; set; }
         internal DbConnector Connector { get; set; }
@@ -72,7 +72,7 @@ namespace ReserveeringsSysteemApi.Models
                 {
                     var profit = new Profits(Connector)
                     {
-                        Profit = reader.GetDouble(0)
+                        AmountOfProfit = reader.GetDouble(0)
                     };
                     profits.Add(profit);
                 }
@@ -89,7 +89,7 @@ namespace ReserveeringsSysteemApi.Models
                 {
                     var profit = new Profits(Connector)
                     {
-                        Profit = reader.GetDouble(0),
+                        AmountOfProfit = reader.GetDouble(0),
                         Period = reader.GetInt32(1)
                     };
                     profits.Add(profit);

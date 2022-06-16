@@ -119,6 +119,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Clients\ProfitsClient.cs" />
     <Compile Include="Commands\AddAccomodationCommand.cs" />
     <Compile Include="Commands\AddGuestCommand.cs" />
     <Compile Include="Commands\CommandBase.cs" />
@@ -126,6 +127,12 @@
     <Compile Include="Commands\GetNextWeekCommand.cs" />
     <Compile Include="Commands\GetPreviousWeekCommand.cs" />
     <Compile Include="Commands\ViewReservationCommand.cs" />
+    <Compile Include="Clients\AccommodationClient.cs" />
+    <Compile Include="Clients\Client.cs" />
+    <Compile Include="Clients\GuestClient.cs" />
+    <Compile Include="Clients\OccupanciesClient.cs" />
+    <Compile Include="Clients\PricesClient.cs" />
+    <Compile Include="Clients\ReservationsClient.cs" />
     <Compile Include="GuestFactory.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -189,6 +196,9 @@
     <Compile Include="View\CreateReservation.xaml.cs">
       <DependentUpon>CreateReservation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\FetchTest.xaml.cs">
+      <DependentUpon>FetchTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\VisualOccupancyOverview.xaml.cs">
       <DependentUpon>VisualOccupancyOverview.xaml</DependentUpon>
     </Compile>
@@ -226,6 +236,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\FetchTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\VisualOccupancyOverview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -236,8 +250,14 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client">
+      <Version>5.2.9</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.12</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />
