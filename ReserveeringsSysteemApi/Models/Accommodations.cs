@@ -10,6 +10,7 @@ namespace ReserveeringsSysteemApi.Models
     public class Accommodations
     {
         public int AccommodationId { get; set; }
+        public double Price { get; set; }
         public string AccommodationType { get; set; }
         internal DbConnector Connector { get; set; }
 
@@ -22,7 +23,7 @@ namespace ReserveeringsSysteemApi.Models
         public async Task InsertAccommodation()
         {
             await using var command = Connector.Conn.CreateCommand();
-            command.CommandText = "INSERT INTO `accommodations` (AccommodationType) VALUES (@AccommodationType)";
+            command.CommandText = "INSERT INTO `accommodations` (AccommodationType, Price) VALUES (@AccommodationType, @Price)";
             AddAccommodationsParameters(command);
             await command.ExecuteNonQueryAsync();
             AccommodationId = (int)command.LastInsertedId;
@@ -78,6 +79,13 @@ namespace ReserveeringsSysteemApi.Models
                 DbType = DbType.String,
                 Value = AccommodationType
             });
+
+            command.Parameters.Add(new MySqlParameter
+            {
+                ParameterName = @"Price",
+                DbType = DbType.Double,
+                Value = Price
+            });
         }
         private void AddAccommodationsId(MySqlCommand command)
         {
@@ -99,7 +107,8 @@ namespace ReserveeringsSysteemApi.Models
                     var accommodation = new Accommodations(Connector)
                     {
                         AccommodationId = reader.GetInt32(0),
-                        AccommodationType = reader.GetString(1)
+                        Price = reader.GetDouble(1),
+                        AccommodationType = reader.GetString(2)
                     };
                     accommodations.Add(accommodation);
                 }
