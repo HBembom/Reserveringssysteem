@@ -2,9 +2,11 @@
 using ReservationSystem.Core.Model.OccupancyOverview.ReservationSystem.Core.Model.OccupancyOverview;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -14,6 +16,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using ReservationSystem.Core.Clients;
+using Guest = ReservationSystem.Core.Model.Guest;
+using Reservation = ReservationSystem.Core.Model.Reservation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -25,7 +30,8 @@ namespace ReservationSystem.Core
     public  partial class MainPage : Page
     {
         public OccupancyOverview occupancyOverview;
-
+        private readonly AccommodationClient _accommodationsClient = new AccommodationClient();
+        private readonly ReservationsClient _reservationsClient = new ReservationsClient();
         Reservation reservation = new Reservation(
                     new DurationOfStay(
                         new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(-1),
@@ -43,19 +49,18 @@ namespace ReservationSystem.Core
                         new LicensePlateName("BlaBla")),
                     new List<Guest>()
                     );
+
+        private int accomodationsAmount;
+       
         public MainPage()
         {
+            this.InitializeComponent();
             reservation.hasPaid.Paid();
-            List<Accomodation> Accomodations = new List<Accomodation>()
+            List<Accomodation> Accomodations = new List<Accomodation>();
+            for (var i = 0; i < cache.AccommodationModels.Count; i++)
             {
-              new Camper(1),
-              new Camper(2),
-              new Camper(3),
-              new Camper(4),
-              new Camper(5),
-              new Camper(6),
-              new Camper(7)
-            };
+                Accomodations.Add(new Camper(i));
+            }
 
             List<Reservation> Reservations = new List<Reservation>()
             {
@@ -124,8 +129,6 @@ namespace ReservationSystem.Core
             };
 
             occupancyOverview = new OccupancyOverview(Accomodations.Count, Reservations, new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day));
-
-            this.InitializeComponent();
             this.Content = occupancyOverview.Draw();
             
         }
