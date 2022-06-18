@@ -23,57 +23,74 @@ namespace ReservationSystem.Core.Commands
 
         public override void Execute(object parameter)
         {
-            
-                if (_createreservation.NumberOfNights <= 0)
+                if (_createreservation.ExtraGuest.NumberOfNights <= 0)
                 {
                     throw new ArgumentException("Guest cannot stay zero or less nights");
                 }
-                Guest guest = _guestFactory.Create(_createreservation.SelectedGuest, _createreservation.NumberOfNights);
+                Guest guest = _guestFactory.Create(_createreservation.ExtraGuest.SelectedGuest, _createreservation.ExtraGuest.NumberOfNights);
 
-                if (_createreservation.SelectedGuest.Equals(nameof(Pet)))
+                if (_createreservation.ExtraGuest.SelectedGuest.Equals(nameof(Pet)))
                 {
-                    _createreservation.Guests.Add(guest);
-                    _createreservation.NumberOfPets = _createreservation.Guests.Count;
-                    _createreservation.TotalAmountOfNightExtraPets += guest.AmmountOfNights.Value;
-                    _createreservation.TotalPetPrice = _createreservation.NumberOfPets * (_createreservation.TotalAmountOfNightExtraPets * _createreservation.PetPricePerNight);
-                    _createreservation.TotalPrice += _createreservation.TotalPetPrice;
-                    TotalNormalTaxPriceCalculator normalTax = new TotalNormalTaxPriceCalculator(new Price(_createreservation.TotalPrice));
-                    TotalTourismTaxPriceCalculator tourismTax = new TotalTourismTaxPriceCalculator(new Price(_createreservation.TotalPrice));
-                    _createreservation.Tax = normalTax.Price.Value;
-                    _createreservation.TouristTax = tourismTax.Price.Value;
-                    _createreservation.NetProfit = _createreservation.TotalPrice;
+                    AddPet(guest);
                 }
-                else if (_createreservation.SelectedGuest.Equals(nameof(Child)))
+                else if (_createreservation.ExtraGuest.SelectedGuest.Equals(nameof(Child)))
                 {
-                    _createreservation.Guests.Add(guest);
-                    _createreservation.NumberOfChilds = _createreservation.Guests.Count;
-                    _createreservation.TotalAmountOfNightExtraChilds += guest.AmmountOfNights.Value;
-                    _createreservation.TotalChildPrice = _createreservation.NumberOfChilds * (_createreservation.TotalAmountOfNightExtraChilds * _createreservation.ChildPricePerNight);
-                    _createreservation.TotalPrice += _createreservation.TotalChildPrice;
-                    TotalNormalTaxPriceCalculator normalTax = new TotalNormalTaxPriceCalculator(new Price(_createreservation.TotalPrice));
-                    TotalTourismTaxPriceCalculator tourismTax = new TotalTourismTaxPriceCalculator(new Price(_createreservation.TotalPrice));
-                    _createreservation.Tax = normalTax.Price.Value;
-                    _createreservation.TouristTax = tourismTax.Price.Value;
-                    _createreservation.NetProfit = _createreservation.TotalPrice;
+                    AddChild(guest);
 
                 }
-                else if (_createreservation.SelectedGuest.Equals(nameof(Adult)))
+                else if (_createreservation.ExtraGuest.SelectedGuest.Equals(nameof(Adult)))
                 {
-                    _createreservation.Guests.Add(guest);
-                    _createreservation.NumberOfAdults = _createreservation.Guests.Count;
-                    _createreservation.TotalAmountOfNightExtraAdults += guest.AmmountOfNights.Value;
-                    _createreservation.TotalAdultPrice = _createreservation.NumberOfAdults * (_createreservation.TotalAmountOfNightExtraAdults * _createreservation.AdultPricePerNight);
-                    _createreservation.TotalPrice += _createreservation.TotalAdultPrice;
-                    TotalNormalTaxPriceCalculator normalTax = new TotalNormalTaxPriceCalculator(new Price(_createreservation.TotalPrice));
-                    TotalTourismTaxPriceCalculator tourismTax = new TotalTourismTaxPriceCalculator(new Price(_createreservation.TotalPrice));
-                    _createreservation.Tax = normalTax.Price.Value;
-                    _createreservation.TouristTax = tourismTax.Price.Value;
-                    _createreservation.NetProfit = _createreservation.TotalPrice;
+                    AddAdult(guest);
+                }
 
-            }
+                _createreservation.ExtraGuest.NumberOfNights = 0;
+        }
 
-            _createreservation.NumberOfNights = 0;
-            
+        private void AddAdult(Guest guest)
+        {
+            _createreservation.ExtraGuest.Guests.Add(guest);
+            ++_createreservation.PriceStructure.NumberOfAdults;
+            _createreservation.PriceStructure.TotalAmountOfNightExtraAdults += guest.AmmountOfNights.Value;
+            _createreservation.PriceStructure.TotalAdultPrice = _createreservation.PriceStructure.TotalAmountOfNightExtraAdults * _createreservation.PriceStructure.AdultPricePerNight;
+            _createreservation.PriceStructure.TotalPrice = GetTotalPrice();
+            TotalNormalTaxPriceCalculator normalTax = new TotalNormalTaxPriceCalculator(new Price(_createreservation.PriceStructure.TotalPrice));
+            TotalTourismTaxPriceCalculator tourismTax = new TotalTourismTaxPriceCalculator(new Price(_createreservation.PriceStructure.TotalPrice));
+            _createreservation.PriceStructure.Tax = normalTax.Price.Value;
+            _createreservation.PriceStructure.TouristTax = tourismTax.Price.Value;
+            _createreservation.PriceStructure.NetProfit = _createreservation.PriceStructure.TotalPrice;
+        }
+
+        private void AddChild(Guest guest)
+        {
+            _createreservation.ExtraGuest.Guests.Add(guest);
+            ++_createreservation.PriceStructure.NumberOfChilds;
+            _createreservation.PriceStructure.TotalAmountOfNightExtraChilds += guest.AmmountOfNights.Value;
+            _createreservation.PriceStructure.TotalChildPrice = _createreservation.PriceStructure.TotalAmountOfNightExtraChilds * _createreservation.PriceStructure.ChildPricePerNight;
+            _createreservation.PriceStructure.TotalPrice = GetTotalPrice();
+            TotalNormalTaxPriceCalculator normalTax = new TotalNormalTaxPriceCalculator(new Price(_createreservation.PriceStructure.TotalPrice));
+            TotalTourismTaxPriceCalculator tourismTax = new TotalTourismTaxPriceCalculator(new Price(_createreservation.PriceStructure.TotalPrice));
+            _createreservation.PriceStructure.Tax = normalTax.Price.Value;
+            _createreservation.PriceStructure.TouristTax = tourismTax.Price.Value;
+            _createreservation.PriceStructure.NetProfit = _createreservation.PriceStructure.TotalPrice;
+        }
+
+        private void AddPet(Guest guest)
+        {
+            _createreservation.ExtraGuest.Guests.Add(guest);
+            ++_createreservation.PriceStructure.NumberOfPets;
+            _createreservation.PriceStructure.TotalAmountOfNightExtraPets += guest.AmmountOfNights.Value;
+            _createreservation.PriceStructure.TotalPetPrice = _createreservation.PriceStructure.TotalAmountOfNightExtraPets * _createreservation.PriceStructure.PetPricePerNight;
+            _createreservation.PriceStructure.TotalPrice = GetTotalPrice();
+            TotalNormalTaxPriceCalculator normalTax = new TotalNormalTaxPriceCalculator(new Price(_createreservation.PriceStructure.TotalPrice));
+            TotalTourismTaxPriceCalculator tourismTax = new TotalTourismTaxPriceCalculator(new Price(_createreservation.PriceStructure.TotalPrice));
+            _createreservation.PriceStructure.Tax = normalTax.Price.Value;
+            _createreservation.PriceStructure.TouristTax = tourismTax.Price.Value;
+            _createreservation.PriceStructure.NetProfit = _createreservation.PriceStructure.TotalPrice;
+        }
+
+        private double GetTotalPrice()
+        {
+            return (_createreservation.PriceStructure.TotalCamperPrice + _createreservation.PriceStructure.TotalChildPrice + _createreservation.PriceStructure.TotalAdultPrice + _createreservation.PriceStructure.TotalPetPrice);
         }
     }
 }

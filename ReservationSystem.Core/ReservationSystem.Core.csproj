@@ -122,6 +122,8 @@
     <Compile Include="Clients\ProfitsClient.cs" />
     <Compile Include="Commands\AddAccomodationCommand.cs" />
     <Compile Include="Commands\AddGuestCommand.cs" />
+    <Compile Include="Commands\Builder\Interface\IBuilder.cs" />
+    <Compile Include="Commands\Builder\ReservationBuilder.cs" />
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\CreateReservationCommand.cs" />
     <Compile Include="Commands\GetNextWeekCommand.cs" />
@@ -187,20 +189,18 @@
     <Compile Include="Model\Taxes\TaxRate.cs" />
     <Compile Include="Model\Taxes\TourismTaxRate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModel\CreateReservationViewModel.cs" />
+    <Compile Include="ViewModel\CreateReservationViewModel\Accomodations.cs" />
+    <Compile Include="ViewModel\CreateReservationViewModel\CreateReservationViewModel.cs" />
+    <Compile Include="ViewModel\CreateReservationViewModel\ExtraGuest.cs" />
     <Compile Include="ViewModel\Factory\AccomodationFactory.cs" />
     <Compile Include="ViewModel\Factory\GuestFactory.cs" />
+    <Compile Include="ViewModel\CreateReservationViewModel\GuestInformation.cs" />
+    <Compile Include="ViewModel\CreateReservationViewModel\ReservationPriceStructure.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
-    <Compile Include="ViewModel\VisualOccupancyOverviewViewModel.cs" />
+    <Compile Include="ViewModel\OccupancyOverviewUserControl.cs" />
     <Compile Include="View\Controls\OccupancyOverview.xaml.cs" />
     <Compile Include="View\CreateReservation.xaml.cs">
       <DependentUpon>CreateReservation.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\FetchTest.xaml.cs">
-      <DependentUpon>FetchTest.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\VisualOccupancyOverview.xaml.cs">
-      <DependentUpon>VisualOccupancyOverview.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\VisualReservation.xaml.cs" />
   </ItemGroup>
@@ -233,14 +233,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\CreateReservation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\FetchTest.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\VisualOccupancyOverview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,4 +1,5 @@
 ﻿using ReservationSystem.Core.Model;
+using ReservationSystem.Core.Model.CalculatePrice;
 using ReservationSystem.Core.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -22,30 +23,41 @@ namespace ReservationSystem.Core.Commands
         public override void Execute(object parameter)
         {
 
-            //foreach (Accomodation accomodation1 in _createReservationViewModel.Accomodations)
-            //{
-            //    if (accomodation1.ID.value == id)
-            //    {
-            //        throw new ArgumentException("Id Already taken for chosen period");
-            //    }
-            //}
-            //// need get and setters in _createreservation for accomdatointype
-            //Accomodation accomodation = _accomodationFactory.Create(_createReservationViewModel.AccomodationType, id);
+            foreach (Accomodation accomodation1 in _createReservationViewModel.Accomodations.AccomodationsList)
+            {
+                if (accomodation1.ID.value == _createReservationViewModel.Accomodations.SelectedPitchNumber)
+                {
+                    throw new ArgumentException("Id Already taken for chosen period");
+                }
+            }
+            // need get and setters in _createreservation for accomdatointype
+            Accomodation accomodation = _accomodationFactory.Create(_createReservationViewModel.Accomodations.SelectedAccomodation, _createReservationViewModel.Accomodations.SelectedPitchNumber);
 
-            //if (_createReservationViewModelaccomodationType == nameof(Camper))
-            //{
-            //    _createReservationViewModel.Accomodations.Add(accomodation);
-            //    _createReservationViewModel.NumberOfCampers = _createReservationViewModel.Accomodations.Count;
-            //    _createReservationViewModel.TotalAmountOfNightCampers += (_createReservationViewModel.DepartureDateTime - _createReservationViewModel.ArrivalDateTime).Days;
-            //    _createReservationViewModel.TotalPrice += _createReservationViewModel.NumberOfCampers * _createReservationViewModel.TotalAmountOfNightCampers * 2;
-            //    _createReservationViewModel.TouristTax = new TotalTourismTaxPriceCalculator(new Price(_createReservationViewModel.TotalPrice)).Price.Value;
-            //    _createReservationViewModel.Tax = new TotalNormalTaxPriceCalculator(new Price(_createReservationViewModel.TotalPrice)).Price.Value;
-            //    _createReservationViewModel.NetProfit = new Price(_createReservationViewModel.TouristTax + _createReservationViewModel.Tax + _createReservationViewModel.TotalPrice).Value;
-            //}
-            //else if (accomodationType == nameof(House))
-            //{
-            //    // Not Yet Implemented
-            //}
+            if (_createReservationViewModel.Accomodations.SelectedAccomodation.Equals(nameof(Camper)))
+            {
+                _createReservationViewModel.Accomodations.AccomodationsList.Add(accomodation);
+                ++_createReservationViewModel.PriceStructure.NumberOfCampers;
+                _createReservationViewModel.PriceStructure.TotalAmountOfNightCampers += (_createReservationViewModel.Accomodations.DepartureDateTime - _createReservationViewModel.Accomodations.ArrivalDateTime).Days;
+                _createReservationViewModel.PriceStructure.TotalCamperPrice = _createReservationViewModel.PriceStructure.CamperPricePerNight * _createReservationViewModel.PriceStructure.TotalAmountOfNightCampers;
+                _createReservationViewModel.PriceStructure.TotalPrice = GetTotalPrice();
+                TotalTourismTaxPriceCalculator tourismTax = new TotalTourismTaxPriceCalculator(new Price(_createReservationViewModel.PriceStructure.TotalPrice));
+                TotalNormalTaxPriceCalculator normalTax = new TotalNormalTaxPriceCalculator(new Price(_createReservationViewModel.PriceStructure.TotalPrice));
+                _createReservationViewModel.PriceStructure.Tax = normalTax.Price.Value;
+                _createReservationViewModel.PriceStructure.TouristTax = tourismTax.Price.Value;
+                _createReservationViewModel.PriceStructure.NetProfit = _createReservationViewModel.PriceStructure.TotalPrice;
+            }
+            else if (_createReservationViewModel.Accomodations.SelectedAccomodation == nameof(House))
+            {
+                // Not Yet Implemented
+            }
+
+            _createReservationViewModel.Accomodations.SelectedPitchNumber = 1;
+
+        }
+
+        private double GetTotalPrice()
+        {
+            return (_createReservationViewModel.PriceStructure.TotalCamperPrice + _createReservationViewModel.PriceStructure.TotalChildPrice + _createReservationViewModel.PriceStructure.TotalAdultPrice + _createReservationViewModel.PriceStructure.TotalPetPrice);
         }
     }
 }

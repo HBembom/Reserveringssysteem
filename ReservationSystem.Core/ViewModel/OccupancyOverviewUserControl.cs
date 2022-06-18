@@ -13,14 +13,13 @@ using Windows.UI.Xaml.Controls;
 
 namespace ReservationSystem.Core.ViewModel
 {
-    internal class VisualOccupancyOverviewViewModel : INotifyPropertyChanged
+    internal class OccupancyOverviewUserControl : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
         public OccupancyOverview overview;
         public int _ammountOfAccomodations;
         public List<Reservation> _reservations;
-        public readonly Page page;
 
         public ICommand GetNextWeekCommand { get; set; }
         public ICommand GetPreviousWeekCommand { get; set; }
@@ -34,12 +33,7 @@ namespace ReservationSystem.Core.ViewModel
             set { _dateTimeScopeStart = value; OnPropertyChanged(nameof(DateTimeScopeStart)); }
         }
 
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public VisualOccupancyOverviewViewModel(Page page)
+        public OccupancyOverviewUserControl()
         {
             this.GetNextWeekCommand = new GetNextWeekCommand(this);
             this._ammountOfAccomodations = RetrieveAccomodations();
@@ -47,8 +41,11 @@ namespace ReservationSystem.Core.ViewModel
             this.DateTimeScopeStart = new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day);
             this._reservations = RetrieveReservations();
             this.overview = new OccupancyOverview(_ammountOfAccomodations, _reservations, _dateTimeScopeStart);
-            this.page = page;
-            page.Content = overview.Draw();
+        }
+
+           protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         private int RetrieveAccomodations()

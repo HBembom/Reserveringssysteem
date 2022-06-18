@@ -12,6 +12,8 @@ namespace ReservationSystem.Core.Model.OccupancyOverview
 
             public OccupancyOverview(int accomodations, List<Reservation> reservations, DateTime selectedWeek)
             {
+                // Need Api Calls for Accomodations amount and Reservations
+
                 _grid = new GridGenerator(accomodations).CreateGrid();
                 _grid = new GridElementAssigner(_grid, selectedWeek, reservations).AssignElements();
             }
@@ -20,6 +22,11 @@ namespace ReservationSystem.Core.Model.OccupancyOverview
             {
                 return _grid;
             }
+
+            //public Grid Update(DateTime indexDateTime)
+            //{
+                // Needs Api Call 
+            //}
         }
     }
 }

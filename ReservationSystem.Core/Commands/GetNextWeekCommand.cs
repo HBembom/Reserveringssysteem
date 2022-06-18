@@ -10,15 +10,14 @@ namespace ReservationSystem.Core.Commands
 {
     internal class GetNextWeekCommand : CommandBase
     {
-        private VisualOccupancyOverviewViewModel _viewModel;
-        public GetNextWeekCommand(VisualOccupancyOverviewViewModel viewModel)
+        private OccupancyOverviewUserControl _viewModel;
+        public GetNextWeekCommand(OccupancyOverviewUserControl viewModel)
         {
             _viewModel = viewModel;
         }
         public override void Execute(object parameter)
         {
-            _viewModel.overview = new OccupancyOverview(_viewModel._ammountOfAccomodations, _viewModel._reservations, _viewModel.DateTimeScopeStart.AddDays(7));
-            _viewModel.overview.Draw();
+            _viewModel.overview = new OccupancyOverview(_viewModel._ammountOfAccomodations, _viewModel._reservations, _viewModel.DateTimeScopeStart.AddDays(7)); 
         }
     }
 }

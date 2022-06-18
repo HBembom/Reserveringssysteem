@@ -5,8 +5,8 @@ namespace ReservationSystem.Core.Commands
 {
     internal class GetPreviousWeekCommand : CommandBase
     {
-        private VisualOccupancyOverviewViewModel _viewModel;
-        public GetPreviousWeekCommand(VisualOccupancyOverviewViewModel viewModel)
+        private OccupancyOverviewUserControl _viewModel;
+        public GetPreviousWeekCommand(OccupancyOverviewUserControl viewModel)
         {
             _viewModel = viewModel;
         }

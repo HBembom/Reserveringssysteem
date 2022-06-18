@@ -8,6 +8,6 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid Background="GreenYellow" Margin="-22,43,43,124">
+    <Grid Background="GreenYellow" Margin="21,60,0,84">
     </Grid>
 </UserControl>

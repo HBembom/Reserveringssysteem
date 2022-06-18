@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ReservationSystem.Core.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace ReservationSystem.Core.View.Controls
         public OccupancyOverview()
         {
             this.InitializeComponent();
+            this.Content = new OccupancyOverviewUserControl().overview.Draw();    
         }
     }
 }
