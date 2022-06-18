@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -31,6 +32,8 @@ namespace ReservationSystem.Core
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            cache.GetAccommodationsModels();
+            Thread.Sleep(3000);
         }
 
         /// <summary>
@@ -41,6 +44,7 @@ namespace ReservationSystem.Core
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
+          
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active

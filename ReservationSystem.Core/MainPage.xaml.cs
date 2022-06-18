@@ -51,22 +51,13 @@ namespace ReservationSystem.Core
                     );
 
         private int accomodationsAmount;
-        private void AddItemsToAccommodations()
-        {
-            var accommodationList = _accommodationsClient.GetAll();
-            accommodationList.Wait();
-            var a = accommodationList.Result;
-            accomodationsAmount = a.Count;
-        }
+       
         public MainPage()
         {
-           
-
             this.InitializeComponent();
-            AddItemsToAccommodations();
             reservation.hasPaid.Paid();
             List<Accomodation> Accomodations = new List<Accomodation>();
-            for (var i = 0; i < 0; i++)
+            for (var i = 0; i < cache.AccommodationModels.Count; i++)
             {
                 Accomodations.Add(new Camper(i));
             }

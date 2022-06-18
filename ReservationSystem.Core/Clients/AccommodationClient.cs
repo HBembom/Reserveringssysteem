@@ -26,12 +26,9 @@ namespace ReservationSystem.Core.Clients
 
         public async Task<List<AccommodationModel>> GetAll()
         {
-            var accommodationsList = new List<AccommodationModel>();
-            var res = await _client.GetAsync("http://localhost:57302/api/Accommodations");
-            res.EnsureSuccessStatusCode();
-            accommodationsList = await res.Content.ReadAsAsync<List<AccommodationModel>>();
-            // var accommodations = JsonConvert.DeserializeObject<List<AccommodationModel>>(res);
-            return accommodationsList;
+            var res = await _client.GetStringAsync("http://localhost:57302/api/Accommodations");
+            var accommodations = JsonConvert.DeserializeObject<List<AccommodationModel>>(res);
+            return accommodations;
         }
 
         public async Task Post(AccommodationModel accommodationModel)
