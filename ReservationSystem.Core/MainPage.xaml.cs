@@ -59,7 +59,7 @@ namespace ReservationSystem.Core
             List<Accomodation> Accomodations = new List<Accomodation>();
             for (var i = 0; i < Cache.AccommodationModels.Count; i++)
             {
-                Accomodations.Add(new Camper(i));
+                Accomodations.Add(new Camper(Cache.AccommodationModels[i].AccommodationId));
             }
 
             List<Reservation> Reservations = new List<Reservation>();
