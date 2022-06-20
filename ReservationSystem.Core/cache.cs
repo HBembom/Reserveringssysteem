@@ -7,18 +7,26 @@ using ReservationSystem.Core.Clients;
 
 namespace ReservationSystem.Core
 {
-    internal static class cache
+    internal static class Cache
     {
         public static List<AccommodationModel> AccommodationModels;
-        private static AccommodationClient _accommodationClient = new AccommodationClient();
-         static cache()
+        public static List<ReservationModel> ReservationModels;
+        private static readonly AccommodationClient AccommodationClient = new AccommodationClient();
+        private static readonly ReservationsClient ReservationClient = new ReservationsClient();
+         static Cache()
          {
              AccommodationModels = new List<AccommodationModel>();
+             ReservationModels = new List<ReservationModel>();
          }
 
-         public static async void GetAccommodationsModels()
+         public static async void SetAccommodationModels()
          {
-             AccommodationModels = await _accommodationClient.GetAll();
+             AccommodationModels = await AccommodationClient.GetAll();
+         }
+         
+         public static async void SetReservationModels()
+         {
+            ReservationModels = await ReservationClient.GetAll();
 
         }
     }

@@ -30,10 +30,13 @@ namespace ReservationSystem.Core
         /// </summary>
         public App()
         {
+            // var splashScreen = new SplashScreen("\\Z.png");
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-            cache.GetAccommodationsModels();
-            Thread.Sleep(3000);
+            Cache.SetAccommodationModels();
+            Thread.Sleep(2500);
+            Cache.SetReservationModels();
+            Thread.Sleep(2500);
         }
 
         /// <summary>

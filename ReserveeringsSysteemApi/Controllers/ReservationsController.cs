@@ -55,10 +55,10 @@ namespace ReserveeringsSysteemApi.Controllers
             }
             res.FirstName = body.FirstName;
             res.LastName = body.LastName;
-            res.Address = body.Address;
-            res.Email = body.Email;
-            res.Phone = body.Phone;
+            res.PrefixName = body.PrefixName;
+            res.LicensePlateName = body.LicensePlateName;
             res.ArrivalDate = body.ArrivalDate;
+            res.StreetName = body.StreetName;
             res.DepartureDate = body.DepartureDate;
             res.AccommodationId = body.AccommodationId;
             res.AmountOfExtraAdults = body.AmountOfExtraAdults;
