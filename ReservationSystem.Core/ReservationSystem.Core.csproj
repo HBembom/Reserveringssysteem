@@ -197,7 +197,7 @@
     <Compile Include="ViewModel\CreateReservationViewModel\GuestInformation.cs" />
     <Compile Include="ViewModel\CreateReservationViewModel\ReservationPriceStructure.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
-    <Compile Include="ViewModel\OccupancyOverviewUserControl.cs" />
+    <Compile Include="View\Controls\OccupancyOverviewUserControl.cs" />
     <Compile Include="View\Controls\OccupancyOverview.xaml.cs" />
     <Compile Include="View\CreateReservation.xaml.cs">
       <DependentUpon>CreateReservation.xaml</DependentUpon>

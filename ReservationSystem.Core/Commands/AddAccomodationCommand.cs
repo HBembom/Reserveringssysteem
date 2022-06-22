@@ -30,7 +30,7 @@ namespace ReservationSystem.Core.Commands
                     throw new ArgumentException("Id Already taken for chosen period");
                 }
             }
-            // need get and setters in _createreservation for accomdatointype
+            // need get and setters in _createreservation for accomdationntype
             Accomodation accomodation = _accomodationFactory.Create(_createReservationViewModel.Accomodations.SelectedAccomodation, _createReservationViewModel.Accomodations.SelectedPitchNumber);
 
             if (_createReservationViewModel.Accomodations.SelectedAccomodation.Equals(nameof(Camper)))

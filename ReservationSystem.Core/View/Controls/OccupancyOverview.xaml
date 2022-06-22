@@ -8,6 +8,7 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid Background="GreenYellow" Margin="21,60,0,84">
+    <Grid Background="GreenYellow" Margin="21,60,0,10">
+        <Button Content="Next Week" Command="{Binding GetNextWeekCommand}" Height="15" Width="41" Margin="46,186,0,0" VerticalAlignment="Top"></Button>
     </Grid>
 </UserControl>

@@ -17,7 +17,8 @@ namespace ReservationSystem.Core.Commands
         }
         public override void Execute(object parameter)
         {
-            _viewModel.overview = new OccupancyOverview(_viewModel._ammountOfAccomodations, _viewModel._reservations, _viewModel.DateTimeScopeStart.AddDays(7)); 
+            _viewModel.DateTimeScopeStart = _viewModel.DateTimeScopeStart.AddDays(7);
+            _viewModel.overview.Update(_viewModel.DateTimeScopeStart);   
         }
     }
 }
