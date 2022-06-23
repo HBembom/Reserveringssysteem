@@ -59,6 +59,20 @@ namespace ReserveeringsSysteemApi.Models
 
             return res.Count > 0 ? res[0] : null;
         }
+        public async Task<Reservations> SelectReservationByAccommodation(int id)
+        {
+            await using var command = Connector.Conn.CreateCommand();
+            command.CommandText = $@"SELECT * FROM `reservations` WHERE `AccommodationId` LIKE '%{id}%'";
+            command.Parameters.Add(new MySqlParameter
+            {
+                ParameterName = "@AccommodationId",
+                DbType = DbType.Int32,
+                Value = id,
+            });
+            var res = await ReadAllReservations(await command.ExecuteReaderAsync());
+
+            return res.Count > 0 ? res[0] : null;
+        }
 
         public async Task<List<Reservations>> SelectAllReservations()
         {
