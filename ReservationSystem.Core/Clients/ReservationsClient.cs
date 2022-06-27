@@ -41,6 +41,13 @@ namespace ReservationSystem.Core.Clients
             var res = await _client.GetStringAsync("http://localhost:57302/api/Reservations");
             var reservations = JsonConvert.DeserializeObject<List<ReservationModel>>(res);
             return reservations;
+        } 
+
+        public async Task<List<ReservationModel>> GetByAccommodation(int id)
+        {
+            var res = await _client.GetStringAsync("http://localhost:57302/api/get_reservation_by_accommodation/" + id);
+            var reservations = JsonConvert.DeserializeObject<List<ReservationModel>>(res);
+            return reservations;
         }
 
         public async Task Post(ReservationModel reservationModel)
