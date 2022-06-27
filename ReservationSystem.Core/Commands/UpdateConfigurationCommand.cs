@@ -10,7 +10,7 @@ namespace ReservationSystem.Core.Commands
     internal class UpdateConfigurationCommand : CommandBase
     {
         private PriceConfigurationControl _control;
-        private 
+        
         public UpdateConfigurationCommand(PriceConfigurationControl control)
         {
             PriceConfigurationControl _control = control;

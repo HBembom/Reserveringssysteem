@@ -55,41 +55,17 @@ namespace ReservationSystem.Core.View.Controls
 
         public PriceConfigurationControl()
         {
-            //AdultPrice = _pricesClient.GetById(1);
-            //ChildPrice = GetChildPrice();
-            //PetPrice = GetPetPrice();
-            //NormalTax = GetNormalTax();
-            //TourismTax = GetTourismTax();
-        }
-
-        private double GetTourismTax()
-        {
-            throw new NotImplementedException();
-        }
-
-        private double GetNormalTax()
-        {
-            throw new NotImplementedException();
-        }
-
-        private double GetPetPrice()
-        {
-            throw new NotImplementedException();
-        }
-
-        private double GetChildPrice()
-        {
-            throw new NotImplementedException();
-        }
-
-        private double GetAdultPrice()
-        {
-            throw new NotImplementedException();
+            _pricesClient = new PricesClient();
+            //AdultPrice = _pricesClient.GetById("Adult");
+            //ChildPrice = GetChildPrice("Child");
+            //PetPrice = GetPetPrice("Pet");
+            //NormalTax = GetNormalTax("NormalTax");
+            //TourismTax = GetTourismTax("TourismTax");
         }
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 }
 }

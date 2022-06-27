@@ -17,6 +17,6 @@
 
         <Grid Grid.Column="0">
         </Grid>
-        <local1:PriceConfiguration></local1:PriceConfiguration>
+        <local1:PriceConfiguration Margin="234,0,0,0"></local1:PriceConfiguration>
     </Grid>
 </Page>
