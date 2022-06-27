@@ -4,11 +4,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ReservationSystem.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local1="using:ReservationSystem.Core.View.Controls"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="375*"></ColumnDefinition>
+            <ColumnDefinition Width="34*"></ColumnDefinition>
+            <ColumnDefinition Width="341*"/>
+        </Grid.ColumnDefinitions>
 
+        <Grid Grid.Column="0">
+        </Grid>
+        <local1:PriceConfiguration></local1:PriceConfiguration>
     </Grid>
 </Page>
