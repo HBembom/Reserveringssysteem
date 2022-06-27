@@ -33,8 +33,6 @@ namespace ReservationSystem.Core.Model.OccupancyOverview
             this._assignPitchIndexGrid = new AssignPitchIndexGrid(_grid);
             this._rows = _grid.RowDefinitions.Count;
             this._columns = _grid.ColumnDefinitions.Count;     
-
-
         }
 
         public Grid AssignElements()

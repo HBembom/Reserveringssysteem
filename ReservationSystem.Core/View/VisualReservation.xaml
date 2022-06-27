@@ -5,13 +5,13 @@
     xmlns:local="using:ReservationSystem.Core.View.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local1="using:ReservationSystem.Core.View.Controls"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    
-        <Grid RenderTransformOrigin="0.538,0.505">
-            <local:OccupancyOverview Margin="339,221,219,146" Loaded="OccupancyOverview_Loaded"></local:OccupancyOverview>
-        </Grid>
-    
+
+    <Grid RenderTransformOrigin="0.538,0.505">
+
+    </Grid>
 </Page>
 
 

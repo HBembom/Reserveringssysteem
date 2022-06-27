@@ -26,7 +26,6 @@ namespace ReservationSystem.Core.View
         public VisualReservation()
         {
             this.InitializeComponent();
-            this.DataContext = new VisualOccupancyOverviewViewModel(this);
         }
 
         private void OccupancyOverview_Loaded(object sender, RoutedEventArgs e)
