@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace ReservationSystem.Core.Clients
 {
-    public class Guest
+    public class GuestModel
     {
         public int GuestId { get; set; }
         public int AmountOfDays { get; set; }
@@ -19,29 +19,29 @@ namespace ReservationSystem.Core.Clients
     {
         private readonly HttpClient _client = new HttpClient();
 
-        public async Task<Guest> GetById(int id)
+        public async Task<GuestModel> GetById(int id)
         {
             var res = await _client.GetStringAsync("http://localhost:57302/api/Guests/" + id);
-            var guest = JsonConvert.DeserializeObject<Guest>(res);
+            var guest = JsonConvert.DeserializeObject<GuestModel>(res);
             return guest;
         }
 
-        public async Task<List<Guest>> GetAll()
+        public async Task<List<GuestModel>> GetAll()
         {
             var res = await _client.GetStringAsync("http://localhost:57302/api/Guests");
-            var guests = JsonConvert.DeserializeObject<List<Guest>>(res);
+            var guests = JsonConvert.DeserializeObject<List<GuestModel>>(res);
             return guests;
         }
 
-        public async Task Post(Guest guest)
+        public async Task Post(GuestModel guestModel)
         {
-            var res = await _client.PostAsJsonAsync("http://localhost:57302/api/Guests/", guest);
+            var res = await _client.PostAsJsonAsync("http://localhost:57302/api/Guests/", guestModel);
             res.EnsureSuccessStatusCode();
         }
 
-        public async Task Put(int id, Guest guest)
+        public async Task Put(int id, GuestModel guestModel)
         {
-            var res = await _client.PutAsJsonAsync("http://localhost:57302/api/Guests/" + id, guest);
+            var res = await _client.PutAsJsonAsync("http://localhost:57302/api/Guests/" + id, guestModel);
             res.EnsureSuccessStatusCode();
         }
 

@@ -8,16 +8,16 @@ using Newtonsoft.Json;
 
 namespace ReservationSystem.Core.Clients
 {
-    public class Reservation 
+    public class ReservationModel 
     {
         public int ReservationId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Address { get; set; }
-        public string Email { get; set; }
-        public int Phone { get; set; }
-        public string ArrivalDate { get; set; }
-        public string DepartureDate { get; set; }
+        public string PrefixName { get; set; }
+        public string StreetName { get; set; }
+        public string LicensePlateName { get; set; }
+        public DateTime ArrivalDate { get; set; }
+        public DateTime DepartureDate { get; set; }
         public int[] AccommodationId { get; set; }
         public int AmountOfExtraAdults { get; set; }
         public int AmountOfExtraChildren { get; set; }
@@ -29,29 +29,29 @@ namespace ReservationSystem.Core.Clients
     {
         private readonly HttpClient _client = new HttpClient();
 
-        public async Task<Reservation> GetById(int id)
+        public async Task<ReservationModel> GetById(int id)
         {
             var res = await _client.GetStringAsync("http://localhost:57302/api/Reservations/" + id);
-            var reservation = JsonConvert.DeserializeObject<Reservation>(res);
+            var reservation = JsonConvert.DeserializeObject<ReservationModel>(res);
             return reservation;
         }
 
-        public async Task<List<Reservation>> GetAll()
+        public async Task<List<ReservationModel>> GetAll()
         {
             var res = await _client.GetStringAsync("http://localhost:57302/api/Reservations");
-            var reservations = JsonConvert.DeserializeObject<List<Reservation>>(res);
+            var reservations = JsonConvert.DeserializeObject<List<ReservationModel>>(res);
             return reservations;
         }
 
-        public async Task Post(Reservation reservation)
+        public async Task Post(ReservationModel reservationModel)
         {
-            var res = await _client.PostAsJsonAsync("http://localhost:57302/api/Reservations/", reservation);
+            var res = await _client.PostAsJsonAsync("http://localhost:57302/api/Reservations/", reservationModel);
             res.EnsureSuccessStatusCode();
         }
 
-        public async Task Put(int id, Reservation reservation)
+        public async Task Put(int id, ReservationModel reservationModel)
         {
-            var res = await _client.PutAsJsonAsync("http://localhost:57302/api/Reservations/" + id, reservation);
+            var res = await _client.PutAsJsonAsync("http://localhost:57302/api/Reservations/" + id, reservationModel);
             res.EnsureSuccessStatusCode();
         }
 

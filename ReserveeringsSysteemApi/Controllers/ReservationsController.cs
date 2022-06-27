@@ -34,6 +34,16 @@ namespace ReserveeringsSysteemApi.Controllers
             return res == null ? new NotFoundResult() : new OkObjectResult(res);
         }
 
+        [HttpGet("/api/get_reservation_by_accommodation/{AccommodationId}")]
+        public async Task<IActionResult> GetReservationByAccommodation(int AccommodationId)
+        {
+            await Connector.Conn.OpenAsync();
+            var model = new Reservations(Connector);
+            var res = await model.SelectReservationByAccommodation(AccommodationId);
+
+            return res == null ? new NotFoundResult() : new OkObjectResult(res);
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetAllReservations()
         {
@@ -43,7 +53,7 @@ namespace ReserveeringsSysteemApi.Controllers
             return res == null ? new NotFoundResult() : new OkObjectResult(res);
         }
 
-        [HttpPut("{ReservationId}")]
+        [HttpPut("{AccommodationId}")]
         public async Task<IActionResult> UpdateReservationById(int ReservationId, [FromBody] Reservations body)
         {
             await Connector.Conn.OpenAsync();
@@ -55,10 +65,10 @@ namespace ReserveeringsSysteemApi.Controllers
             }
             res.FirstName = body.FirstName;
             res.LastName = body.LastName;
-            res.Address = body.Address;
-            res.Email = body.Email;
-            res.Phone = body.Phone;
+            res.PrefixName = body.PrefixName;
+            res.LicensePlateName = body.LicensePlateName;
             res.ArrivalDate = body.ArrivalDate;
+            res.StreetName = body.StreetName;
             res.DepartureDate = body.DepartureDate;
             res.AccommodationId = body.AccommodationId;
             res.AmountOfExtraAdults = body.AmountOfExtraAdults;
@@ -70,7 +80,7 @@ namespace ReserveeringsSysteemApi.Controllers
             return new OkObjectResult(res);
         }
 
-        [HttpDelete("{ReservationId}")]
+        [HttpDelete("{AccommodationId}")]
         public async Task<IActionResult> DeleteReservationById(int ReservationId)
         {
             await Connector.Conn.OpenAsync();

@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace ReservationSystem.Core.Clients
 {
-    public class Occupancy
+    public class OccupancyModel
     {
         public int OccupancyId { get; set; }
         public int AccommodationId { get; set; }
@@ -22,29 +22,29 @@ namespace ReservationSystem.Core.Clients
     {
         private readonly HttpClient _client = new HttpClient();
 
-        public async Task<Occupancy> GetById(int id)
+        public async Task<OccupancyModel> GetById(int id)
         {
             var res = await _client.GetStringAsync("http://localhost:57302/api/Occupancies/" + id);
-            var occupancy = JsonConvert.DeserializeObject<Occupancy>(res);
+            var occupancy = JsonConvert.DeserializeObject<OccupancyModel>(res);
             return occupancy;
         }
 
-        public async Task<List<Occupancy>> GetAll()
+        public async Task<List<OccupancyModel>> GetAll()
         {
             var res = await _client.GetStringAsync("http://localhost:57302/api/Occupancies");
-            var occupancies = JsonConvert.DeserializeObject<List<Occupancy>>(res);
+            var occupancies = JsonConvert.DeserializeObject<List<OccupancyModel>>(res);
             return occupancies;
         }
 
-        public async Task Post(Occupancy occupancy)
+        public async Task Post(OccupancyModel occupancyModel)
         {
-            var res = await _client.PostAsJsonAsync("http://localhost:57302/api/Occupancies/", occupancy);
+            var res = await _client.PostAsJsonAsync("http://localhost:57302/api/Occupancies/", occupancyModel);
             res.EnsureSuccessStatusCode();
         }
 
-        public async Task Put(int id, Occupancy occupancy)
+        public async Task Put(int id, OccupancyModel occupancyModel)
         {
-            var res = await _client.PutAsJsonAsync("http://localhost:57302/api/Occupancies/" + id, occupancy);
+            var res = await _client.PutAsJsonAsync("http://localhost:57302/api/Occupancies/" + id, occupancyModel);
             res.EnsureSuccessStatusCode();
         }
 

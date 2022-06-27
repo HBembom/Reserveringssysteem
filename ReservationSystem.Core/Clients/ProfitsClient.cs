@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace ReservationSystem.Core.Clients
 {
-    public class Profit
+    public class ProfitModel
     {
         public double AmountOfProfit { get; set; }
         public int Period { get; set; }
@@ -17,22 +17,22 @@ namespace ReservationSystem.Core.Clients
     {
         private readonly HttpClient _client = new HttpClient();
 
-        public async Task<Profit> GetProfitFromPeriod(string startDate, string endDate)
+        public async Task<ProfitModel> GetProfitFromPeriod(string startDate, string endDate)
         {
             var res = await _client.GetStringAsync("http://localhost:57302/api/profit_from_period?StartDate=" + startDate + "&EndDate=" + endDate);
-            var profit = JsonConvert.DeserializeObject<Profit>(res);
+            var profit = JsonConvert.DeserializeObject<ProfitModel>(res);
             return profit;
         }
 
-        public async Task<Profit> GetTotalProfit()
+        public async Task<ProfitModel> GetTotalProfit()
         {
             var res = await _client.GetStringAsync("http://localhost:57302/api/total_profit");
-            var profit = JsonConvert.DeserializeObject<Profit>(res);
+            var profit = JsonConvert.DeserializeObject<ProfitModel>(res);
             return profit;
-        } public async Task<List<Profit>> GetProfitByPeriod()
+        } public async Task<List<ProfitModel>> GetProfitByPeriod()
         {
             var res = await _client.GetStringAsync("http://localhost:57302/api/profit_by_period");
-            var profit = JsonConvert.DeserializeObject<List<Profit>>(res);
+            var profit = JsonConvert.DeserializeObject<List<ProfitModel>>(res);
             return profit;
         }
     }

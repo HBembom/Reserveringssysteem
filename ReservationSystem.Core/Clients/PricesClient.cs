@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace ReservationSystem.Core.Clients
 {
-    public class Price
+    public class PriceModel
     {
         public int PriceId { get; set; }
         public double Amount { get; set; }
@@ -20,29 +20,29 @@ namespace ReservationSystem.Core.Clients
     {
         private readonly HttpClient _client = new HttpClient();
 
-        public async Task<Price> GetById(int id)
+        public async Task<PriceModel> GetById(int id)
         {
             var res = await _client.GetStringAsync("http://localhost:57302/api/Prices/" + id);
-            var price = JsonConvert.DeserializeObject<Price>(res);
+            var price = JsonConvert.DeserializeObject<PriceModel>(res);
             return price;
         }
 
-        public async Task<List<Price>> GetAll()
+        public async Task<List<PriceModel>> GetAll()
         {
             var res = await _client.GetStringAsync("http://localhost:57302/api/Prices");
-            var prices = JsonConvert.DeserializeObject<List<Price>>(res);
+            var prices = JsonConvert.DeserializeObject<List<PriceModel>>(res);
             return prices;
         }
 
-        public async Task Post(Price price)
+        public async Task Post(PriceModel priceModel)
         {
-            var res = await _client.PostAsJsonAsync("http://localhost:57302/api/Prices/", price);
+            var res = await _client.PostAsJsonAsync("http://localhost:57302/api/Prices/", priceModel);
             res.EnsureSuccessStatusCode();
         }
 
-        public async Task Put(int id, Price price)
+        public async Task Put(int id, PriceModel priceModel)
         {
-            var res = await _client.PutAsJsonAsync("http://localhost:57302/api/Prices/" + id, price);
+            var res = await _client.PutAsJsonAsync("http://localhost:57302/api/Prices/" + id, priceModel);
             res.EnsureSuccessStatusCode();
         }
 
