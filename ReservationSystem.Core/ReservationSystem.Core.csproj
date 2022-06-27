@@ -199,6 +199,9 @@
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\Controls\OccupancyOverviewUserControl.cs" />
     <Compile Include="View\Controls\OccupancyOverview.xaml.cs" />
+    <Compile Include="View\Controls\PriceConfiguration.xaml.cs">
+      <DependentUpon>PriceConfiguration.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CreateReservation.xaml.cs">
       <DependentUpon>CreateReservation.xaml</DependentUpon>
     </Compile>
@@ -228,9 +231,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+<<<<<<< Updated upstream
+    <Page Include="View\BlankPage1.xaml">
+=======
+    <Page Include="View\Configuration.xaml">
+>>>>>>> Stashed changes
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Controls\OccupancyOverview.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Controls\PriceConfiguration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\CreateReservation.xaml">
       <SubType>Designer</SubType>
