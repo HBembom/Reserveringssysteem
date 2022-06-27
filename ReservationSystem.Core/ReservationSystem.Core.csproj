@@ -137,7 +137,6 @@
     <Compile Include="Clients\OccupanciesClient.cs" />
     <Compile Include="Clients\PricesClient.cs" />
     <Compile Include="Clients\ReservationsClient.cs" />
-    <Compile Include="GuestFactory.cs" />
     <Compile Include="View\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
