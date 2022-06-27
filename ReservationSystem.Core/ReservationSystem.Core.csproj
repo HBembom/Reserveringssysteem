@@ -231,11 +231,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-<<<<<<< Updated upstream
-    <Page Include="View\BlankPage1.xaml">
+
 =======
     <Page Include="View\Configuration.xaml">
->>>>>>> Stashed changes
+
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
