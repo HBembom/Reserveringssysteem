@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using ReservationSystem.Core.Model;
 
 namespace ReservationSystem.Core.Clients
 {
@@ -20,10 +21,10 @@ namespace ReservationSystem.Core.Clients
     {
         private readonly HttpClient _client = new HttpClient();
 
-        public async Task<PriceModel> GetById(int id)
+        public async Task<Price> GetByName(string name)
         {
-            var res = await _client.GetStringAsync("http://localhost:57302/api/Prices/" + id);
-            var price = JsonConvert.DeserializeObject<PriceModel>(res);
+            var res = await _client.GetStringAsync("http://localhost:57302/api/Prices/" + name);
+            var price = JsonConvert.DeserializeObject<Price>(res);
             return price;
         }
 
@@ -40,15 +41,15 @@ namespace ReservationSystem.Core.Clients
             res.EnsureSuccessStatusCode();
         }
 
-        public async Task Put(int id, PriceModel priceModel)
+        public async Task Put(string name, Price price)
         {
-            var res = await _client.PutAsJsonAsync("http://localhost:57302/api/Prices/" + id, priceModel);
+            var res = await _client.PutAsJsonAsync("http://localhost:57302/api/Prices/" + name, price);
             res.EnsureSuccessStatusCode();
         }
 
-        public async Task Delete(int id)
+        public async Task Delete(string name)
         {
-            var res = await _client.DeleteAsync("http://localhost:57302/api/Prices/" + id);
+            var res = await _client.DeleteAsync("http://localhost:57302/api/Prices/" + name);
             res.EnsureSuccessStatusCode();
         }
     }

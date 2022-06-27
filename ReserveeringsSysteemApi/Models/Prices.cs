@@ -31,15 +31,15 @@ namespace ReserveeringsSysteemApi.Models
             PriceId = (int)command.LastInsertedId;
         }
 
-        public async Task<Prices> SelectPriceById(int id)
+        public async Task<Prices> SelectPriceById(string name)
         {
             await using var command = Connector.Conn.CreateCommand();
-            command.CommandText = @"SELECT * FROM `prices` WHERE `PriceId` = @PriceId";
+            command.CommandText = @"SELECT * FROM `prices` WHERE `Name` = @PriceId";
             command.Parameters.Add(new MySqlParameter
             {
-                ParameterName = "@PriceId",
-                DbType = DbType.Int32,
-                Value = id,
+                ParameterName = "@Name",
+                DbType = DbType.String,
+                Value = name,
             });
             var res = await ReadAllPrices(await command.ExecuteReaderAsync());
 

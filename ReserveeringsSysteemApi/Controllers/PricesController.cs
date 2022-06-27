@@ -24,12 +24,12 @@ namespace ReserveeringsSysteemApi.Controllers
             return new OkObjectResult(body);
         }
 
-        [HttpGet("{PriceId}")]
-        public async Task<IActionResult> GetPriceById(int PriceId)
+        [HttpGet("{Name}")]
+        public async Task<IActionResult> GetPriceById(string Name)
         {
             await Connector.Conn.OpenAsync();
             var model = new Prices(Connector);
-            var res = await model.SelectPriceById(PriceId);
+            var res = await model.SelectPriceById(Name);
 
             return res == null ? new NotFoundResult() : new OkObjectResult(res);
         }
@@ -43,12 +43,12 @@ namespace ReserveeringsSysteemApi.Controllers
             return res == null ? new NotFoundResult() : new OkObjectResult(res);
         }
 
-        [HttpPut("{PriceId}")]
-        public async Task<IActionResult> UpdatePriceById(int PriceId, [FromBody] Prices body)
+        [HttpPut("{Name}")]
+        public async Task<IActionResult> UpdatePriceById(string Name, [FromBody] Prices body)
         {
             await Connector.Conn.OpenAsync();
             var model = new Prices(Connector);
-            var res = await model.SelectPriceById(PriceId);
+            var res = await model.SelectPriceById(Name);
             if (res == null)
             {
                 return new NotFoundResult();
@@ -61,12 +61,12 @@ namespace ReserveeringsSysteemApi.Controllers
             return new OkObjectResult(res);
         }
 
-        [HttpDelete("{PriceId}")]
-        public async Task<IActionResult> DeletePriceById(int PriceId)
+        [HttpDelete("{Name}")]
+        public async Task<IActionResult> DeletePriceById(string Name)
         {
             await Connector.Conn.OpenAsync();
             var model = new Prices(Connector);
-            var res = await model.SelectPriceById(PriceId);
+            var res = await model.SelectPriceById(Name);
             if (res == null)
             {
                 return new NotFoundResult();

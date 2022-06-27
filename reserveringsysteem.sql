@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2022 at 10:58 PM
+-- Generation Time: Jun 27, 2022 at 12:39 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.15
 
@@ -100,7 +100,10 @@ CREATE TABLE `prices` (
 --
 
 INSERT INTO `prices` (`PriceId`, `Amount`, `Name`, `IsTax`) VALUES
-(1, 0.00, 'string', 1);
+(2, 20.00, 'Adult', 0),
+(3, 15.00, 'Child', 0),
+(4, 10.00, 'Pet', 0),
+(5, 10.00, 'btw', 1);
 
 -- --------------------------------------------------------
 
@@ -130,8 +133,8 @@ CREATE TABLE `reservations` (
 --
 
 INSERT INTO `reservations` (`ReservationId`, `FirstName`, `LastName`, `PrefixName`, `streetname`, `LicensePlateName`, `ArrivalDate`, `DepartureDate`, `AccommodationId`, `AmountOfExtraAdults`, `AmountOfExtraChildren`, `AmountOfExtraPets`, `TotalCost`, `PaymentStatus`) VALUES
-(1, 'Harry', 'Kosse', '', 'laan v/d bork', 'blabla', '2022-06-18', '2022-06-20', '2', 0, 0, 0, 75.00, 0),
-(2, 'harry', 'Leuw', '', 'laan v/d bork', 'blabla', '2022-06-19', '2022-06-25', '4', 0, 0, 0, 75.00, 0),
+(1, 'Harry', 'Kosse', '', 'laan v/d bork', 'blabla', '2022-06-18', '2022-06-20', '1', 0, 0, 0, 75.00, 0),
+(2, 'harry', 'Leuw', '', 'laan v/d bork', 'blabla', '2022-06-19', '2022-06-25', '3,4', 0, 0, 0, 75.00, 0),
 (3, 'harry', 'Leuw', '', 'laan v/d bork', 'blabla', '2022-06-21', '2022-06-22', '5', 0, 0, 0, 75.00, 0),
 (4, 'harry', 'Buzz', '', 'laan v/d bork', 'blabla', '2022-06-19', '2022-06-28', '6', 0, 0, 0, 75.00, 0),
 (5, 'harry', 'Woody', '', 'laan v/d bork', 'blabla', '2022-06-25', '2022-06-28', '7', 0, 0, 0, 75.00, 0);
@@ -162,7 +165,8 @@ ALTER TABLE `occupancies`
 -- Indexes for table `prices`
 --
 ALTER TABLE `prices`
-  ADD PRIMARY KEY (`PriceId`);
+  ADD PRIMARY KEY (`PriceId`),
+  ADD UNIQUE KEY `Name` (`Name`);
 
 --
 -- Indexes for table `reservations`
@@ -196,7 +200,7 @@ ALTER TABLE `occupancies`
 -- AUTO_INCREMENT for table `prices`
 --
 ALTER TABLE `prices`
-  MODIFY `PriceId` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `PriceId` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `reservations`
