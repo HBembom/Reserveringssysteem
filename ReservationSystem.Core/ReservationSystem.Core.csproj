@@ -135,7 +135,6 @@
     <Compile Include="Clients\OccupanciesClient.cs" />
     <Compile Include="Clients\PricesClient.cs" />
     <Compile Include="Clients\ReservationsClient.cs" />
-    <Compile Include="GuestFactory.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -198,9 +197,9 @@
     <Compile Include="ViewModel\CreateReservationViewModel\ReservationPriceStructure.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\Controls\OccupancyOverviewUserControl.cs" />
-    <Compile Include="View\Controls\OccupancyOverview.xaml.cs" />
-    <Compile Include="View\Controls\PriceConfiguration.xaml.cs">
-      <DependentUpon>PriceConfiguration.xaml</DependentUpon>
+    <Compile Include="View\Controls\OccupancyControl.xaml.cs" />
+    <Compile Include="View\Controls\PriceConfigurationControl.xaml.cs">
+      <DependentUpon>PriceConfigurationControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CreateReservation.xaml.cs">
       <DependentUpon>CreateReservation.xaml</DependentUpon>
@@ -232,15 +231,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Configuration.xaml">
-
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Controls\OccupancyOverview.xaml">
+    <Page Include="View\Controls\OccupancyControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Controls\PriceConfiguration.xaml">
+    <Page Include="View\Controls\PriceConfigurationControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
