@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ReserveeringsSysteemApi.Controllers.Options;
 using ReserveeringsSysteemApi.Models;
 using ReserveeringsSysteemApi.Properties;
 
@@ -34,12 +35,12 @@ namespace ReserveeringsSysteemApi.Controllers
             return res == null ? new NotFoundResult() : new OkObjectResult(res);
         }
 
-        [HttpGet("/api/get_reservation_by_accommodation/{AccommodationId}")]
-        public async Task<IActionResult> GetReservationByAccommodation(int AccommodationId)
+        [HttpGet("/api/get_reservation_by_accommodations")]
+        public async Task<IActionResult> GetReservationByAccommodation(ReservationByAccommodationOptions body)
         {
             await Connector.Conn.OpenAsync();
             var model = new Reservations(Connector);
-            var res = await model.SelectReservationByAccommodation(AccommodationId);
+            var res = await model.SelectReservationByAccommodation(body);
 
             return res == null ? new NotFoundResult() : new OkObjectResult(res);
         }

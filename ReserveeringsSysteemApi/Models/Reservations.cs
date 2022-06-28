@@ -6,6 +6,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
 using MySqlConnector;
+using ReserveeringsSysteemApi.Controllers.Options;
 using ReserveeringsSysteemApi.Properties;
 
 namespace ReserveeringsSysteemApi.Models
@@ -59,19 +60,28 @@ namespace ReserveeringsSysteemApi.Models
 
             return res.Count > 0 ? res[0] : null;
         }
-        public async Task<Reservations> SelectReservationByAccommodation(int id)
+        public async Task<List<Reservations>> SelectReservationByAccommodation(ReservationByAccommodationOptions options)
         {
             await using var command = Connector.Conn.CreateCommand();
-            command.CommandText = $@"SELECT * FROM `reservations` WHERE `AccommodationId` LIKE '%{id}%'";
-            command.Parameters.Add(new MySqlParameter
+            var CommandText = @"SELECT * FROM `reservations` WHERE ";
+            for (var i = 0; i < options.AccommodationId.Length; i++)
             {
-                ParameterName = "@AccommodationId",
-                DbType = DbType.Int32,
-                Value = id,
-            });
+                if (i == 0)
+                {
+                    CommandText += $"`AccommodationId` LIKE '%{options.AccommodationId[i]}%'";
+                }
+                else
+                {
+                    CommandText += $"OR `AccommodationId` LIKE '%{options.AccommodationId[i]}%'";
+                }
+            }
+
+            CommandText += $"AND ArrivalDate BETWEEN '{options.StartDate}' AND '{options.EndDate}' AND DepartureDate BETWEEN '{options.StartDate}' AND '{options.EndDate}'";
+
+            command.CommandText = CommandText;
             var res = await ReadAllReservations(await command.ExecuteReaderAsync());
 
-            return res.Count > 0 ? res[0] : null;
+            return res.Count > 0 ? res : null;
         }
 
         public async Task<List<Reservations>> SelectAllReservations()
@@ -120,7 +130,7 @@ namespace ReserveeringsSysteemApi.Models
                 ParameterName = @"PrefixName",
                 DbType = DbType.String,
                 Value = PrefixName
-            });   
+            });
             command.Parameters.Add(new MySqlParameter
             {
                 ParameterName = @"StreetName",
@@ -145,7 +155,7 @@ namespace ReserveeringsSysteemApi.Models
                 DbType = DbType.DateTime,
                 Value = DepartureDate
             });
-          
+
             command.Parameters.Add(new MySqlParameter
             {
                 ParameterName = @"AccommodationId",
@@ -202,7 +212,7 @@ namespace ReserveeringsSysteemApi.Models
                 while (await reader.ReadAsync())
                 {
                     var test = reader.GetString(8).Replace("[", "").Replace("]", "");
-              
+
                     var reservation = new Reservations(Connector)
                     {
                         ReservationId = reader.GetInt32(0),
