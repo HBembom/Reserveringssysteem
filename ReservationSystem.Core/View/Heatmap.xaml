@@ -7,30 +7,30 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <Grid>
+    <!--<Grid>
         <Grid.Background>
             <ImageBrush ImageSource="../Assets/camping_map.png" Stretch="Uniform"/>
         </Grid.Background>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="85"/> <!--Dont color-->
-            <RowDefinition Height="105"/> <!--Color, column 1/2/3-->
-            <RowDefinition Height="30"/> <!--Dont color-->
-            <RowDefinition Height="125"/> <!--Color, column 1/2-->
-            <RowDefinition Height="45"/> <!--Dont color-->
-            <RowDefinition Height="45"/> <!--Color, column 1/2-->
-            <RowDefinition Height="50"/> <!--Color, column 1/2-->
-            <RowDefinition Height="175"/> <!--Dont color-->
-            <RowDefinition Height="25"/> <!--Dont color-->
+            <RowDefinition Height="85"/> --><!--Dont color--><!--
+            <RowDefinition Height="105"/> --><!--Color, column 1/2/3--><!--
+            <RowDefinition Height="30"/> --><!--Dont color--><!--
+            <RowDefinition Height="125"/> --><!--Color, column 1/2--><!--
+            <RowDefinition Height="45"/> --><!--Dont color--><!--
+            <RowDefinition Height="45"/> --><!--Color, column 1/2--><!--
+            <RowDefinition Height="50"/> --><!--Color, column 1/2--><!--
+            <RowDefinition Height="175"/> --><!--Dont color--><!--
+            <RowDefinition Height="25"/> --><!--Dont color--><!--
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="105"/> <!--Dont color-->
-            <ColumnDefinition Width="655"/> <!--Dont color-->
-            <ColumnDefinition Width="50"/> <!--Dont color-->
-            <ColumnDefinition Width="25"/> <!--Color, row 5/6/7-->
-            <ColumnDefinition Width="190"/> <!--Color, row 5/6/7-->
-            <ColumnDefinition Width="35"/> <!--Color, row 6/7/8-->
-            <ColumnDefinition Width="*"/> <!--Color, row 6/7/8-->
+            <ColumnDefinition Width="105"/> --><!--Dont color--><!--
+            <ColumnDefinition Width="655"/> --><!--Dont color--><!--
+            <ColumnDefinition Width="50"/> --><!--Dont color--><!--
+            <ColumnDefinition Width="25"/> --><!--Color, row 5/6/7--><!--
+            <ColumnDefinition Width="190"/> --><!--Color, row 5/6/7--><!--
+            <ColumnDefinition Width="35"/> --><!--Color, row 6/7/8--><!--
+            <ColumnDefinition Width="*"/> --><!--Color, row 6/7/8--><!--
             <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
 
@@ -40,5 +40,21 @@
         <Grid Grid.Column="1" Grid.Row="5" Grid.RowSpan="2" Background="{x:Bind _12_15HeatmapColor}"/>
         <Grid Grid.Column="4" Grid.Row="4" Grid.RowSpan="4" Background="{x:Bind _8_11HeatmapColor}"/>
         <Grid Grid.Column="6" Grid.Row="6" Grid.RowSpan="3" Background="{x:Bind _16_22HeatmapColor}"/>
-    </Grid>
+    </Grid>-->
+    <Canvas>
+        <Canvas.Background>
+            <ImageBrush ImageSource="../Assets/camping_map.png" Stretch="Uniform" AlignmentY="Top"/>
+        </Canvas.Background>
+
+        <Rectangle Width="675" Height="100" Fill="{x:Bind _23_29HeatmapColor}"
+                   Canvas.Top="55" Canvas.Left="130"/>
+        <Rectangle Width="660" Height="135" Fill="{x:Bind _1_7HeatmapColor}"
+                   Canvas.Top="185" Canvas.Left="100"/>
+        <Rectangle Width="600" Height="100" Fill="{x:Bind _12_15HeatmapColor}"
+                   Canvas.Top="350" Canvas.Left="100"/>
+        <Rectangle Width="125" Height="325" Fill="{x:Bind _8_11HeatmapColor}"
+                   Canvas.Top="290" Canvas.Left="875"/>
+        <Rectangle Width="410" Height="275" Fill="{x:Bind _16_22HeatmapColor}"
+                   Canvas.Top="405" Canvas.Left="1035"/>
+    </Canvas>
 </Page>
