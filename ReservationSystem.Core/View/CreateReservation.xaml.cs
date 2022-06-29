@@ -26,14 +26,11 @@ namespace ReservationSystem.Core.View
             this.DataContext = new ViewModel.CreateReservationViewModel();
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
-        {
-
+            this.Frame.Navigate(typeof(HomePage));
         }
     }
 }

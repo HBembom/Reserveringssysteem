@@ -11,11 +11,11 @@
     <Grid Background="White">
         <TextBlock HorizontalAlignment="Left" Margin="421,85,0,0" Text="gfjhjhdgfkjhdgfdgfdgfdgfdgfdgfdgfkj" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <Grid HorizontalAlignment="Center"  Height="487" VerticalAlignment="Center" Width="1056">
-            <Button Content="Occupancy&#xD;&#xA; Overview" VerticalAlignment="Top" Height="194" Width="211" BorderBrush="Black" Background="White" Foreground="Black" FontSize="24" FontStyle="Normal" FontWeight="Normal" HorizontalAlignment="Center"/>
-            <Button Content="  Overview&#xD;&#xA;Reservations" Height="194" Width="211" BorderBrush="Black" Background="White" Foreground="Black" FontSize="24" FontStyle="Normal" FontWeight="Normal" VerticalAlignment="Top"/>
-            <Button Content="&#xD;&#xA;Configurations/&#xD;&#xA;       Profit&#xD;&#xA;" Height="194" Width="211" BorderBrush="Black" Background="White" Foreground="Black" FontSize="24" FontStyle="Normal" FontWeight="Normal" VerticalAlignment="Top" Margin="845,0,0,0"/>
-            <Button Content="&#xD;&#xA;     Create&#xD;&#xA;Reservations&#xD;&#xA;" Height="194" Width="211" BorderBrush="Black" Background="White" Foreground="Black" FontSize="24" FontStyle="Normal" FontWeight="Normal" VerticalAlignment="Top" Margin="632,293,0,0"/>
-            <Button Content="Reservation&#xD;&#xA;    Details" Margin="218,293,0,0" VerticalAlignment="Top" Height="194" Width="211" BorderBrush="Black" Background="White" Foreground="Black" FontSize="24" FontStyle="Normal" FontWeight="Normal"/>
+            <Button Content="Occupancy&#xD;&#xA; Overview" VerticalAlignment="Top" Height="194" Width="211" BorderBrush="Black" Background="White" Foreground="Black" FontSize="24" FontStyle="Normal" FontWeight="Normal" HorizontalAlignment="Center" Click="Button_Click_2"/>
+            <Button Content="  Overview&#xD;&#xA;Reservations" Height="194" Width="211" BorderBrush="Black" Background="White" Foreground="Black" FontSize="24" FontStyle="Normal" FontWeight="Normal" VerticalAlignment="Top" Click="Button_Click"/>
+            <Button Content="&#xD;&#xA;Configurations/&#xD;&#xA;       Profit&#xD;&#xA;" Height="194" Width="211" BorderBrush="Black" Background="White" Foreground="Black" FontSize="24" FontStyle="Normal" FontWeight="Normal" VerticalAlignment="Top" Margin="845,0,0,0" Click="Button_Click_3"/>
+            <Button Content="&#xD;&#xA;     Create&#xD;&#xA;Reservations&#xD;&#xA;" Height="194" Width="211" BorderBrush="Black" Background="White" Foreground="Black" FontSize="24" FontStyle="Normal" FontWeight="Normal" VerticalAlignment="Top" Margin="632,293,0,0" Click="Button_Click_1"/>
+            <Button Content="Reservation&#xD;&#xA;    Details" Margin="218,293,0,0" VerticalAlignment="Top" Height="194" Width="211" BorderBrush="Black" Background="White" Foreground="Black" FontSize="24" FontStyle="Normal" FontWeight="Normal" Click="Button_Click_4"/>
         </Grid>
     </Grid>
 </Page>

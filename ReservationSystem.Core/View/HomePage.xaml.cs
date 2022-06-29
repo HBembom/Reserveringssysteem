@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ReservationSystem.Core.View;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,31 @@ namespace ReservationSystem.Core
         public HomePage()
         {
             this.InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(CreateReservation));
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            //occupancy overview
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            //configurations/profit
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            //reservation details
         }
     }
 }
