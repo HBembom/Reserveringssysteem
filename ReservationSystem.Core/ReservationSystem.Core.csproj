@@ -138,6 +138,7 @@
     <Compile Include="Clients\OccupanciesClient.cs" />
     <Compile Include="Clients\PricesClient.cs" />
     <Compile Include="Clients\ReservationsClient.cs" />
+    <Compile Include="Model\Heatmap\PercentageConverter.cs" />
     <Compile Include="View\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>

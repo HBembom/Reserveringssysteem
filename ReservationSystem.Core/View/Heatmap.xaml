@@ -2,59 +2,48 @@
     x:Class="ReservationSystem.Core.View.Heatmap"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ReservationSystem.Core"
+    xmlns:local="using:ReservationSystem.Core.Model.Heatmap"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <!--<Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="../Assets/camping_map.png" Stretch="Uniform"/>
-        </Grid.Background>
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="85"/> --><!--Dont color--><!--
-            <RowDefinition Height="105"/> --><!--Color, column 1/2/3--><!--
-            <RowDefinition Height="30"/> --><!--Dont color--><!--
-            <RowDefinition Height="125"/> --><!--Color, column 1/2--><!--
-            <RowDefinition Height="45"/> --><!--Dont color--><!--
-            <RowDefinition Height="45"/> --><!--Color, column 1/2--><!--
-            <RowDefinition Height="50"/> --><!--Color, column 1/2--><!--
-            <RowDefinition Height="175"/> --><!--Dont color--><!--
-            <RowDefinition Height="25"/> --><!--Dont color--><!--
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="105"/> --><!--Dont color--><!--
-            <ColumnDefinition Width="655"/> --><!--Dont color--><!--
-            <ColumnDefinition Width="50"/> --><!--Dont color--><!--
-            <ColumnDefinition Width="25"/> --><!--Color, row 5/6/7--><!--
-            <ColumnDefinition Width="190"/> --><!--Color, row 5/6/7--><!--
-            <ColumnDefinition Width="35"/> --><!--Color, row 6/7/8--><!--
-            <ColumnDefinition Width="*"/> --><!--Color, row 6/7/8--><!--
-            <ColumnDefinition Width="50"/>
-        </Grid.ColumnDefinitions>
-
-
-        <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Background="{x:Bind _23_29HeatmapColor}"/>
-        <Grid Grid.Row="3" Grid.Column="1" Background="{x:Bind _1_7HeatmapColor}"/>
-        <Grid Grid.Column="1" Grid.Row="5" Grid.RowSpan="2" Background="{x:Bind _12_15HeatmapColor}"/>
-        <Grid Grid.Column="4" Grid.Row="4" Grid.RowSpan="4" Background="{x:Bind _8_11HeatmapColor}"/>
-        <Grid Grid.Column="6" Grid.Row="6" Grid.RowSpan="3" Background="{x:Bind _16_22HeatmapColor}"/>
-    </Grid>-->
-    <Canvas>
+    <Page.Resources>
+        <local:PercentageConverter x:Key="PercentageConverter"/>
+    </Page.Resources>
+    <Canvas x:Name="canvas" MinWidth="1535" MinHeight="750">
         <Canvas.Background>
             <ImageBrush ImageSource="../Assets/camping_map.png" Stretch="Uniform" AlignmentY="Top"/>
         </Canvas.Background>
 
-        <Rectangle Width="675" Height="100" Fill="{x:Bind _23_29HeatmapColor}"
-                   Canvas.Top="55" Canvas.Left="130"/>
-        <Rectangle Width="660" Height="135" Fill="{x:Bind _1_7HeatmapColor}"
-                   Canvas.Top="185" Canvas.Left="100"/>
-        <Rectangle Width="600" Height="100" Fill="{x:Bind _12_15HeatmapColor}"
-                   Canvas.Top="350" Canvas.Left="100"/>
-        <Rectangle Width="125" Height="325" Fill="{x:Bind _8_11HeatmapColor}"
-                   Canvas.Top="290" Canvas.Left="875"/>
-        <Rectangle Width="410" Height="275" Fill="{x:Bind _16_22HeatmapColor}"
-                   Canvas.Top="405" Canvas.Left="1035"/>
+        <Rectangle Width="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualWidth, ConverterParameter=0.45}"
+                   Height="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualHeight, ConverterParameter=0.125}"
+                   Canvas.Top="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualHeight, ConverterParameter=0.075}"
+                   Canvas.Left="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualWidth, ConverterParameter=0.09}"
+                   Fill="{x:Bind _23_29HeatmapColor}"
+        />
+        <Rectangle Width="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualWidth, ConverterParameter=0.445}"
+                   Height="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualHeight, ConverterParameter=0.2}"
+                   Canvas.Top="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualHeight, ConverterParameter=0.24}"
+                   Canvas.Left="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualWidth, ConverterParameter=0.07}"
+                   Fill="{x:Bind _1_7HeatmapColor}"
+        />
+        <Rectangle Width="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualWidth, ConverterParameter=0.4}"
+                   Height="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualHeight, ConverterParameter=0.125}"
+                   Canvas.Top="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualHeight, ConverterParameter=0.45}"
+                   Canvas.Left="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualWidth, ConverterParameter=0.075}"
+                   Fill="{x:Bind _12_15HeatmapColor}"
+        />
+        <Rectangle Width="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualWidth, ConverterParameter=0.1}"
+                   Height="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualHeight, ConverterParameter=0.42}"
+                   Canvas.Top="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualHeight, ConverterParameter=0.375}"
+                   Canvas.Left="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualWidth, ConverterParameter=0.57}"
+                   Fill="{x:Bind _8_11HeatmapColor}"
+        />
+        <Rectangle Width="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualWidth, ConverterParameter=0.275}"
+                   Height="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualHeight, ConverterParameter=0.3}"
+                   Canvas.Top="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualHeight, ConverterParameter=0.525}"
+                   Canvas.Left="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualWidth, ConverterParameter=0.69}"
+                   Fill="{x:Bind _16_22HeatmapColor}"
+        />
     </Canvas>
 </Page>
