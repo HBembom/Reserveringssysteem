@@ -137,6 +137,7 @@
     <Compile Include="Clients\OccupanciesClient.cs" />
     <Compile Include="Clients\PricesClient.cs" />
     <Compile Include="Clients\ReservationsClient.cs" />
+    <Compile Include="Model\Heatmap\PercentageConverter.cs" />
     <Compile Include="View\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
@@ -214,9 +215,9 @@
       <DependentUpon>CreateReservation.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\VisualReservation.xaml.cs" />
-	<Compile Include="View\Heatmap.xaml.cs">
-		<DependentUpon>Heatmap.xaml</DependentUpon>
-	</Compile>
+    <Compile Include="View\Heatmap.xaml.cs">
+      <DependentUpon>Heatmap.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
