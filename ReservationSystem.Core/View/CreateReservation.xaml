@@ -173,7 +173,7 @@
                 <TextBlock Grid.Row="0" Text="Camper" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                 <TextBlock Grid.Row="1" Text="{Binding Path=PriceStructure.NumberOfCampers, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             </Grid>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Occupation Planner" VerticalAlignment="Top" FontWeight="Bold" FontSize="50px" SelectionChanged="TextBlock_SelectionChanged" Height="132" Width="574" Grid.ColumnSpan="3" Margin="0,-107,0,0"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Create Reservation" VerticalAlignment="Top" FontWeight="Bold" FontSize="50px" SelectionChanged="TextBlock_SelectionChanged" Height="132" Width="574" Grid.ColumnSpan="3" Margin="0,-107,0,0"/>
         </Grid>
         <Button Command="{Binding Path=SubmitCommand}" Content="Create Reservation" Grid.Column="2" Margin="82,689,0,0" VerticalAlignment="Top" Height="63" Width="164"></Button>
         <Rectangle Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="120" Stroke="Black" VerticalAlignment="Top" Width="1902" Fill="Green" />
