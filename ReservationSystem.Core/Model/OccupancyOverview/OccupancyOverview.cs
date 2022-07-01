@@ -13,8 +13,6 @@ namespace ReservationSystem.Core.Model.OccupancyOverview
 
             public OccupancyOverview(DateTime selectedWeek)
             {
-                // Need Api Calls for Accomodations amount and Reservations
-
                 _grid = new GridGenerator(RetrieveAccomodations()).CreateGrid();
                 _grid = new GridElementAssigner(_grid, selectedWeek, RetrieveReservations()).AssignElements();
             }
@@ -35,91 +33,30 @@ namespace ReservationSystem.Core.Model.OccupancyOverview
 
             private int RetrieveAccomodations()
             {
-                return 8;
+                return Cache.ReservationModels.Count;
             }
 
             private List<Reservation> RetrieveReservations()
             {
-                return new List<Reservation>()
-            { new Reservation(
-                    new DurationOfStay(
-                        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(-2),
-                        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(0)),
-                    new List<Accomodation>() { new Camper(2) },
-                    new GuestContactDetail(
-                        new FirstName("harry"),
-                        new LastName("Kosse"),
-                        new PrefixName(""),
-                        new StreetName("laan v/d bork"),
-                        new LicensePlateName("blabla")),
-                    new List<Guest>()
-                    ),
-                new Reservation(
-                    new DurationOfStay(
-                        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(-1),
-                        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(1)),
-                    new List<Accomodation>()
-                    {
-                        new Camper(1),
-                        new Camper(3)
-                    },
-                    new GuestContactDetail(
-                        new FirstName("Henk"),
-                        new LastName("Bembom"),
-                        new PrefixName(""),
-                        new StreetName("Laan v/d Bork"),
-                        new LicensePlateName("BlaBla")),
-                    new List<Guest>()
-                    ),
-                new Reservation(
-                    new DurationOfStay(
-                        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(-1),
-                        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(5)),
-                    new List<Accomodation>() { new Camper(4) },
-                    new GuestContactDetail(
-                        new FirstName("harry"),
-                        new LastName("Leuw"),
-                        new PrefixName(""),
-                        new StreetName("laan v/d bork"),
-                        new LicensePlateName("blabla")),
-                    new List<Guest>()),
-                 new Reservation(
-                    new DurationOfStay(
-                        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(1),
-                        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(2)),
-                    new List<Accomodation>() { new Camper(5) },
-                    new GuestContactDetail(
-                        new FirstName("harry"),
-                        new LastName("Pipo"),
-                        new PrefixName(""),
-                        new StreetName("laan v/d bork"),
-                        new LicensePlateName("blabla")),
-                    new List<Guest>()),
-                 new Reservation(
-                    new DurationOfStay(
-                        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(-1),
-                        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(8)),
-                    new List<Accomodation>() { new Camper(6) },
-                    new GuestContactDetail(
-                        new FirstName("harry"),
-                        new LastName("Buzz"),
-                        new PrefixName(""),
-                        new StreetName("laan v/d bork"),
-                        new LicensePlateName("blabla")),
-                    new List<Guest>()),
-                 new Reservation(
-                    new DurationOfStay(
-                        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(5),
-                        new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day).AddDays(8)),
-                    new List<Accomodation>() { new Camper(7) },
-                    new GuestContactDetail(
-                        new FirstName("harry"),
-                        new LastName("Woody"),
-                        new PrefixName(""),
-                        new StreetName("laan v/d bork"),
-                        new LicensePlateName("blabla")),
-                    new List<Guest>())
-            };
+                List<Reservation> Reservations = new List<Reservation>();
+
+                for (var i = 0; i < Cache.ReservationModels.Count; i++)
+                {
+                    Reservations.Add(new Reservation(
+                        new DurationOfStay(
+                            new DateTime(Cache.ReservationModels[i].ArrivalDate.Year, Cache.ReservationModels[i].ArrivalDate.Month, Cache.ReservationModels[i].ArrivalDate.Day),
+                            new DateTime(Cache.ReservationModels[i].DepartureDate.Year, Cache.ReservationModels[i].DepartureDate.Month, Cache.ReservationModels[i].DepartureDate.Day)),
+                        new List<Accomodation>() { new Camper(Cache.ReservationModels[i].AccommodationId[0]) },
+                        new GuestContactDetail(
+                            new FirstName(Cache.ReservationModels[i].FirstName),
+                            new LastName(Cache.ReservationModels[i].LastName),
+                            new PrefixName(Cache.ReservationModels[i].PrefixName),
+                            new StreetName(Cache.ReservationModels[i].StreetName),
+                            new LicensePlateName(Cache.ReservationModels[i].LicensePlateName)),
+                        new List<Guest>()
+                    ));
+                }
+                return Reservations;
             }
         }
     }

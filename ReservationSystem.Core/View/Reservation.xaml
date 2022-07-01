@@ -67,7 +67,7 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
- 
+
             <TextBlock Text="{Binding Path=Accomodations.ArrivalDateTime}" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
             <TextBlock Text="{Binding Path=Accomodations.DepartureDateTime}" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
             <TextBlock Grid.Row="0" Grid.Column="1" Text="Arrival" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
@@ -165,9 +165,10 @@
             </Grid>
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Reservation Details" VerticalAlignment="Top" FontWeight="Bold" FontSize="50px" Height="132" Width="574" Grid.ColumnSpan="3" Margin="0,-107,0,0"/>
         </Grid>
-        <Rectangle Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="120" Stroke="Black" VerticalAlignment="Top" Width="1902" Fill="Green" />
+        <Rectangle Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="120" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="Green" />
         <TextBox Grid.Column="2" HorizontalAlignment="Left" Margin="1628,120,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="0"/>
         <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="1646,120,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
         <CheckBox Content="Has Paid" Grid.Column="1" Margin="0,706,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" IsChecked="{Binding Path=HasPaid}"/>
+        <Button Grid.Column="2" Margin="1168,142,0,0" Content="Edit" VerticalAlignment="Top"></Button>
     </Grid>
 </Page>
