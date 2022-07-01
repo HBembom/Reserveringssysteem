@@ -19,7 +19,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace ReservationSystem.Core.View.Controls
 {
-    public sealed partial class RevenueChart : UserControl
+    public sealed partial class RevenueChart : Page
     {
         public readonly ProfitsClient ProfitModel;
         public DateTime EndTime;
