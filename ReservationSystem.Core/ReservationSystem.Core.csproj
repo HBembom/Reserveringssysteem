@@ -204,10 +204,13 @@
     <Compile Include="ViewModel\VisualReservationViewModel\OccupancyControlViewModel.cs" />
     <Compile Include="View\Controls\OccupancyControl.xaml.cs" />
     <Compile Include="ViewModel\ConfigurationViewModel\ConfigurationViewModel.cs" />
+    <Compile Include="View\Reservation\Reservation.xaml.cs">
+      <DependentUpon>Reservation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\RevenueChart.xaml.cs">
       <DependentUpon>RevenueChart.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\CreateReservation.xaml.cs">
+    <Compile Include="View\Reservation\CreateReservation.xaml.cs">
       <DependentUpon>CreateReservation.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\VisualReservation.xaml.cs" />
@@ -232,6 +235,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\Reservation\EditReservation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\HomePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -248,11 +255,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\Reservation\Reservation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\RevenueChart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\CreateReservation.xaml">
+    <Page Include="View\Reservation\CreateReservation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

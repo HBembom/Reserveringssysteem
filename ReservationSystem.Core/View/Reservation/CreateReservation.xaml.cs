@@ -1,5 +1,4 @@
-﻿using ReservationSystem.Core.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,14 +15,15 @@ using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace ReservationSystem.Core.View.Controls
+namespace ReservationSystem.Core.View
 {
-    public sealed partial class OccupancyControl : UserControl
+    public sealed partial class CreateReservation : Page
     {
-        public OccupancyControl()
+        public CreateReservation()
         {
+            
             this.InitializeComponent();
-            this.Content = new OccupancyOverviewUserControl().overview.Draw();    
+            this.DataContext = new ViewModel.CreateReservationViewModel();
         }
-    }
+     }
 }

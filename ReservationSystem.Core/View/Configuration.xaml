@@ -36,6 +36,6 @@
             <Button Grid.Row="6" Content="Update"  Margin="122,15,291,0" Height="67" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" VerticalAlignment="Top"/>
         </Grid>
         <Rectangle Height="99" Stroke="Black" VerticalAlignment="Top" Fill="DarkGreen"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="50px" SelectionChanged="TextBlock_SelectionChanged" Height="132" Width="360" Margin="785,129,0,0" Text="Configurations"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="50px" Height="132" Width="360" Margin="785,129,0,0" Text="Configurations"/>
     </Grid>
 </Page>
