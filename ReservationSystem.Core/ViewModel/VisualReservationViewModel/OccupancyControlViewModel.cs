@@ -38,7 +38,7 @@ namespace ReservationSystem.Core.ViewModel
             this.overview = new OccupancyOverview(_dateTimeScopeStart);
         }
 
-           protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
