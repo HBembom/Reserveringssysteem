@@ -11,7 +11,5 @@ namespace ReservationSystem.Core.Commands.Builder
     internal class ReservationBuilder : IBuilder
     {
         private Reservation _reservation;
-
-
     }
 }

@@ -28,6 +28,11 @@ namespace ReservationSystem.Core.Commands
                     new LicensePlateName(CreateReservation.GuestInformation.LicensePlate)),
                 CreateReservation.ExtraGuest.Guests);
 
+            if(CreateReservation.HasPaid)
+            {
+                reservation.hasPaid.Paid();
+            }
+
             // Send Reservation to database
             // Open New Screen
         }

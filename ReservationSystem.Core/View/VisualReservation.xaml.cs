@@ -27,10 +27,5 @@ namespace ReservationSystem.Core.View
         {
             this.InitializeComponent();
         }
-
-        private void OccupancyOverview_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

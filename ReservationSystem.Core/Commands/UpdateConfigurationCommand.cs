@@ -9,11 +9,11 @@ namespace ReservationSystem.Core.Commands
 {
     internal class UpdateConfigurationCommand : CommandBase
     {
-        private PriceConfigurationControl _control;
+        private Configuration _control;
         
-        public UpdateConfigurationCommand(PriceConfigurationControl control)
+        public UpdateConfigurationCommand(Configuration control)
         {
-            PriceConfigurationControl _control = control;
+            Configuration _control = control;
             
         }
 

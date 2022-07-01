@@ -7,11 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="1024"
-    d:DesignWidth="1902" Width="1920" Height="1020"
-    >
+    d:DesignWidth="1902" Width="1920" Height="1020">
 
     <Grid Background="#FFF9F9F9">
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="157*"></ColumnDefinition>
             <ColumnDefinition Width="154*"></ColumnDefinition>
@@ -48,7 +46,7 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBox Grid.Row="0" PlaceholderText="Nights" Text="{Binding Path=ExtraGuest.NumberOfNights, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17" TextWrapping="Wrap"></TextBox>
-                <ComboBox Grid.Column ="1" ItemsSource="{Binding Path=ExtraGuest.SelectablesGuests}" Height="49" HorizontalAlignment="Center" VerticalAlignment="Center" Width="77" SelectedItem="{Binding Path=ExtraGuest.SelectedGuest, Mode=TwoWay}" ></ComboBox>
+                <ComboBox Grid.Column ="1" ItemsSource="{Binding Path=ExtraGuest.SelectablesGuests}" Height="37" HorizontalAlignment="Center" VerticalAlignment="Center" Width="77" SelectedItem="{Binding Path=ExtraGuest.SelectedGuest, Mode=TwoWay}" ></ComboBox>
                 <Button Command="{Binding Path=AddGuestCommand}" Grid.Column="2" Content="Add" HorizontalAlignment="Center" Height="32" Width="46"></Button>
             </Grid>
         </Grid>
@@ -77,7 +75,7 @@
             </ComboBox>
             <ComboBox Grid.Row="0" ItemsSource="{Binding Path=Accomodations.SelectableAccomodations}" SelectedItem="{Binding Path=Accomodations.SelectedAccomodation, Mode=TwoWay}" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
             </ComboBox>
-            <CalendarDatePicker Date="{Binding Path=Accomodations.ArrivalDateTime}" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" ></CalendarDatePicker>
+            <CalendarDatePicker Date="{Binding Path=Accomodations.ArrivalDateTime}" DateFormat="{}{day.integer}/{month.integer}/{year.full}" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" ></CalendarDatePicker>
             <CalendarDatePicker Date="{Binding Path=Accomodations.DepartureDateTime}" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" ></CalendarDatePicker>
             <TextBlock Grid.Row="0" Grid.Column="1" Text="Accomodation" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             <TextBlock Grid.Row="1" Grid.Column="1" Text="Accomodation ID" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
@@ -175,7 +173,12 @@
                 <TextBlock Grid.Row="0" Text="Camper" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                 <TextBlock Grid.Row="1" Text="{Binding Path=PriceStructure.NumberOfCampers, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             </Grid>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Occupation Planner" VerticalAlignment="Top" FontWeight="Bold" FontSize="50px" SelectionChanged="TextBlock_SelectionChanged" Height="132" Width="574" Grid.ColumnSpan="3" Margin="0,-107,0,0"/>
         </Grid>
         <Button Command="{Binding Path=SubmitCommand}" Content="Create Reservation" Grid.Column="2" Margin="82,689,0,0" VerticalAlignment="Top" Height="63" Width="164"></Button>
+        <Rectangle Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="120" Stroke="Black" VerticalAlignment="Top" Width="1902" Fill="Green" />
+        <TextBox Grid.Column="2" HorizontalAlignment="Left" Margin="1628,120,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="0"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="1646,120,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <CheckBox Content="Has Paid" Grid.Column="1" Margin="0,706,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" IsChecked="{Binding Path=HasPaid, Mode=TwoWay}" />
     </Grid>
 </Page>

@@ -12,30 +12,19 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using ReservationSystem.Core.Clients;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace ReservationSystem.Core.View
+namespace ReservationSystem.Core
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class BlankPage1 : Page
+    public sealed partial class HomePage : Page
     {
-        private readonly AccommodationClient _accommodationsClient = new AccommodationClient();
-
-        public BlankPage1()
+        public HomePage()
         {
             this.InitializeComponent();
-            Test();
-        }
-
-        private async void Test()
-        {
-
-            var test = await _accommodationsClient.GetAll();
-            TextBlockTest.Text = test[0].AccommodationType;
         }
     }
 }

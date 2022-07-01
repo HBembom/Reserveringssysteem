@@ -10,7 +10,9 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid RenderTransformOrigin="0.538,0.505">
-
+        <local:OccupancyOverview Margin="244,293,262,293"></local:OccupancyOverview>
+        <Rectangle HorizontalAlignment="Center" Height="113" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="DarkGreen"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,147,0,0" TextWrapping="Wrap" Text="Occupation Planner" VerticalAlignment="Top" FontWeight="Bold" FontSize="50px" SelectionChanged="TextBlock_SelectionChanged" Height="85" Width="481"/>
     </Grid>
 </Page>
 

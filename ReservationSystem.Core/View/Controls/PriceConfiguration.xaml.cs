@@ -25,6 +25,7 @@ namespace ReservationSystem.Core.View.Controls
         public PriceConfiguration()
         {
             this.InitializeComponent();
+            this.DataContext = new Configuration();
         }
     }
 }

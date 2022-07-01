@@ -38,6 +38,12 @@ namespace ReservationSystem.Core.ViewModel
             get { return _accomodation; }
             set { _accomodation = value; OnPropertyChanged(nameof(ViewModel.Accomodations));}
         }
+        private bool _hasPaid;
+        public bool HasPaid
+        {
+            get { return _hasPaid; }
+            set { _hasPaid = value; OnPropertyChanged(nameof(HasPaid)); }
+        }
         
         public ICommand AddGuestCommand { get; set; }
         public ICommand AddAccomodationCommand { get; set; }
@@ -47,6 +53,7 @@ namespace ReservationSystem.Core.ViewModel
         {
             this.AddGuestCommand = new AddGuestCommand(this);
             this.AddAccomodationCommand = new AddAccomodationCommand(this);
+            this.SubmitCommand = new CreateReservationCommand(this);
             this.GuestInformation = new GuestInformation();
             this.ExtraGuest = new ExtraGuest();
             this.PriceStructure = new ReservationPriceStructure();
