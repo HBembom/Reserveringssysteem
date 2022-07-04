@@ -13,20 +13,23 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace ReservationSystem.Core.View
 {
-    public sealed partial class CreateReservation : Page
-    {
-        public CreateReservation()
-        {
-            
-            this.InitializeComponent();
-            this.DataContext = new ViewModel.CreateReservationViewModel();
-        }
 
-        
+    public sealed partial class Reservation : Page
+    {
+        public Reservation()
+        {
+            this.InitializeComponent();
+
+    public sealed partial class Configuration : Page
+    {
+        public Configuration()
+        {
+            this.InitializeComponent();
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

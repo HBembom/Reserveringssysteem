@@ -3,12 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+using ReservationSystem.Core.Clients;
 
 namespace ReservationSystem.Core.ViewModel
 {
     internal class Accomodations : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+        private AccommodationClient _accommodationClient;
 
         private List<Accomodation> _accomdations;
         public List<Accomodation> AccomodationsList
@@ -31,7 +34,7 @@ namespace ReservationSystem.Core.ViewModel
             set { _arrivalDateTime = value; OnPropertyChanged(nameof(ArrivalDateTime)); }
         }
         private DateTime _departureDateTime;
-       
+
         public DateTime DepartureDateTime
         {
             get { return _departureDateTime; }
@@ -52,8 +55,18 @@ namespace ReservationSystem.Core.ViewModel
             set { _selectedPitchNumber = value; OnPropertyChanged(nameof(SelectedPitchNumber)); }
         }
 
+        private List<AccommodationModel> _accommodationList;
+       
+        protected List<int> _availableAccommodations;
+        public List<int> AvailableAccommodations
+        {
+            get { return _availableAccommodations; }
+            set { _availableAccommodations = value; OnPropertyChanged(nameof(_availableAccommodations)); }
+        }
+
         public Accomodations()
         {
+            _accommodationClient = new AccommodationClient();
             this.ArrivalDateTime = DateTime.UtcNow;
             this.DepartureDateTime = DateTime.UtcNow.AddDays(1);
             this.AccomodationsList = new List<Accomodation>();
@@ -61,12 +74,27 @@ namespace ReservationSystem.Core.ViewModel
             {
                 "Camper"
             };
+            AvailableAccommodations = new List<int>();
+            _accommodationList = new List<AccommodationModel>();
+            SetAvailableAccommodationsTask();
         }
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
+        
+        private void SetAvailableAccommodationsTask()
+        {
+            var task = Task.Run(async () =>
+            {
+                _accommodationList = await _accommodationClient.GetAll();
+            });
+            task.Wait();
+            for (var i = 0; i < _accommodationList.Count; i++)
+            {
+                this.AvailableAccommodations.Add(_accommodationList[i].AccommodationId);
+            }
+        }
     }
 }

@@ -46,17 +46,18 @@ namespace ReservationSystem.Core.ViewModel
         }
         public ICommand AddGuestCommand { get; set; }
         public ICommand AddAccomodationCommand { get; set; }
-        public ICommand SubmitCommand { get; set; }
+        public ICommand CreateReservationCommand { get; set; }
 
         public CreateReservationViewModel()
         {
+            this.Accomodations = new Accomodations();
             this.AddGuestCommand = new AddGuestCommand(this);
             this.AddAccomodationCommand = new AddAccomodationCommand(this);
             this.SubmitCommand = new CreateReservationCommand(this);
             this.GuestInformation = new GuestInformation();
             this.ExtraGuest = new ExtraGuest();
             this.PriceStructure = new ReservationPriceStructure();
-            this.Accomodations = new Accomodations();
+            this.CreateReservationCommand = new CreateReservationCommand(this);
         }
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")

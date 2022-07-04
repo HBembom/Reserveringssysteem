@@ -17,14 +17,21 @@ using Windows.UI.Xaml.Navigation;
 
 namespace ReservationSystem.Core.View
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class Reservation : Page
     {
         public Reservation()
         {
             this.InitializeComponent();
+    public sealed partial class Configuration : Page
+    {
+        public Configuration()
+        {
+            this.InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(HomePage));
         }
     }
 }
