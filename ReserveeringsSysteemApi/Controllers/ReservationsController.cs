@@ -42,7 +42,7 @@ namespace ReserveeringsSysteemApi.Controllers
             var model = new Reservations(Connector);
             var res = await model.SelectReservationByAccommodation(body);
 
-            return res == null ? new NotFoundResult() : new OkObjectResult(res);
+            return new OkObjectResult(res);
         }
 
         [HttpGet]
