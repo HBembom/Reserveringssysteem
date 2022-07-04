@@ -18,7 +18,7 @@ namespace ReservationSystem.Core
              AccommodationModels = new List<AccommodationModel>();
              ReservationModels = new List<ReservationModel>();
          }
-            
+
          public static async void SetAccommodationModels()
          {
              AccommodationModels = await AccommodationClient.GetAll();
