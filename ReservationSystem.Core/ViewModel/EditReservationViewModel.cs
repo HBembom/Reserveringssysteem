@@ -59,6 +59,5 @@ namespace ReservationSystem.Core.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
 }
