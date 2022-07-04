@@ -137,6 +137,8 @@
     <Compile Include="Clients\OccupanciesClient.cs" />
     <Compile Include="Clients\PricesClient.cs" />
     <Compile Include="Clients\ReservationsClient.cs" />
+    <Compile Include="ViewModel\EditReservationViewModel.cs" />
+    <Compile Include="Commands\UpdateCommand.cs" />
     <Compile Include="View\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>

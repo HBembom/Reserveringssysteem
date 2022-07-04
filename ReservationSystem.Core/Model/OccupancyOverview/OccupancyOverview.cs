@@ -29,8 +29,6 @@ namespace ReservationSystem.Core.Model.OccupancyOverview
                 _grid = new GridElementAssigner(_grid, indexDateTime, RetrieveReservations()).AssignElements();
             }
 
-            // Hardcoded for fast testing purposes
-
             private int RetrieveAccomodations()
             {
                 return Cache.ReservationModels.Count;

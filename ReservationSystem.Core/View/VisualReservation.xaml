@@ -10,7 +10,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid RenderTransformOrigin="0.538,0.505">
-        <local:OccupancyControl Margin="244,293,262,293"></local:OccupancyControl>
+        <local:OccupancyControl Margin="244,293,262,367"></local:OccupancyControl>
         <Rectangle HorizontalAlignment="Center" Height="113" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="DarkGreen"/>
     </Grid>
 </Page>
