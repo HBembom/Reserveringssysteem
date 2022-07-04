@@ -30,7 +30,7 @@ namespace ReservationSystem.Core
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            //overview reservations
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -46,6 +46,7 @@ namespace ReservationSystem.Core
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             //configurations/profit
+            this.Frame.Navigate(typeof(Configuration));
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
