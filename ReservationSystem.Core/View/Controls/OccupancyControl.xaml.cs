@@ -18,9 +18,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace ReservationSystem.Core.View.Controls
 {
-    public sealed partial class OccupancyOverview : UserControl
+    public sealed partial class OccupancyControl : UserControl
     {
-        public OccupancyOverview()
+        public OccupancyControl()
         {
             this.InitializeComponent();
             this.Content = new OccupancyOverviewUserControl().overview.Draw();    

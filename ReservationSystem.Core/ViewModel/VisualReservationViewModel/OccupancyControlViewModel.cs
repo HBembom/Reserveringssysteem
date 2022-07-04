@@ -1,15 +1,9 @@
 ﻿using ReservationSystem.Core.Commands;
-using ReservationSystem.Core.Model;
 using ReservationSystem.Core.Model.OccupancyOverview.ReservationSystem.Core.Model.OccupancyOverview;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using Windows.UI.Xaml.Controls;
 
 namespace ReservationSystem.Core.ViewModel
 {
@@ -38,7 +32,7 @@ namespace ReservationSystem.Core.ViewModel
             this.overview = new OccupancyOverview(_dateTimeScopeStart);
         }
 
-           protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

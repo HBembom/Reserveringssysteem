@@ -44,3 +44,4 @@ namespace ReservationSystem.Core.Model.OccupancyOverview
         }
     }
 }
+ 

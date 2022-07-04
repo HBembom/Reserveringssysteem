@@ -142,6 +142,8 @@
     <Compile Include="View\Configuration.xaml.cs">
       <DependentUpon>Configuration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\EditReservationViewModel.cs" />
+    <Compile Include="Commands\UpdateCommand.cs" />
     <Compile Include="View\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
@@ -206,13 +208,13 @@
     <Compile Include="ViewModel\CreateReservationViewModel\GuestInformation.cs" />
     <Compile Include="ViewModel\CreateReservationViewModel\ReservationPriceStructure.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
-    <Compile Include="View\Controls\OccupancyControl.cs" />
+    <Compile Include="ViewModel\VisualReservationViewModel\OccupancyControlViewModel.cs" />
     <Compile Include="View\Controls\OccupancyControl.xaml.cs" />
-    <Compile Include="View\Controls\PriceConfiguration.xaml.cs">
-      <DependentUpon>PriceConfiguration.xaml</DependentUpon>
+    <Compile Include="ViewModel\ConfigurationViewModel\ConfigurationViewModel.cs" />
+    <Compile Include="View\Reservation.xaml.cs">
+      <DependentUpon>Reservation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Controls\PriceConfigurationControl.cs" />
-    <Compile Include="View\Controls\RevenueChart.xaml.cs">
+    <Compile Include="View\RevenueChart.xaml.cs">
       <DependentUpon>RevenueChart.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CreateReservation.xaml.cs">
@@ -252,6 +254,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\EditReservation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\HomePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -260,15 +266,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\Configuration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Controls\OccupancyControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Controls\PriceConfiguration.xaml">
+    <Page Include="View\Reservation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Controls\RevenueChart.xaml">
+    <Page Include="View\RevenueChart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -291,10 +301,11 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.1</Version>
     </PackageReference>
-    <PackageReference Include="WinRTXamlToolkit.Controls.DataVisualization.UWP">
-      <Version>2.3.0</Version>
+    <PackageReference Include="Telerik.UI.for.UniversalWindowsPlatform">
+      <Version>1.0.2.9</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

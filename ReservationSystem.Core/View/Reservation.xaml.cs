@@ -15,16 +15,29 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace ReservationSystem.Core.View.Controls
+namespace ReservationSystem.Core.View
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class PriceConfiguration : UserControl
+<<<<<<<< HEAD:ReservationSystem.Core/View/Configuration.xaml.cs
+    public sealed partial class Configuration : Page
     {
-        public PriceConfiguration()
+        public Configuration()
         {
             this.InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(HomePage));
+========
+    public sealed partial class Reservation : Page
+    {
+        public Reservation()
+        {
+            this.InitializeComponent();
+>>>>>>>> origin/HenkMergeAction:ReservationSystem.Core/View/Reservation.xaml.cs
         }
     }
 }

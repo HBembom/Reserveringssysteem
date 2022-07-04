@@ -5,7 +5,7 @@ using Windows.UI.Xaml.Controls;
 namespace ReservationSystem.Core.Model.OccupancyOverview.ReservationSystem.Core.Model.OccupancyOverview
 {
     public class Scope
-        {
+    {
         public readonly DateTimeColumnSpan MinDateTimeColumnSpan;
         public readonly DateTimeColumnSpan MaxDateTimeColumnSpan;
         public readonly List<DateTimeColumnSpan> DateTimeColumnSpans;

@@ -43,5 +43,10 @@ namespace ReservationSystem.Core.ViewModel
             get { return _licensePlate; }
             set { _licensePlate = value; OnPropertyChanged(nameof(LicensePlate)); }
         }
+
+        public void GetContactDetail(int id)
+        {
+
+        }
     }
 }

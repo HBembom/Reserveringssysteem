@@ -1,4 +1,7 @@
 ﻿using ReservationSystem.Core.Clients;
+using ReservationSystem.Core.Commands;
+using ReservationSystem.Core.Model;
+using ReservationSystem.Core.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,59 +11,59 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace ReservationSystem.Core.View.Controls
+namespace ReservationSystem.Core.View
 {
-    internal class PriceConfigurationControl : INotifyPropertyChanged
+    internal class ConfigurationViewModel : ViewModelBase
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        private PricesClient _pricesClient;
-
-        private double _adultPrice;
-        public double AdultPrice
+        public readonly PricesClient PricesClient;
+         
+        private Price _adultPrice;
+        public Price AdultPrice
         {
             get { return _adultPrice; }
             set { _adultPrice = value; OnPropertyChanged(nameof(AdultPrice)); }
         }
 
-        private double _childPrice;
-        public double ChildPrice
+        private Price _childPrice;
+        public Price ChildPrice
         {
             get { return _childPrice; }
             set { _childPrice = value; OnPropertyChanged(nameof(ChildPrice)); }
         }
 
-        private double _petPrice;
-        public double PetPrice
+        private Price _petPrice;
+        public Price PetPrice
         {
             get { return _petPrice; }
             set { _petPrice = value; OnPropertyChanged(nameof(PetPrice)); }
         }
 
-        private double _normalTax;
-        public double NormalTax
+        private Price _normalTax;
+        public Price NormalTax
         {
             get { return _normalTax; }
             set { _normalTax = value; OnPropertyChanged(nameof(NormalTax)); }
         }
 
-        private double _tourismTax;
-        public double TourismTax
+        private Price _tourismTax;
+        public Price TourismTax
         {
             get { return _tourismTax; }
             set { _tourismTax = value; OnPropertyChanged(nameof(TourismTax)); }
         }
 
-        // public ICommand UpdateConfigurationCommand { get; set; }
+        public ICommand UpdateConfigurationCommand { get; set; }
 
-
-        public PriceConfigurationControl()
+        public ConfigurationViewModel()
         {
-            _pricesClient = new PricesClient();
-            //AdultPrice = _pricesClient.GetById("Adult");
-            //ChildPrice = GetChildPrice("Child");
-            //PetPrice = GetPetPrice("Pet");
-            //NormalTax = GetNormalTax("NormalTax");
-            //TourismTax = GetTourismTax("TourismTax");
+            PricesClient = new PricesClient();
+            AdultPrice = PricesClient.GetByName("Adult").Result;
+            ChildPrice = PricesClient.GetByName("Child").Result;
+            PetPrice = PricesClient.GetByName("Pet").Result;
+            NormalTax = PricesClient.GetByName("NormalTax").Result;
+            TourismTax = PricesClient.GetByName("TourismTax").Result;
+            UpdateConfigurationCommand = new UpdateConfigurationCommand(this);
         }
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
