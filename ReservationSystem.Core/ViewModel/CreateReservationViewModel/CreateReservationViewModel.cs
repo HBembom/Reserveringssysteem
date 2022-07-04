@@ -53,7 +53,6 @@ namespace ReservationSystem.Core.ViewModel
             this.Accomodations = new Accomodations();
             this.AddGuestCommand = new AddGuestCommand(this);
             this.AddAccomodationCommand = new AddAccomodationCommand(this);
-            this.SubmitCommand = new CreateReservationCommand(this);
             this.GuestInformation = new GuestInformation();
             this.ExtraGuest = new ExtraGuest();
             this.PriceStructure = new ReservationPriceStructure();

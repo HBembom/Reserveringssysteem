@@ -20,10 +20,10 @@ namespace ReservationSystem.Core.View
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-<<<<<<<< HEAD:ReservationSystem.Core/View/Configuration.xaml.cs
-    public sealed partial class Configuration : Page
+
+    public sealed partial class Reservation : Page
     {
-        public Configuration()
+        public Reservation()
         {
             this.InitializeComponent();
         }
@@ -31,13 +31,6 @@ namespace ReservationSystem.Core.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(HomePage));
-========
-    public sealed partial class Reservation : Page
-    {
-        public Reservation()
-        {
-            this.InitializeComponent();
->>>>>>>> origin/HenkMergeAction:ReservationSystem.Core/View/Reservation.xaml.cs
         }
     }
 }

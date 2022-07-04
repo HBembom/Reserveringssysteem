@@ -44,7 +44,7 @@ namespace ReservationSystem.Core.Model.OccupancyOverview
                         new DurationOfStay(
                             new DateTime(Cache.ReservationModels[i].ArrivalDate.Year, Cache.ReservationModels[i].ArrivalDate.Month, Cache.ReservationModels[i].ArrivalDate.Day),
                             new DateTime(Cache.ReservationModels[i].DepartureDate.Year, Cache.ReservationModels[i].DepartureDate.Month, Cache.ReservationModels[i].DepartureDate.Day)),
-                        new List<Accomodation>() { new Camper(Cache.ReservationModels[i].AccommodationId[0]) },
+                        new List<Accomodation>() { new Camper(Int32.Parse(Cache.ReservationModels[i].AccommodationId[0])) },
                         new GuestContactDetail(
                             new FirstName(Cache.ReservationModels[i].FirstName),
                             new LastName(Cache.ReservationModels[i].LastName),
