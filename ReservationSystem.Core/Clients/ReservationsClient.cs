@@ -18,7 +18,7 @@ namespace ReservationSystem.Core.Clients
         public string LicensePlateName { get; set; }
         public DateTime ArrivalDate { get; set; }
         public DateTime DepartureDate { get; set; }
-        public int[] AccommodationId { get; set; }
+        public string[] AccommodationId { get; set; }
         public int AmountOfExtraAdults { get; set; }
         public int AmountOfExtraChildren { get; set; }
         public int AmountOfExtraPets { get; set; }
@@ -43,9 +43,16 @@ namespace ReservationSystem.Core.Clients
             return reservations;
         } 
 
-        public async Task<List<ReservationModel>> GetByAccommodation(int id)
+        public async Task<List<ReservationModel>> GetByAccommodation(int[] id, string startDate, string endDate)
         {
-            var res = await _client.GetStringAsync("http://localhost:57302/api/get_reservation_by_accommodation/" + id);
+            var options = new
+            {
+                AccommodationId = id,
+                StartDate = startDate,
+                EndDate = endDate,
+
+            };
+            var res = await _client.GetStringAsync("http://localhost:57302/api/get_reservation_by_accommodation/" + options);
             var reservations = JsonConvert.DeserializeObject<List<ReservationModel>>(res);
             return reservations;
         }

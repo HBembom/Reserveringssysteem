@@ -26,7 +26,7 @@ namespace ReserveeringsSysteemApi.Models
         public int AmountOfExtraChildren { get; set; }
         public int AmountOfExtraPets { get; set; }
         public double TotalCost { get; set; }
-        public int PaymentStatus { get; set; }
+        public bool PaymentStatus { get; set; }
         internal DbConnector Connector { get; set; }
 
         public Reservations(DbConnector connector)
@@ -39,8 +39,8 @@ namespace ReserveeringsSysteemApi.Models
         public async Task InsertReservation()
         {
             await using var command = Connector.Conn.CreateCommand();
-            command.CommandText = "INSERT INTO `reservations` (FirstName, LastName, PrefixName, StreetName, LicensePlateName, ArrivalDate, DepartureDate, AmountOfExtraAdults, AmountOfExtraChildren, AmountOfExtraPets, TotalCost, PaymentStatus) " +
-                                  "VALUES (@FirstName, @LastName, @PrefixName, @StreetName, @LicensePlateName, @ArrivalDate, @DepartureDate, @AmountOfExtraAdults, @AmountOfExtraChildren, @AmountOfExtraPets, @TotalCost, @PaymentStatus)";
+            command.CommandText = "INSERT INTO `reservations` (FirstName, LastName, PrefixName, StreetName, LicensePlateName, ArrivalDate, DepartureDate, AccommodationId, AmountOfExtraAdults, AmountOfExtraChildren, AmountOfExtraPets, TotalCost, PaymentStatus) " +
+                                  "VALUES (@FirstName, @LastName, @PrefixName, @StreetName, @LicensePlateName, @ArrivalDate, @DepartureDate, @AccommodationId, @AmountOfExtraAdults, @AmountOfExtraChildren, @AmountOfExtraPets, @TotalCost, @PaymentStatus)";
             AddReservationsParameters(command);
             await command.ExecuteNonQueryAsync();
             ReservationId = (int)command.LastInsertedId;
@@ -96,7 +96,7 @@ namespace ReserveeringsSysteemApi.Models
         public async Task UpdateReservationId()
         {
             await using var command = Connector.Conn.CreateCommand();
-            command.CommandText = @"UPDATE `reservations` SET FirstName = @FirstName, LastName = @LastName, PrefixName = @PrefixName, StreetName = @StreetName, LicensePlateName = @LicensePlateName, ArrivalDate = @ArrivalDate, DepartureDate = @DepartureDate, AmountOfExtraAdults = @AmountOfExtraAdults, AmountOfExtraChildren = @AmountOfExtraChildren, AmountOfExtraPets = @AmountOfExtraPets, TotalCost = @TotalCost, PaymentStatus = @PaymentStatus WHERE ReservationId = @ReservationId";
+            command.CommandText = @"UPDATE `reservations` SET FirstName = @FirstName, LastName = @LastName, PrefixName = @PrefixName, StreetName = @StreetName, LicensePlateName = @LicensePlateName, ArrivalDate = @ArrivalDate, DepartureDate = @DepartureDate, AccommodationId = @AccommodationId, AmountOfExtraAdults = @AmountOfExtraAdults, AmountOfExtraChildren = @AmountOfExtraChildren, AmountOfExtraPets = @AmountOfExtraPets, TotalCost = @TotalCost, PaymentStatus = @PaymentStatus WHERE ReservationId = @ReservationId";
             AddReservationsParameters(command);
             AddReservationsId(command);
             await command.ExecuteNonQueryAsync();
@@ -155,12 +155,24 @@ namespace ReserveeringsSysteemApi.Models
                 DbType = DbType.DateTime,
                 Value = DepartureDate
             });
-
+            var a = ""; //TODO find fix for accommodationId insert
+            for (int i = 0; i < AccommodationId.Length; i++)
+            {
+                if (i < AccommodationId.Length - 1)
+                {
+                    a += AccommodationId[i] + ",";
+                }
+                else
+                {
+                    a += AccommodationId[i];
+                }
+            }
             command.Parameters.Add(new MySqlParameter
             {
+                
                 ParameterName = @"AccommodationId",
                 DbType = DbType.String,
-                Value = AccommodationId
+                Value = a
             });
             command.Parameters.Add(new MySqlParameter
             {
@@ -189,7 +201,7 @@ namespace ReserveeringsSysteemApi.Models
             command.Parameters.Add(new MySqlParameter
             {
                 ParameterName = @"PaymentStatus",
-                DbType = DbType.Int32,
+                DbType = DbType.Boolean,
                 Value = PaymentStatus
             });
         }
@@ -228,7 +240,7 @@ namespace ReserveeringsSysteemApi.Models
                         AmountOfExtraChildren = reader.GetInt32(10),
                         AmountOfExtraPets = reader.GetInt32(11),
                         TotalCost = reader.GetDouble(12),
-                        PaymentStatus = reader.GetInt32(13)
+                        PaymentStatus = reader.GetBoolean(13)
                     };
                     reservations.Add(reservation);
                 }
