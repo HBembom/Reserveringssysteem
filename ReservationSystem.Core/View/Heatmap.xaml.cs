@@ -60,6 +60,15 @@ namespace ReservationSystem.Core.View
             _LegendColor.GradientStops.Add(Red);
         }
 
+        private List<ReservationModel> response = new List<ReservationModel>();
+
+
+        private async void test(int[] campingNumbers, string startDate, string endDate)
+        {
+
+            response = await _reservationsClient.GetByAccommodation(campingNumbers, startDate, endDate);
+        }
+
         public void UpdateHeatmapColors()
         {
             var sMonth = _startDate.DateTime.Month < 10 ? $"0{_startDate.DateTime.Month}" : _startDate.DateTime.Month.ToString();
@@ -73,13 +82,13 @@ namespace ReservationSystem.Core.View
             foreach (var campingPlace in _campingPlaces)
             {
                 var campingNumbers = campingPlace.Value;
-                var response = new List<ReservationModel>();
 
-                var AllAcommodationsTask = Task.Run(async () =>
+                var AllAcommodationsTask = Task.Run(() =>
                 {
-                    response = await _reservationsClient.GetByAccommodation(campingNumbers.ToArray(), startDate, endDate);
+                    test(campingNumbers.ToArray(), startDate, endDate);
                 });
 
+                AllAcommodationsTask.Wait();
                 var whole = campingNumbers.Count();
                 var part = response.Count();
                 var gradientOffset = float.Parse($"0.{(part * 100) / whole}");

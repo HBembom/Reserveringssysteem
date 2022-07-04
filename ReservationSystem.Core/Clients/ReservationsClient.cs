@@ -53,7 +53,7 @@ namespace ReservationSystem.Core.Clients
                 EndDate = endDate,
 
             };
-            var getAccommodationRoute = "http://localhost:57302/api/get_reservation_by_accommodation/";
+            var getAccommodationRoute = "http://localhost:57302/api/get_reservation_by_accommodations/?";
             for (var i = 0; i < id.Length; i++)
             {
                 getAccommodationRoute += $"AccommodationId={id[i]}&";
