@@ -211,8 +211,8 @@
     <Compile Include="View\Configuration.xaml.cs">
       <DependentUpon>Configuration.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Reservation.xaml.cs">
-      <DependentUpon>Reservation.xaml</DependentUpon>
+    <Compile Include="View\ReservationDetails.xaml.cs">
+      <DependentUpon>ReservationDetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\RevenueChart.xaml.cs">
       <DependentUpon>RevenueChart.xaml</DependentUpon>
@@ -270,7 +270,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Reservation.xaml">
+    <Page Include="View\ReservationDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

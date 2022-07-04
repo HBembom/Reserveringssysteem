@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using ReservationSystem.Core.ViewModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,6 +27,7 @@ namespace ReservationSystem.Core.View
         public VisualReservation()
         {
             this.InitializeComponent();
+            this.DataContext = new OccupancyOverviewUserControl();
         }
     }
 }
