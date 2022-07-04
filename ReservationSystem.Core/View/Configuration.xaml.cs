@@ -23,6 +23,8 @@ namespace ReservationSystem.Core.View
         public Reservation()
         {
             this.InitializeComponent();
+        }
+    }
 
     public sealed partial class Configuration : Page
     {

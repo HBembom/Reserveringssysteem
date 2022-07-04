@@ -6,7 +6,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
     <Grid>
         <Grid VerticalAlignment="Center" Width="404" Height="648" HorizontalAlignment="Left" Margin="785,0,0,0">
             <Grid.RowDefinitions>
@@ -34,16 +33,14 @@
             <TextBlock Grid.Row="4" Grid.Column="1" Text="Tourist Tax" VerticalAlignment="Center" FontSize="40px" Height="53" Margin="0,0,198,0"></TextBlock>
             <TextBlock Grid.Row="5" Grid.Column="1" Text="Normal Tax" VerticalAlignment="Center" FontSize="40px" Height="53" Margin="0,0,171,0"></TextBlock>
             <Button Grid.Row="6" Content="Update"  Margin="122,15,291,0" Height="67" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" VerticalAlignment="Top"/>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="375*"></ColumnDefinition>
-            <ColumnDefinition Width="34*"></ColumnDefinition>
-            <ColumnDefinition Width="341*"/>
-        </Grid.ColumnDefinitions>
+
+
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="50px" Height="132" Width="360" Margin="785,129,0,0" Text="Configurations"/>
+        </Grid>
 
         <Grid Grid.Column="0">
-            <Button Content="Home" Margin="90,103,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+            <Button Content="Home" Margin="88,199,0,0" VerticalAlignment="Top" Click="Button_Click"/>
         </Grid>
-        <Rectangle Height="99" Stroke="Black" VerticalAlignment="Top" Fill="DarkGreen"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="50px" Height="132" Width="360" Margin="785,129,0,0" Text="Configurations"/>
+        <Rectangle Height="158" Stroke="Black" VerticalAlignment="Top" Fill="DarkGreen"/>
     </Grid>
 </Page>
