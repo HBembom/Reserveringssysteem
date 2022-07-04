@@ -62,19 +62,26 @@ namespace ReservationSystem.Core.View
 
         public void UpdateHeatmapColors()
         {
+            var sMonth = _startDate.DateTime.Month < 10 ? $"0{_startDate.DateTime.Month}" : _startDate.DateTime.Month.ToString();
+            var sDay = _startDate.DateTime.Day < 10 ? $"0{_startDate.DateTime.Day}" : _startDate.DateTime.Day.ToString();
+            var eMonth = _endDate.DateTime.Month < 10 ? $"0{_endDate.DateTime.Month}" : _endDate.DateTime.Month.ToString();
+            var eDay = _endDate.DateTime.Day < 10 ? $"0{_endDate.DateTime.Day}" : _endDate.DateTime.Day.ToString();
+
+            var startDate = $"{_startDate.DateTime.Year}-{sMonth}-{sDay}";
+            var endDate = $"{_endDate.DateTime.Year}-{eMonth}-{eDay}";
+
             foreach (var campingPlace in _campingPlaces)
             {
                 var campingNumbers = campingPlace.Value;
-                List<int> res = new List<int>
+                var response = new List<ReservationModel>();
+
+                var AllAcommodationsTask = Task.Run(async () =>
                 {
-                    1,
-                    1,
-                    1,
-                    1
-                };
+                    response = await _reservationsClient.GetByAccommodation(campingNumbers.ToArray(), startDate, endDate);
+                });
 
                 var whole = campingNumbers.Count();
-                var part = res.Count();
+                var part = response.Count();
                 var gradientOffset = float.Parse($"0.{(part * 100) / whole}");
 
                 var newColor = GetRelativeColorOfLegend(gradientOffset);
