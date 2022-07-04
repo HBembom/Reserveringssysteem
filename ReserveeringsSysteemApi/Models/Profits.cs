@@ -13,7 +13,6 @@ namespace ReserveeringsSysteemApi.Models
     public class Profits
     {
         public double AmountOfProfit { get; set; }
-        [MaybeNull]
         public int Period { get; set; }
         internal DbConnector Connector { get; set; }
         public Profits(DbConnector connector)

@@ -70,7 +70,6 @@ namespace ReserveeringsSysteemApi.Models
             await command.ExecuteNonQueryAsync();
         }
 
-
         private void AddAccommodationsParameters(MySqlCommand command)
         {
             command.Parameters.Add(new MySqlParameter

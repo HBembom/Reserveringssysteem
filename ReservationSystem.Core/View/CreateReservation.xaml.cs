@@ -25,5 +25,12 @@ namespace ReservationSystem.Core.View
             this.InitializeComponent();
             this.DataContext = new ViewModel.CreateReservationViewModel();
         }
-     }
+
+        
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(HomePage));
+        }
+    }
 }

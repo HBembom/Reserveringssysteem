@@ -64,15 +64,7 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <ComboBox  SelectedItem="{Binding Path=Accomodations.SelectedPitchNumber, Mode=TwoWay}" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <ComboBoxItem>1</ComboBoxItem>
-                <ComboBoxItem>2</ComboBoxItem>
-                <ComboBoxItem>3</ComboBoxItem>
-                <ComboBoxItem>4</ComboBoxItem>
-                <ComboBoxItem>5</ComboBoxItem>
-                <ComboBoxItem>6</ComboBoxItem>
-                <ComboBoxItem>7</ComboBoxItem>
-            </ComboBox>
+            <ComboBox ItemsSource="{Binding Path=Accomodations.AvailableAccommodations}" SelectedItem="{Binding Path=Accomodations.SelectedPitchNumber, Mode=TwoWay}" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></ComboBox>
             <ComboBox Grid.Row="0" ItemsSource="{Binding Path=Accomodations.SelectableAccomodations}" SelectedItem="{Binding Path=Accomodations.SelectedAccomodation, Mode=TwoWay}" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
             </ComboBox>
             <CalendarDatePicker Date="{Binding Path=Accomodations.ArrivalDateTime}" DateFormat="{}{day.integer}/{month.integer}/{year.full}" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" ></CalendarDatePicker>
@@ -175,6 +167,9 @@
             </Grid>
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Create Reservation" VerticalAlignment="Top" FontWeight="Bold" FontSize="50px" Height="132" Width="574" Grid.ColumnSpan="3" Margin="0,-107,0,0"/>
         </Grid>
+        <Button Command="{Binding Path=CreateReservationCommand}" Content="Create Reservation" Grid.Column="2" Margin="82,689,0,0" VerticalAlignment="Top" Height="63" Width="164"></Button>
+        
+        <Button Content="Home" Margin="62,91,0,0" VerticalAlignment="Top" Click="Button_Click"/>
         <Button Command="{Binding Path=SubmitCommand}" Content="Create Reservation" Grid.Column="2" Margin="82,689,0,0" VerticalAlignment="Top" Height="63" Width="164"></Button>
         <Rectangle Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="120" Stroke="Black" VerticalAlignment="Top" Width="1902" Fill="Green" />
         <TextBox Grid.Column="2" HorizontalAlignment="Left" Margin="1628,120,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="0"/>
