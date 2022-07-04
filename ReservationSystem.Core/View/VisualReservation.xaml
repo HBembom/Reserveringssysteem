@@ -4,12 +4,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:local1="using:ReservationSystem.Core.View.Controls"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    xmlns:local="using:ReservationSystem.Core.View" xmlns:local1="using:ReservationSystem.Core.View.Controls">
 
     <Grid RenderTransformOrigin="0.538,0.505">
         <Rectangle HorizontalAlignment="Center" Height="113" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="DarkGreen"/>
-        <local1:OccupancyControl></local1:OccupancyControl>
+        <local1:OccupancyControl Margin="215,249,214,159"></local1:OccupancyControl>
     </Grid>
 </Page>

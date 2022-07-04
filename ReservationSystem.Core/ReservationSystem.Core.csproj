@@ -204,7 +204,7 @@
     <Compile Include="ViewModel\CreateReservationViewModel\ReservationPriceStructure.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\VisualReservationViewModel\OccupancyControlViewModel.cs" />
-    <Compile Include="View\Controls\OccupancyControl.xaml.cs" />
+    <Compile Include="View\OccupancyControl.xaml.cs" />
     <Compile Include="ViewModel\ConfigurationViewModel\ConfigurationViewModel.cs" />
     <Compile Include="View\Reservation.xaml.cs">
       <DependentUpon>Reservation.xaml</DependentUpon>
@@ -253,7 +253,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Controls\OccupancyControl.xaml">
+    <Page Include="View\OccupancyControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -288,7 +288,9 @@
       <Version>1.0.2.9</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="View\Controls\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
