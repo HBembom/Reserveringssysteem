@@ -45,6 +45,12 @@
                    Canvas.Left="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualWidth, ConverterParameter=0.69}"
                    Fill="{x:Bind _16_22HeatmapColor}"
         />
+        <Rectangle Width="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualWidth, ConverterParameter=0.25}"
+                   Height="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualHeight, ConverterParameter=0.075}"
+                   Canvas.Left="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualHeight, ConverterParameter=0.35}"
+                   Canvas.Top="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualHeight, ConverterParameter=0.75}"
+                   Fill="{x:Bind _LegendColor}"
+        />
 
         <TextBlock Canvas.Left="1196" Canvas.Top="61" HorizontalAlignment="Center" VerticalAlignment="Top">Select a start date</TextBlock>
         <CalendarDatePicker x:Name="startDate"
