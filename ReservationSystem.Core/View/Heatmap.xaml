@@ -45,5 +45,29 @@
                    Canvas.Left="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualWidth, ConverterParameter=0.69}"
                    Fill="{x:Bind _16_22HeatmapColor}"
         />
+
+        <TextBlock Canvas.Left="1196" Canvas.Top="61" HorizontalAlignment="Center" VerticalAlignment="Top">Select a start date</TextBlock>
+        <CalendarDatePicker x:Name="startDate"
+                            Canvas.Left="1326"
+                            Canvas.Top="54"
+                            MinWidth="160"
+                            MinHeight="32"
+                            VerticalAlignment="Top"
+                            DateFormat="{}{day.integer} {month.full} {year.full}"
+                            DateChanged="startDate_DateChanged"
+                            Date="{x:Bind _startDate}"
+        />
+
+        <TextBlock Canvas.Left="1194" Canvas.Top="123" HorizontalAlignment="Left" VerticalAlignment="Center">Select an end date</TextBlock>
+        <CalendarDatePicker x:Name="endDate"
+                            Canvas.Left="1326"
+                            Canvas.Top="118"
+                            MinWidth="160"
+                            MinHeight="32"
+                            VerticalAlignment="Top"
+                            DateFormat="{}{day.integer} {month.full} {year.full}"
+                            DateChanged="endDate_DateChanged"
+                            Date="{x:Bind _endDate}"
+        />
     </Canvas>
 </Page>
