@@ -7,9 +7,9 @@
             <ColumnDefinition Width="341*" />
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0">
+        <Grid Grid.ColumnSpan="3">
             <Button Content="Home" Margin="90,103,0,0" VerticalAlignment="Top" Click="Button_Click" />
-            <Grid VerticalAlignment="Center" Width="404" Height="648" HorizontalAlignment="Left" Margin="785,0,0,0">
+            <Grid VerticalAlignment="Top" Width="404" Height="648" HorizontalAlignment="Left" Margin="584,160,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
@@ -37,7 +37,7 @@
                 <Button Grid.Row="6" Content="Update" Margin="122,15,291,0" Height="67" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" VerticalAlignment="Top" />
             </Grid>
             <Rectangle Height="99" Stroke="Black" VerticalAlignment="Top" Fill="DarkGreen" />
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="50px" Height="132" Width="360" Margin="785,129,0,0" Text="Configurations" />
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="50px" Height="132" Width="360" Margin="584,100,0,0" Text="Configurations" />
         </Grid>
     </Grid>
 </Page>

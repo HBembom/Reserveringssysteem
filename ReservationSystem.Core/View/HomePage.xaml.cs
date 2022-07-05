@@ -41,6 +41,7 @@ namespace ReservationSystem.Core
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             //occupancy overview
+            this.Frame.Navigate(typeof(VisualReservation));
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
