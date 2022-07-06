@@ -52,7 +52,7 @@ namespace ReservationSystem.Core
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            //reservation details
+            this.Frame.Navigate(typeof(Heatmap));
         }
     }
 }

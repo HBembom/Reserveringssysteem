@@ -21,24 +21,37 @@
         </Grid.RowDefinitions>
         <Rectangle Grid.Row="0" Grid.ColumnSpan="3" Fill="#FFB0D484"></Rectangle>
         <TextBlock Grid.Row="1" Grid.Column="1" Text="Reservation Overview" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="50px"></TextBlock>
-
         <ListView Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Path=Reservations}">
+            <ListView.Header>
+                <ListViewHeaderItem Width="auto">
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="LastName" Grid.Column="0" Width="300" ></TextBlock>
+                        <TextBlock Text="ArrivalDate" Grid.Column="1" Width="300"></TextBlock>
+                        <TextBlock Text="DepartureDate" Grid.Column="2" Width="300"></TextBlock>
+                    </Grid>
+                </ListViewHeaderItem>
+            </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
+                    <GridView>
+                        <GridView.ItemTemplate>
+                            <DataTemplate>
+                                
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                        
                         <TextBlock Text="{Binding LastName}" Grid.Column="0"></TextBlock>
-                        <TextBlock Text="{Binding ArrivalDate}" Grid.Column="1"></TextBlock>
-                        <TextBlock Text="{Binding DepartureDate}" Grid.Column="2"></TextBlock>
-                    </Grid>
+                            <TextBlock Text="{Binding ArrivalDate}" Grid.Column="1"></TextBlock>
+                            <TextBlock Text="{Binding DepartureDate}" Grid.Column="2"></TextBlock>
+                    
+                    </GridView>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-        
     </Grid>
 </Page>

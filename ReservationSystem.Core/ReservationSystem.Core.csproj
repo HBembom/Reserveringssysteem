@@ -143,6 +143,9 @@
     <Compile Include="Commands\UpdateCommand.cs" />
     <Compile Include="ViewModel\ReservationCollectionViewModel.cs" />
     <Compile Include="ViewModel\ReservationViewModel.cs" />
+    <Compile Include="View\EditReservation.xaml.cs">
+      <DependentUpon>EditReservation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
@@ -248,11 +251,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="View\Heatmap.xaml">
+    <Page Include="View\EditReservation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\EditReservation.xaml">
+    <Page Include="View\Heatmap.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
