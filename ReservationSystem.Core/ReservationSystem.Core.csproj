@@ -141,6 +141,8 @@
     <Compile Include="Model\Heatmap\PercentageConverter.cs" />
     <Compile Include="ViewModel\EditReservationViewModel.cs" />
     <Compile Include="Commands\UpdateCommand.cs" />
+    <Compile Include="ViewModel\ReservationCollectionViewModel.cs" />
+    <Compile Include="ViewModel\ReservationViewModel.cs" />
     <Compile Include="View\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
@@ -198,7 +200,7 @@
     <Compile Include="Model\Taxes\TourismTaxRate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\CreateReservationViewModel\Accomodations.cs" />
-    <Compile Include="ViewModel\CreateReservationViewModel\CreateReservationViewModel.cs" />
+    <Compile Include="ViewModel\CreateReservationViewModel.cs" />
     <Compile Include="ViewModel\CreateReservationViewModel\ExtraGuest.cs" />
     <Compile Include="ViewModel\Factory\AccomodationFactory.cs" />
     <Compile Include="ViewModel\Factory\GuestFactory.cs" />
@@ -207,9 +209,12 @@
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\VisualReservationViewModel\OccupancyControlViewModel.cs" />
     <Compile Include="View\Controls\OccupancyControl.xaml.cs" />
-    <Compile Include="ViewModel\ConfigurationViewModel\ConfigurationViewModel.cs" />
+    <Compile Include="ViewModel\ConfigurationViewModel.cs" />
     <Compile Include="View\Configuration.xaml.cs">
       <DependentUpon>Configuration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReservationCollection.xaml.cs">
+      <DependentUpon>ReservationCollection.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ReservationDetails.xaml.cs">
       <DependentUpon>ReservationDetails.xaml</DependentUpon>
@@ -270,6 +275,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ReservationCollection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ReservationDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -301,7 +310,11 @@
       <Version>1.0.2.9</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ViewModel\ConfigurationViewModel\" />
+    <Folder Include="ViewModel\ReservationCollectionViewModel\" />
+    <Folder Include="ViewModel\ReservationViewModel\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
