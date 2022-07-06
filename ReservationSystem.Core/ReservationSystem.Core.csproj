@@ -141,6 +141,7 @@
     <Compile Include="Model\Heatmap\PercentageConverter.cs" />
     <Compile Include="ViewModel\EditReservationViewModel.cs" />
     <Compile Include="Commands\UpdateCommand.cs" />
+    <Compile Include="ViewModel\HeatmapViewModel.cs" />
     <Compile Include="ViewModel\ReservationCollectionViewModel.cs" />
     <Compile Include="ViewModel\ReservationViewModel.cs" />
     <Compile Include="View\EditReservation.xaml.cs">
