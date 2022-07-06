@@ -21,7 +21,6 @@ namespace ReservationSystem.Core.View
     {
         public CreateReservation()
         {
-            
             this.InitializeComponent();
             this.DataContext = new ViewModel.CreateReservationViewModel();
         }

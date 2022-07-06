@@ -25,7 +25,7 @@ namespace ReservationSystem.Core.View
         public Configuration()
         {
             this.InitializeComponent();
-            this.DataContext = new ConfigurationViewModel();
+            this.DataContext = new ViewModel.ConfigurationViewModel();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
