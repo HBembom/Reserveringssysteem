@@ -12,8 +12,8 @@ namespace ReservationSystem.Core.ViewModel.ReservationViewModel
         private readonly Clients.ReservationModel _reservation;
 
         public string GuestFirstName => _reservation.LastName.ToString();
-        public string ArrivalDate => _reservation.ArrivalDate.ToString();
-        public string DepartureDate => _reservation.DepartureDate.ToString();
+        public string ArrivalDate => _reservation.ArrivalDate.ToString("d");
+        public string DepartureDate => _reservation.DepartureDate.ToString("d");
 
         public ReservationViewModel(Clients.ReservationModel reservation)
         {
