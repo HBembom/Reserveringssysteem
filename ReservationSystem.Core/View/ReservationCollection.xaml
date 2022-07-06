@@ -19,7 +19,7 @@
             <RowDefinition Height="600"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Rectangle Grid.Row="0" Grid.ColumnSpan="3" Fill="DarkGreen"></Rectangle>
+        <Rectangle Grid.Row="0" Grid.ColumnSpan="3" Fill="#FFB0D484"></Rectangle>
         <TextBlock Grid.Row="1" Grid.Column="1" Text="Reservation Overview" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="50px"></TextBlock>
 
         <ListView Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Path=Reservations}">

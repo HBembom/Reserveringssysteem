@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid RenderTransformOrigin="0.538,0.505">
-        <Rectangle HorizontalAlignment="Center" Height="113" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="DarkGreen"/>
+        <Rectangle HorizontalAlignment="Center" Height="113" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="#FFB0D484"/>
         <local1:OccupancyControl Margin="0,135,0,0"></local1:OccupancyControl>
         <Button Content="Home" Margin="62,91,0,0" VerticalAlignment="Top" Click="Button_Click"/>
     </Grid>

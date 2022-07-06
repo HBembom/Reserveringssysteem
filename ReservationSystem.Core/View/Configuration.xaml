@@ -42,7 +42,7 @@
                 <TextBlock Grid.Row="5" Grid.Column="1" Text="Normal Tax" VerticalAlignment="Center" FontSize="40px" Height="53" Margin="0,0,171,0"></TextBlock>
                 <Button Grid.Row="6" Content="Update" Margin="122,15,291,0" Height="67" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" VerticalAlignment="Top" />
             </Grid>
-            <Rectangle Height="99" Stroke="Black" VerticalAlignment="Top" Fill="DarkGreen" />
+            <Rectangle Height="99" Stroke="Black" VerticalAlignment="Top" Fill="#FFB0D484" />
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="50px" Height="132" Width="360" Margin="758,119,0,0" Text="Configurations" />
         </Grid>
     </Grid>
