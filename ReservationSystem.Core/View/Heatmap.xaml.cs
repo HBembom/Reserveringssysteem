@@ -9,16 +9,57 @@ using Windows.UI;
 using System.Diagnostics;
 using ReservationSystem.Core.Clients;
 using Windows.Foundation;
+using System.ComponentModel;
 
 namespace ReservationSystem.Core.View
 {
     public sealed partial class Heatmap : Page
     {
-        private SolidColorBrush _1_7HeatmapColor { get; set; }
-        private SolidColorBrush _8_11HeatmapColor { get; set; }
-        private SolidColorBrush _12_15HeatmapColor { get; set; }
-        private SolidColorBrush _16_22HeatmapColor { get; set; }
-        private SolidColorBrush _23_29HeatmapColor { get; set; }
+        private SolidColorBrush _1_7HeatmapColor
+        {
+            get { return _1_7HeatmapColor; }
+            set
+            {
+                _1_7HeatmapColor = value;
+                //PropertyChanged(this, new PropertyChangedEventArgs("1_7"));
+            }
+        }
+        private SolidColorBrush _8_11HeatmapColor
+        {
+            get { return _8_11HeatmapColor; }
+            set
+            {
+                _8_11HeatmapColor = value;
+                //PropertyChanged(this, new PropertyChangedEventArgs("1_7"));
+            }
+        }
+        private SolidColorBrush _12_15HeatmapColor
+        {
+            get { return _12_15HeatmapColor; }
+            set
+            {
+                _12_15HeatmapColor = value;
+                //PropertyChanged(this, new PropertyChangedEventArgs("1_7"));
+            }
+        }
+        private SolidColorBrush _16_22HeatmapColor
+        {
+            get { return _16_22HeatmapColor; }
+            set
+            {
+                _16_22HeatmapColor = value;
+                //PropertyChanged(this, new PropertyChangedEventArgs("1_7"));
+            }
+        }
+        private SolidColorBrush _23_29HeatmapColor
+        {
+            get { return _23_29HeatmapColor; }
+            set
+            {
+                _23_29HeatmapColor = value;
+                //PropertyChanged(this, new PropertyChangedEventArgs("1_7"));
+            }
+        }
         private LinearGradientBrush _LegendColor { get; set; } = new LinearGradientBrush();
         private DateTimeOffset _startDate { get; set; } = DateTimeOffset.Now;
         private DateTimeOffset _endDate { get; set; } = DateTimeOffset.Now.AddDays(7);
@@ -38,6 +79,8 @@ namespace ReservationSystem.Core.View
             UpdateLegendColor();
             UpdateHeatmapColors();
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private void UpdateLegendColor()
         {
@@ -60,13 +103,11 @@ namespace ReservationSystem.Core.View
             _LegendColor.GradientStops.Add(Red);
         }
 
-        private List<ReservationModel> response = new List<ReservationModel>();
-
-
-        private async void test(int[] campingNumbers, string startDate, string endDate)
+        private async Task test(int[] campingNumbers, string startDate, string endDate)
         {
+            var res = await _reservationsClient.GetByAccommodation(campingNumbers, startDate, endDate);
 
-            response = await _reservationsClient.GetByAccommodation(campingNumbers, startDate, endDate);
+            _ = res != null ? _response = res : _response = new List<ReservationModel>();
         }
 
         public void UpdateHeatmapColors()
@@ -83,14 +124,14 @@ namespace ReservationSystem.Core.View
             {
                 var campingNumbers = campingPlace.Value;
 
-                var AllAcommodationsTask = Task.Run(() =>
+                var AllAcommodationsTask = Task.Run(async () =>
                 {
-                    test(campingNumbers.ToArray(), startDate, endDate);
+                    await test(campingNumbers.ToArray(), startDate, endDate);
                 });
-
                 AllAcommodationsTask.Wait();
+
                 var whole = campingNumbers.Count();
-                var part = response.Count();
+                var part = _response.Count();
                 var gradientOffset = float.Parse($"0.{(part * 100) / whole}");
 
                 var newColor = GetRelativeColorOfLegend(gradientOffset);
@@ -114,6 +155,8 @@ namespace ReservationSystem.Core.View
                         break;
                 }
             }
+
+            Debug.WriteLine("Done updating heatmap colors");
         }
 
         public Color GetRelativeColorOfLegend(float offset)
@@ -137,7 +180,7 @@ namespace ReservationSystem.Core.View
 
             var color = new Color
             {
-                A = 195,
+                A = 190,
                 R = (byte)((offset - before.Offset) * (after.Color.R - before.Color.R) / (after.Offset - before.Offset) + before.Color.R),
                 G = (byte)((offset - before.Offset) * (after.Color.G - before.Color.G) / (after.Offset - before.Offset) + before.Color.G),
                 B = (byte)((offset - before.Offset) * (after.Color.B - before.Color.B) / (after.Offset - before.Offset) + before.Color.B)
@@ -151,6 +194,8 @@ namespace ReservationSystem.Core.View
             _startDate = args.NewDate.Value;
             _endDate = args.NewDate.Value.AddDays(7);
 
+            Debug.WriteLine("Inside startDate_DateChanged");
+
             endDate.Date = _endDate;
             UpdateHeatmapColors();
         }
@@ -159,9 +204,9 @@ namespace ReservationSystem.Core.View
         {
             _startDate = args.NewDate.Value.AddDays(-7);
             _endDate = args.NewDate.Value;
+            Debug.WriteLine("Inside endDate_DateChanged");
 
             startDate.Date = _startDate;
-            UpdateHeatmapColors();
         }
     }
 }

@@ -19,31 +19,31 @@
                    Height="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualHeight, ConverterParameter=0.125}"
                    Canvas.Top="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualHeight, ConverterParameter=0.075}"
                    Canvas.Left="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualWidth, ConverterParameter=0.09}"
-                   Fill="{x:Bind _23_29HeatmapColor}"
+                   Fill="{x:Bind _23_29HeatmapColor, Mode=OneWay}"
         />
         <Rectangle Width="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualWidth, ConverterParameter=0.445}"
                    Height="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualHeight, ConverterParameter=0.2}"
                    Canvas.Top="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualHeight, ConverterParameter=0.24}"
                    Canvas.Left="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualWidth, ConverterParameter=0.07}"
-                   Fill="{x:Bind _1_7HeatmapColor}"
+                   Fill="{x:Bind _1_7HeatmapColor, Mode=OneWay}"
         />
         <Rectangle Width="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualWidth, ConverterParameter=0.4}"
                    Height="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualHeight, ConverterParameter=0.125}"
                    Canvas.Top="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualHeight, ConverterParameter=0.45}"
                    Canvas.Left="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualWidth, ConverterParameter=0.075}"
-                   Fill="{x:Bind _12_15HeatmapColor}"
+                   Fill="{x:Bind _12_15HeatmapColor, Mode=OneWay}"
         />
         <Rectangle Width="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualWidth, ConverterParameter=0.1}"
                    Height="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualHeight, ConverterParameter=0.42}"
                    Canvas.Top="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualHeight, ConverterParameter=0.375}"
                    Canvas.Left="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualWidth, ConverterParameter=0.57}"
-                   Fill="{x:Bind _8_11HeatmapColor}"
+                   Fill="{x:Bind _8_11HeatmapColor, Mode=OneWay}"
         />
         <Rectangle Width="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualWidth, ConverterParameter=0.275}"
                    Height="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualHeight, ConverterParameter=0.3}"
                    Canvas.Top="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualHeight, ConverterParameter=0.525}"
                    Canvas.Left="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualWidth, ConverterParameter=0.69}"
-                   Fill="{x:Bind _16_22HeatmapColor}"
+                   Fill="{x:Bind _16_22HeatmapColor, Mode=OneWay}"
         />
 
         <TextBlock Canvas.Left="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualWidth, ConverterParameter=0.175}"
