@@ -40,7 +40,7 @@
                 <TextBlock Grid.Row="3" Grid.Column="1" Text="Pet Price" VerticalAlignment="Center" FontSize="40px" Height="53" Margin="0,0,188,0"></TextBlock>
                 <TextBlock Grid.Row="4" Grid.Column="1" Text="Tourist Tax" VerticalAlignment="Center" FontSize="40px" Height="53" Margin="0,0,198,0"></TextBlock>
                 <TextBlock Grid.Row="5" Grid.Column="1" Text="Normal Tax" VerticalAlignment="Center" FontSize="40px" Height="53" Margin="0,0,171,0"></TextBlock>
-                <Button Grid.Row="6" Content="Update" Margin="122,15,291,0" Height="67" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" VerticalAlignment="Top" />
+                <Button Command="{Binding Path=UpdateConfigurationCommand}" Grid.Row="6" Content="Update" Margin="122,0,291,10" Height="67" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" VerticalAlignment="Bottom" />
             </Grid>
             <Rectangle Height="99" Stroke="Black" VerticalAlignment="Top" Fill="#FFB0D484" />
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="50px" Height="132" Width="360" Margin="758,119,0,0" Text="Configurations" />
