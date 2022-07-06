@@ -144,13 +144,6 @@ namespace ReservationSystem.Core.ViewModel
             _LegendColor.GradientStops.Add(Red);
         }
 
-        private async Task test(int[] campingNumbers, string startDate, string endDate)
-        {
-            var res = await _reservationsClient.GetByAccommodation(campingNumbers, startDate, endDate);
-
-            _ = res != null ? _response = res : _response = new List<ReservationModel>();
-        }
-
         public void UpdateHeatmapColors()
         {
             var sMonth = _startDate.DateTime.Month < 10 ? $"0{_startDate.DateTime.Month}" : _startDate.DateTime.Month.ToString();
@@ -167,7 +160,8 @@ namespace ReservationSystem.Core.ViewModel
 
                 var AllAcommodationsTask = Task.Run(async () =>
                 {
-                    await test(campingNumbers.ToArray(), startDate, endDate);
+                    var res = await _reservationsClient.GetByAccommodation(campingNumbers.ToArray(), startDate, endDate);
+                    _ = res != null ? _response = res : _response = new List<ReservationModel>();
                 });
                 AllAcommodationsTask.Wait();
 
