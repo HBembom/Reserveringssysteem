@@ -9,13 +9,13 @@ namespace ReservationSystem.Core.ViewModel.ReservationViewModel
 {
     internal class ReservationViewModel : ViewModelBase
     {
-        private readonly Reservation _reservation;
+        private readonly Clients.ReservationModel _reservation;
 
-        public string GuestFirstName => _reservation.ContactDetail.LastName.ToString();
-        public DateTime ArrivalDate => _reservation.DurationOfStay.ArrivalDateTime;
-        public DateTime DepartureDate => _reservation.DurationOfStay.DepartureDateTime;
+        public string GuestFirstName => _reservation.LastName.ToString();
+        public string ArrivalDate => _reservation.ArrivalDate.ToString();
+        public string DepartureDate => _reservation.DepartureDate.ToString();
 
-        public ReservationViewModel(Reservation reservation)
+        public ReservationViewModel(Clients.ReservationModel reservation)
         {
             _reservation = reservation;
         }
