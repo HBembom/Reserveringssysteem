@@ -32,9 +32,8 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding LastName}" Grid.Column="0"></TextBlock>
-                        <TextBlock Text="{Binding LastName}" Grid.Column="0"></TextBlock>
-                        <TextBlock Text="{Binding LastName}" Grid.Column="0"></TextBlock>
-
+                        <TextBlock Text="{Binding ArrivalDate}" Grid.Column="1"></TextBlock>
+                        <TextBlock Text="{Binding DepartureDate}" Grid.Column="2"></TextBlock>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
