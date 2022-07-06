@@ -27,7 +27,6 @@ namespace ReservationSystem.Core
          public static async void SetReservationModels()
          {
             ReservationModels = await ReservationClient.GetAll();
-
         }
     }
 }

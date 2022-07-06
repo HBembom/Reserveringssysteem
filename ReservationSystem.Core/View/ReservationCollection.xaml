@@ -1,0 +1,45 @@
+﻿<Page
+    x:Class="ReservationSystem.Core.View.ReservationCollection"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ReservationSystem.Core.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="1200"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"></RowDefinition>
+            <RowDefinition Height="150"></RowDefinition>
+            <RowDefinition Height="600"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Rectangle Grid.Row="0" Grid.ColumnSpan="3" Fill="DarkGreen"></Rectangle>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Reservation Overview" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="50px"></TextBlock>
+
+        <ListView Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Path=Reservations}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding LastName}" Grid.Column="0"></TextBlock>
+                        <TextBlock Text="{Binding LastName}" Grid.Column="0"></TextBlock>
+                        <TextBlock Text="{Binding LastName}" Grid.Column="0"></TextBlock>
+
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        
+    </Grid>
+</Page>
