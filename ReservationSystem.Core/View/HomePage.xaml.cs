@@ -30,7 +30,7 @@ namespace ReservationSystem.Core
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //overview reservations
+            this.Frame.Navigate(typeof(ReservationCollection));
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
