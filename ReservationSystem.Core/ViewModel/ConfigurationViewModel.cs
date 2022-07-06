@@ -8,16 +8,17 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace ReservationSystem.Core.View
+namespace ReservationSystem.Core.ViewModel
 {
     internal class ConfigurationViewModel : ViewModelBase
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public readonly PricesClient PricesClient;
-         
+
         private double _adultPrice;
         public double AdultPrice
         {
@@ -58,26 +59,28 @@ namespace ReservationSystem.Core.View
         public ConfigurationViewModel()
         {
             PricesClient = new PricesClient();
-
-            // var setConfigurationTask = Task.Run(() =>
-            // {
-            // });
-            // setConfigurationTask.Wait();
-
             SetConfiguration();
-
-
             UpdateConfigurationCommand = new UpdateConfigurationCommand(this);
         }
 
-        private async void SetConfiguration()
+        private void SetConfiguration()
         {
-            var adultPrice = await PricesClient.GetByName("Adult");
-            var childPrice = await PricesClient.GetByName("Child");
-            var petPrice = await PricesClient.GetByName("Pet");
-            var normalTax = await PricesClient.GetByName("NormalTax");
-            var tourismTax = await PricesClient.GetByName("TourismTax");
-            
+            var adultPrice = new PriceModel();
+            var childPrice = new PriceModel();
+            var petPrice = new PriceModel();
+            var normalTax = new PriceModel();
+            var tourismTax = new PriceModel();
+
+            var a = Task.Run(async () =>
+            {
+                adultPrice = await PricesClient.GetByName("Adult");
+                childPrice = await PricesClient.GetByName("Child");
+                petPrice = await PricesClient.GetByName("Pet");
+                normalTax = await PricesClient.GetByName("NormalTax");
+                tourismTax = await PricesClient.GetByName("TourismTax");
+            });
+            a.Wait();
+
             AdultPrice = new Price(adultPrice.Amount).Value;
             ChildPrice = new Price(childPrice.Amount).Value;
             PetPrice = new Price(petPrice.Amount).Value;
@@ -89,5 +92,5 @@ namespace ReservationSystem.Core.View
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-}
+    }
 }
