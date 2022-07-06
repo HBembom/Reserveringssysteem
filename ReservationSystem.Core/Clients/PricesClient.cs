@@ -21,10 +21,10 @@ namespace ReservationSystem.Core.Clients
     {
         private readonly HttpClient _client = new HttpClient();
 
-        public async Task<Price> GetByName(string name)
+        public async Task<PriceModel> GetByName(string name)
         {
             var res = await _client.GetStringAsync("http://localhost:57302/api/Prices/" + name);
-            var price = JsonConvert.DeserializeObject<Price>(res);
+            var price = JsonConvert.DeserializeObject<PriceModel>(res);
             return price;
         }
 
@@ -41,7 +41,7 @@ namespace ReservationSystem.Core.Clients
             res.EnsureSuccessStatusCode();
         }
 
-        public async Task Put(string name, Price price)
+        public async Task Put(string name, double price)
         {
             var res = await _client.PutAsJsonAsync("http://localhost:57302/api/Prices/" + name, price);
             res.EnsureSuccessStatusCode();

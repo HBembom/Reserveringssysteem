@@ -18,36 +18,36 @@ namespace ReservationSystem.Core.View
         public event PropertyChangedEventHandler PropertyChanged;
         public readonly PricesClient PricesClient;
          
-        private Price _adultPrice;
-        public Price AdultPrice
+        private double _adultPrice;
+        public double AdultPrice
         {
             get { return _adultPrice; }
             set { _adultPrice = value; OnPropertyChanged(nameof(AdultPrice)); }
         }
 
-        private Price _childPrice;
-        public Price ChildPrice
+        private double _childPrice;
+        public double ChildPrice
         {
             get { return _childPrice; }
             set { _childPrice = value; OnPropertyChanged(nameof(ChildPrice)); }
         }
 
-        private Price _petPrice;
-        public Price PetPrice
+        private double _petPrice;
+        public double PetPrice
         {
             get { return _petPrice; }
             set { _petPrice = value; OnPropertyChanged(nameof(PetPrice)); }
         }
 
-        private Price _normalTax;
-        public Price NormalTax
+        private double _normalTax;
+        public double NormalTax
         {
             get { return _normalTax; }
             set { _normalTax = value; OnPropertyChanged(nameof(NormalTax)); }
         }
 
-        private Price _tourismTax;
-        public Price TourismTax
+        private double _tourismTax;
+        public double TourismTax
         {
             get { return _tourismTax; }
             set { _tourismTax = value; OnPropertyChanged(nameof(TourismTax)); }
@@ -58,12 +58,31 @@ namespace ReservationSystem.Core.View
         public ConfigurationViewModel()
         {
             PricesClient = new PricesClient();
-            AdultPrice = PricesClient.GetByName("Adult").Result;
-            ChildPrice = PricesClient.GetByName("Child").Result;
-            PetPrice = PricesClient.GetByName("Pet").Result;
-            NormalTax = PricesClient.GetByName("NormalTax").Result;
-            TourismTax = PricesClient.GetByName("TourismTax").Result;
+
+            // var setConfigurationTask = Task.Run(() =>
+            // {
+            // });
+            // setConfigurationTask.Wait();
+
+            SetConfiguration();
+
+
             UpdateConfigurationCommand = new UpdateConfigurationCommand(this);
+        }
+
+        private async void SetConfiguration()
+        {
+            var adultPrice = await PricesClient.GetByName("Adult");
+            var childPrice = await PricesClient.GetByName("Child");
+            var petPrice = await PricesClient.GetByName("Pet");
+            var normalTax = await PricesClient.GetByName("NormalTax");
+            var tourismTax = await PricesClient.GetByName("TourismTax");
+            
+            AdultPrice = new Price(adultPrice.Amount).Value;
+            ChildPrice = new Price(childPrice.Amount).Value;
+            PetPrice = new Price(petPrice.Amount).Value;
+            NormalTax = new Price(normalTax.Amount).Value;
+            TourismTax = new Price(tourismTax.Amount).Value;
         }
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
