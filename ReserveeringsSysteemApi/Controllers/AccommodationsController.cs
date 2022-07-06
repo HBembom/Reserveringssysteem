@@ -31,7 +31,7 @@ namespace ReserveeringsSysteemApi.Controllers
             var model = new Accommodations(Connector);
             var res = await model.SelectAccommodationById(AccommodationId);
 
-            return res == null ? new NotFoundResult() : new OkObjectResult(res);
+            return res == null ? new NoContentResult() : new OkObjectResult(res);
         }
 
         [HttpGet]
@@ -40,7 +40,7 @@ namespace ReserveeringsSysteemApi.Controllers
             await Connector.Conn.OpenAsync();
             var model = new Accommodations(Connector);
             var res = await model.SelectAllAccommodations();
-            return res == null ? new NotFoundResult() : new OkObjectResult(res);
+            return res == null ? new NoContentResult() : new OkObjectResult(res);
         }
 
         [HttpPut("{AccommodationId}")]
@@ -51,7 +51,7 @@ namespace ReserveeringsSysteemApi.Controllers
             var res = await model.SelectAccommodationById(AccommodationId);
             if (res == null)
             {
-                return new NotFoundResult();
+                return new NoContentResult();
             }
             res.AccommodationType = body.AccommodationType;
             await res.UpdateAccommodationById();
@@ -67,7 +67,7 @@ namespace ReserveeringsSysteemApi.Controllers
             var res = await model.SelectAccommodationById(AccommodationId);
             if (res == null)
             {
-                return new NotFoundResult();
+                return new NoContentResult();
             }
             await res.DeleteAccommodationById();
 

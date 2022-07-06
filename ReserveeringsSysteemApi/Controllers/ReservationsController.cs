@@ -32,7 +32,7 @@ namespace ReserveeringsSysteemApi.Controllers
             var model = new Reservations(Connector);
             var res = await model.SelectReservationById(ReservationId);
 
-            return res == null ? new NotFoundResult() : new OkObjectResult(res);
+            return res == null ? new NoContentResult() : new OkObjectResult(res);
         }
 
         [HttpGet("/api/get_reservation_by_accommodations")]
@@ -42,7 +42,7 @@ namespace ReserveeringsSysteemApi.Controllers
             var model = new Reservations(Connector);
             var res = await model.SelectReservationByAccommodation(body);
 
-            return new OkObjectResult(res);
+            return res == null ? new NoContentResult() : new OkObjectResult(res);
         }
 
         [HttpGet]
@@ -51,7 +51,7 @@ namespace ReserveeringsSysteemApi.Controllers
             await Connector.Conn.OpenAsync();
             var model = new Reservations(Connector);
             var res = await model.SelectAllReservations();
-            return res == null ? new NotFoundResult() : new OkObjectResult(res);
+            return res == null ? new NoContentResult() : new OkObjectResult(res);
         }
 
         [HttpPut("{AccommodationId}")]
@@ -62,7 +62,7 @@ namespace ReserveeringsSysteemApi.Controllers
             var res = await model.SelectReservationById(ReservationId);
             if (res == null)
             {
-                return new NotFoundResult();
+                return new NoContentResult();
             }
             res.FirstName = body.FirstName;
             res.LastName = body.LastName;
@@ -89,7 +89,7 @@ namespace ReserveeringsSysteemApi.Controllers
             var res = await model.SelectReservationById(ReservationId);
             if (res == null)
             {
-                return new NotFoundResult();
+                return new NoContentResult();
             }
             await res.DeleteReservationById();
 

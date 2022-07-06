@@ -31,10 +31,10 @@ namespace ReserveeringsSysteemApi.Models
             PriceId = (int)command.LastInsertedId;
         }
 
-        public async Task<Prices> SelectPriceById(string name)
+        public async Task<Prices> SelectPriceByName(string name)
         {
             await using var command = Connector.Conn.CreateCommand();
-            command.CommandText = @"SELECT * FROM `prices` WHERE `Name` = @PriceId";
+            command.CommandText = @"SELECT * FROM `prices` WHERE `Name` = @Name";
             command.Parameters.Add(new MySqlParameter
             {
                 ParameterName = "@Name",

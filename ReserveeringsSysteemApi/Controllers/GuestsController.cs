@@ -25,7 +25,6 @@ namespace ReserveeringsSysteemApi.Controllers
             if (body.TypeOfGuest.Equals("Adult") || body.TypeOfGuest.Equals("Child") || body.TypeOfGuest.Equals("Pet"))
             {
                 return new OkObjectResult(body);
-
             }
 
             return new StatusCodeResult(406);
@@ -38,7 +37,7 @@ namespace ReserveeringsSysteemApi.Controllers
             var model = new Guests(Connector);
             var res = await model.SelectGuestById(GuestId);
 
-            return res == null ? new NotFoundResult() : new OkObjectResult(res);
+            return res == null ? new NoContentResult() : new OkObjectResult(res);
         }
 
         [HttpGet]
@@ -47,7 +46,7 @@ namespace ReserveeringsSysteemApi.Controllers
             await Connector.Conn.OpenAsync();
             var model = new Guests(Connector);
             var res = await model.SelectAllGuests();
-            return res == null ? new NotFoundResult() : new OkObjectResult(res);
+            return res == null ? new NoContentResult() : new OkObjectResult(res);
         }
 
         [HttpPut("{GuestId}")]
@@ -58,7 +57,7 @@ namespace ReserveeringsSysteemApi.Controllers
             var res = await model.SelectGuestById(GuestId);
             if (res == null)
             {
-                return new NotFoundResult();
+                return new NoContentResult();
             }
             res.AmountOfDays = body.AmountOfDays;
             res.TypeOfGuest = body.TypeOfGuest;
@@ -81,7 +80,7 @@ namespace ReserveeringsSysteemApi.Controllers
             var res = await model.SelectGuestById(GuestId);
             if (res == null)
             {
-                return new NotFoundResult();
+                return new NoContentResult();
             }
             await res.DeleteGuestById();
 

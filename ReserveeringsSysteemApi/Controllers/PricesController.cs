@@ -25,13 +25,13 @@ namespace ReserveeringsSysteemApi.Controllers
         }
 
         [HttpGet("{Name}")]
-        public async Task<IActionResult> GetPriceById(string Name)
+        public async Task<IActionResult> GetPriceByName(string Name)
         {
             await Connector.Conn.OpenAsync();
             var model = new Prices(Connector);
-            var res = await model.SelectPriceById(Name);
+            var res = await model.SelectPriceByName(Name);
 
-            return res == null ? new NotFoundResult() : new OkObjectResult(res);
+            return res == null ? new NoContentResult() : new OkObjectResult(res);
         }
 
         [HttpGet]
@@ -40,7 +40,7 @@ namespace ReserveeringsSysteemApi.Controllers
             await Connector.Conn.OpenAsync();
             var model = new Prices(Connector);
             var res = await model.SelectAllPrices();
-            return res == null ? new NotFoundResult() : new OkObjectResult(res);
+            return res == null ? new NoContentResult() : new OkObjectResult(res);
         }
 
         [HttpPut("{Name}")]
@@ -48,10 +48,10 @@ namespace ReserveeringsSysteemApi.Controllers
         {
             await Connector.Conn.OpenAsync();
             var model = new Prices(Connector);
-            var res = await model.SelectPriceById(Name);
+            var res = await model.SelectPriceByName(Name);
             if (res == null)
             {
-                return new NotFoundResult();
+                return new NoContentResult();
             }
             res.Amount = body.Amount;
             res.Name = body.Name;
@@ -66,10 +66,10 @@ namespace ReserveeringsSysteemApi.Controllers
         {
             await Connector.Conn.OpenAsync();
             var model = new Prices(Connector);
-            var res = await model.SelectPriceById(Name);
+            var res = await model.SelectPriceByName(Name);
             if (res == null)
             {
-                return new NotFoundResult();
+                return new NoContentResult();
             }
             await res.DeletePriceById();
 

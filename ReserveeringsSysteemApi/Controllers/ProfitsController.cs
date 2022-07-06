@@ -22,7 +22,7 @@ namespace ReserveeringsSysteemApi.Controllers
             var model = new Profits(Connector);
             var res = await model.SelectTotalProfitFromPeriod(StartDate, EndDate);
 
-            return res == null ? new NotFoundResult() : new OkObjectResult(res);
+            return res == null ? new NoContentResult() : new OkObjectResult(res);
         }
 
         [HttpGet("/api/total_profit")]
@@ -31,7 +31,7 @@ namespace ReserveeringsSysteemApi.Controllers
             await Connector.Conn.OpenAsync();
             var model = new Profits(Connector);
             var res = await model.SelectTotalProfit();
-            return res == null ? new NotFoundResult() : new OkObjectResult(res);
+            return res == null ? new NoContentResult() : new OkObjectResult(res);
         }  
         [HttpGet("/api/profit_by_period")]
         public async Task<IActionResult> GetTotalProfitByPeriod()
@@ -39,7 +39,7 @@ namespace ReserveeringsSysteemApi.Controllers
             await Connector.Conn.OpenAsync();
             var model = new Profits(Connector);
             var res = await model.SelectTotalProfitByPeriod();
-            return res == null ? new NotFoundResult() : new OkObjectResult(res);
+            return res == null ? new NoContentResult() : new OkObjectResult(res);
         }
     }
 }
