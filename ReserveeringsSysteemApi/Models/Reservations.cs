@@ -63,7 +63,7 @@ namespace ReserveeringsSysteemApi.Models
         public async Task<List<Reservations>> SelectReservationByAccommodation(ReservationByAccommodationOptions options)
         {
             await using var command = Connector.Conn.CreateCommand();
-            var CommandText = @"SELECT * FROM `reservations` WHERE ";
+            var CommandText = @"SELECT * FROM `reservations` WHERE (";
             for (var i = 0; i < options.AccommodationId.Length; i++)
             {
                 if (i == 0)
@@ -76,7 +76,7 @@ namespace ReserveeringsSysteemApi.Models
                 }
             }
 
-            CommandText += $"AND ArrivalDate BETWEEN '{options.StartDate}' AND '{options.EndDate}' AND DepartureDate BETWEEN '{options.StartDate}' AND '{options.EndDate}'";
+            CommandText += $")AND ((ArrivalDate BETWEEN '{options.StartDate}' AND '{options.EndDate}') OR (DepartureDate BETWEEN '{options.StartDate}' AND '{options.EndDate}'))";
 
             command.CommandText = CommandText;
             var res = await ReadAllReservations(await command.ExecuteReaderAsync());
