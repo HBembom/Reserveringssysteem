@@ -81,6 +81,7 @@ namespace ReservationSystem.Core
                     // parameter
 
                     rootFrame.Navigate(typeof(HomePage), e.Arguments);
+
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();

@@ -6,11 +6,15 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using ReservationSystem.Core.Clients;
+using ReservationSystem.Core.Commands;
+using ReservationSystem.Core.Model;
 
 namespace ReservationSystem.Core.ViewModel
 {
     internal class EditReservationViewModel : ViewModelBase
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         private ExtraGuest _extraGuest;
         public ExtraGuest ExtraGuest
         {
@@ -43,6 +47,8 @@ namespace ReservationSystem.Core.ViewModel
         }
 
         public ICommand UpdateCommand { get; set; }
+        public ICommand UpdateGuestCommand { get; set; }
+        public ICommand UpdateAccommodationCommand { get; set; }
 
         public EditReservationViewModel()
         {
@@ -51,6 +57,17 @@ namespace ReservationSystem.Core.ViewModel
             this.ExtraGuest = new ExtraGuest();
             this.PriceStructure = new ReservationPriceStructure();
             this.Accomodations = new Accomodations();
+            // this.UpdateGuestCommand = new UpdateGuestCommand(this);
+            // this.UpdateAccommodationCommand = new UpdateAccommodationCommand(this);
+            //
+            //
+            // var GetReservationTask = Task.Run(async () =>
+            // {
+            //     var reservationClient = new ReservationsClient();
+            //     var reservationModel = await reservationClient.GetById(1);
+            //     
+            //     _extraGuest = reservationModel.
+            // });
         }
     }
 }

@@ -1,5 +1,8 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+using ReservationSystem.Core.Clients;
+using ReservationSystem.Core.Model.Taxes;
 
 namespace ReservationSystem.Core.ViewModel
 {
@@ -29,7 +32,7 @@ namespace ReservationSystem.Core.ViewModel
         private double _adultPricePerNight;
         public double AdultPricePerNight
         {
-            get { return 5.00; }
+            get { return _adultPricePerNight; }
             set { _adultPricePerNight = value; OnPropertyChanged(nameof(AdultPricePerNight)); }
         }
 
@@ -55,7 +58,7 @@ namespace ReservationSystem.Core.ViewModel
         private double _childPricePerNight;
         public double ChildPricePerNight
         {
-            get { return 3.50; }
+            get { return _childPricePerNight; }
             set { _childPricePerNight = value; OnPropertyChanged(nameof(ChildPricePerNight)); }
         }
         private double _totalChildPrice;
@@ -80,7 +83,7 @@ namespace ReservationSystem.Core.ViewModel
         private double _petPricePerNight;
         public double PetPricePerNight
         {
-            get { return 2.50; }
+            get { return _petPricePerNight; }
             set { _petPricePerNight = value; OnPropertyChanged(nameof(_petPricePerNight)); }
         }
         private double _totalPetPrice;
@@ -106,7 +109,7 @@ namespace ReservationSystem.Core.ViewModel
         private double _camperPricePerNight;
         public double CamperPricePerNight
         {
-            get { return 18.50; }
+            get { return _camperPricePerNight; }
             set { _camperPricePerNight = value; OnPropertyChanged(nameof(CamperPricePerNight)); }
         }
         private double _totalCamperPrice;
@@ -139,6 +142,33 @@ namespace ReservationSystem.Core.ViewModel
         {
             get { return _netProfit; }
             set { _netProfit = value; OnPropertyChanged(nameof(NetProfit)); }
+        }
+
+        internal ReservationPriceStructure()
+        {
+            var pricesClient = new PricesClient();
+
+            var adultPrice = new PriceModel();
+            var childPrice = new PriceModel();
+            var petPrice = new PriceModel();
+            var normalTax = new PriceModel();
+            var touristTax = new PriceModel();
+
+            var setPricesTask = Task.Run(async () =>
+            {
+                adultPrice = await pricesClient.GetByName("Adult");
+                childPrice = await pricesClient.GetByName("Child");
+                petPrice = await pricesClient.GetByName("Pet");
+                normalTax = await pricesClient.GetByName("NormalTax");
+                touristTax = await pricesClient.GetByName("TourismTax");
+            });
+            setPricesTask.Wait();
+
+            AdultPricePerNight = adultPrice.Amount;
+            ChildPricePerNight = childPrice.Amount;
+            PetPricePerNight = petPrice.Amount;
+            Tax = normalTax.Amount;
+            TouristTax = touristTax.Amount;
         }
     }
 }
