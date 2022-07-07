@@ -11,7 +11,6 @@ namespace ReservationSystem.Core.ViewModel
 {
     internal class PlanningBoardViewModel : ViewModelBase
     {
-
         public readonly OccupancyOverview overview;
 
         private DateTime _dateTimeScopeStart;
