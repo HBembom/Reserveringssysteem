@@ -16,8 +16,8 @@ namespace ReservationSystem.Core.Clients
         public string PrefixName { get; set; }
         public string StreetName { get; set; }
         public string LicensePlateName { get; set; }
-        public DateTime ArrivalDate { get; set; }
-        public DateTime DepartureDate { get; set; }
+        public DateTimeOffset ArrivalDate { get; set; }
+        public DateTimeOffset DepartureDate { get; set; }
         public string[] AccommodationId { get; set; }
         public int AmountOfExtraAdults { get; set; }
         public int AmountOfExtraChildren { get; set; }

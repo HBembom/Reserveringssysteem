@@ -27,15 +27,15 @@ namespace ReservationSystem.Core.ViewModel
             set { _selectableAccomodations = value; OnPropertyChanged(nameof(SelectableAccomodations)); }
         }
 
-        private DateTime _arrivalDateTime;
-        public DateTime ArrivalDateTime
+        private DateTimeOffset _arrivalDateTime;
+        public DateTimeOffset ArrivalDateTime
         {
             get { return _arrivalDateTime; }
             set { _arrivalDateTime = value; OnPropertyChanged(nameof(ArrivalDateTime)); }
         }
-        private DateTime _departureDateTime;
+        private DateTimeOffset _departureDateTime;
 
-        public DateTime DepartureDateTime
+        public DateTimeOffset DepartureDateTime
         {
             get { return _departureDateTime; }
             set { _departureDateTime = value; OnPropertyChanged(nameof(DepartureDateTime)); }
@@ -67,8 +67,8 @@ namespace ReservationSystem.Core.ViewModel
         public Accomodations()
         {
             _accommodationClient = new AccommodationClient();
-            this.ArrivalDateTime = DateTime.UtcNow;
-            this.DepartureDateTime = DateTime.UtcNow.AddDays(1);
+            this._arrivalDateTime = DateTimeOffset.Now;
+            this._departureDateTime = DateTimeOffset.Now.AddDays(1);
             this.AccomodationsList = new List<Accomodation>();
             this.SelectableAccomodations = new List<string>()
             {
