@@ -9,170 +9,172 @@
     d:DesignHeight="1024"
     d:DesignWidth="1902" Width="1920" Height="1020">
 
-    <Grid Background="#FFF9F9F9">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="157*"></ColumnDefinition>
-            <ColumnDefinition Width="154*"></ColumnDefinition>
-            <ColumnDefinition Width="640*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+    <Viewbox Stretch="Uniform">
 
-        <Grid Grid.Column ="0" Margin="62,276,36,412" Width="auto">
+        <Grid Background="#FFF9F9F9" Height="1024" Width="1902">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="48*"/>
-                <ColumnDefinition Width="187*"/>
+                <ColumnDefinition Width="157*"/>
+                <ColumnDefinition Width="154*"/>
+                <ColumnDefinition Width="640*"/>
             </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-            <TextBox Grid.Row="0" PlaceholderText="First Name" Text="{Binding Path=GuestInformation.FirstName, Mode=TwoWay}" Grid.ColumnSpan="2"></TextBox>
-            <TextBox Grid.Row="1" PlaceholderText="Last Name"  Text="{Binding Path=GuestInformation.LastName, Mode=TwoWay}" Grid.ColumnSpan="2"></TextBox>
-            <TextBox Grid.Row="2" PlaceholderText="Prefix Name"  Text="{Binding Path=GuestInformation.PrefixName, Mode=TwoWay}" Grid.ColumnSpan="2"></TextBox>
-            <TextBox Grid.Row="3" PlaceholderText="Street Name"  Text="{Binding Path=GuestInformation.StreetName, Mode=TwoWay}" Grid.ColumnSpan="2"></TextBox>
-            <TextBox Grid.Row="4" PlaceholderText="License Plate"  Text="{Binding Path=GuestInformation.LicensePlate, Mode=TwoWay}" Grid.ColumnSpan="2"></TextBox>
 
-            <Grid Grid.Row="5" Grid.ColumnSpan="2" Margin="0,0,0,-14">
+            <Grid Grid.Column ="0" Margin="62,276,36,412" Width="auto">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48*"/>
+                    <ColumnDefinition Width="187*"/>
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBox Grid.Row="0" PlaceholderText="First Name" Text="{Binding GuestInformation.FirstName, Mode=TwoWay}" Grid.ColumnSpan="2"/>
+                <TextBox Grid.Row="1" PlaceholderText="Last Name"  Text="{Binding GuestInformation.LastName, Mode=TwoWay}" Grid.ColumnSpan="2"/>
+                <TextBox Grid.Row="2" PlaceholderText="Prefix Name"  Text="{Binding GuestInformation.PrefixName, Mode=TwoWay}" Grid.ColumnSpan="2"/>
+                <TextBox Grid.Row="3" PlaceholderText="Street Name"  Text="{Binding GuestInformation.StreetName, Mode=TwoWay}" Grid.ColumnSpan="2"/>
+                <TextBox Grid.Row="4" PlaceholderText="License Plate"  Text="{Binding GuestInformation.LicensePlate, Mode=TwoWay}" Grid.ColumnSpan="2"/>
+
+                <Grid Grid.Row="5" Grid.ColumnSpan="2" Margin="0,0,0,-14">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="73*"/>
+                        <ColumnDefinition Width="89*"/>
+                        <ColumnDefinition Width="58*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox Grid.Row="0" PlaceholderText="Nights" Text="{Binding ExtraGuest.NumberOfNights, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17" TextWrapping="Wrap"/>
+                    <ComboBox Grid.Column ="1" ItemsSource="{Binding ExtraGuest.SelectablesGuests}" Height="37" HorizontalAlignment="Center" VerticalAlignment="Center" Width="77" SelectedItem="{Binding ExtraGuest.SelectedGuest, Mode=TwoWay}" />
+                    <Button Command="{Binding AddGuestCommand}" Grid.Column="2" Content="Add" HorizontalAlignment="Center" Height="32" Width="46"/>
+                </Grid>
+            </Grid>
+            <!-- Column 2-->
+            <Grid Grid.Column="1" Margin="5,289,1275,425" Width="auto" RenderTransformOrigin="0.5,0.497" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="73*"></ColumnDefinition>
-                    <ColumnDefinition Width="89*"></ColumnDefinition>
-                    <ColumnDefinition Width="58*"></ColumnDefinition>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <TextBox Grid.Row="0" PlaceholderText="Nights" Text="{Binding Path=ExtraGuest.NumberOfNights, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17" TextWrapping="Wrap"></TextBox>
-                <ComboBox Grid.Column ="1" ItemsSource="{Binding Path=ExtraGuest.SelectablesGuests}" Height="37" HorizontalAlignment="Center" VerticalAlignment="Center" Width="77" SelectedItem="{Binding Path=ExtraGuest.SelectedGuest, Mode=TwoWay}" ></ComboBox>
-                <Button Command="{Binding Path=AddGuestCommand}" Grid.Column="2" Content="Add" HorizontalAlignment="Center" Height="32" Width="46"></Button>
+                <ComboBox ItemsSource="{Binding Accomodations.AvailableAccommodations}" SelectedItem="{Binding Accomodations.SelectedPitchNumber, Mode=TwoWay}" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <ComboBox Grid.Row="0" ItemsSource="{Binding Accomodations.SelectableAccomodations}" SelectedItem="{Binding Accomodations.SelectedAccomodation, Mode=TwoWay}" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <CalendarDatePicker Date="{Binding Accomodations.ArrivalDateTime}" DateFormat="{}{day.integer}/{month.integer}/{year.full}" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <CalendarDatePicker Date="{Binding Accomodations.DepartureDateTime}" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Accomodation" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="Accomodation ID" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="Arrival" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="3" Grid.Column="1" Text="Departure" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button Command="{Binding AddAccomodationCommand}" Grid.Row="1" Grid.Column="2" Content="Add" HorizontalAlignment="Center"/>
             </Grid>
+            <!--Column 3-->
+            <Grid Grid.Column="2" Width="auto" Margin="47,222,47,130">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Number of Guests" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Total Nights" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="Cost Per Night" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="0" Grid.Column="3" Text="Total Cost" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="6" Grid.Column="2" Text="Total" FontWeight="Bold"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="7" Grid.Column="2" Text="TouristTax" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="8" Grid.Column="2" Text="Tax" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="9" Grid.Column="2" Text="Net" FontStyle="Oblique"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="6" Grid.Column="3" Text="{Binding PriceStructure.TotalPrice, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="7" Grid.Column="3" Text="{Binding PriceStructure.TouristTax, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="8" Grid.Column="3" Text="{Binding PriceStructure.Tax, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="9" Grid.Column="3" Text="{Binding PriceStructure.NetProfit, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding PriceStructure.TotalAmountOfNightExtraAdults, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding PriceStructure.AdultPricePerNight, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding PriceStructure.TotalAdultPrice, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding PriceStructure.TotalAmountOfNightExtraChilds, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding PriceStructure.ChildPricePerNight, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="2" Grid.Column="3" Text="{Binding PriceStructure.TotalChildPrice, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding PriceStructure.TotalAmountOfNightExtraPets, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="3" Grid.Column="2" Text="{Binding PriceStructure.PetPricePerNight, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="3" Grid.Column="3" Text="{Binding PriceStructure.TotalPetPrice, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding PriceStructure.TotalAmountOfNightCampers, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="5" Grid.Column="2" Text="{Binding PriceStructure.CamperPricePerNight, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="5" Grid.Column="3" Text="{Binding PriceStructure.TotalCamperPrice, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                <Grid Grid.Row="1" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="Adult" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <TextBlock Grid.Row="1" Text="{Binding PriceStructure.NumberOfAdults, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                </Grid>
+                <Grid Grid.Row="2" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="Child" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <TextBlock Grid.Row="1" Text="{Binding PriceStructure.NumberOfChilds, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+                <Grid Grid.Row="3" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="Pet" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <TextBlock Grid.Row="1" Text="{Binding PriceStructure.NumberOfPets, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+                <Grid Grid.Row="4" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="Number of Accomodations" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+                <Grid Grid.Row="5" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="Camper" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="1" Text="{Binding PriceStructure.NumberOfCampers, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Create Reservation" VerticalAlignment="Top" FontWeight="Bold" FontSize="50px" Height="132" Width="574" Grid.ColumnSpan="3" Margin="0,-107,0,0"/>
+            </Grid>
+
+            <Button Command="{Binding CreateReservationCommand}" Content="Create Reservation" Grid.Column="2" Margin="82,689,0,0" VerticalAlignment="Top" Height="63" Width="164"/>
+            <Rectangle Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="120" Stroke="Black" VerticalAlignment="Top" Width="1902" Fill="#FFB0D484" />
+            <TextBox Grid.Column="2" HorizontalAlignment="Left" Margin="1628,120,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="0"/>
+            <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="1646,120,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+            <CheckBox Content="Has Paid" Grid.Column="1" Margin="0,706,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" IsChecked="{Binding HasPaid, Mode=TwoWay}" />
+            <Button Content="Home" Margin="62,91,0,0" VerticalAlignment="Top" Click="Button_Click"/>
         </Grid>
-        <!-- Column 2-->
-        <Grid Grid.Column="1" Margin="5,289,1275,425" Width="auto" RenderTransformOrigin="0.5,0.497" Grid.ColumnSpan="2">
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-
-            <ComboBox ItemsSource="{Binding Path=Accomodations.AvailableAccommodations}" SelectedItem="{Binding Path=Accomodations.SelectedPitchNumber, Mode=TwoWay}" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></ComboBox>
-            <ComboBox Grid.Row="0" ItemsSource="{Binding Path=Accomodations.SelectableAccomodations}" SelectedItem="{Binding Path=Accomodations.SelectedAccomodation, Mode=TwoWay}" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-            </ComboBox>
-            <CalendarDatePicker Date="{Binding Path=Accomodations.ArrivalDateTime}" DateFormat="{}{day.integer}/{month.integer}/{year.full}" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" ></CalendarDatePicker>
-            <CalendarDatePicker Date="{Binding Path=Accomodations.DepartureDateTime}" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" ></CalendarDatePicker>
-            <TextBlock Grid.Row="0" Grid.Column="1" Text="Accomodation" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="1" Grid.Column="1" Text="Accomodation ID" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="2" Grid.Column="1" Text="Arrival" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="3" Grid.Column="1" Text="Departure" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <Button Command="{Binding Path=AddAccomodationCommand}" Grid.Row="1" Grid.Column="2" Content="Add" HorizontalAlignment="Center"></Button>
-        </Grid>
-        <!--Column 3-->
-        <Grid Grid.Column="2" Width="auto" Margin="47,222,47,130">
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="Number of Guests" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="0" Grid.Column="1" Text="Total Nights" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="0" Grid.Column="2" Text="Cost Per Night" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="0" Grid.Column="3" Text="Total Cost" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="6" Grid.Column="2" Text="Total" FontWeight="Bold"  HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="7" Grid.Column="2" Text="TouristTax" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="8" Grid.Column="2" Text="Tax" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="9" Grid.Column="2" Text="Net" FontStyle="Oblique"  HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="6" Grid.Column="3" Text="{Binding Path=PriceStructure.TotalPrice, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="7" Grid.Column="3" Text="{Binding Path=PriceStructure.TouristTax, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="8" Grid.Column="3" Text="{Binding Path=PriceStructure.Tax, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="9" Grid.Column="3" Text="{Binding Path=PriceStructure.NetProfit, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=PriceStructure.TotalAmountOfNightExtraAdults, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding Path=PriceStructure.AdultPricePerNight, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding Path=PriceStructure.TotalAdultPrice , Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Path=PriceStructure.TotalAmountOfNightExtraChilds , Mode=TwoWay }" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding Path=PriceStructure.ChildPricePerNight , Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="2" Grid.Column="3" Text="{Binding Path=PriceStructure.TotalChildPrice , Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Path=PriceStructure.TotalAmountOfNightExtraPets, Mode=TwoWay }" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="3" Grid.Column="2" Text="{Binding Path=PriceStructure.PetPricePerNight, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="3" Grid.Column="3" Text="{Binding Path=PriceStructure.TotalPetPrice, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding Path=PriceStructure.TotalAmountOfNightCampers, Mode=TwoWay }" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="5" Grid.Column="2" Text="{Binding Path=PriceStructure.CamperPricePerNight, Mode=TwoWay }" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="5" Grid.Column="3" Text="{Binding Path=PriceStructure.TotalCamperPrice, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-
-            <Grid Grid.Row="1" Grid.Column="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition Height="40"></RowDefinition>
-                </Grid.RowDefinitions>
-
-                <TextBlock Grid.Row="0" Text="Adult" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
-                <TextBlock Grid.Row="1" Text="{Binding Path=PriceStructure.NumberOfAdults, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-
-            </Grid>
-            <Grid Grid.Row="2" Grid.Column="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition Height="40"></RowDefinition>
-                </Grid.RowDefinitions>
-
-                <TextBlock Grid.Row="0" Text="Child" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
-                <TextBlock Grid.Row="1" Text="{Binding Path=PriceStructure.NumberOfChilds, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            </Grid>
-            <Grid Grid.Row="3" Grid.Column="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition Height="40"></RowDefinition>
-                </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Text="Pet" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
-                <TextBlock Grid.Row="1" Text="{Binding Path=PriceStructure.NumberOfPets, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            </Grid>
-            <Grid Grid.Row="4" Grid.Column="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Text="Number of Accomodations" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            </Grid>
-            <Grid Grid.Row="5" Grid.Column="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition Height="40"></RowDefinition>
-                </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Text="Camper" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                <TextBlock Grid.Row="1" Text="{Binding Path=PriceStructure.NumberOfCampers, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            </Grid>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Create Reservation" VerticalAlignment="Top" FontWeight="Bold" FontSize="50px" Height="132" Width="574" Grid.ColumnSpan="3" Margin="0,-107,0,0"/>
-        </Grid>
-
-        <Button Command="{Binding Path=CreateReservationCommand}" Content="Create Reservation" Grid.Column="2" Margin="82,689,0,0" VerticalAlignment="Top" Height="63" Width="164"></Button>
-        <Rectangle Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="120" Stroke="Black" VerticalAlignment="Top" Width="1902" Fill="#FFB0D484" />
-        <TextBox Grid.Column="2" HorizontalAlignment="Left" Margin="1628,120,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="0"/>
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="1646,120,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <CheckBox Content="Has Paid" Grid.Column="1" Margin="0,706,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" IsChecked="{Binding Path=HasPaid, Mode=TwoWay}" />
-        <Button Content="Home" Margin="62,91,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-    </Grid>
+    </Viewbox>
 </Page>
