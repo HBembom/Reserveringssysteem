@@ -16,14 +16,14 @@ using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace ReservationSystem.Core.View.Controls
+namespace ReservationSystem.Core.View
 {
-    public sealed partial class OccupancyControl : UserControl
+    public sealed partial class PlanningBoardUserControl : UserControl
     {
-        public OccupancyControl()
+        public PlanningBoardUserControl()
         {
             this.InitializeComponent();
-            this.Content = new OccupancyOverviewUserControl().overview.Draw();    
+            this.Content = new PlanningBoardViewModel().overview.Draw();
         }
     }
 }

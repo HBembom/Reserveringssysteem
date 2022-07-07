@@ -1,15 +1,16 @@
 ﻿using ReservationSystem.Core.Commands;
 using ReservationSystem.Core.Model.OccupancyOverview.ReservationSystem.Core.Model.OccupancyOverview;
 using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace ReservationSystem.Core.ViewModel
 {
-    internal class OccupancyOverviewUserControl : INotifyPropertyChanged
+    internal class PlanningBoardViewModel : ViewModelBase
     {
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public readonly OccupancyOverview overview;
 
@@ -24,17 +25,12 @@ namespace ReservationSystem.Core.ViewModel
         public ICommand CreateReservationCommand { get; set; }
         public ICommand ViewReservationCommand { get; set; }
 
-        public OccupancyOverviewUserControl()
+        public PlanningBoardViewModel()
         {
             this.GetNextWeekCommand = new GetNextWeekCommand(this);
             this.GetPreviousWeekCommand = new GetPreviousWeekCommand(this);
             this.DateTimeScopeStart = new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day);
             this.overview = new OccupancyOverview(_dateTimeScopeStart);
-        }
-
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

@@ -142,6 +142,7 @@
     <Compile Include="ViewModel\EditReservationViewModel.cs" />
     <Compile Include="Commands\UpdateCommand.cs" />
     <Compile Include="ViewModel\HeatmapViewModel.cs" />
+    <Compile Include="ViewModel\PlanningBoardViewModel.cs" />
     <Compile Include="ViewModel\ReservationCollectionViewModel.cs" />
     <Compile Include="ViewModel\ReservationViewModel.cs" />
     <Compile Include="View\EditReservation.xaml.cs">
@@ -208,11 +209,15 @@
     <Compile Include="ViewModel\CreateReservationViewModel\GuestInformation.cs" />
     <Compile Include="ViewModel\CreateReservationViewModel\ReservationPriceStructure.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
-    <Compile Include="ViewModel\VisualReservationViewModel\OccupancyControlViewModel.cs" />
-    <Compile Include="View\Controls\OccupancyControl.xaml.cs" />
     <Compile Include="ViewModel\ConfigurationViewModel.cs" />
     <Compile Include="View\Configuration.xaml.cs">
       <DependentUpon>Configuration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\PlanningBoardUserControl.xaml.cs">
+      <DependentUpon>PlanningBoardUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PlanningBoard.xaml.cs">
+      <DependentUpon>PlanningBoard.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ReservationCollection.xaml.cs">
       <DependentUpon>ReservationCollection.xaml</DependentUpon>
@@ -264,11 +269,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Controls\OccupancyControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="View\Configuration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Controls\PlanningBoardUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PlanningBoard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

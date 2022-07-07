@@ -31,13 +31,5 @@
                 <Button Content="Heat Map" Margin="218,293,0,0" VerticalAlignment="Top" Height="194" Width="211" BorderBrush="Black" Background="White" Foreground="Black" FontSize="24" FontStyle="Normal" FontWeight="Normal" Click="Button_Click_4"/>
             </Grid>
         </Grid>
-        
     </Grid>
-       
-
-        
-           
-           
-
-
 </Page>
