@@ -177,5 +177,6 @@
             <CheckBox Content="Has Paid" Grid.Column="1" Margin="0,706,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" IsChecked="{Binding HasPaid, Mode=TwoWay}" />
             <Button Content="Home" Margin="62,91,0,0" VerticalAlignment="Top" Click="Button_Click"/>
         </Grid>
+        <TextBlock Text="{Binding ErrorMessage}" HorizontalAlignment="Center" Margin="0,888,-4,109" Grid.ColumnSpan="3" ></TextBlock>
     </Grid>
 </Page>
