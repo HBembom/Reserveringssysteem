@@ -307,11 +307,7 @@
       <Version>1.0.2.9</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\ConfigurationViewModel\" />
-    <Folder Include="ViewModel\ReservationCollectionViewModel\" />
-    <Folder Include="ViewModel\ReservationViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
