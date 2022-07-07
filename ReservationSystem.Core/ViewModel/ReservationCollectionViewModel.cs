@@ -1,58 +1,56 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using System.Windows.Input;
 using ReservationSystem.Core.Clients;
+using ReservationSystem.Core.Commands;
+using ReservationSystem.Core.Model;
+using ReservationSystem.Core.View;
 using ReservationSystem.Core.ViewModel.ReservationViewModel;
-
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace ReservationSystem.Core.ViewModel
 {
     internal class ReservationCollectionViewModel : ViewModelBase
     {
-        private readonly ObservableCollection<ReservationModel> _reservations;
-        private readonly ReservationsClient _reservationsClient;
-        public ObservableCollection<ReservationModel> Reservations => _reservations;
-        
-        private string _selected { get; set; }
-        public string Selected
+        private readonly List<ReservationModel> _reservations;
+        private ReservationsClient _reservationsClient;
+        public List<ReservationModel> Reservations => _reservations;
+
+        public ReservationModel _selectedReservationModel { get; set; }
+        public ReservationModel SelectedReservationModel
         {
-            get { return _selected; }
-            set { 
-                _selected = value; 
-                OnPropertyChanged(nameof(Selected));
-                
-                }
+            get { return _selectedReservationModel; }
+            set
+            {
+                _selectedReservationModel = value;
+
+                ((Frame)Window.Current.Content).Navigate(typeof(ReservationDetail), _selectedReservationModel.ReservationId);
+            }
         }
-        
+
+        public ICommand ViewReservationCommand;
 
         public ReservationCollectionViewModel()
         {
-            _reservations = new ObservableCollection<ReservationModel>();
+            ViewReservationCommand = new ViewReservationCommand(this);
+            _reservationsClient = new ReservationsClient();
+            _reservations = new List<ReservationModel>();
 
-            var ReservationModelOne = new ReservationModel()
+            List<ReservationModel> list = new List<ReservationModel>();
+
+            var reservations = Task.Run(async () =>
             {
-                ReservationId = 1,
-                FirstName = "Henk",
-                LastName = "Bembom",
-                PrefixName = "",
-                StreetName = "Laan v/d Bork",
-                LicensePlateName = "1234",
-                ArrivalDate = DateTime.UtcNow.Date,
-                DepartureDate = DateTime.UtcNow.Date,
-            };
-            var ReservationModelTwo = new ReservationModel()
+                list = await _reservationsClient.GetAll();
+            });
+            reservations.Wait();
+
+            foreach(ReservationModel reservation in list)
             {
-                ReservationId = 1,
-                FirstName = "Jo",
-                LastName = "Bro",
-                PrefixName = "",
-                StreetName = "Laan v/d Bork",
-                LicensePlateName = "1234",
-                ArrivalDate = DateTime.UtcNow.Date,
-                DepartureDate = DateTime.UtcNow.Date,
-            };
-            _reservations.Add(ReservationModelOne);
-            _reservations.Add(ReservationModelTwo);
+                _reservations.Add(reservation);
+            }
         }
     }
 }

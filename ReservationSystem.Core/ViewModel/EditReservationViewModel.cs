@@ -14,7 +14,6 @@ namespace ReservationSystem.Core.ViewModel
 {
     internal class EditReservationViewModel : ViewModelBase
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         private ExtraGuest _extraGuest;
         public ExtraGuest ExtraGuest
         {

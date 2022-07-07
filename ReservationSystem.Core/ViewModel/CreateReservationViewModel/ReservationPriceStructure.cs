@@ -147,7 +147,6 @@ namespace ReservationSystem.Core.ViewModel
         internal ReservationPriceStructure()
         {
             var pricesClient = new PricesClient();
-
             var adultPrice = new PriceModel();
             var childPrice = new PriceModel();
             var petPrice = new PriceModel();

@@ -1,8 +1,11 @@
-﻿using System;
+﻿using ReservationSystem.Core.Clients;
+using ReservationSystem.Core.ViewModel.ReservationViewModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -21,11 +24,23 @@ namespace ReservationSystem.Core.View
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
 
-    public sealed partial class Reservation : Page
+    public sealed partial class ReservationDetail : Page
     {
-        public Reservation()
+        public ReservationDetail(int reservationId)
         {
             this.InitializeComponent();
+
+            ReservationModel reservation;
+
+            var reservationTask = Task.Run(async () =>
+            {
+                reservation = await new ReservationsClient().GetById(reservationId);
+            });
+
+            reservationTask.Wait();
+
+
+            this.DataContext = new ReservationViewModel(reservation);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
