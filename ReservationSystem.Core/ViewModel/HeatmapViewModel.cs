@@ -13,10 +13,8 @@ using System.Runtime.CompilerServices;
 
 namespace ReservationSystem.Core.ViewModel
 {
-    internal class HeatmapViewModel : INotifyPropertyChanged
+    internal class HeatmapViewModel : ViewModelBase
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private SolidColorBrush _1_7HeatmapColor;
         public SolidColorBrush HeatmapColor1_7
         {
@@ -228,11 +226,6 @@ namespace ReservationSystem.Core.ViewModel
             };
 
             return color;
-        }
-
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

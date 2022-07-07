@@ -16,7 +16,6 @@ namespace ReservationSystem.Core.ViewModel
 {
     internal class ConfigurationViewModel : ViewModelBase
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         public readonly PricesClient PricesClient;
 
         private double _adultPrice;
@@ -86,11 +85,6 @@ namespace ReservationSystem.Core.ViewModel
             PetPrice = new Price(petPrice.Amount).Value;
             NormalTax = new Price(normalTax.Amount).Value;
             TourismTax = new Price(tourismTax.Amount).Value;
-        }
-
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

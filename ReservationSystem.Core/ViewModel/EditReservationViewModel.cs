@@ -9,10 +9,8 @@ using System.Windows.Input;
 
 namespace ReservationSystem.Core.ViewModel
 {
-    internal class EditReservationViewModel : INotifyPropertyChanged
+    internal class EditReservationViewModel : ViewModelBase
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private ExtraGuest _extraGuest;
         public ExtraGuest ExtraGuest
         {
@@ -53,11 +51,6 @@ namespace ReservationSystem.Core.ViewModel
             this.ExtraGuest = new ExtraGuest();
             this.PriceStructure = new ReservationPriceStructure();
             this.Accomodations = new Accomodations();
-        }
-
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
