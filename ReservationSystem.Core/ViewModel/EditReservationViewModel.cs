@@ -57,17 +57,17 @@ namespace ReservationSystem.Core.ViewModel
             this.ExtraGuest = new ExtraGuest();
             this.PriceStructure = new ReservationPriceStructure();
             this.Accomodations = new Accomodations();
-            this.UpdateGuestCommand = new UpdateGuestCommand(this);
-            this.UpdateAccommodationCommand = new UpdateAccommodationCommand(this);
-
-            
-            var GetReservationTask = Task.Run(async () =>
-            {
-                var reservationClient = new ReservationsClient();
-                var reservationModel = await reservationClient.GetById(1);
-                
-                _extraGuest = reservationModel.
-            });
+            // this.UpdateGuestCommand = new UpdateGuestCommand(this);
+            // this.UpdateAccommodationCommand = new UpdateAccommodationCommand(this);
+            //
+            //
+            // var GetReservationTask = Task.Run(async () =>
+            // {
+            //     var reservationClient = new ReservationsClient();
+            //     var reservationModel = await reservationClient.GetById(1);
+            //     
+            //     _extraGuest = reservationModel.
+            // });
         }
     }
 }
