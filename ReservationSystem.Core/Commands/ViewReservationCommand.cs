@@ -22,7 +22,8 @@ namespace ReservationSystem.Core.Commands
 
         public override void Execute(object parameter)
         {
-            
+            Page page = new ReservationDetail(_viewModel.SelectedReservationModel);
+            Window.Current.Content = page;
         }
     }
 }

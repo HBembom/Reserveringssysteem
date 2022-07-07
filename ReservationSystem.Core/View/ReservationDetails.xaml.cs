@@ -26,21 +26,10 @@ namespace ReservationSystem.Core.View
 
     public sealed partial class ReservationDetail : Page
     {
-        public ReservationDetail(int reservationId)
+        public ReservationDetail(ReservationModel reservationModel)
         {
             this.InitializeComponent();
-
-            ReservationModel reservation;
-
-            var reservationTask = Task.Run(async () =>
-            {
-                reservation = await new ReservationsClient().GetById(reservationId);
-            });
-
-            reservationTask.Wait();
-
-
-            this.DataContext = new ReservationViewModel(reservation);
+            this.DataContext = new ReservationViewModel(reservationModel);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

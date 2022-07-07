@@ -32,16 +32,16 @@
                 <TextBlock Grid.Row="0" Text="{Binding Path=GuestFirstName}" Grid.ColumnSpan="2"></TextBlock>
             </Border>
             <Border BorderThickness="1" BorderBrush="Black" Grid.Row="1" Grid.ColumnSpan="2">
-                <TextBox Grid.Row="1" Text="{Binding Path=GuestLastName}" Grid.ColumnSpan="2"></TextBox>
+                <TextBlock Grid.Row="1" Text="{Binding Path=GuestLastName}" Grid.ColumnSpan="2"></TextBlock>
             </Border>
             <Border BorderThickness="1" BorderBrush="Black" Grid.Row="2" Grid.ColumnSpan="2">
-                <TextBox Grid.Row="2" Text="{Binding Path=PrefixName}" Grid.ColumnSpan="2"></TextBox>
+                <TextBlock Grid.Row="2" Text="{Binding Path=PrefixName}" Grid.ColumnSpan="2"></TextBlock>
             </Border>
             <Border BorderThickness="1" BorderBrush="Black" Grid.Row="3" Grid.ColumnSpan="2">
-                <TextBox Grid.Row="3" Text="{Binding Path=StreetName}" Grid.ColumnSpan="2"></TextBox>
+                <TextBlock Grid.Row="3" Text="{Binding Path=StreetName}" Grid.ColumnSpan="2"></TextBlock>
             </Border>
             <Border BorderThickness="1" BorderBrush="Black" Grid.Row="4" Grid.ColumnSpan="2">
-                <TextBox Grid.Row="4" Text="{Binding Path=LicensePlateName}" Grid.ColumnSpan="2"></TextBox>
+                <TextBlock Grid.Row="4" Text="{Binding Path=LicensePlateName}" Grid.ColumnSpan="2"></TextBlock>
             </Border>
             <Grid Grid.Row="5" Grid.ColumnSpan="2" Margin="0,0,0,-14">
                 <Grid.RowDefinitions>
@@ -167,7 +167,7 @@
         <Rectangle Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="120" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="#FFB0D484" />
         <TextBox Grid.Column="2" HorizontalAlignment="Left" Margin="1628,120,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="0"/>
         <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="1646,120,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <CheckBox Content="Has Paid" Grid.Column="1" Margin="0,706,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" IsChecked="{Binding Path=HasPaid}"/>
+        <CheckBox Content="Has Paid" Grid.Column="1" Margin="0,706,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" IsChecked="{Binding Path=HasPaid}" />
         <Button Grid.Column="2" Margin="1168,142,0,0" Content="Edit" VerticalAlignment="Top"></Button>
     </Grid>
 </Page>

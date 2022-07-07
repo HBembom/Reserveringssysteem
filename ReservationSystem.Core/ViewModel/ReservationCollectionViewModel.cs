@@ -26,8 +26,7 @@ namespace ReservationSystem.Core.ViewModel
             set
             {
                 _selectedReservationModel = value;
-
-                ((Frame)Window.Current.Content).Navigate(typeof(ReservationDetail), _selectedReservationModel.ReservationId);
+                ViewReservationCommand.Execute(null);
             }
         }
 

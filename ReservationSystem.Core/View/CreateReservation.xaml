@@ -66,31 +66,31 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-            <ComboBox ItemsSource="{Binding Path=Accomodations.AvailableAccommodations}" SelectedItem="{Binding Path=Accomodations.SelectedPitchNumber, Mode=TwoWay}" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></ComboBox>
-            <ComboBox Grid.Row="0" ItemsSource="{Binding Path=Accomodations.SelectableAccomodations}" SelectedItem="{Binding Path=Accomodations.SelectedAccomodation, Mode=TwoWay}" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-            </ComboBox>
-            <CalendarDatePicker Date="{Binding Path=Accomodations.ArrivalDateTime, Mode=TwoWay}" DateFormat="{}{day.integer}/{month.integer}/{year.full}" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <CalendarDatePicker Date="{Binding Path=Accomodations.DepartureDateTime, Mode=TwoWay}" DateFormat="{}{day.integer}/{month.integer}/{year.full}" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBlock Grid.Row="0" Grid.Column="1" Text="Accomodation" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="1" Grid.Column="1" Text="Accomodation ID" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="2" Grid.Column="1" Text="Arrival" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="3" Grid.Column="1" Text="Departure" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <Button Command="{Binding Path=AddAccomodationCommand}" Grid.Row="1" Grid.Column="2" Content="Add" HorizontalAlignment="Center"></Button>
-        </Grid>
-        <!--Column 3-->
-        <Grid Grid.Column="2" Width="auto" Margin="47,222,47,130">
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
+                <ComboBox ItemsSource="{Binding Path=Accomodations.AvailableAccommodations}" SelectedItem="{Binding Path=Accomodations.SelectedPitchNumber, Mode=TwoWay}" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></ComboBox>
+                <ComboBox Grid.Row="0" ItemsSource="{Binding Path=Accomodations.SelectableAccomodations}" SelectedItem="{Binding Path=Accomodations.SelectedAccomodation, Mode=TwoWay}" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                </ComboBox>
+                <CalendarDatePicker Date="{Binding Path=Accomodations.ArrivalDateTime, Mode=TwoWay}" DateFormat="{}{day.integer}/{month.integer}/{year.full}" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <CalendarDatePicker Date="{Binding Path=Accomodations.DepartureDateTime, Mode=TwoWay}" DateFormat="{}{day.integer}/{month.integer}/{year.full}" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Accomodation" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="Accomodation ID" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="Arrival" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Grid.Row="3" Grid.Column="1" Text="Departure" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                <Button Command="{Binding Path=AddAccomodationCommand}" Grid.Row="1" Grid.Column="2" Content="Add" HorizontalAlignment="Center"></Button>
+            </Grid>
+            <!--Column 3-->
+            <Grid Grid.Column="2" Width="auto" Margin="47,222,47,130">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
 
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -175,7 +175,7 @@
             <TextBox Grid.Column="2" HorizontalAlignment="Left" Margin="1628,120,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="0"/>
             <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="1646,120,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
             <CheckBox Content="Has Paid" Grid.Column="1" Margin="0,706,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" IsChecked="{Binding HasPaid, Mode=TwoWay}" />
-            <Button Content="Home" Margin="62,91,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+            <Button Content="Home" Margin="112,160,0,0" VerticalAlignment="Top" Click="Button_Click" RenderTransformOrigin="1.393,2.751"/>
         </Grid>
     </Grid>
 </Page>
