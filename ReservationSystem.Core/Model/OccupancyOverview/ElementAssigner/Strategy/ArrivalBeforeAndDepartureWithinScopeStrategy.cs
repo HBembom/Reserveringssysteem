@@ -22,7 +22,7 @@ namespace ReservationSystem.Core.Model.OccupancyOverview.ReservationSystem.Core.
         public void AddElement(int row, int column)
         {
             DateTimeColumnSpan minimumScopeDateTime = _scope.MinDateTimeColumnSpan;
-            DateTime departureTime = _reservation.DurationOfStay.DepartureDateTime;
+            DateTimeOffset departureTime = _reservation.DurationOfStay.DepartureDateTime;
             int totalDays = (departureTime - minimumScopeDateTime.DateTime).Days * 2 + 1;
 
             if (_reservation.hasPaid.GetStatus() == false)

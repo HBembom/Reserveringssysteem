@@ -4,10 +4,10 @@ namespace ReservationSystem.Core.Model
 {
     public class DurationOfStay
     {
-        public readonly DateTime ArrivalDateTime;
-        public readonly DateTime DepartureDateTime;
+        public readonly DateTimeOffset ArrivalDateTime;
+        public readonly DateTimeOffset DepartureDateTime;
 
-        public DurationOfStay(DateTime arrivalDateTime, DateTime departureDateTime)
+        public DurationOfStay(DateTimeOffset arrivalDateTime, DateTimeOffset departureDateTime)
         {
             NotNull(arrivalDateTime, departureDateTime);
             // CheckIfArrivalIsPresentOrFuture(arrivalDateTime);
@@ -21,7 +21,7 @@ namespace ReservationSystem.Core.Model
             return new AmmountOfNights(DepartureDateTime.Subtract(ArrivalDateTime).Days);
         }
 
-        private void NotNull(DateTime arrivalDateTime, DateTime departureDateTime)
+        private void NotNull(DateTimeOffset arrivalDateTime, DateTimeOffset departureDateTime)
         {
             if(arrivalDateTime.Equals(null) || departureDateTime.Equals(null))
             {
@@ -29,7 +29,7 @@ namespace ReservationSystem.Core.Model
             }
         }
 
-        private void CheckIfDepartureIsLaterThanArrival(DateTime arrivalDateTime, DateTime departureDateTime)
+        private void CheckIfDepartureIsLaterThanArrival(DateTimeOffset arrivalDateTime, DateTimeOffset departureDateTime)
         {
             if (departureDateTime < arrivalDateTime)
             {
@@ -38,9 +38,9 @@ namespace ReservationSystem.Core.Model
             
         }
 
-        private void CheckIfArrivalIsPresentOrFuture(DateTime arrivalDateTime)
+        private void CheckIfArrivalIsPresentOrFuture(DateTimeOffset arrivalDateTime)
         {
-            if(arrivalDateTime.DayOfWeek < DateTime.UtcNow.DayOfWeek)
+            if(arrivalDateTime.DayOfWeek < DateTimeOffset.Now.DayOfWeek)
             {
                 throw new ArgumentException("Not possible to book in the past");
             };

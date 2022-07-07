@@ -67,8 +67,8 @@
             <ComboBox ItemsSource="{Binding Path=Accomodations.AvailableAccommodations}" SelectedItem="{Binding Path=Accomodations.SelectedPitchNumber, Mode=TwoWay}" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></ComboBox>
             <ComboBox Grid.Row="0" ItemsSource="{Binding Path=Accomodations.SelectableAccomodations}" SelectedItem="{Binding Path=Accomodations.SelectedAccomodation, Mode=TwoWay}" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
             </ComboBox>
-            <CalendarDatePicker Date="{Binding Path=Accomodations.ArrivalDateTime}" DateFormat="{}{day.integer}/{month.integer}/{year.full}" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" ></CalendarDatePicker>
-            <CalendarDatePicker Date="{Binding Path=Accomodations.DepartureDateTime}" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" ></CalendarDatePicker>
+            <CalendarDatePicker Date="{Binding Path=Accomodations.ArrivalDateTime, Mode=TwoWay}" DateFormat="{}{day.integer}/{month.integer}/{year.full}" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <CalendarDatePicker Date="{Binding Path=Accomodations.DepartureDateTime, Mode=TwoWay}" DateFormat="{}{day.integer}/{month.integer}/{year.full}" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <TextBlock Grid.Row="0" Grid.Column="1" Text="Accomodation" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             <TextBlock Grid.Row="1" Grid.Column="1" Text="Accomodation ID" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             <TextBlock Grid.Row="2" Grid.Column="1" Text="Arrival" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
