@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Source>C:\Users\Marvin\Downloads\campground-solid.png</Source>
+    <SmallTileSource>C:\Users\Marvin\Downloads\campground-solid.png</SmallTileSource>
+    <MediumTileSource>C:\Users\Marvin\Downloads\campground-solid.png</MediumTileSource>
+    <WideTileSource>C:\Users\Marvin\Downloads\campground-solid.png</WideTileSource>
+    <LargeTileSource>C:\Users\Marvin\Downloads\campground-solid.png</LargeTileSource>
+    <AppIconSource>C:\Users\Marvin\Downloads\campground-solid.png</AppIconSource>
+    <SplashScreenSource>C:\Users\Marvin\Downloads\campground-solid.png</SplashScreenSource>
+    <PackageLogoSource>C:\Users\Marvin\Downloads\campground-solid.png</PackageLogoSource>
+  </PropertyGroup>
+</Project>
