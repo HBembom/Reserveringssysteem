@@ -12,6 +12,18 @@ namespace ReservationSystem.Core.ViewModel
         private readonly ObservableCollection<ReservationModel> _reservations;
         private readonly ReservationsClient _reservationsClient;
         public ObservableCollection<ReservationModel> Reservations => _reservations;
+        
+        private string _selected { get; set; }
+        public string Selected
+        {
+            get { return _selected; }
+            set { 
+                _selected = value; 
+                OnPropertyChanged(nameof(Selected));
+                
+                }
+        }
+        
 
         public ReservationCollectionViewModel()
         {

@@ -2,11 +2,11 @@
     x:Class="ReservationSystem.Core.View.ReservationCollection"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ReservationSystem.Core.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -21,37 +21,23 @@
         </Grid.RowDefinitions>
         <Rectangle Grid.Row="0" Grid.ColumnSpan="3" Fill="#FFB0D484"></Rectangle>
         <TextBlock Grid.Row="1" Grid.Column="1" Text="Reservation Overview" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="50px"></TextBlock>
-        <ListView Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Path=Reservations}">
-            <ListView.Header>
-                <ListViewHeaderItem Width="auto">
-                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="LastName" Grid.Column="0" Width="300" ></TextBlock>
-                        <TextBlock Text="ArrivalDate" Grid.Column="1" Width="300"></TextBlock>
-                        <TextBlock Text="DepartureDate" Grid.Column="2" Width="300"></TextBlock>
-                    </Grid>
-                </ListViewHeaderItem>
-            </ListView.Header>
+        <ListView Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Path=Reservations, Mode=TwoWay}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <GridView>
-                        <GridView.ItemTemplate>
-                            <DataTemplate>
-                                
-                            </DataTemplate>
-                        </GridView.ItemTemplate>
-                        
-                        <TextBlock Text="{Binding LastName}" Grid.Column="0"></TextBlock>
-                            <TextBlock Text="{Binding ArrivalDate}" Grid.Column="1"></TextBlock>
-                            <TextBlock Text="{Binding DepartureDate}" Grid.Column="2"></TextBlock>
                     
-                    </GridView>
-                </DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="180"/>
+                            <ColumnDefinition Width="180"/>
+                            <ColumnDefinition Width="180"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Path=LastName, Mode=TwoWay}" Grid.Column="0" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Text="{Binding Path=ArrivalDate, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Center" ></TextBlock>
+                        <TextBlock Text="{Binding Path=DepartureDate, Mode=TwoWay}" Grid.Column="2" HorizontalAlignment="Center"></TextBlock>
+                    </Grid>
+                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" Content="Home" VerticalAlignment="Center" Click="Button_Click"/>
     </Grid>
 </Page>
