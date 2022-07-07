@@ -9,7 +9,7 @@
     d:DesignHeight="1024"
     d:DesignWidth="1902" Width="1920" Height="1020">
 
-    <Viewbox Stretch="Uniform">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
         <Grid Background="#FFF9F9F9" Height="1024" Width="1902">
             <Grid.ColumnDefinitions>
@@ -177,5 +177,5 @@
             <CheckBox Content="Has Paid" Grid.Column="1" Margin="0,706,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" IsChecked="{Binding HasPaid, Mode=TwoWay}" />
             <Button Content="Home" Margin="62,91,0,0" VerticalAlignment="Top" Click="Button_Click"/>
         </Grid>
-    </Viewbox>
+    </Grid>
 </Page>
