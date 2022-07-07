@@ -27,9 +27,17 @@ namespace ReservationSystem.Core
         public HomePage()
         {
             this.InitializeComponent();
-            ApplicationView.PreferredLaunchViewSize = new Size(Height = 1080, Width = 1920);
-            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
-
+            
+            var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+            if (localSettings.Values["launchedWithPrefSize"] == null)
+            {
+                // first app launch only!!
+                ApplicationView.PreferredLaunchViewSize = new Size(1920, 1080);
+                ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
+                localSettings.Values["launchedWithPrefSize"] = true;
+            }
+            // resetting the auto-resizing -> next launch the system will control the PreferredLaunchViewSize
+            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.Auto;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

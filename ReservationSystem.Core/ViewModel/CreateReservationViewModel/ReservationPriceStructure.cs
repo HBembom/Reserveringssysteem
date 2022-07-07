@@ -163,11 +163,11 @@ namespace ReservationSystem.Core.ViewModel
             });
             setPricesTask.Wait();
 
-            AdultPricePerNight = adultPrice.Amount;
-            ChildPricePerNight = childPrice.Amount;
-            PetPricePerNight = petPrice.Amount;
-            Tax = normalTax.Amount;
-            TouristTax = touristTax.Amount;
+            AdultPricePerNight = adultPrice == null ? 20.00 : adultPrice.Amount;
+            ChildPricePerNight = childPrice == null ? 15.00 : childPrice.Amount;
+            PetPricePerNight = petPrice == null ? 10.00 : petPrice.Amount;
+            Tax = normalTax == null ? 15.00 : normalTax.Amount;
+            TouristTax = touristTax == null ? 15.00 : touristTax.Amount;
         }
     }
 }
