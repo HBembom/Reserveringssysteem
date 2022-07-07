@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using ReservationSystem.Core.Clients;
 
 namespace ReservationSystem.Core.Commands
 {
@@ -23,15 +24,15 @@ namespace ReservationSystem.Core.Commands
 
         public override void Execute(object parameter)
         {
-            var PutPrices = Task.Run(async () =>
+            var putPricesTask = Task.Run(async () =>
             {
-                await _control.PricesClient.Put("Adult", _control.AdultPrice, false);
-                await _control.PricesClient.Put("Child", _control.ChildPrice, false);
-                await _control.PricesClient.Put("Pet", _control.PetPrice, false);
-                await _control.PricesClient.Put("NormalTax", _control.NormalTax, true);
-                await _control.PricesClient.Put("TourismTax", _control.TourismTax, true);
+                await _control.PricesClient.Put(new PriceModel() {Name = "Adult", Amount = _control.AdultPrice, IsTax = false});
+                await _control.PricesClient.Put(new PriceModel() { Name = "Child", Amount = _control.ChildPrice, IsTax = false });
+                await _control.PricesClient.Put(new PriceModel() {Name = "Pet", Amount = _control.PetPrice, IsTax = false });
+                await _control.PricesClient.Put(new PriceModel() { Name = "NormalTax", Amount = _control.NormalTax, IsTax = true});
+                await _control.PricesClient.Put(new PriceModel() { Name = "TourismTax", Amount = _control.TourismTax, IsTax = true});
             });
-            PutPrices.Wait();
+            putPricesTask.Wait();
         }
     }
 }
