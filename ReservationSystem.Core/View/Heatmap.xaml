@@ -15,6 +15,8 @@
             <ImageBrush ImageSource="../Assets/camping_map.png" Stretch="Uniform" AlignmentY="Top"/>
         </Canvas.Background>
 
+        <Button Content="Home" Margin="69,45,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+
         <Rectangle Width="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualWidth, ConverterParameter=0.45}"
                    Height="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualHeight, ConverterParameter=0.125}"
                    Canvas.Top="{Binding Converter={StaticResource PercentageConverter}, ElementName=canvas, Path=ActualHeight, ConverterParameter=0.075}"
@@ -72,7 +74,7 @@
                             MinWidth="160"
                             MinHeight="32"
                             VerticalAlignment="Top"
-                            DateFormat="{}{day.integer} {month.full} {year.full}"
+                            DateFormat="{}{day.integer}/{month.integer}/{year.full}"
                             Date="{Binding Path=StartDate, Mode=TwoWay}"
         />
 
@@ -83,7 +85,7 @@
                             MinWidth="160"
                             MinHeight="32"
                             VerticalAlignment="Top"
-                            DateFormat="{}{day.integer} {month.full} {year.full}"
+                            DateFormat="{}{day.integer}/{month.integer}/{year.full}"
                             Date="{Binding Path=EndDate, Mode=TwoWay}"
         />
     </Canvas>

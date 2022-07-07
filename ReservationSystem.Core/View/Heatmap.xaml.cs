@@ -17,5 +17,10 @@ namespace ReservationSystem.Core.View
             this.InitializeComponent();
             this.DataContext = new HeatmapViewModel();
         }
+
+        private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(HomePage));
+        }
     }
 }
