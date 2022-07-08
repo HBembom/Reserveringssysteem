@@ -1,10 +1,6 @@
 ﻿using ReservationSystem.Core.Commands;
 using ReservationSystem.Core.Model.OccupancyOverview.ReservationSystem.Core.Model.OccupancyOverview;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace ReservationSystem.Core.ViewModel

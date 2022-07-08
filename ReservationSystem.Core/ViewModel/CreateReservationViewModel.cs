@@ -1,11 +1,4 @@
 ﻿using ReservationSystem.Core.Commands;
-using ReservationSystem.Core.Model;
-using ReservationSystem.Core.Model.CalculatePrice;
-using ReservationSystem.Core.Model.Guests;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
 namespace ReservationSystem.Core.ViewModel
@@ -35,6 +28,12 @@ namespace ReservationSystem.Core.ViewModel
         {
             get { return _accomodation; }
             set { _accomodation = value; OnPropertyChanged(nameof(ViewModel.Accomodations));}
+        }
+        private string _errorMessage;
+        public string ErrorMessage
+        {
+            get { return _errorMessage; }
+            set { _errorMessage = value; OnPropertyChanged(nameof(ErrorMessage)); }
         }
         private bool _hasPaid;
         public bool HasPaid

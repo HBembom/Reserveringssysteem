@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -14,45 +15,38 @@ namespace ReservationSystem.Core.Commands
     {
         readonly CreateReservationViewModel CreateReservation;
         readonly ReservationsClient ReservationClient;
+        private Reservation _reservation;
 
         public CreateReservationCommand(CreateReservationViewModel createReservation)
         {
             this.CreateReservation = createReservation;
             this.ReservationClient = new ReservationsClient();
         }
+
         public override void Execute(object parameter)
         {
-            // Pass Fields to object first to insure integrity of Data
-            Reservation reservation = new Reservation(
-                new DurationOfStay(
-                    CreateReservation.Accomodations.ArrivalDateTime, 
-                    CreateReservation.Accomodations.DepartureDateTime),
-                CreateReservation.Accomodations.AccomodationsList,
-                new GuestContactDetail(
-                    new FirstName(CreateReservation.GuestInformation.FirstName),
-                    new LastName(CreateReservation.GuestInformation.LastName),
-                    new PrefixName(CreateReservation.GuestInformation.PrefixName),
-                    new StreetName(CreateReservation.GuestInformation.StreetName),
-                    new LicensePlateName(CreateReservation.GuestInformation.LicensePlate)),
-                CreateReservation.ExtraGuest.Guests);
 
-            if(CreateReservation.HasPaid)
-            {
-                reservation.hasPaid.Paid();
-            }
+            //Check if reservation object is complete
+            var reservationComplete = CheckReservation();
 
-            // Send Reservation to database
-            var postReservationTask = Task.Run(() =>
+            if (reservationComplete)
             {
-                PostReservation(reservation);
-            });
-            postReservationTask.Wait();
-            // Open New Screen
-            var rootFrame = Window.Current.Content as Frame;
-            
-            if (rootFrame != null)
-            {
-                rootFrame.Navigate(typeof(HomePage));
+                // Send Reservation to database
+                var postReservationTask = Task.Run(() =>
+                {
+                    PostReservation(_reservation);
+                });
+                postReservationTask.Wait();
+
+                // Open New Screen
+                var rootFrame = Window.Current.Content as Frame;
+
+                if (rootFrame != null)
+                {
+                    rootFrame.Navigate(typeof(HomePage));
+                }
+
+                //set data new page
             }
         }
 
@@ -100,6 +94,103 @@ namespace ReservationSystem.Core.Commands
             reservationModel.PaymentStatus = reservation.hasPaid.GetStatus();
 
             await ReservationClient.Post(reservationModel);
+        }
+
+        private bool CheckReservation()
+        {
+            if (CreateReservation.Accomodations.AccomodationsList.Count == 0)
+            {
+                CreateReservation.ErrorMessage = "Please choose at least 1 Accommodation.";
+                return false;
+            }
+
+            if (CreateReservation.GuestInformation.FirstName == null)
+            {
+                CreateReservation.ErrorMessage = "Please Fill in your first name to make a reservation.";
+                return false;
+            }
+
+            if (CreateReservation.GuestInformation.LastName == null)
+            {
+                CreateReservation.ErrorMessage = "Please Fill in your last name to make a reservation.";
+                return false;
+            }
+
+            if (CreateReservation.GuestInformation.PrefixName == null)
+            {
+                CreateReservation.ErrorMessage = "Please Fill in your prefix name to make a reservation.";
+                return false;
+            }
+
+            if (CreateReservation.GuestInformation.StreetName == null)
+            {
+                CreateReservation.ErrorMessage = "Please Fill in your street name to make a reservation.";
+                return false;
+            }
+
+            if (CreateReservation.GuestInformation.LicensePlate == null)
+            {
+                CreateReservation.ErrorMessage = "Please Fill in your license plate to make a reservation.";
+                return false;
+            }
+
+            if (CreateReservation.Accomodations.ArrivalDateTime < DateTime.Now ||
+                CreateReservation.Accomodations.DepartureDateTime < DateTime.Now ||
+                CreateReservation.Accomodations.DepartureDateTime < CreateReservation.Accomodations.ArrivalDateTime)
+            {
+                CreateReservation.ErrorMessage = "Please Fill in a valid arrival and departure date.";
+                return false;
+            }
+
+            var reservationsList = new List<ReservationModel>();
+            var accommodations = new List<int>();
+
+            for (var i = 0; i < CreateReservation.Accomodations.AccomodationsList.Count; i++)
+            {
+                accommodations.Add(CreateReservation.Accomodations.AccomodationsList[i].ID.value);
+            }
+            var getReservationsTask = Task.Run(async () =>
+            {
+                reservationsList = await ReservationClient.GetByAccommodation(accommodations.ToArray(), $"{CreateReservation.Accomodations.ArrivalDateTime.Year}-{CreateReservation.Accomodations.ArrivalDateTime.Month}-{CreateReservation.Accomodations.ArrivalDateTime.Day}", $"{CreateReservation.Accomodations.DepartureDateTime.Year}-{CreateReservation.Accomodations.DepartureDateTime.Month}-{CreateReservation.Accomodations.DepartureDateTime.Day}");
+            });
+            getReservationsTask.Wait();
+
+            if (reservationsList !=  null)
+            {
+                var accommodationString = "";
+                for (var i = 0; i < accommodations.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        accommodationString += $"{accommodations[i]}";
+                        continue;
+                    }
+                    accommodationString += $", {accommodations[i]}";
+                }
+                CreateReservation.ErrorMessage = $"Accommodations {accommodationString} are not available during your stay.{Environment.NewLine}Please choose different accommodations.";
+                return false;
+            }
+
+            // Pass Fields to object first to insure integrity of Data
+            _reservation = new Reservation(
+                new DurationOfStay(
+                    CreateReservation.Accomodations.ArrivalDateTime,
+                    CreateReservation.Accomodations.DepartureDateTime),
+                CreateReservation.Accomodations.AccomodationsList,
+                new GuestContactDetail(
+                    new FirstName(CreateReservation.GuestInformation.FirstName),
+                    new LastName(CreateReservation.GuestInformation.LastName),
+                    new PrefixName(CreateReservation.GuestInformation.PrefixName),
+                    new StreetName(CreateReservation.GuestInformation.StreetName),
+                    new LicensePlateName(CreateReservation.GuestInformation.LicensePlate)),
+                CreateReservation.ExtraGuest.Guests);
+
+            if (CreateReservation.HasPaid)
+            {
+                _reservation.hasPaid.Paid();
+            }
+
+            return true;
         }
     }
 }

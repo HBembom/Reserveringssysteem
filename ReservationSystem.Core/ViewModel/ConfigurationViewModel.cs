@@ -1,14 +1,6 @@
 ﻿using ReservationSystem.Core.Clients;
 using ReservationSystem.Core.Commands;
 using ReservationSystem.Core.Model;
-using ReservationSystem.Core.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -70,7 +62,7 @@ namespace ReservationSystem.Core.ViewModel
             var normalTax = new PriceModel();
             var tourismTax = new PriceModel();
 
-            var a = Task.Run(async () =>
+            var pricesTask = Task.Run(async () =>
             {
                 adultPrice = await PricesClient.GetByName("Adult");
                 childPrice = await PricesClient.GetByName("Child");
@@ -78,7 +70,7 @@ namespace ReservationSystem.Core.ViewModel
                 normalTax = await PricesClient.GetByName("NormalTax");
                 tourismTax = await PricesClient.GetByName("TourismTax");
             });
-            a.Wait();
+            pricesTask.Wait();
 
             AdultPrice = new Price(adultPrice.Amount).Value;
             ChildPrice = new Price(childPrice.Amount).Value;

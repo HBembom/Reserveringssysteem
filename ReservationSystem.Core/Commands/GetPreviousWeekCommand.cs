@@ -1,5 +1,4 @@
-﻿using ReservationSystem.Core.Model.OccupancyOverview.ReservationSystem.Core.Model.OccupancyOverview;
-using ReservationSystem.Core.ViewModel;
+﻿using ReservationSystem.Core.ViewModel;
 
 namespace ReservationSystem.Core.Commands
 {

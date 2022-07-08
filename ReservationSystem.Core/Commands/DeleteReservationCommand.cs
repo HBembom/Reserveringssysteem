@@ -1,0 +1,31 @@
+﻿using ReservationSystem.Core.Clients;
+using System;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+
+namespace ReservationSystem.Core.Commands
+{
+    internal class DeleteReservationCommand : CommandBase
+    {
+        private readonly ReservationModel _viewModel;
+        private readonly ReservationsClient _client;
+
+        public DeleteReservationCommand(ReservationModel viewModel)
+        {
+            _viewModel = viewModel;
+            _client = new ReservationsClient();
+        }
+        public override async void Execute(object parameter)
+        {
+            _client.Delete(_viewModel.ReservationId);
+
+            var rootFrame = Window.Current.Content as Frame;
+
+            if (rootFrame != null)
+            {
+                rootFrame.Navigate(typeof(HomePage));
+            }
+
+        }
+    }
+}

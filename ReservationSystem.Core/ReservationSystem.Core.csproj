@@ -125,6 +125,8 @@
     <Compile Include="Commands\AddGuestCommand.cs" />
     <Compile Include="Commands\Builder\Interface\IBuilder.cs" />
     <Compile Include="Commands\Builder\ReservationBuilder.cs" />
+    <Compile Include="Commands\DeleteReservationCommand.cs" />
+    <Compile Include="Commands\EditReservationCommand.cs" />
     <Compile Include="Commands\NavigateCommand.cs" />
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\CreateReservationCommand.cs" />
@@ -224,9 +226,6 @@
     </Compile>
     <Compile Include="View\ReservationDetails.xaml.cs">
       <DependentUpon>ReservationDetails.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\RevenueChart.xaml.cs">
-      <DependentUpon>RevenueChart.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CreateReservation.xaml.cs">
       <DependentUpon>CreateReservation.xaml</DependentUpon>
@@ -329,10 +328,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ReservationDetails.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\RevenueChart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
