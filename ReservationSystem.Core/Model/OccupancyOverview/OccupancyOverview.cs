@@ -1,7 +1,9 @@
 ﻿using ReservationSystem.Core.Model.Names;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
+using ReservationSystem.Core.Clients;
 
 namespace ReservationSystem.Core.Model.OccupancyOverview
 {
@@ -10,9 +12,20 @@ namespace ReservationSystem.Core.Model.OccupancyOverview
         public class OccupancyOverview
         {
             public Grid _grid;
+            private ReservationsClient _client;
+            private List<ReservationModel> ReservationModels;
 
             public OccupancyOverview(DateTime selectedWeek)
             {
+                _client = new ReservationsClient();
+                ReservationModels = new List<ReservationModel>();
+
+                var getReservationsTask = Task.Run(async () =>
+                {
+                    ReservationModels = await _client.GetAll();
+                });
+                getReservationsTask.Wait();
+
                 _grid = new GridGenerator(RetrieveAccomodations()).CreateGrid();
                 _grid = new GridElementAssigner(_grid, selectedWeek, RetrieveReservations()).AssignElements();
             }
@@ -31,26 +44,26 @@ namespace ReservationSystem.Core.Model.OccupancyOverview
 
             private int RetrieveAccomodations()
             {
-                return Cache.ReservationModels.Count;
+                return ReservationModels.Count;
             }
 
             private List<Reservation> RetrieveReservations()
             {
                 List<Reservation> Reservations = new List<Reservation>();
 
-                for (var i = 0; i < Cache.ReservationModels.Count; i++)
+                for (var i = 0; i < ReservationModels.Count; i++)
                 {
                     Reservations.Add(new Reservation(
                         new DurationOfStay(
-                            new DateTime(Cache.ReservationModels[i].ArrivalDate.Year, Cache.ReservationModels[i].ArrivalDate.Month, Cache.ReservationModels[i].ArrivalDate.Day),
-                            new DateTime(Cache.ReservationModels[i].DepartureDate.Year, Cache.ReservationModels[i].DepartureDate.Month, Cache.ReservationModels[i].DepartureDate.Day)),
-                        new List<Accomodation>() { new Camper(Int32.Parse(Cache.ReservationModels[i].AccommodationId[0])) },
+                            new DateTime(ReservationModels[i].ArrivalDate.Year, ReservationModels[i].ArrivalDate.Month, ReservationModels[i].ArrivalDate.Day),
+                            new DateTime(ReservationModels[i].DepartureDate.Year, ReservationModels[i].DepartureDate.Month, ReservationModels[i].DepartureDate.Day)),
+                        new List<Accomodation>() { new Camper(Int32.Parse(ReservationModels[i].AccommodationId[0])) },
                         new GuestContactDetail(
-                            new FirstName(Cache.ReservationModels[i].FirstName),
-                            new LastName(Cache.ReservationModels[i].LastName),
-                            new PrefixName(Cache.ReservationModels[i].PrefixName),
-                            new StreetName(Cache.ReservationModels[i].StreetName),
-                            new LicensePlateName(Cache.ReservationModels[i].LicensePlateName)),
+                            new FirstName(ReservationModels[i].FirstName),
+                            new LastName(ReservationModels[i].LastName),
+                            new PrefixName(ReservationModels[i].PrefixName),
+                            new StreetName(ReservationModels[i].StreetName),
+                            new LicensePlateName(ReservationModels[i].LicensePlateName)),
                         new List<Guest>()
                     ));
                 }
