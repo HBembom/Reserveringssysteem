@@ -14,7 +14,6 @@
             <ColumnDefinition Width="154*"></ColumnDefinition>
             <ColumnDefinition Width="640*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-
         <Grid Grid.Column ="0" Margin="62,276,36,412" Width="auto">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="48*"/>
@@ -96,10 +95,8 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
-
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -130,7 +127,6 @@
             <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding Path=PriceStructure.TotalAmountOfNightCampers, Mode=TwoWay }" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             <TextBlock Grid.Row="5" Grid.Column="2" Text="{Binding Path=PriceStructure.CamperPricePerNight, Mode=TwoWay }" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             <TextBlock Grid.Row="5" Grid.Column="3" Text="{Binding Path=PriceStructure.TotalCamperPrice, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-
             <Grid Grid.Row="1" Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
@@ -175,6 +171,7 @@
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Edit Reservation" VerticalAlignment="Top" FontWeight="Bold" FontSize="50px" Height="132" Width="574" Grid.ColumnSpan="3" Margin="0,-107,0,0"/>
         </Grid>
         <Button Command="{Binding Path=UpdateCommand}" Content="Update Reservation" Grid.Column="2" Margin="82,689,0,0" VerticalAlignment="Top" Height="63" Width="164"></Button>
+        <Button Command="{Binding Path=DeleteCommand}" Content="Delete Reservation" Grid.Column="2" Margin="82,782,0,0" VerticalAlignment="Top" Height="63" Width="164"></Button>
         <Rectangle Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="120" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="#FFB0D484" />
         <TextBox Grid.Column="2" HorizontalAlignment="Left" Margin="1628,120,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="0"/>
         <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="1646,120,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>

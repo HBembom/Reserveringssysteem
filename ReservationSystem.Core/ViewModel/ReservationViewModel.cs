@@ -1,16 +1,18 @@
 ﻿using ReservationSystem.Core.Clients;
+using ReservationSystem.Core.Commands;
 using ReservationSystem.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace ReservationSystem.Core.ViewModel.ReservationViewModel
 {
     internal class ReservationViewModel : ViewModelBase
     {
-        private readonly ReservationModel _reservation;
+        public readonly ReservationModel _reservation;
 
         public string GuestFirstName => _reservation.LastName.ToString();
         public string ArrivalDate => _reservation.ArrivalDate.ToString("d");
@@ -26,10 +28,11 @@ namespace ReservationSystem.Core.ViewModel.ReservationViewModel
         public int AmountOfExtraPets => _reservation.AmountOfExtraPets;
         public double TotalCost => _reservation.TotalCost;
         public bool PaymentStatus => _reservation.PaymentStatus;
-
+        public ICommand EditReservationCommand { get; set; }
         public ReservationViewModel(ReservationModel reservation)
         {
             _reservation = reservation;
+            EditReservationCommand = new EditReservationCommand(reservation);
         }
     }
 }

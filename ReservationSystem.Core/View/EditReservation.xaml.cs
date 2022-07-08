@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ReservationSystem.Core.Clients;
+using ReservationSystem.Core.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +24,10 @@ namespace ReservationSystem.Core.View
     /// </summary>
     public sealed partial class EditReservation : Page
     {
-        public EditReservation()
+        public EditReservation(ReservationModel viewModel)
         {
             this.InitializeComponent();
+            this.DataContext = new EditReservationViewModel(viewModel);
         }
     }
 }

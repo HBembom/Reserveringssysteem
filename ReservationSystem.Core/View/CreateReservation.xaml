@@ -91,7 +91,6 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
-
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -100,7 +99,6 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-
                 <TextBlock Grid.Row="0" Grid.Column="0" Text="Number of Guests" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <TextBlock Grid.Row="0" Grid.Column="1" Text="Total Nights" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <TextBlock Grid.Row="0" Grid.Column="2" Text="Cost Per Night" HorizontalAlignment="Center" VerticalAlignment="Center"/>

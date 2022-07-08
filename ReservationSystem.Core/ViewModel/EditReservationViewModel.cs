@@ -49,13 +49,16 @@ namespace ReservationSystem.Core.ViewModel
         public ICommand UpdateGuestCommand { get; set; }
         public ICommand UpdateAccommodationCommand { get; set; }
 
-        public EditReservationViewModel()
+        public ICommand DeleteReservationCommand { get; set; }
+
+        public EditReservationViewModel(ReservationModel viewModel)
         {
             this.UpdateCommand = new UpdateCommand(this);
             this.GuestInformation = new GuestInformation();
             this.ExtraGuest = new ExtraGuest();
             this.PriceStructure = new ReservationPriceStructure();
             this.Accomodations = new Accomodations();
+            this.DeleteReservationCommand = new DeleteReservationCommand(viewModel);
             // this.UpdateGuestCommand = new UpdateGuestCommand(this);
             // this.UpdateAccommodationCommand = new UpdateAccommodationCommand(this);
             //

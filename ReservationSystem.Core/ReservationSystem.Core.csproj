@@ -125,6 +125,8 @@
     <Compile Include="Commands\AddGuestCommand.cs" />
     <Compile Include="Commands\Builder\Interface\IBuilder.cs" />
     <Compile Include="Commands\Builder\ReservationBuilder.cs" />
+    <Compile Include="Commands\DeleteReservationCommand.cs" />
+    <Compile Include="Commands\EditReservationCommand.cs" />
     <Compile Include="Commands\NavigateCommand.cs" />
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\CreateReservationCommand.cs" />

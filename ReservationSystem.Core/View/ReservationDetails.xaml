@@ -8,20 +8,27 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Background="#FFF9F9F9">
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="157*"></ColumnDefinition>
-            <ColumnDefinition Width="154*"></ColumnDefinition>
-            <ColumnDefinition Width="640*"></ColumnDefinition>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-
-        <Grid Grid.Column ="0" Margin="62,276,36,412" Width="auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="53*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+        <Rectangle Stroke="Black" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Fill="#FFB0D484"/>
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Reservation Details" VerticalAlignment="Center" FontWeight="Bold" FontSize="50px" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Height="67" Width="452" />
+        <Grid Grid.Row="2" Grid.Column="1" Width="auto">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="48*"/>
-                <ColumnDefinition Width="187*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
@@ -43,38 +50,28 @@
             <Border BorderThickness="1" BorderBrush="Black" Grid.Row="4" Grid.ColumnSpan="2">
                 <TextBlock Grid.Row="4" Text="{Binding Path=LicensePlateName}" Grid.ColumnSpan="2"></TextBlock>
             </Border>
-            <Grid Grid.Row="5" Grid.ColumnSpan="2" Margin="0,0,0,-14">
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="73*"></ColumnDefinition>
-                    <ColumnDefinition Width="89*"></ColumnDefinition>
-                    <ColumnDefinition Width="58*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-            </Grid>
         </Grid>
-        <!-- Column 2-->
-        <Grid Grid.Column="1" Margin="5,289,1275,425" Width="auto" RenderTransformOrigin="0.5,0.497" Grid.ColumnSpan="2">
-            <Grid.RowDefinitions>
+
+        <Grid Grid.Row="2" Grid.Column="2">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
+
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="100px"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-
-            <TextBlock Text="{Binding Path=ArrivalDate}" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
-            <TextBlock Text="{Binding Path=DepartureDate}" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
-            <TextBlock Grid.Row="0" Grid.Column="1" Text="Arrival" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="1" Grid.Column="1" Text="Departure" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            <TextBlock Text="{Binding Path=ArrivalDate}" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
+            <TextBlock Text="{Binding Path=DepartureDate}" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="Arrival" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="Departure" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
         </Grid>
-        <!--Column 3-->
-        <Grid Grid.Column="2" Width="auto" Margin="47,222,47,130">
+
+        <Grid Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
@@ -86,11 +83,8 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -120,16 +114,13 @@
             <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding Path=PriceStructure.TotalAmountOfNightCampers}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             <TextBlock Grid.Row="5" Grid.Column="2" Text="{Binding Path=PriceStructure.CamperPricePerNight}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             <TextBlock Grid.Row="5" Grid.Column="3" Text="{Binding Path=PriceStructure.TotalCamperPrice}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-
             <Grid Grid.Row="1" Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition Height="40"></RowDefinition>
                 </Grid.RowDefinitions>
-
                 <TextBlock Grid.Row="0" Text="Adult" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
                 <TextBlock Grid.Row="1" Text="{Binding Path=PriceStructure.NumberOfAdults, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-
             </Grid>
             <Grid Grid.Row="2" Grid.Column="0">
                 <Grid.RowDefinitions>
@@ -162,12 +153,8 @@
                 <TextBlock Grid.Row="0" Text="Camper" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                 <TextBlock Grid.Row="1" Text="{Binding Path=PriceStructure.NumberOfCampers, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             </Grid>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Reservation Details" VerticalAlignment="Top" FontWeight="Bold" FontSize="50px" Height="132" Width="574" Grid.ColumnSpan="3" Margin="0,-107,0,0"/>
         </Grid>
-        <Rectangle Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="120" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="#FFB0D484" />
-        <TextBox Grid.Column="2" HorizontalAlignment="Left" Margin="1628,120,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="0"/>
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="1646,120,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <CheckBox Content="Has Paid" Grid.Column="1" Margin="0,706,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" IsChecked="{Binding Path=HasPaid}" />
-        <Button Grid.Column="2" Margin="1168,142,0,0" Content="Edit" VerticalAlignment="Top"></Button>
+        <Button Content="Home" Click="Button_Click" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Content="Edit" Command="{Binding Path=EditReservationCommand, Mode=TwoWay}" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Page>
