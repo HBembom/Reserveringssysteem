@@ -8,11 +8,11 @@ namespace ReservationSystem.Core.ViewModel.ReservationViewModel
     {
         public readonly ReservationModel _reservation;
 
-        public string GuestFirstName => _reservation.LastName.ToString();
+        public string GuestFirstName => _reservation.FirstName;
         public string ArrivalDate => _reservation.ArrivalDate.ToString("d");
         public string DepartureDate => _reservation.DepartureDate.ToString("d");
         public int ReservationId => _reservation.ReservationId;
-        public string GuestLastName => _reservation.FirstName;
+        public string GuestLastName => _reservation.LastName;
         public string PrefixName => _reservation.PrefixName;
         public string StreetName => _reservation.StreetName;
         public string LicensePlateName => _reservation.LicensePlateName;
