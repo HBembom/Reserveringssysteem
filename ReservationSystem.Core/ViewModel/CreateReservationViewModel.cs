@@ -36,6 +36,12 @@ namespace ReservationSystem.Core.ViewModel
             get { return _accomodation; }
             set { _accomodation = value; OnPropertyChanged(nameof(ViewModel.Accomodations));}
         }
+        private string _errorMessage;
+        public string ErrorMessage
+        {
+            get { return _errorMessage; }
+            set { _errorMessage = value; OnPropertyChanged(nameof(ErrorMessage)); }
+        }
         private bool _hasPaid;
         public bool HasPaid
         {

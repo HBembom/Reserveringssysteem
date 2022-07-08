@@ -41,15 +41,10 @@ namespace ReservationSystem.Core.Clients
             res.EnsureSuccessStatusCode();
         }
 
-        public async Task Put(string name, double price, bool isTax)
+        public async Task Put(PriceModel priceBody)
         {
-            var priceBody = new PriceModel()
-            {
-                Amount = price,
-                Name = name,
-                IsTax = isTax
-            };
-            var res = await _client.PutAsJsonAsync("http://localhost:57302/api/Prices/" + name, priceBody);
+           
+            var res = await _client.PutAsJsonAsync("http://localhost:57302/api/Prices/" + priceBody.Name, priceBody);
             res.EnsureSuccessStatusCode();
         }
 
