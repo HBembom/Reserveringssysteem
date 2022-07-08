@@ -10,11 +10,13 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100px"/>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition Width="100px"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="150"/>
@@ -22,8 +24,8 @@
             <RowDefinition Height="53*"/>
             <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
-        <Rectangle Stroke="Black" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Fill="#FFB0D484"/>
-        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Reservation Details" VerticalAlignment="Center" FontWeight="Bold" FontSize="50px" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Height="67" Width="452" />
+        <Rectangle Stroke="Black" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="7" Fill="#FFB0D484"/>
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Reservation Details" VerticalAlignment="Center" FontWeight="Bold" FontSize="50px" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3" Height="67" Width="452" />
         <Grid Grid.Row="2" Grid.Column="1" Width="auto">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="48*"/>
@@ -71,7 +73,7 @@
             <TextBlock Grid.Row="2" Grid.Column="1" Text="Departure" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
         </Grid>
 
-        <Grid Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2">
+        <Grid Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="3">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
@@ -154,7 +156,7 @@
                 <TextBlock Grid.Row="1" Text="{Binding Path=PriceStructure.NumberOfCampers, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             </Grid>
         </Grid>
-        <Button Content="Home" Click="Button_Click" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button Content="Edit" Command="{Binding Path=EditReservationCommand, Mode=TwoWay}" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Content="Home" Click="Button_Click" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Content="Edit" Command="{Binding Path=EditReservationCommand, Mode=TwoWay}" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Page>

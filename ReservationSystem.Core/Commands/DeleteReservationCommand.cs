@@ -19,6 +19,7 @@ namespace ReservationSystem.Core.Commands
         public DeleteReservationCommand(ReservationModel viewModel)
         {
             _viewModel = viewModel;
+            _client = new ReservationsClient();
         }
         public override async void Execute(object parameter)
         {

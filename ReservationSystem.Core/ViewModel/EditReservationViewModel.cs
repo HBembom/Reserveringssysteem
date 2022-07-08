@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using ReservationSystem.Core.Clients;
 using ReservationSystem.Core.Commands;
-using ReservationSystem.Core.Model;
 
 namespace ReservationSystem.Core.ViewModel
 {
@@ -45,6 +37,8 @@ namespace ReservationSystem.Core.ViewModel
             set { _hasPaid = value; OnPropertyChanged(nameof(HasPaid)); }
         }
 
+        private readonly ReservationModel _reservationModel;
+
         public ICommand UpdateCommand { get; set; }
         public ICommand UpdateGuestCommand { get; set; }
         public ICommand UpdateAccommodationCommand { get; set; }
@@ -53,6 +47,7 @@ namespace ReservationSystem.Core.ViewModel
 
         public EditReservationViewModel(ReservationModel viewModel)
         {
+            this._reservationModel = viewModel;
             this.UpdateCommand = new UpdateCommand(this);
             this.GuestInformation = new GuestInformation();
             this.ExtraGuest = new ExtraGuest();
