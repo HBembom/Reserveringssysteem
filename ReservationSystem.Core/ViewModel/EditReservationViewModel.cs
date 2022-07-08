@@ -42,7 +42,6 @@ namespace ReservationSystem.Core.ViewModel
         public ICommand UpdateCommand { get; set; }
         public ICommand UpdateGuestCommand { get; set; }
         public ICommand UpdateAccommodationCommand { get; set; }
-
         public ICommand DeleteReservationCommand { get; set; }
 
         public EditReservationViewModel(ReservationModel viewModel)
