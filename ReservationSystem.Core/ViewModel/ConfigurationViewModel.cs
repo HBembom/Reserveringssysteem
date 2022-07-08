@@ -70,7 +70,7 @@ namespace ReservationSystem.Core.ViewModel
             var normalTax = new PriceModel();
             var tourismTax = new PriceModel();
 
-            var a = Task.Run(async () =>
+            var pricesTask = Task.Run(async () =>
             {
                 adultPrice = await PricesClient.GetByName("Adult");
                 childPrice = await PricesClient.GetByName("Child");
@@ -78,7 +78,7 @@ namespace ReservationSystem.Core.ViewModel
                 normalTax = await PricesClient.GetByName("NormalTax");
                 tourismTax = await PricesClient.GetByName("TourismTax");
             });
-            a.Wait();
+            pricesTask.Wait();
 
             AdultPrice = new Price(adultPrice.Amount).Value;
             ChildPrice = new Price(childPrice.Amount).Value;

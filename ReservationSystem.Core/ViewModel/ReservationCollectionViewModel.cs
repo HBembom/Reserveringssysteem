@@ -23,11 +23,7 @@ namespace ReservationSystem.Core.ViewModel
         public ReservationModel SelectedReservationModel
         {
             get { return _selectedReservationModel; }
-            set
-            {
-                _selectedReservationModel = value;
-                ViewReservationCommand.Execute(null);
-            }
+            set { _selectedReservationModel = value;  ViewReservationCommand.Execute(null); }
         }
 
         public ICommand ViewReservationCommand;
@@ -40,11 +36,11 @@ namespace ReservationSystem.Core.ViewModel
 
             List<ReservationModel> list = new List<ReservationModel>();
 
-            var reservations = Task.Run(async () =>
+            var reservationsTask = Task.Run(async () =>
             {
                 list = await _reservationsClient.GetAll();
             });
-            reservations.Wait();
+            reservationsTask.Wait();
 
             foreach(ReservationModel reservation in list)
             {
