@@ -10,14 +10,12 @@
     d:DesignWidth="1902" Width="1920" Height="1020">
 
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-
         <Grid Background="#FFF9F9F9" Height="1024" Width="1902">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="157*"/>
                 <ColumnDefinition Width="154*"/>
                 <ColumnDefinition Width="640*"/>
             </Grid.ColumnDefinitions>
-
             <Grid Grid.Column ="0" Margin="62,276,36,412" Width="auto">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="48*"/>

@@ -1,11 +1,4 @@
 ﻿using ReservationSystem.Core.Commands;
-using ReservationSystem.Core.Model;
-using ReservationSystem.Core.Model.CalculatePrice;
-using ReservationSystem.Core.Model.Guests;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
 namespace ReservationSystem.Core.ViewModel

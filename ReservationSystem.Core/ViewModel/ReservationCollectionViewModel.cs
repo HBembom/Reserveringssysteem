@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using ReservationSystem.Core.Clients;
 using ReservationSystem.Core.Commands;
-using ReservationSystem.Core.Model;
-using ReservationSystem.Core.View;
-using ReservationSystem.Core.ViewModel.ReservationViewModel;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
 
 namespace ReservationSystem.Core.ViewModel
 {
