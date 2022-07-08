@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 06, 2022 at 07:36 PM
+-- Generation Time: Jul 08, 2022 at 01:09 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.15
 
@@ -40,13 +40,13 @@ CREATE TABLE `accommodations` (
 --
 
 INSERT INTO `accommodations` (`AccommodationId`, `Price`, `AccommodationType`) VALUES
+(1, 25.00, 'Camper'),
 (2, 25.00, 'Camper'),
 (3, 25.00, 'Camper'),
 (4, 25.00, 'Camper'),
 (5, 25.00, 'Camper'),
 (6, 25.00, 'Camper'),
-(7, 25.00, 'Camper'),
-(8, 25.00, 'Camper');
+(7, 25.00, 'Camper');
 
 -- --------------------------------------------------------
 
@@ -102,7 +102,7 @@ CREATE TABLE `prices` (
 --
 
 INSERT INTO `prices` (`PriceId`, `Amount`, `Name`, `IsTax`) VALUES
-(2, 25.00, 'Adult', 0),
+(2, 30.00, 'Adult', 0),
 (3, 15.00, 'Child', 0),
 (4, 10.00, 'Pet', 0),
 (5, 10.00, 'NormalTax', 1),
@@ -136,14 +136,11 @@ CREATE TABLE `reservations` (
 --
 
 INSERT INTO `reservations` (`ReservationId`, `FirstName`, `LastName`, `PrefixName`, `Streetname`, `LicensePlateName`, `ArrivalDate`, `DepartureDate`, `AccommodationId`, `AmountOfExtraAdults`, `AmountOfExtraChildren`, `AmountOfExtraPets`, `TotalCost`, `PaymentStatus`) VALUES
-(1, 'Harry', 'Kosse', '', 'laan v/d bork', 'blabla', '2022-07-04', '2022-07-07', '1', 0, 0, 0, 75.00, 0),
-(2, 'harry', 'Leuw', '', 'laan v/d bork', 'blabla', '2022-07-06', '2022-07-09', '3,4', 0, 0, 0, 75.00, 0),
+(1, 'Harry', 'Kosse', '', 'laan v/d bork', 'blabla', '2022-07-04', '2022-07-07', '2', 0, 0, 0, 75.00, 0),
+(2, 'harry', 'Leuw', '', 'laan v/d bork', 'blabla', '2022-07-04', '2022-07-07', '3,4', 0, 0, 0, 75.00, 0),
 (3, 'harry', 'Leuw', '', 'laan v/d bork', 'blabla', '2022-06-21', '2022-06-22', '5', 0, 0, 0, 75.00, 0),
 (4, 'harry', 'Buzz', '', 'laan v/d bork', 'blabla', '2022-06-19', '2022-06-28', '6', 0, 0, 0, 75.00, 0),
-(5, 'harry', 'Woody', '', 'laan v/d bork', 'blabla', '2022-06-25', '2022-06-28', '7', 0, 0, 0, 75.00, 0),
-(30, 'sdggsg', 'sdgdsgs', 'sgsdgsdg', 'sdgsdgsd', 'sdgsdgsd', '2022-07-01', '2022-07-02', '1,6', 0, 1, 0, 44.00, 0),
-(31, 'asdas', 'asdas', 'asdasd', 'adasdsa', 'asdasdas', '2022-07-01', '2022-07-02', '5,7', 0, 1, 0, 40.50, 0),
-(32, 'jydwf', 'asdasd', 'adasd', 'asdas', 'dasda', '2022-07-04', '2022-07-05', '6', 0, 1, 0, 22.00, 0);
+(5, 'harry', 'Woody', '', 'laan v/d bork', 'blabla', '2022-06-25', '2022-06-28', '7', 0, 0, 0, 75.00, 0);
 
 --
 -- Indexes for dumped tables
@@ -212,7 +209,7 @@ ALTER TABLE `prices`
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `ReservationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `ReservationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
