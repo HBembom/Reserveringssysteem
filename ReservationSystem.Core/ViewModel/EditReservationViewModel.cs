@@ -1,4 +1,6 @@
-﻿using System.Windows.Input;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Windows.Input;
 using ReservationSystem.Core.Clients;
 using ReservationSystem.Core.Commands;
 
@@ -38,7 +40,7 @@ namespace ReservationSystem.Core.ViewModel
         }
 
         private readonly ReservationModel _reservationModel;
-
+        private ReservationsClient _reservationsClient { get; set; } = new ReservationsClient();
         public ICommand UpdateCommand { get; set; }
         public ICommand UpdateGuestCommand { get; set; }
         public ICommand UpdateAccommodationCommand { get; set; }
@@ -47,23 +49,36 @@ namespace ReservationSystem.Core.ViewModel
         public EditReservationViewModel(ReservationModel viewModel)
         {
             this._reservationModel = viewModel;
-            this.UpdateCommand = new UpdateCommand(this);
-            this.GuestInformation = new GuestInformation();
             this.ExtraGuest = new ExtraGuest();
-            this.PriceStructure = new ReservationPriceStructure();
-            this.Accomodations = new Accomodations();
+
+            this.Accomodations = new Accomodations()
+            {
+                ArrivalDateTime = viewModel.ArrivalDate,
+                DepartureDateTime = viewModel.DepartureDate
+            };
+
+            this.GuestInformation = new GuestInformation()
+            {
+                FirstName = viewModel.FirstName,
+                LastName = viewModel.LastName,
+                PrefixName = viewModel.PrefixName,
+                StreetName = viewModel.StreetName,
+                LicensePlate = viewModel.LicensePlateName
+            };
+
+            this.PriceStructure = new ReservationPriceStructure()
+            {
+                TotalPrice = viewModel.TotalCost,
+                NumberOfAdults = viewModel.AmountOfExtraAdults,
+                NumberOfChilds = viewModel.AmountOfExtraChildren,
+                NumberOfPets = viewModel.AmountOfExtraPets,
+                NumberOfCampers = viewModel.AccommodationId.Length
+            };
+
+            HasPaid = viewModel.PaymentStatus;
+
+            this.UpdateCommand = new UpdateCommand(this);
             this.DeleteReservationCommand = new DeleteReservationCommand(viewModel);
-            // this.UpdateGuestCommand = new UpdateGuestCommand(this);
-            // this.UpdateAccommodationCommand = new UpdateAccommodationCommand(this);
-            //
-            //
-            // var GetReservationTask = Task.Run(async () =>
-            // {
-            //     var reservationClient = new ReservationsClient();
-            //     var reservationModel = await reservationClient.GetById(1);
-            //     
-            //     _extraGuest = reservationModel.
-            // });
         }
     }
 }
