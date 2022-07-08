@@ -23,8 +23,10 @@
             <RowDefinition Height="53*"/>
             <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
+
         <Rectangle Stroke="Black" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" Fill="#FFB0D484"/>
         <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Edit Reservation" VerticalAlignment="Center" FontWeight="Bold" FontSize="50px" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Height="67" Width="452" />
+        <Button Content="Home" Margin="13,0,0,0" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Click="Button_Click" RenderTransformOrigin="1.393,2.751"></Button>
         <Grid Grid.Row="2" Grid.Column="1" Width="auto">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="48*"/>
@@ -71,7 +73,7 @@
             <TextBlock Grid.Row="1" Grid.Column="1" Text="Arrival" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             <TextBlock Grid.Row="2" Grid.Column="1" Text="Departure" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             <Button Command="{Binding Path=UpdateCommand}" Content="Update Reservation" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2"  HorizontalAlignment="Center"  Height="63" Width="164"></Button>
-            <Button Command="{Binding Path=DeleteCommand}" Content="Delete Reservation" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="63" Width="164"></Button>
+            <Button Command="{Binding Path=DeleteReservationCommand}" Content="Delete Reservation" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="63" Width="164"></Button>
         </Grid>
 
         <Grid Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2">
@@ -159,5 +161,4 @@
         </Grid>
 
     </Grid>
-
 </Page>

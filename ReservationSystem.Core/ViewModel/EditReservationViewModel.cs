@@ -8,6 +8,7 @@ namespace ReservationSystem.Core.ViewModel
 {
     internal class EditReservationViewModel : ViewModelBase
     {
+        public int ReservationId;
         private ExtraGuest _extraGuest;
         public ExtraGuest ExtraGuest
         {
@@ -48,6 +49,7 @@ namespace ReservationSystem.Core.ViewModel
 
         public EditReservationViewModel(ReservationModel viewModel)
         {
+            this.ReservationId = viewModel.ReservationId;
             this._reservationModel = viewModel;
             this.ExtraGuest = new ExtraGuest();
 
@@ -79,6 +81,7 @@ namespace ReservationSystem.Core.ViewModel
 
             this.UpdateCommand = new UpdateCommand(this);
             this.DeleteReservationCommand = new DeleteReservationCommand(viewModel);
+            this.UpdateAccommodationCommand = new UpdateCommand(this);
         }
     }
 }

@@ -21,7 +21,18 @@ namespace ReservationSystem.Core.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(HomePage));
+            var rootFrame = new Frame();
+            Window.Current.Content = rootFrame;
+
+            if (rootFrame.Content == null)
+            {
+                // When the navigation stack isn't restored navigate to the first page,
+                // configuring the new page by passing required information as a navigation
+                // parameter
+                rootFrame.Navigate(typeof(HomePage), null);
+            }
+            // Ensure the current window is active
+            Window.Current.Activate();
         }
     }
 }

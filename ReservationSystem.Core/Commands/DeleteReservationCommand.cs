@@ -1,5 +1,6 @@
 ﻿using ReservationSystem.Core.Clients;
 using System;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -17,14 +18,20 @@ namespace ReservationSystem.Core.Commands
         }
         public override async void Execute(object parameter)
         {
-            _client.Delete(_viewModel.ReservationId);
+            await _client.Delete(_viewModel.ReservationId);
 
-            var rootFrame = Window.Current.Content as Frame;
+            var rootFrame = new Frame();
+            Window.Current.Content = rootFrame;
 
-            if (rootFrame != null)
+            if (rootFrame.Content == null)
             {
-                rootFrame.Navigate(typeof(HomePage));
+                // When the navigation stack isn't restored navigate to the first page,
+                // configuring the new page by passing required information as a navigation
+                // parameter
+                rootFrame.Navigate(typeof(HomePage), null);
             }
+            // Ensure the current window is active
+            Window.Current.Activate();
 
         }
     }
