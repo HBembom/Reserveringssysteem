@@ -1,5 +1,5 @@
 # Reserveringssysteem
-![Logo C Sharp applicatie](ReservationSystem.Core\Assets\StoreLogo.scale-200.png)
+![Logo C Sharp applicatie](ReservationSystem.Core/Assets/StoreLogo.scale-200.png)
 
 Een reserveringssysteem ter eindopdracht voor het vak C#2
 
