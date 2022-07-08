@@ -134,6 +134,14 @@ namespace ReservationSystem.Core.Commands
                 return false;
             }
 
+            if (CreateReservation.Accomodations.ArrivalDateTime < DateTime.Now ||
+                CreateReservation.Accomodations.DepartureDateTime < DateTime.Now ||
+                CreateReservation.Accomodations.DepartureDateTime < CreateReservation.Accomodations.ArrivalDateTime)
+            {
+                CreateReservation.ErrorMessage = "Please Fill in a valid arrival and departure date.";
+                return false;
+            }
+
             var reservationsList = new List<ReservationModel>();
             var accommodations = new List<int>();
 
