@@ -54,7 +54,7 @@ namespace ReserveeringsSysteemApi.Controllers
             return res == null ? new NoContentResult() : new OkObjectResult(res);
         }
 
-        [HttpPut("{AccommodationId}")]
+        [HttpPut("{ReservationId}")]
         public async Task<IActionResult> UpdateReservationById(int ReservationId, [FromBody] Reservations body)
         {
             await Connector.Conn.OpenAsync();
@@ -81,7 +81,7 @@ namespace ReserveeringsSysteemApi.Controllers
             return new OkObjectResult(res);
         }
 
-        [HttpDelete("{AccommodationId}")]
+        [HttpDelete("{ReservationId}")]
         public async Task<IActionResult> DeleteReservationById(int ReservationId)
         {
             await Connector.Conn.OpenAsync();
