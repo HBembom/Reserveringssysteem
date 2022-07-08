@@ -37,19 +37,19 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Border BorderThickness="1" BorderBrush="Black" Grid.Row="0" Grid.ColumnSpan="2">
-                <TextBox Grid.Row="0" Text="{Binding Path=GuestFirstName}" Grid.ColumnSpan="2"></TextBox>
+                <TextBox Grid.Row="0" Text="{Binding Path=GuestInformation.FirstName, Mode=TwoWay}" Grid.ColumnSpan="2"></TextBox>
             </Border>
             <Border BorderThickness="1" BorderBrush="Black" Grid.Row="1" Grid.ColumnSpan="2">
-                <TextBox Grid.Row="1" Text="{Binding Path=GuestLastName}" Grid.ColumnSpan="2"></TextBox>
+                <TextBox Grid.Row="1" Text="{Binding Path=GuestInformation.LastName, Mode=TwoWay}" Grid.ColumnSpan="2"></TextBox>
             </Border>
             <Border BorderThickness="1" BorderBrush="Black" Grid.Row="2" Grid.ColumnSpan="2">
-                <TextBox Grid.Row="2" Text="{Binding Path=PrefixName}" Grid.ColumnSpan="2"></TextBox>
+                <TextBox Grid.Row="2" Text="{Binding Path=GuestInformation.PrefixName, Mode=TwoWay}" Grid.ColumnSpan="2"></TextBox>
             </Border>
             <Border BorderThickness="1" BorderBrush="Black" Grid.Row="3" Grid.ColumnSpan="2">
-                <TextBox Grid.Row="3" Text="{Binding Path=StreetName}" Grid.ColumnSpan="2"></TextBox>
+                <TextBox Grid.Row="3" Text="{Binding Path=GuestInformation.StreetName, Mode=TwoWay}" Grid.ColumnSpan="2"></TextBox>
             </Border>
             <Border BorderThickness="1" BorderBrush="Black" Grid.Row="4" Grid.ColumnSpan="2">
-                <TextBox Grid.Row="4" Text="{Binding Path=LicensePlateName}" Grid.ColumnSpan="2"></TextBox>
+                <TextBox Grid.Row="4" Text="{Binding Path=GuestInformation.LicensePlate, Mode=TwoWay}" Grid.ColumnSpan="2"></TextBox>
             </Border>
         </Grid>
 
@@ -66,8 +66,8 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition Width="100px"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="{Binding Path=ArrivalDate}" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
-            <TextBlock Text="{Binding Path=DepartureDate}" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
+            <TextBlock Text="{Binding Path=Accomodations.ArrivalDate, Mode=TwoWay}" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
+            <TextBlock Text="{Binding Path=Accomodations.DepartureDateTime, Mode=TwoWay}" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
             <TextBlock Grid.Row="1" Grid.Column="1" Text="Arrival" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             <TextBlock Grid.Row="2" Grid.Column="1" Text="Departure" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             <Button Command="{Binding Path=UpdateCommand}" Content="Update Reservation" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2"  HorizontalAlignment="Center"  Height="63" Width="164"></Button>
@@ -101,7 +101,7 @@
             <TextBlock Grid.Row="7" Grid.Column="2" Text="TouristTax" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             <TextBlock Grid.Row="8" Grid.Column="2" Text="Tax" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             <TextBlock Grid.Row="9" Grid.Column="2" Text="Net" FontStyle="Oblique"  HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="6" Grid.Column="3" Text="{Binding Path=TotalCost}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            <TextBlock Grid.Row="6" Grid.Column="3" Text="{Binding Path=PriceStructure.TotalCost}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             <TextBlock Grid.Row="7" Grid.Column="3" Text="{Binding Path=PriceStructure.TouristTax}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             <TextBlock Grid.Row="8" Grid.Column="3" Text="{Binding Path=PriceStructure.Tax}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             <TextBlock Grid.Row="9" Grid.Column="3" Text="{Binding Path=PriceStructure.NetProfit}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
