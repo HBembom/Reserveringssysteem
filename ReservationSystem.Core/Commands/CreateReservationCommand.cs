@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -15,6 +16,7 @@ namespace ReservationSystem.Core.Commands
         readonly CreateReservationViewModel CreateReservation;
         readonly ReservationsClient ReservationClient;
         private Reservation _reservation;
+
         public CreateReservationCommand(CreateReservationViewModel createReservation)
         {
             this.CreateReservation = createReservation;
@@ -129,6 +131,35 @@ namespace ReservationSystem.Core.Commands
             if (CreateReservation.GuestInformation.LicensePlate == null)
             {
                 CreateReservation.ErrorMessage = "Please Fill in your license plate to make a reservation.";
+                return false;
+            }
+
+            var reservationsList = new List<ReservationModel>();
+            var accommodations = new List<int>();
+
+            for (var i = 0; i < CreateReservation.Accomodations.AccomodationsList.Count; i++)
+            {
+                accommodations.Add(CreateReservation.Accomodations.AccomodationsList[i].ID.value);
+            }
+            var getReservationsTask = Task.Run(async () =>
+            {
+                reservationsList = await ReservationClient.GetByAccommodation(accommodations.ToArray(), $"{CreateReservation.Accomodations.ArrivalDateTime.Year}-{CreateReservation.Accomodations.ArrivalDateTime.Month}-{CreateReservation.Accomodations.ArrivalDateTime.Day}", $"{CreateReservation.Accomodations.DepartureDateTime.Year}-{CreateReservation.Accomodations.DepartureDateTime.Month}-{CreateReservation.Accomodations.DepartureDateTime.Day}");
+            });
+            getReservationsTask.Wait();
+
+            if (reservationsList !=  null)
+            {
+                var accommodationString = "";
+                for (var i = 0; i < accommodations.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        accommodationString += $"{accommodations[i]}";
+                        continue;
+                    }
+                    accommodationString += $", {accommodations[i]}";
+                }
+                CreateReservation.ErrorMessage = $"Accommodations {accommodationString} are not available during your stay.{Environment.NewLine}Please choose different accommodations.";
                 return false;
             }
 
