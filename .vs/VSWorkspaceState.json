@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\ReservationSystem.Core",
     "\\ReservationSystem.Core\\Model"
   ],
-  "SelectedNode": "\\ReservationSystem.Core\\Model\\Price.cs",
+  "SelectedNode": "\\README.md",
   "PreviewInSolutionExplorer": false
 }
